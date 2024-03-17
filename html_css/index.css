@@ -1,0 +1,93 @@
+.top-row {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between;  */
+  padding: 20px; 
+}
+
+.image-wrapper {
+  margin-right: 500px;
+  padding: 0px;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex: 1;
+  padding: 0 20px;
+  align-items: center;
+}
+
+
+.options {
+  display: flex;
+  flex-direction: row; /* display items in a row */
+  justify-content: flex-end;
+}
+
+
+.btn {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.btn i {
+  margin-right: 5px; /* Add a margin to the right of the icon for spacing */
+}
+
+.btn:hover {
+  background-color: #90999b; /* Darken the background color on hover */
+}
+
+.search-options {
+  display: flex;
+  align-items: center;
+}
+
+.search-symbol {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-symbol i {
+  margin-right: 5px;
+}
+
+.search-symbol:hover {
+  background-color: #90999b;
+}
+
+.search-box {
+  display: none;
+}
+
+.content {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+/* Style for search results */
+.search-results {
+  margin-top: 20px;
+}
+
+.search-result {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.search-result img {
+  max-width: 100%;
+  height: auto;
+}
