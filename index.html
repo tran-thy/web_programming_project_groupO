@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>FOOOD BLOG</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="top_header bg-dark py-2">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Social Media Icons -->
+          <div class="col-md-6">
+            <div class="social">
+              <a href="#"><i class="fab fa-github fa-2x"></i></a>
+              <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+              <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+              <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+          </div>
+
+          <!-- Search and Login/Register Area -->
+          <!-- I think this part need more discussion: many ways to that -->
+          <div class="col-md-6">
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Search Form -->
+              <!-- Thy did Search Form previous -->
+              <div id="search-options" class="search-options">
+                <button class="btn btn-primary search-symbol" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+                <div class="input-group search-box" style="display: none">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="search-input"
+                    placeholder="Enter dish name..."
+                    aria-label="Search for a dish"
+                    aria-describedby="search-button"
+                  />
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    id="search-button"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+              <!-- Login/Register Area -->
+              <!-- It is can be change other way by by button ... -->
+              <div class="login_register_area">
+                <div class="login">
+                  <a href="register.html" class="text-black">Sign in</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="image-wrapper logo">
+              <img
+                width=""
+                src="data:image/png;base64,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"
+                style="display: block; margin: 0 auto"
+              />
+            </div>
+            <h1 class="logo_name">BLOG FOOD</h1>
+          </div>
+
+          <nav class="navbar navbar-expand-md bg-light">
+            <ul class="container-fluid custom-list">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="vietnamese.html">VIETNAMESE RECIPES</a></li>
+              <li><a href="chinese.html">CHINESE RECIPES</a></li>
+              <li><a href="about.html">ABOUT US</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-img1">
+            <div class="carousel-caption text-start">
+              <h1>Simple Chinese and Vietnamese Recipes</h1>
+              <p>
+                Explore our blog for tasty Chinese and Vietnamese-inspired
+                dishes. Find authentic flavors, easy recipes, and ingredient
+                tips to make traditional favorites at home
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="about.html">About us</a>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-img2">
+            <div class="carousel-caption">
+              <h1>Tasty</h1>
+              <p>Some sentences</p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="vietnamese.html"
+                  >VIETNAMESE RECIPES</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-img3">
+            <div class="carousel-caption text-end">
+              <h1>Tasty.</h1>
+              <p>Some sentences</p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="chinese.html"
+                  >CHINESE RECIPES</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="site-inner">
+      <div class="container">
+        <div class="feast-category-index">
+          <h2 class="wp-block-heading has-text-align-center">
+            <strong>Cozy Comfort Foods</strong>
+          </h2>
+          <ul class="row fsri-list">
+            <li class="listing-item col-md-6">
+              <!-- write link and img src -->
+              <a href="">
+                <img
+                  src="https://thewoksoflife.com/wp-content/uploads/2023/07/pho-recipe-7.jpg"
+                  alt="Pho (Vietnamese Beef Noodle Soup)"
+                  style="width: 50%"
+                />
+                <div class="fsri-title">Pho (Vietnamese Beef Noodle Soup)</div>
+              </a>
+              <div class="wp-block-buttons is-content-justification-center">
+                <div class="wp-block-button">
+                  <a class="wp-block-button__link" href="vietnamese.html"
+                    ><strong>More Comfort Foods Recipes &gt;</strong></a
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="listing-item col-md-6">
+              <!-- write link and img src -->
+              <a href="">
+                <img
+                  src="https://blog.themalamarket.com/wp-content/uploads/2021/01/IMG_9347.jpeg"
+                  alt="Chinese Hot Pot"
+                  style="width: 50%"
+                />
+                <div class="fsri-title">Chinese Hot Pot</div>
+              </a>
+              <div class="wp-block-buttons is-content-justification-center">
+                <div class="wp-block-button">
+                  <a class="wp-block-button__link" href="chinese.html"
+                    ><strong>More Comfort Foods Recipes &gt;</strong></a
+                  >
+                </div>
+              </div>
+            </li>
+            <!-- Add other simplified recipe items here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- this section will be motify later use dynamic data -->
+    <section class="greatest-post container">
+      <h2 class="wp-block-heading has-text-align-center">
+        <strong>Recommendation Recipes</strong>
+      </h2>
+      <div class="container row">
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <img
+              src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+              alt=""
+              style="width: 50%"
+            />
+            <div class="post-content">
+              <a href="#"><h6>Bun Rieu</h6></a>
+              <p>Wednesday, March 20, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <img
+              src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+              alt=""
+              style="width: 50%"
+            />
+            <div class="post-content">
+              <a href="#"><h6>Bun Rieu</h6></a>
+              <p>Wednesday, March 20, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <img
+              src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+              alt=""
+              style="width: 50%"
+            />
+            <div class="post-content">
+              <a href="#"><h6>Bun Rieu</h6></a>
+              <p>Wednesday, March 20, 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <img
+              src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+              alt=""
+              style="width: 50%"
+            />
+            <div class="post-content">
+              <a href="#"><h6>Bun Rieu</h6></a>
+              <p>Wednesday, March 20, 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light py-5">
+      <div class="container">
+        <div>
+          <h1>FOOD BLOG</h1>
+          <p>Copyright &copy; 2024</p>
+        </div>
+        <nav>
+          <ul class="container-fluid custom-list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="vietnamese.html">VIETNAMESE RECIPES</a></li>
+            <li><a href="chinese.html">CHINESE RECIPES</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+          </ul>
+        </nav>
+        <div class="social">
+          <a href="#"><i class="fab fa-github fa-2x"></i></a>
+          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <div class="top-row">
+      <div class="menu-wrapper p-3">
+        <div class="options" id="options-menu">
+          <button id="home" class="btn">HOME</button>
+          <button id="chi-recipes" class="btn">CHINESE RECIPES</button>
+          <button id="vi-recipes" class="btn">VIETNAMESE RECIPES</button>
+          <button id="subscribe" class="btn">SUBSCRIBE</button>
+          <button id="about-us" class="btn">ABOUT US</button>
+          <button id="go-back" class="btn">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <div id="search-options" class="search-options">
+            <button class="btn btn-primary search-symbol" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="input-group search-box" style="display: none">
+              <input
+                type="text"
+                class="form-control"
+                id="search-input"
+                placeholder="Enter dish name..."
+                aria-label="Search for a dish"
+                aria-describedby="search-button"
+              />
+              <button class="btn btn-primary" type="button" id="search-button">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" /> -->
+
+    <!-- For displaying the search results -->
+    <div class="content">
+      <div class="result-content">
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <div id="content-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add some scripts  -->
+    <script src="login.js"></script>
+    <script src="../utils/index.js"></script>
+    <script src="../utils/homeButtonEvents.js"></script>
+    <script src="../utils/searchButtonEvents.js"></script>
+    <script src="../utils/vietnameseRecipesButtonEvents.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

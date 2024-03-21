@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   /* justify-content: space-between;  */
-  padding: 20px; 
+  padding: 20px;
 }
 
 .image-wrapper {
@@ -17,13 +17,11 @@
   align-items: center;
 }
 
-
 .options {
   display: flex;
   flex-direction: row; /* display items in a row */
   justify-content: flex-end;
 }
-
 
 .btn {
   background-color: black;
@@ -91,3 +89,25 @@
   max-width: 100%;
   height: auto;
 }
+/* carousel */
+.bg-img1 {
+  background-image: url("https://st3.depositphotos.com/1105977/14354/i/1600/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.bg-img2 {
+  background-image: url("https://apicms.thestar.com.my/uploads/images/2023/11/19/2396564.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.bg-img3 {
+  background-image: url("https://png.pngtree.com/background/20230516/original/pngtree-lot-of-chinese-food-on-a-table-filled-with-chopsticks-picture-image_2612447.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+/*  */
