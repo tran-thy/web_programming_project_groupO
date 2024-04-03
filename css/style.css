@@ -1,0 +1,74 @@
+
+
+
+.navbar-brand {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    margin-left: 10px;
+}
+.navbar-brand {
+    margin-top: 50px; /* Add space below the navbar brand */
+
+}
+
+.nav-item {
+    font-size: 25px;
+}
+.t-n {
+    margin-right: 200px;
+}
+.nav-link {
+            margin-right: 10px; /* Adjust the margin to add space between tabs */
+        }
+
+.container-fluid {
+    background-color:blueviolet;
+}
+
+.feature-icon img {
+    display: block;
+}
+.icon-link {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    font-style:initial;
+   font-feature-settings: "abvm";
+    font-weight: 800;
+    color:blueviolet;
+}
+.chinese-receip-paragraph {
+    color: black;
+    /* background-color: blue; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+    margin-top: 0;
+    padding: 0;
+    max-width: 728px;
+    margin-bottom: 0;
+
+   
+}
+.chinese-receip{
+    /* background-color: aqua; */
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+.picture-area {
+    margin-top: 0px;
+    padding: 0;
+}
+img {
+    width: 320px; /* Set the width of images to 120 pixels */
+    height: 280px; /* Set the height of images to 120 pixels */
+    margin-top: 0px;
+}
+
+.nav-item {
+    margin-top: 50px; /* Adjust the margin to add space between tabs */
+}  
+ .bg-color {
+            background-color: green;
+ }
