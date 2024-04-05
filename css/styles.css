@@ -1,113 +1,131 @@
 .top-row {
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between;  */
-  padding: 20px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between;  */
+    padding: 20px;
 }
 
 .image-wrapper {
-  margin-right: 500px;
-  padding: 0px;
+    margin-right: 500px;
+    padding: 0px;
 }
 
 .menu-wrapper {
-  display: flex;
-  flex: 1;
-  padding: 0 20px;
-  align-items: center;
+    display: flex;
+    flex: 1;
+    padding: 0 20px;
+    align-items: center;
 }
 
 .options {
-  display: flex;
-  flex-direction: row; /* display items in a row */
-  justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    /* display items in a row */
+    justify-content: flex-end;
 }
 
 .btn {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  text-overflow: ellipsis;
-  max-width: 100px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    /* max-width: 100px; */
 }
 
 .btn i {
-  margin-right: 5px; /* Add a margin to the right of the icon for spacing */
+    margin-right: 5px;
+    /* Add a margin to the right of the icon for spacing */
 }
 
 .btn:hover {
-  background-color: #90999b; /* Darken the background color on hover */
+    background-color: #90999b;
+    /* Darken the background color on hover */
+}
+
+.custom-list {
+    /* Remove Default List Styling */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .search-options {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .search-symbol {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .search-symbol i {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .search-symbol:hover {
-  background-color: #90999b;
+    background-color: #90999b;
 }
 
 .search-box {
-  display: none;
+    display: none;
 }
 
 .content {
-  padding: 10px;
-  margin-left: 20px;
+    padding: 10px;
+    margin-left: 20px;
 }
 
+
 /* Style for search results */
+
 .search-results {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .search-result {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .search-result img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
+
+
 /* carousel */
+
 .bg-img1 {
-  background-image: url("https://st3.depositphotos.com/1105977/14354/i/1600/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 400px;
+    background-image: url("https://st3.depositphotos.com/1105977/14354/i/1600/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
 }
 
 .bg-img2 {
-  background-image: url("https://apicms.thestar.com.my/uploads/images/2023/11/19/2396564.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 400px;
+    background-image: url("https://apicms.thestar.com.my/uploads/images/2023/11/19/2396564.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
 }
 
 .bg-img3 {
-  background-image: url("https://png.pngtree.com/background/20230516/original/pngtree-lot-of-chinese-food-on-a-table-filled-with-chopsticks-picture-image_2612447.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 400px;
+    background-image: url("https://png.pngtree.com/background/20230516/original/pngtree-lot-of-chinese-food-on-a-table-filled-with-chopsticks-picture-image_2612447.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
 }
-/*  */
+
+.spacer {
+    height: 50px;
+}
