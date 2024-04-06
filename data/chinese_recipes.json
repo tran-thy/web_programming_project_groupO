@@ -102,9 +102,9 @@
     },
     {
         "id": "CH-0004",
-        "name": "Daxiaomian",
-        "description": "Daxiaomian, or Big Wok Noodles, is a popular street food dish originating from Lanzhou, China. It features hand-pulled noodles served in a flavorful beef broth topped with sliced beef, green onions, and sometimes cilantro. This dish is beloved for its simplicity and satisfying taste.",
-        "image": "data/images/chiD_img/daxiaomian.jpg",
+        "name": "Dao xiao mian",
+        "description": "Dao xiao mian, or Big Wok Noodles, is a popular street food dish originating from Lanzhou, China. It features hand-pulled noodles served in a flavorful beef broth topped with sliced beef, green onions, and sometimes cilantro. This dish is beloved for its simplicity and satisfying taste.",
+        "image": "data/images/chiD_img/dao_xiao_mian.jpg",
         "recipe": {
             "ingredients": [
                 "For the noodles:",
