@@ -51,7 +51,10 @@ function handleSearch() {
 // Function to perform search
 function performSearch(data, searchTerm) {
     // Filter the data based on the search term
-    const searchResults = data.filter(recipe => recipe.name.toLowerCase().includes(searchTerm));
+    const searchResults = data.filter(recipe => {
+        // Check if the recipe name or any ingredient includes the search term
+        return recipe.name.toLowerCase().includes(searchTerm) || recipe.recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm));
+    });
 
     // Hide the section
     document.getElementById('recommend-options').style.display = 'none';
