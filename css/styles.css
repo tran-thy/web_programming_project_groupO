@@ -81,6 +81,7 @@
 .content {
     padding: 10px;
     margin-left: 20px;
+    text-align: justify;
 }
 
 
@@ -128,4 +129,11 @@
 
 .spacer {
     height: 50px;
+}
+
+
+/* Style for About Us */
+
+.text-justify {
+    text-align: justify;
 }

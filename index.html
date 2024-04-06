@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <!--dd-->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -11,6 +11,7 @@
     <title>FOOOD BLOG</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
 </head>
 
 <body>
@@ -58,10 +59,11 @@
 
                 <nav class="navbar navbar-expand-md bg-light">
                     <ul class="container-fluid custom-list">
-                        <li><a href="index.html" class="btn"><span style="font-weight: bold;">HOME</a></li>
-                        <li><a href="vietnamese.html" class="btn"><span style="font-weight: bold;">VIETNAMESE RECIPES</a></li>
-                        <li><a href="MingruiCai/index.html" class="btn"><span style="font-weight: bold;">CHINESE RECIPES</a></li>
-                        <li><a href="about.html" class="btn"><span style="font-weight: bold;">ABOUT US</a></li>
+                        <li><a href="index.html" class="btn"><span style="font-weight: bold;">HOME</span></a></li>
+                        <li><a href="vietnamese_recipes.html" class="btn"><span style="font-weight: bold;">VIETNAMESE RECIPES</span></a></li>
+                        <li><a href="MingruiCai/index.html" class="btn"><span style="font-weight: bold;">CHINESE RECIPES</span></a></li>
+                        <!-- <li><a href="about_us.html" class="btn"><span style="font-weight: bold;">ABOUT US</span></a></li> -->
+                        <li><button class="btn about-btn" id="about-btn"><span style="font-weight: bold;">ABOUT US</span></button></li>
 
                         <!-- Search box -->
                         <div class="d-flex justify-content-between align-items-center" id="search-box">
@@ -74,14 +76,16 @@
                                 </button>
                             </div>
                         </div>
-
                     </ul>
                 </nav>
-
             </div>
         </div>
     </header>
 
+    <!-- About Us Content -->
+    <div id="about-us-section"></div>
+
+    <!-- Carousel Section -->
     <section>
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -267,6 +271,8 @@
     <!-- <script src="../utils/index.js"></script> -->
     <!-- <script src="../utils/homeButtonEvents.js"></script> -->
     <script src="utils/searchButtonEvents.js"></script>
+    <script src="utils/aboutUsButtonEvents.js"></script>
+
 
     <!-- <script src="../utils/vietnameseRecipesButtonEvents.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
