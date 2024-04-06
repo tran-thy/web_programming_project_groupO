@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  z-index: auto;
+}
+:root {
+  --main-color: #d2b48c; /* Define your main color here */
+}
+
+.btn i {
+  margin-right: 5px; /* Add a margin to the right of the icon for spacing */
+}
+
+.search-options {
+  display: flex;
+  align-items: center;
+}
+
+.search-symbol {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-symbol i {
+  margin-right: 5px;
+}
+
+.search-symbol:hover {
+  background-color: #90999b;
+}
+
+.search-box {
+  display: none;
+}
+
+.content {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+/* Style for search results */
+.search-results {
+  margin-top: 20px;
+}
+
+.search-result {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.search-result img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ha did */
+#search_button_icon,
+#search_button {
+  background-color: #d2b48c;
+  border-color: #d2b48c;
+  /* border: none; */
+  font-size: 16px;
+}
+
+/* preheader */
+/* Custom CSS */
+.top-header {
+  background-color: #d2b48c; /* Light brown background color */
+}
+
+.top_social a {
+  color: #fff; /* White color for social media icons */
+  font-size: 12px;
+  margin-right: 20px;
+}
+
+.top_social a:hover {
+  color: #afeeee;
+}
+
+.login_register_area .login a {
+  color: #fff; /* White color for the "Sign in" text */
+  text-decoration: none; /* Remove underline from the link */
+}
+
+/* nav */
+.header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.navbar-nav .nav-link {
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  color: #000;
+  margin-right: 10px;
+}
+.navbar-nav .nav-link:hover {
+  color: #d2b48c;
+}
+/* carousel */
+.bg-img1 {
+  background-image: url("https://st3.depositphotos.com/1105977/14354/i/1600/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.bg-img2 {
+  background-image: url("https://apicms.thestar.com.my/uploads/images/2023/11/19/2396564.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.bg-img3 {
+  background-image: url("https://png.pngtree.com/background/20230516/original/pngtree-lot-of-chinese-food-on-a-table-filled-with-chopsticks-picture-image_2612447.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.carousel-btn {
+  background-color: #deb887 !important;
+  border-color: #deb887;
+}
+
+/* Define styles for button hover state */
+.carousel-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+.carousel-caption a {
+  color: white;
+}
+.carousel-caption a:hover {
+  color: white;
+}
+/* cozy food */
+
+.block-heading {
+  margin-bottom: 30px;
+}
+.equal-img {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.category-index {
+  margin-top: 50px;
+}
+.category-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.listing-item {
+  margin-bottom: 20px;
+}
+.category-title {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  font-size: 16px;
+}
+.category-buttons {
+  text-align: center;
+}
+.category-btn {
+  background-color: #deb887 !important;
+  border-color: #deb887 !important;
+  margin-top: 10px;
+}
+.category-btn:hover {
+  background-color: #d2b48c !important;
+  border-color: #d2b48c !important;
+}
+.listing-item a {
+  text-decoration: none;
+}
+
+/* Recommentdation recipes */
+
+.greatest-post {
+  padding-top: 30px;
+}
+.greatest-post h2 {
+  margin-bottom: 40px;
+}
+
+.greatest-post-one {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.greatest-img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in;
+}
+.greatest-img:hover {
+  transform: translateY(-15px);
+}
+
+.greatest-title {
+  text-align: center;
+  margin-top: 20px;
+}
+.greatest-title a {
+  text-decoration: none;
+  color: #000;
+}
+.greatest-title a:hover {
+  color: #deb887;
+}
+.greatest-title h6 {
+  font-weight: bold;
+  font-size: 24px;
+}
+/* footer */
+.footer {
+  margin-top: 50px;
+  background-color: #d2b48c;
+}
+.footer .social a {
+  margin: 0 10px;
+  color: #fff; /* White color for social media icons */
+  font-size: 12px;
+  margin-right: 20px;
+}
+.nav-link-footer {
+  text-decoration: none;
+  list-style: none;
+  color: #fff;
+}
+.nav-link-footer:hover {
+  color: #000;
+}
+.nav-footer {
+  margin-left: 100px;
+}
+.custom-list {
+  margin-left: 100px;
+  list-style-type: none; /* Remove bullet points from the list */
+}
+.footer-cont {
+  padding-left: 100px !important;
+}
+/* logo name */
+.logo_name {
+  color: #35190da4;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}

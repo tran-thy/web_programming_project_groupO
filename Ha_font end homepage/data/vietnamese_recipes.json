@@ -1,0 +1,122 @@
+[
+  {
+    "id": "VN-0001",
+    "name": "Bun Thit Nuong",
+    "description": "Bun Thit Nuong is a Vietnamese rice noodle dish with grilled pork, herbs, and a sweet and savory sauce.",
+    "image": "https://example.com/bun-thit-nuong.jpg"
+  },
+  {
+    "id": "VN-0002",
+    "name": "Banh Canh",
+    "description": "Banh Canh is a Vietnamese noodle soup made with thick tapioca noodles, broth, and various ingredients such as pork, shrimp, or crab.",
+    "image": "https://example.com/banh-canh.jpg"
+  },
+  {
+    "id": "VN-0003",
+    "name": "Pho",
+    "description": "Pho is a Vietnamese soup consisting of broth, rice noodles, herbs, and meat, usually beef or chicken.",
+    "image": "https://example.com/pho.jpg"
+  },
+  {
+    "id": "VN-0004",
+    "name": "Bun Bo Hue",
+    "description": "Bun Bo Hue is a spicy Vietnamese soup containing rice vermicelli and beef.",
+    "image": "https://example.com/bun-bo-hue.jpg"
+  },
+  {
+    "id": "VN-0005",
+    "name": "Com Tam",
+    "description": "Com Tam, or broken rice, is a Vietnamese dish made from rice with fractured rice grains.",
+    "image": "https://example.com/com-tam.jpg"
+  },
+  {
+    "id": "VN-0006",
+    "name": "Goi Cuon",
+    "description": "Goi Cuon is a Vietnamese dish traditionally consisting of pork, prawn, vegetables, bún, and other ingredients wrapped in Vietnamese bánh tráng.",
+    "image": "https://example.com/goi-cuon.jpg"
+  },
+  {
+    "id": "VN-0007",
+    "name": "Banh Mi",
+    "description": "Banh Mi is a Vietnamese sandwich consisting of a Vietnamese single-serving baguette, which is split lengthwise and filled with various savory ingredients.",
+    "image": "https://example.com/banh-mi.jpg"
+  },
+  {
+    "id": "VN-0008",
+    "name": "Ca Kho To",
+    "description": "Ca Kho To is a Vietnamese braised fish dish that is braised in a clay pot with a caramel sauce.",
+    "image": "https://example.com/ca-kho-to.jpg"
+  },
+  {
+    "id": "VN-0009",
+    "name": "Bo Luc Lac",
+    "description": "Bo Luc Lac is a Vietnamese dish of shaking beef, sautéed beef, or beef steak that is usually served with rice or noodles.",
+    "image": "https://example.com/bo-luc-lac.jpg"
+  },
+  {
+    "id": "VN-0010",
+    "name": "Cao Lau",
+    "description": "Cao Lau is a regional Vietnamese dish made with noodles, pork, and local greens, and is only found in the town of Hoi An, in the Quang Nam Province of central Vietnam.",
+    "image": "https://example.com/cao-lau.jpg"
+  },
+  {
+    "id": "VN-0011",
+    "name": "Bun Rieu",
+    "description": "Bun Rieu is a traditional Vietnamese soup made with crab or shrimp paste, tomatoes, and tofu.",
+    "image": "https://example.com/bun-rieu.jpg"
+  },
+  {
+    "id": "VN-0012",
+    "name": "Cha Ca",
+    "description": "Cha Ca is a Vietnamese dish of grilled fish, typically white fish such as snakehead fish or firm white fish like catfish, mixed with turmeric and other spices, and typically served with rice noodles, peanuts, and plenty of dill.",
+    "image": "https://example.com/cha-ca.jpg"
+  },
+  {
+    "id": "VN-0013",
+    "name": "Bun Cha",
+    "description": "Bun Cha is a Vietnamese dish of grilled pork and noodle, which is thought to have originated from Hanoi, Vietnam.",
+    "image": "https://example.com/bun-cha.jpg"
+  },
+  {
+    "id": "VN-0014",
+    "name": "Canh Chua",
+    "description": "Canh Chua is a sour Vietnamese soup that is typically made with fish, tomatoes, and pineapples, and flavored with tamarind and other spices.",
+    "image": "https://example.com/canh-chua.jpg"
+  },
+  {
+    "id": "VN-0015",
+    "name": "Banh Xeo",
+    "description": "Banh Xeo is a Vietnamese savory crepe made of rice flour, water, and turmeric powder, stuffed with slivers of fatty pork, shrimp, diced green onion, and bean sprouts.",
+    "image": "https://example.com/banh-xeo.jpg"
+  },
+  {
+    "id": "VN-0016",
+    "name": "Bun Bo Nam Bo",
+    "description": "Bun Bo Nam Bo is a Vietnamese dish from southern Vietnam, made with rice noodles, beef, and various Vietnamese herbs.",
+    "image": "https://example.com/bun-bo-nam-bo.jpg"
+  },
+  {
+    "id": "VN-0017",
+    "name": "Chao Ga",
+    "description": "Chao Ga is a Vietnamese rice soup made from cooking rice in chicken broth until it becomes soft.",
+    "image": "https://example.com/chao-ga.jpg"
+  },
+  {
+    "id": "VN-0018",
+    "name": "Banh Khot",
+    "description": "Banh Khot is a Vietnamese savory mini-pancake made of rice flour, coconut milk, and turmeric.",
+    "image": "https://example.com/banh-khot.jpg"
+  },
+  {
+    "id": "VN-0019",
+    "name": "Banh Tet",
+    "description": "Banh Tet is a Vietnamese traditional cake made primarily from glutinous rice, which is rolled in a banana leaf into a thick, log-like cylindrical shape, with a meat or vegetarian filling.",
+    "image": "https://example.com/banh-tet.jpg"
+  },
+  {
+    "id": "VN-0020",
+    "name": "Goi Tom",
+    "description": "Goi Tom is a Vietnamese salad made with shrimp, vegetables, and various Vietnamese herbs.",
+    "image": "https://example.com/goi-tom.jpg"
+  }
+]

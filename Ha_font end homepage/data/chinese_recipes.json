@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Kung Pao Chicken",
+    "description": "A classic Szechuan dish with chicken, peanuts, and chili peppers.",
+    "image": "kung_pao_chicken.jpg"
+  },
+  {
+    "name": "Mapo Tofu",
+    "description": "A spicy and flavorful tofu dish with minced meat and fermented black beans.",
+    "image": "mapo_tofu.jpg"
+  },
+  {
+    "name": "Dumplings",
+    "description": "Traditional Chinese dumplings filled with meat or vegetables, served with dipping sauce.",
+    "image": "dumplings.jpg"
+  }
+]

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>CHOPSTICKS WORLD</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="top-header bg-light-brown py-2">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Social Media Icons -->
+          <div class="col-md-6">
+            <div class="top_social text-white">
+              <a href="#"><i class="fab fa-github fa-2x"></i></a>
+              <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+              <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+              <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+          </div>
+
+          <!-- Search and Login/Register Area -->
+          <!-- I think this part need more discussion: many ways to that -->
+          <div class="col-7 col-sm-6">
+            <div
+              class="signup-search-area d-flex align-items-center justify-content-end"
+            >
+              <!-- Search Form -->
+              <!-- Thy did Search Form previous -->
+
+              <!-- Login/Register Area -->
+              <!-- It is can be change other way by by button ... -->
+              <div class="login_register_area d-flex">
+                <div class="login">
+                  <a href="register.html" class="text-black">Sign in</a>
+                </div>
+              </div>
+              <div id="search-options" class="search-options">
+                <button
+                  class="btn btn-primary search-symbol"
+                  id="search_button_icon"
+                  type="button"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+
+                <div class="input-group search-box" style="display: none">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="search-input"
+                    placeholder="Enter dish name..."
+                    aria-label="Search for a dish"
+                    aria-describedby="search-button"
+                  />
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    id="search_button"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side - Logo and Name -->
+          <div class="col-6 col-sm-6 d-flex align-items-center">
+            <img
+              class="image-wrapper logo"
+              src="./images/logo.png"
+              alt="Logo"
+              width="15%"
+            />
+            <h1 class="logo_name">CHOPSTICKS WORLD</h1>
+          </div>
+
+          <!-- Right Side - Navigation -->
+          <nav class="col-6 col-sm-6 navbar navbar-expand-md">
+            <ul
+              class="container-fluid custom-list navbar-nav justify-content-end"
+            >
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a href="vietnamese.html" class="nav-link"
+                  >VIETNAMESE RECIPES</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="chinese.html" class="nav-link">CHINESE RECIPES</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">ABOUT US</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-img1">
+            <div class="carousel-caption text-start">
+              <h1>Simple Chinese and Vietnamese Recipes</h1>
+              <p>
+                Explore our blog for tasty Chinese and Vietnamese-inspired
+                dishes. Find authentic flavors, easy recipes, and ingredient
+                tips to make traditional favorites at home
+              </p>
+              <p>
+                <a class="carousel-btn btn" href="about.html">ABOUT US</a>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-img2">
+            <div class="carousel-caption text-end">
+              <h1>Tasty</h1>
+              <p>Some sentences</p>
+              <p>
+                <a class="carousel-btn btn" href="vietnamese.html"
+                  >VIETNAMESE RECIPES</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-img3">
+            <div class="carousel-caption text-end">
+              <h1>Tasty</h1>
+              <p>Some sentences</p>
+              <p>
+                <a class="carousel-btn btn" href="chinese.html"
+                  >CHINESE RECIPES</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="site-inner">
+      <div class="container">
+        <div class="category-index">
+          <h2 class="block-heading text-center">
+            <strong>Cozy Comfort Foods</strong>
+          </h2>
+          <div class="row category-list">
+            <div class="col-md-6 listing-item">
+              <a href="#">
+                <img
+                  class="equal-img"
+                  src="https://thewoksoflife.com/wp-content/uploads/2023/07/pho-recipe-7.jpg"
+                  alt="Pho (Vietnamese Beef Noodle Soup)"
+                />
+                <div class="category-title">
+                  Pho (Vietnamese Beef Noodle Soup)
+                </div>
+              </a>
+              <div class="category-buttons">
+                <a class="category-btn btn btn-primary" href="vietnamese.html">
+                  <strong class="category-more-detail"
+                    >More Comfort Foods Recipes ></strong
+                  >
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 listing-item">
+              <a href="#">
+                <img
+                  class="equal-img"
+                  src="https://blog.themalamarket.com/wp-content/uploads/2021/01/IMG_9347.jpeg"
+                  alt="Chinese Hot Pot"
+                />
+                <div class="category-title">Chinese Hot Pot</div>
+              </a>
+              <div class="category-buttons">
+                <a class="category-btn btn btn-primary" href="chinese.html">
+                  <strong class="category-more-detail"
+                    >More Comfort Foods Recipes ></strong
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Add other simplified recipe items here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- this section will be motify later use dynamic data -->
+    <section class="greatest-post container">
+      <h2 class="block-heading has-text-align-center">
+        <strong>Recommendation Recipes</strong>
+      </h2>
+      <div class="container row">
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <a href="#">
+              <img
+                class="greatest-img"
+                src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+                alt=""
+              />
+              <div class="greatest-title">
+                <a href="#"><h6>Bun Rieu</h6></a>
+                <p>Wednesday, March 20, 2024</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <a href="#">
+              <img
+                class="greatest-img"
+                src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+                alt=""
+              />
+              <div class="greatest-title">
+                <a href="#"><h6>Bun Rieu</h6></a>
+                <p>Wednesday, March 20, 2024</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <a href="#">
+              <img
+                class="greatest-img"
+                src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+                alt=""
+              />
+              <div class="greatest-title">
+                <a href="#"><h6>Bun Rieu</h6></a>
+                <p>Wednesday, March 20, 2024</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="greatest-post-one">
+            <a href="#">
+              <img
+                class="greatest-img"
+                src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1"
+                alt=""
+              />
+              <div class="greatest-title">
+                <a href="#"><h6>Bun Rieu</h6></a>
+                <p>Wednesday, March 20, 2024</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+      <div class="container row footer-cont">
+        <div class="col-md-3">
+          <h1 class="logo_name">CHOPSTICKS WORLD</h1>
+          <p>Copyright &copy; 2024</p>
+        </div>
+        <!-- <div class="col-md-3"></div> -->
+        <nav class="nav-footer col-md-3">
+          <ul class="container-fluid custom-list">
+            <li><a href="index.html" class="nav-link-footer">HOME</a></li>
+            <li>
+              <a href="vietnamese.html" class="nav-link-footer"
+                >VIETNAMESE RECIPES</a
+              >
+            </li>
+            <li>
+              <a href="chinese.html" class="nav-link-footer">CHINESE RECIPES</a>
+            </li>
+            <li><a href="about.html" class="nav-link-footer">ABOUT US</a></li>
+          </ul>
+        </nav>
+
+        <div class="social col-md-3 text-end">
+          <a href="#"><i class="fab fa-github fa-2x"></i></a>
+          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <div class="top-row">
+      <div class="menu-wrapper p-3">
+        <div class="options" id="options-menu">
+          <button id="home" class="btn">HOME</button>
+          <button id="chi-recipes" class="btn">CHINESE RECIPES</button>
+          <button id="vi-recipes" class="btn">VIETNAMESE RECIPES</button>
+          <button id="subscribe" class="btn">SUBSCRIBE</button>
+          <button id="about-us" class="btn">ABOUT US</button>
+          <button id="go-back" class="btn">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <div id="search-options" class="search-options">
+            <button class="btn btn-primary search-symbol" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="input-group search-box" style="display: none">
+              <input
+                type="text"
+                class="form-control"
+                id="search-input"
+                placeholder="Enter dish name..."
+                aria-label="Search for a dish"
+                aria-describedby="search-button"
+              />
+              <button class="btn btn-primary" type="button" id="search-button">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" /> -->
+
+    <!-- For displaying the search results -->
+    <div class="content">
+      <div class="result-content">
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <div id="content-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add some scripts  -->
+    <script src="login.js"></script>
+    <script src="../utils/index.js"></script>
+    <script src="../utils/homeButtonEvents.js"></script>
+    <script src="../utils/searchButtonEvents.js"></script>
+    <script src="../utils/vietnameseRecipesButtonEvents.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
