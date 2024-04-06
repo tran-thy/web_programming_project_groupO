@@ -1,133 +1,147 @@
 // Function to handle click event on search symbol button
-document.getElementById('search-options').addEventListener('click', function() {
+document.getElementById('search-button-icon').addEventListener('click', function() {
     const searchBox = document.querySelector('.search-box');
     // Toggle the display of the search box
     searchBox.style.display = searchBox.style.display === 'none' ? 'flex' : 'none';
 });
 
-// Click event to the document for handling search button click
+// Function to handle search button click
 document.addEventListener('click', function(event) {
-    if (event.target && event.target.id === 'search-button') {
+    if (event.target && event.target.id === 'find-button') {
         handleSearch();
     }
 });
 
-// Keypress event to the document for handling Enter key press on search input
+// Function to handle Enter key press on search input
 document.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         handleSearch();
     }
 });
 
+// Function to fetch recipes from JSON files
+async function fetchRecipes() {
+    try {
+        const chineseRecipesResponse = await fetch('data/chinese_recipes.json');
+        const vietnameseRecipesResponse = await fetch('data/vietnamese_recipes.json');
+
+        const chineseRecipes = await chineseRecipesResponse.json();
+        const vietnameseRecipes = await vietnameseRecipesResponse.json();
+
+        return [...chineseRecipes, ...vietnameseRecipes];
+    } catch (error) {
+        console.error('Error fetching recipes:', error);
+        throw error;
+    }
+}
+
+// Function to search recipes by name or ingredients
+function searchRecipes(recipes, searchTerm) {
+    searchTerm = searchTerm.toLowerCase().trim();
+    return recipes.filter(recipe => {
+        // Check if recipe name or any ingredient contains the search term
+        return recipe.name.toLowerCase().includes(searchTerm) ||
+            (recipe.recipe && recipe.recipe.ingredients && recipe.recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm)));
+    });
+}
+
 // Function to handle search
-function handleSearch() {
+async function handleSearch() {
     const searchInput = document.getElementById("search-input");
-    const searchTerm = searchInput.value.trim().toLowerCase();
+    const searchTerm = searchInput.value;
 
     // Clear the input field
     searchInput.value = '';
 
     // Check if search term is empty
-    if (searchTerm === "") {
+    if (!searchTerm.trim()) {
         // Display an alert or handle it in your preferred way
-        alert("Please enter a dish name to search.");
+        alert("Please enter a dish name or ingredient to search.");
         return;
     }
 
-    // Fetch data from the Vietnamese and Chinese JSON files
-    Promise.all([
-        fetch('data/vietnamese_recipes.json').then(response => response.json()),
-        fetch('data/chinese_recipes.json').then(response => response.json())
-    ]).then(data => {
-        // Combine data from both files
-        const allRecipes = data[0].concat(data[1]);
+    try {
+        // Fetch recipes from JSON files
+        const recipes = await fetchRecipes();
+
         // Perform search and display results
-        performSearch(allRecipes, searchTerm);
-    }).catch(error => {
-        console.error('Error fetching data:', error);
-    });
-}
+        const searchResults = searchRecipes(recipes, searchTerm);
 
-// Function to perform search by dish name
-function searchByName(data, searchTerm) {
-    return data.filter(recipe => recipe.name.toLowerCase().includes(searchTerm));
-}
-
-// Function to perform search by ingredients
-function searchByIngredients(data, searchTerm) {
-    return data.filter(recipe => {
-        return (recipe.recipe && recipe.recipe.ingredients && recipe.recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm)));
-    });
-}
-
-// Function to handle search
-function handleSearch() {
-    const searchInput = document.getElementById("search-input");
-    const searchTerm = searchInput.value.trim().toLowerCase();
-
-    // Clear the input field
-    searchInput.value = '';
-
-    // Check if search term is empty
-    if (searchTerm === "") {
-        // Display an alert or handle it in your preferred way
-        alert("Please enter a dish name to search.");
-        return;
+        // Display search results section
+        displaySearchResults(searchResults);
+    } catch (error) {
+        console.error('Error handling search:', error);
     }
+}
 
-    // Fetch data from the Vietnamese and Chinese JSON files
-    Promise.all([
-        fetch('data/vietnamese_recipes.json').then(response => response.json()),
-        fetch('data/chinese_recipes.json').then(response => response.json())
-    ]).then(data => {
-        // Combine data from both files
-        const allRecipes = data[0].concat(data[1]);
-        // Perform search and display results
-        const searchResultsByName = searchByName(allRecipes, searchTerm);
-        const searchResultsByIngredients = searchByIngredients(allRecipes, searchTerm);
+// Function to display search results
+function displaySearchResults(searchResults) {
+    const searchResultsSection = document.getElementById('search-results-section');
+    const displayResults = document.getElementById('search-results');
 
-        const searchResults = [...searchResultsByName, ...searchResultsByIngredients];
+    // Clear previous search results
+    displayResults.innerHTML = '';
 
-        // Hide the section
-        document.getElementById('recommend-options').style.display = 'none';
+    // Hide the section
+    document.getElementById('highlighted-section').style.display = 'none';
 
-        // Clear previous search results
-        const displayResults = document.querySelector(".feast-category-index");
-        displayResults.innerHTML = '';
-
-        // Create a set to store unique results
-        const uniqueResults = new Set();
-
+    if (searchResults.length === 0) {
+        // If no search results found, display a message
+        displayResults.innerHTML = '<p>No results found.</p>';
+    } else {
         // Display search results
-        searchResults.forEach(function(result) {
-            // Check if the result is unique before adding it to the set
-            if (!uniqueResults.has(result.name.toLowerCase())) {
-                const listItem = document.createElement('li');
-                listItem.classList.add('listing-item', 'col-md-6');
-                const link = document.createElement('a');
-                link.href = ''; // Replace with the actual link for each search result
-                const image = document.createElement('img');
-                image.src = result.image;
-                image.alt = result.name;
-                image.style.width = '50%';
-                const title = document.createElement('div');
-                title.classList.add('fsri-title');
-                title.textContent = result.name;
-                link.appendChild(image);
-                link.appendChild(title);
-                listItem.appendChild(link);
-                displayResults.appendChild(listItem);
+        let row = document.createElement('div');
+        row.classList.add('row', 'category-list');
 
-                // Add the result to the set to mark it as seen
-                uniqueResults.add(result.name.toLowerCase());
+        searchResults.forEach((result, index) => {
+            if (index > 0 && index % 2 === 0) {
+                // Create a new row after every two results
+                displayResults.appendChild(row);
+                row = document.createElement('div');
+                row.classList.add('row', 'category-list');
             }
+
+            const listItem = document.createElement('div');
+            listItem.classList.add('col-md-6', 'listing-item');
+
+            const link = document.createElement('a');
+            link.href = ''; // Replace with the actual link for each search result
+
+            const image = document.createElement('img');
+            image.classList.add('equal-img');
+            image.src = result.image;
+            image.alt = result.name;
+
+            const title = document.createElement('div');
+            title.classList.add('category-title');
+            title.textContent = result.name;
+
+            link.appendChild(image);
+            link.appendChild(title);
+            listItem.appendChild(link);
+
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.classList.add('category-buttons');
+
+            const button = document.createElement('a');
+            button.classList.add('category-btn', 'btn', 'btn-primary');
+            button.href = ''; // Replace with the actual link for each search result
+
+            const strong = document.createElement('strong');
+            strong.classList.add('category-more-detail');
+            strong.textContent = 'Explore More Recipes >';
+
+            button.appendChild(strong);
+            buttonsContainer.appendChild(button);
+            listItem.appendChild(buttonsContainer);
+
+            row.appendChild(listItem);
         });
 
-        // If no unique search results found, display a message or handle it
-        if (uniqueResults.size === 0) {
-            displayResults.innerHTML = '<p>No results found.</p>';
-        }
-    }).catch(error => {
-        console.error('Error fetching data:', error);
-    });
+        // Append the last row if it contains less than 2 items
+        displayResults.appendChild(row);
+    }
+
+    // Display search results section
+    searchResultsSection.style.display = 'block';
 }
