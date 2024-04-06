@@ -57,29 +57,10 @@ body {
 }
 
 
-/* Style for search results */
-
-.search-results {
-    margin-top: 20px;
-}
-
-.search-result {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.search-result img {
-    max-width: 100%;
-    height: auto;
-}
-
-
 /* Ha did */
 
-#search_button_icon,
-#search_button {
+#search-button-icon,
+#search-button {
     background-color: #d2b48c;
     border-color: #d2b48c;
     /* border: none; */
