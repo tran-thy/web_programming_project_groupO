@@ -1,50 +1,22 @@
-.top-row {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between;  */
-    padding: 20px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.menu-wrapper {
-    display: flex;
-    flex: 1;
-    padding: 0 20px;
-    align-items: center;
+body {
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    z-index: auto;
 }
 
-.options {
-    display: flex;
-    flex-direction: row;
-    /* display items in a row */
-    justify-content: flex-end;
-}
-
-.btn {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    text-overflow: ellipsis;
-    /* max-width: 100px; */
+ :root {
+    --main-color: #d2b48c;
+    /* Define your main color here */
 }
 
 .btn i {
     margin-right: 5px;
     /* Add a margin to the right of the icon for spacing */
-}
-
-.btn:hover {
-    background-color: #90999b;
-    /* Darken the background color on hover */
-}
-
-.custom-list {
-    /* Remove Default List Styling */
-    list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .search-options {
@@ -104,6 +76,66 @@
 }
 
 
+/* Ha did */
+
+#search_button_icon,
+#search_button {
+    background-color: #d2b48c;
+    border-color: #d2b48c;
+    /* border: none; */
+    font-size: 16px;
+}
+
+
+/* preheader */
+
+
+/* Custom CSS */
+
+.top-header {
+    background-color: #d2b48c;
+    /* Light brown background color */
+}
+
+.top_social a {
+    color: #fff;
+    /* White color for social media icons */
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.top_social a:hover {
+    color: #afeeee;
+}
+
+.login_register_area .login a {
+    color: #fff;
+    /* White color for the "Sign in" text */
+    text-decoration: none;
+    /* Remove underline from the link */
+}
+
+
+/* nav */
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.navbar-nav .nav-link {
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d2b48c;
+}
+
+
 /* carousel */
 
 .bg-img1 {
@@ -127,19 +159,173 @@
     height: 400px;
 }
 
-.spacer {
-    height: 50px;
+.carousel-btn {
+    background-color: #deb887 !important;
+    border-color: #deb887;
 }
 
 
-/* Style for About Us */
+/* Define styles for button hover state */
 
-.text-justify {
-    text-align: justify;
+.carousel-btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.carousel-caption a {
+    color: white;
+}
+
+.carousel-caption a:hover {
+    color: white;
 }
 
 
-/* Style for Logo name */
+/* cozy food */
+
+.block-heading {
+    margin-bottom: 30px;
+}
+
+.equal-img {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.category-index {
+    margin-top: 50px;
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listing-item {
+    margin-bottom: 20px;
+}
+
+.category-title {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+}
+
+.category-buttons {
+    text-align: center;
+}
+
+.category-btn {
+    background-color: #deb887 !important;
+    border-color: #deb887 !important;
+    margin-top: 10px;
+}
+
+.category-btn:hover {
+    background-color: #d2b48c !important;
+    border-color: #d2b48c !important;
+}
+
+.listing-item a {
+    text-decoration: none;
+}
+
+
+/* Recommentdation recipes */
+
+.greatest-post {
+    padding-top: 30px;
+}
+
+.greatest-post h2 {
+    margin-bottom: 40px;
+}
+
+.greatest-post-one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.greatest-img {
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in;
+}
+
+.greatest-img:hover {
+    transform: translateY(-15px);
+}
+
+.greatest-title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.greatest-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.greatest-title a:hover {
+    color: #deb887;
+}
+
+.greatest-title h6 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+/* footer */
+
+.footer {
+    margin-top: 50px;
+    background-color: #d2b48c;
+}
+
+.footer .social a {
+    margin: 0 10px;
+    color: #fff;
+    /* White color for social media icons */
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.nav-link-footer {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+.nav-link-footer:hover {
+    color: #000;
+}
+
+.nav-footer {
+    margin-left: 100px;
+}
+
+.custom-list {
+    margin-left: 100px;
+    list-style-type: none;
+    /* Remove bullet points from the list */
+}
+
+.footer-cont {
+    padding-left: 100px !important;
+}
+
+
+/* logo name */
 
 .logo_name {
     color: #35190da4;
