@@ -5,11 +5,6 @@
     padding: 20px;
 }
 
-.image-wrapper {
-    margin-right: 500px;
-    padding: 0px;
-}
-
 .menu-wrapper {
     display: flex;
     flex: 1;
@@ -84,6 +79,11 @@
     text-align: justify;
 }
 
+.container-fluid.custom-list {
+    white-space: nowrap;
+    /* Prevent menu items from wrapping */
+}
+
 
 /* Style for search results */
 
@@ -136,4 +136,16 @@
 
 .text-justify {
     text-align: justify;
+}
+
+
+/* Style for Logo name */
+
+.logo_name {
+    color: #35190da4;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+    white-space: nowrap;
 }
