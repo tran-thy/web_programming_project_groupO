@@ -1,74 +1,573 @@
+/* Original styles */
+a {
+    text-decoration: none;
+}
 
-
-
-.navbar-brand {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+/* for the index.html recipe cards */
+.recipe-container {
+    max-width: 1200px;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+/* for the index.html logo 贺艳文 */
+.menu-container {
+    max-width: 1200px;
     margin-left: 10px;
-}
-.navbar-brand {
-    margin-top: 50px; /* Add space below the navbar brand */
 
 }
+/* for index.html */
+.northern-chinese-page {
+    display: flex;
+    justify-content: left;
+    margin-left: 100px;
+}
 
-.nav-item {
+/* for norther chinese h2 贺艳文*/
+.northern-chinese {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    font-style: initial;
+}
+.northern-chinese-page {
+    margin-bottom: 35px;
+}
+/* above is for norther-chinese recipes 贺艳文 */
+/* for dumplings html */
+.recipe-title {
+    color:#deb887;
+    font-size: 35px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+
+}
+/* for dumplings html */
+/* for the article-content  */
+.article{
+    color:#deb887;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
-.t-n {
-    margin-right: 200px;
+/* for dumplings html */
+/* for the headline */
+.entry-title {
+    display: block; /* Ensure the title appears on a separate line */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(237, 167, 104);
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 15px; /* Adjust the margin as needed */
+    margin-left: 20px;
 }
-.nav-link {
-            margin-right: 10px; /* Adjust the margin to add space between tabs */
-        }
+.post_meta_tags {
+    font-size: 15px;
+    color:black;
+    margin-left: 20px;
 
-.container-fluid {
-    background-color:blueviolet;
+}
+/* for dumplings html */
+.entry-content {
+    color:black;
+    display: block; 
+    margin-left: 20px;
+    margin-right: 20px; }
+/* for dumplings html */
+/* for video in the recipe html */
+.iframe-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+/* for dumplings html */
+/* for recipe image in recipe.html */
+.wp-block-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+/* for index.html */
+/* for dumping title */
+.recipe {
+    width: calc(33.33% - 20px);
+    margin-bottom: 80px;
+    background-color: #c0b3b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+/* for dumplings html */
+/* for dumpling recipe-paragraph */
+.recipe-paragraph {
+    display: flex;
+    align-items: left;
+
+}
+/* for dumpling ingridents-paragraph */
+.list-container {
+    background-color:antiquewhite;
+    border-radius: 10px;
+    padding-left: 30px;
+}
+/* for dumplings html */
+/* for dumpling recipe-paragraph */
+.image {
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
 }
 
-.feature-icon img {
+.image img {
+    width: 100%;
+    height: 100%;
     display: block;
 }
-.icon-link {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-    font-style:initial;
-   font-feature-settings: "abvm";
-    font-weight: 800;
-    color:blueviolet;
-}
-.chinese-receip-paragraph {
-    color: black;
-    /* background-color: blue; */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 0px;
-    margin-top: 0;
-    padding: 0;
-    max-width: 728px;
-    margin-bottom: 0;
 
-   
-}
-.chinese-receip{
-    /* background-color: aqua; */
-    margin-top: 0;
-    padding: 0;
-    margin-bottom: 0;
-    padding: 0;
-}
-.picture-area {
-    margin-top: 0px;
-    padding: 0;
-}
-img {
-    width: 320px; /* Set the width of images to 120 pixels */
-    height: 280px; /* Set the height of images to 120 pixels */
-    margin-top: 0px;
+.info {
+    color:var(--wp--preset--color--foreground);
+    padding: 20px;
+    text-align: center;
+    height: 40%;
+    overflow: hidden;
 }
 
-.nav-item {
-    margin-top: 50px; /* Adjust the margin to add space between tabs */
-}  
- .bg-color {
-            background-color: green;
- }
+h2, .author, .description {
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.author {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 100%;
+}
+
+/* Modified styles for page buttons */
+#pageButtons {
+    margin-top: 20px;
+    margin-bottom: 20px; /* Add space between page buttons and bottom */
+    text-align: center;
+}
+
+.page {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+.page.active {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+    color: white;
+}
+
+.page:hover {
+    background-color: #ddd;
+}
+
+.container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.container button {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #0056b3;
+}
+
+
+.search-box {
+    position: relative;
+}
+
+.search-box input[type="text"] {
+    width: 250px;
+    padding: 10px 15px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #999;
+}
+
+.search-box button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: blue; /* Match the color of the search button */
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-box button:hover {
+    background-color: black; /* Darken the color of the search button on hover */
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    z-index: auto;
+}
+
+ :root {
+    --main-color: #d2b48c;
+    /* Define your main color here */
+}
+
+.btn i {
+    margin-right: 5px;
+    /* Add a margin to the right of the icon for spacing */
+}
+
+.search-options {
+    display: flex;
+    align-items: center;
+}
+
+.search-symbol {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-symbol i {
+    margin-right: 5px;
+}
+
+.search-symbol:hover {
+    background-color: #90999b;
+}
+
+.search-box {
+    display: none;
+}
+
+.content {
+    padding: 10px;
+    margin-left: 20px;
+    text-align: justify;
+}
+
+.container-fluid.custom-list {
+    white-space: nowrap;
+    /* Prevent menu items from wrapping */
+}
+
+
+/* Ha did */
+
+#search-button-icon,
+#search-button {
+    background-color: #d2b48c;
+    border-color: #d2b48c;
+    /* border: none; */
+    font-size: 16px;
+}
+
+
+/* preheader */
+
+
+/* Custom CSS */
+
+.top-header {
+    background-color: #d2b48c;
+    /* Light brown background color */
+}
+
+.top_social a {
+    color: #fff;
+    /* White color for social media icons */
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.top_social a:hover {
+    color: #afeeee;
+}
+
+.login_register_area .login a {
+    color: #fff;
+    /* White color for the "Sign in" text */
+    text-decoration: none;
+    /* Remove underline from the link */
+}
+
+
+/* nav */
+
+.header {
+    max-width: 1200px;
+    margin-right: 0px;
+    margin-left:10px;     /*by 贺艳文*/
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.navbar-nav .nav-link {
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d2b48c;
+}
+
+
+/* carousel */
+
+.bg-img1 {
+    background-image: url("https://st3.depositphotos.com/1105977/14354/i/1600/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.bg-img2 {
+    background-image: url("https://apicms.thestar.com.my/uploads/images/2023/11/19/2396564.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.bg-img3 {
+    background-image: url("https://png.pngtree.com/background/20230516/original/pngtree-lot-of-chinese-food-on-a-table-filled-with-chopsticks-picture-image_2612447.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.carousel-btn {
+    background-color: #deb887 !important;
+    border-color: #deb887;
+}
+
+
+/* Define styles for button hover state */
+
+.carousel-btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.carousel-caption a {
+    color: white;
+}
+
+.carousel-caption a:hover {
+    color: white;
+}
+
+
+/* cozy food */
+
+.block-heading {
+    margin-bottom: 30px;
+}
+
+.equal-img {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.category-index {
+    margin-top: 50px;
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listing-item {
+    margin-bottom: 20px;
+}
+
+.category-title {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+}
+
+.category-buttons {
+    text-align: center;
+}
+
+.category-btn {
+    background-color: #deb887 !important;
+    border-color: #deb887 !important;
+    margin-top: 10px;
+}
+
+.category-btn:hover {
+    background-color: #d2b48c !important;
+    border-color: #d2b48c !important;
+}
+
+.listing-item a {
+    text-decoration: none;
+}
+
+
+/* Recommentdation recipes */
+
+.greatest-post {
+    padding-top: 30px;
+}
+
+.greatest-post h2 {
+    margin-bottom: 40px;
+}
+
+.greatest-post-one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.greatest-img {
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in;
+}
+
+.greatest-img:hover {
+    transform: translateY(-15px);
+}
+
+.greatest-title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.greatest-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.greatest-title a:hover {
+    color: #deb887;
+}
+
+.greatest-title h6 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+/* footer */
+
+.footer {
+    margin-top: 50px;
+    background-color: #d2b48c;
+}
+
+.footer .social a {
+    margin: 0 10px;
+    color: #fff;
+    /* White color for social media icons */
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.nav-link-footer {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+.nav-link-footer:hover {
+    color: #000;
+}
+
+.nav-footer {
+    margin-left: 100px;
+}
+
+.custom-list {
+    margin-left: 100px;
+    list-style-type: none;
+    /* Remove bullet points from the list */
+}
+
+.footer-cont {
+    padding-left: 100px !important;
+}
+
+
+/* logo name */
+
+.logo_name {
+    color: #35190da4;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
