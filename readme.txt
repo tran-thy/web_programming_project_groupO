@@ -1,4 +1,4 @@
-1. Create data in pg: database: Food
+1. Create data in postgres: database: Food
 CREATE TABLE Users (
     ID SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
