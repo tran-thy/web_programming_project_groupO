@@ -1,8 +1,8 @@
 [{
         "id": "VN-0001",
-        "name": "Banh Canh Cua (Vietnamese Shrimps and Crab Thick Noodle Soup)",
+        "name": "Banh Canh Cua (Vietnamese Shrimp and Crab Thick Noodle Soup)",
         "description": "Banh Canh Cua is a comforting Vietnamese noodle soup made with thick, chewy noodles, crab meat, shrimp, and a flavorful broth. It's a popular dish enjoyed throughout Vietnam, especially during colder months.",
-        "image": "data/images/viD_img/Banh Canh Cua (Vietnames Shrimps n Crab Thick Noodle Soup).jpg",
+        "image": "data/images/viD_img/Banh Canh Cua (Vietnames Shrimp n Crab Thick Noodle Soup).jpg",
         "recipe": {
             "ingredients": [
                 "500g crab meat",
@@ -34,8 +34,8 @@
         "id": "VN-0002",
         "name": "Banh Xeo (Vietnamese Crispy Savory Pancake)",
         "description": "Banh Xeo is a popular Vietnamese street food dish consisting of a crispy, savory pancake filled with shrimp, pork, bean sprouts, and herbs. It's often served with lettuce leaves and dipped in a tangy and savory sauce.",
-        "image": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Ssavory Pancake) 1.jpg",
-        "image_2": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Ssavory Pancake) 2.jpg",
+        "image": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Savory Pancake) 1.jpg",
+        "image_2": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Savory Pancake) 2.jpg",
         "recipe": {
             "ingredients": [
                 "For the pancake batter:",
@@ -495,11 +495,11 @@
     },
     {
         "id": "VN-0014",
-        "name": "Mi Quang (Vietnamese Noodle with Pork n Shrimps)",
+        "name": "Mi Quang (Vietnamese Noodle with Pork n Shrimp)",
         "description": "Mi Quang is a Vietnamese noodle dish originating from the central region of Vietnam. It features wide rice noodles, pork, shrimp, and a flavorful broth made with turmeric and aromatics. Mi Quang is often garnished with peanuts, fresh herbs, and crispy rice crackers, and it's typically served as a light meal or snack.",
-        "image": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimps) 1.jpg",
-        "image_2": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimps) 2.jpg",
-        "image_3": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimps) 3.jpg",
+        "image": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimp) 1.jpg",
+        "image_2": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimp) 2.jpg",
+        "image_3": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimp) 3.jpg",
         "recipe": {
             "ingredients": [
                 "300g wide rice noodles (mi quang noodles)",
