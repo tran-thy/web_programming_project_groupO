@@ -84,6 +84,7 @@ function displaySearchResults(searchResults) {
 
     // Hide the section
     document.getElementById('highlighted-section').style.display = 'none';
+    document.getElementById('myCarousel').style.display = 'none';
 
     if (searchResults.length === 0) {
         // If no search results found, display a message

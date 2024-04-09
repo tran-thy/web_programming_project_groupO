@@ -6,5 +6,6 @@ document.getElementById('about-btn').addEventListener('click', function() {
         .then(data => {
             aboutUsSection.innerHTML = data;
             document.getElementById('highlighted-section').style.display = 'none';
+            document.getElementById('myCarousel').style.display = 'none';
         });
 });
