@@ -464,13 +464,14 @@ footer p {
     .navbar .nav-links {
         display: flex; 
         flex-direction: column; 
-        position: fixed;
+        position: fixed; 
         top: 60px;
         right: 20px; 
         background-color: #fff; 
-        align-items: flex-start; 
+        /* align-items: flex-start;  */
         z-index: 100;
         padding:10px;
+        padding-top:20px;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     }
