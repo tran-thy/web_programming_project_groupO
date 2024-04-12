@@ -1,8 +1,8 @@
 [{
         "id": "VN-0001",
-        "name": "Banh Canh Cua (Vietnamese Shrimps and Crab Thick Noodle Soup)",
-        "description": "Banh Canh Cua is a comforting Vietnamese noodle soup made with thick, chewy noodles, crab meat, shrimp, and a flavorful broth. It's a popular dish enjoyed throughout Vietnam, especially during colder months.",
-        "image": "data/images/viD_img/Banh Canh Cua (Vietnames Shrimps n Crab Thick Noodle Soup).jpg",
+        "name": "Banh Canh Cua (Vietnamese Shrimp and Crab Thick Noodle Soup)",
+        "description": "Banh Canh Cua is a comforting Vietnamese noodle soup made with thick, chewy noodles, crab meat, shrimp, and a flavorful broth. It is a popular dish enjoyed throughout Vietnam, especially during colder months.",
+        "image": "data/images/viD_img/Banh Canh Cua (Vietnames Shrimp n Crab Thick Noodle Soup).jpg",
         "recipe": {
             "ingredients": [
                 "500g crab meat",
@@ -33,9 +33,9 @@
     {
         "id": "VN-0002",
         "name": "Banh Xeo (Vietnamese Crispy Savory Pancake)",
-        "description": "Banh Xeo is a popular Vietnamese street food dish consisting of a crispy, savory pancake filled with shrimp, pork, bean sprouts, and herbs. It's often served with lettuce leaves and dipped in a tangy and savory sauce.",
-        "image": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Ssavory Pancake) 1.jpg",
-        "image_2": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Ssavory Pancake) 2.jpg",
+        "description": "Banh Xeo is a popular Vietnamese street food dish consisting of a crispy, savory pancake filled with shrimp, pork, bean sprouts, and herbs. It is often served with lettuce leaves and dipped in a tangy and savory sauce.",
+        "image": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Savory Pancake) 1.jpg",
+        "image_2": "data/images/viD_img/Banh Xeo (Vietnamese Crispy Savory Pancake) 2.jpg",
         "recipe": {
             "ingredients": [
                 "For the pancake batter:",
@@ -75,7 +75,7 @@
     {
         "id": "VN-0003",
         "name": "Bo Bia (Vietnamese Spring Rolls with Jicama n Egg)",
-        "description": "Bo Bia is a Vietnamese spring roll filled with jicama, carrots, Chinese sausage, egg, and dried shrimp. It's wrapped in rice paper and served with a sweet and savory dipping sauce. Bo Bia is a popular street food snack in Vietnam.",
+        "description": "Bo Bia is a Vietnamese spring roll filled with jicama, carrots, Chinese sausage, egg, and dried shrimp. It is wrapped in rice paper and served with a sweet and savory dipping sauce. Bo Bia is a popular street food snack in Vietnam.",
         "image": "data/images/viD_img/Bo Bia (Vietnamese Spring Rolls with Jicama n Egg).jpg",
         "recipe": {
             "ingredients": [
@@ -111,7 +111,7 @@
     {
         "id": "VN-0004",
         "name": "Bun Bo Hue (Spicy Vietnamese Beef Noodle Soup)",
-        "description": "Bun Bo Hue is a popular Vietnamese noodle soup originating from the city of Hue in central Vietnam. It is known for its spicy and robust broth made with beef bones, lemongrass, and shrimp paste, along with tender slices of beef, pork knuckle, and pig's blood. Bun Bo Hue is typically served with round rice noodles and garnished with fresh herbs, lime wedges, and shredded banana blossom.",
+        "description": "Bun Bo Hue is a popular Vietnamese noodle soup originating from the city of Hue in central Vietnam. It is known for its spicy and robust broth made with beef bones, lemongrass, and shrimp paste, along with tender slices of beef, pork knuckle, and pig is blood. Bun Bo Hue is typically served with round rice noodles and garnished with fresh herbs, lime wedges, and shredded banana blossom.",
         "image": "data/images/viD_img/Bun Bo Hue (Spicy Vietnamese Beef Noodle Soup) 1.jpg",
         "image_2": "data/images/viD_img/Bun Bo Hue (Spicy Vietnamese Beef Noodle Soup) 2.jpg",
         "recipe": {
@@ -119,7 +119,7 @@
                 "500g beef bones",
                 "500g beef brisket or shank, thinly sliced",
                 "500g pork knuckle",
-                "200g pig's blood, sliced",
+                "200g blood of pig, sliced",
                 "1 lemongrass stalk, bruised",
                 "3-4 shallots, peeled",
                 "3-4 garlic cloves, peeled",
@@ -139,7 +139,7 @@
                 "Remove the beef bones and strain the broth. Return the broth to the pot and bring to a simmer.",
                 "Add shrimp paste, annatto seeds, fish sauce, and sugar to the broth. Adjust seasoning with salt as needed.",
                 "Cook the round rice noodles according to package instructions. Drain and rinse under cold water.",
-                "To serve, divide the noodles among serving bowls. Top with slices of beef brisket, pork knuckle, pig's blood, and any other desired garnishes.",
+                "To serve, divide the noodles among serving bowls. Top with slices of beef brisket, pork knuckle, blood of pig, and any other desired garnishes.",
                 "Ladle the hot broth over the noodles and garnishes. Serve immediately with lime wedges on the side."
             ]
         }
@@ -233,7 +233,7 @@
     {
         "id": "VN-0007",
         "name": "Bun Thit Nuong_Ha Noi Version (Vietnamese Grilled Pork Noodle)",
-        "description": "Bun Thit Nuong is a Vietnamese dish featuring grilled pork served over vermicelli noodles, topped with fresh herbs, pickled vegetables, and a savory sauce. This version is inspired by the cuisine of Hanoi, known for its subtle flavors and emphasis on freshness. It's a light and refreshing meal commonly enjoyed throughout Vietnam.",
+        "description": "Bun Thit Nuong is a Vietnamese dish featuring grilled pork served over vermicelli noodles, topped with fresh herbs, pickled vegetables, and a savory sauce. This version is inspired by the cuisine of Hanoi, known for its subtle flavors and emphasis on freshness. It is a light and refreshing meal commonly enjoyed throughout Vietnam.",
         "image": "data/images/viD_img/Bun Thit Nuong_Ha Noi Version (Vietnamese Grilled Pork Noodle) 1.jpg",
         "image_2": "data/images/viD_img/Bun Thit Nuong_Ha Noi Version (Vietnamese Grilled Pork Noodle) 2.jpg",
         "recipe": {
@@ -281,7 +281,7 @@
     {
         "id": "VN-0008",
         "name": "Bun Thit Nuong_Hoi An Version (Vietnamese Grilled Pork Noodle)",
-        "description": "Bun Thit Nuong is a Vietnamese dish featuring grilled pork served over vermicelli noodles, topped with fresh herbs, pickled vegetables, and a savory sauce. This version is inspired by the cuisine of Hoi An, known for its vibrant flavors and mix of influences from Chinese, Japanese, and indigenous Vietnamese cuisines. It's a delightful and satisfying dish commonly enjoyed throughout Vietnam.",
+        "description": "Bun Thit Nuong is a Vietnamese dish featuring grilled pork served over vermicelli noodles, topped with fresh herbs, pickled vegetables, and a savory sauce. This version is inspired by the cuisine of Hoi An, known for its vibrant flavors and mix of influences from Chinese, Japanese, and indigenous Vietnamese cuisines. It is a delightful and satisfying dish commonly enjoyed throughout Vietnam.",
         "image": "data/images/viD_img/Bun Thit Nuong_Hoi An Version (Vietnamese Grilled Pork Noodle).jpg",
         "recipe": {
             "ingredients": [
@@ -394,7 +394,7 @@
     {
         "id": "VN-0011",
         "name": "Cao Lau Hoi An (Vietnamese Noodle Bowl)",
-        "description": "Cao Lau is a specialty noodle dish from Hoi An, a historic town in central Vietnam. It features thick rice noodles, slices of pork, crispy pork rinds, fresh herbs, and a flavorful broth made with secret ingredients like ash water. Cao Lau is topped with bean sprouts, lettuce, and thinly sliced green onions, and it's typically served with a side of chili sauce.",
+        "description": "Cao Lau is a specialty noodle dish from Hoi An, a historic town in central Vietnam. It features thick rice noodles, slices of pork, crispy pork rinds, fresh herbs, and a flavorful broth made with secret ingredients like ash water. Cao Lau is topped with bean sprouts, lettuce, and thinly sliced green onions, and it is typically served with a side of chili sauce.",
         "image": "data/images/viD_img/Cao Lau Hoi An (Vietnamese Noodle Bowl) .jpg",
         "recipe": {
             "ingredients": [
@@ -466,7 +466,7 @@
     {
         "id": "VN-0013",
         "name": "Goi Xoai (Vietnamese Mango Salad)",
-        "description": "Goi Xoai is a refreshing Vietnamese salad made with green mangoes, shrimp, herbs, and a tangy dressing. It's a perfect balance of sweet, sour, salty, and spicy flavors, and it's often served as a side dish or appetizer. Goi Xoai is a popular dish during the hot summer months in Vietnam.",
+        "description": "Goi Xoai is a refreshing Vietnamese salad made with green mangoes, shrimp, herbs, and a tangy dressing. It is a perfect balance of sweet, sour, salty, and spicy flavors, and it is often served as a side dish or appetizer. Goi Xoai is a popular dish during the hot summer months in Vietnam.",
         "image": "data/images/viD_img/Goi Xoai (Vietnanese Mango Salad).jpg",
         "recipe": {
             "ingredients": [
@@ -495,11 +495,11 @@
     },
     {
         "id": "VN-0014",
-        "name": "Mi Quang (Vietnamese Noodle with Pork n Shrimps)",
-        "description": "Mi Quang is a Vietnamese noodle dish originating from the central region of Vietnam. It features wide rice noodles, pork, shrimp, and a flavorful broth made with turmeric and aromatics. Mi Quang is often garnished with peanuts, fresh herbs, and crispy rice crackers, and it's typically served as a light meal or snack.",
-        "image": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimps) 1.jpg",
-        "image_2": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimps) 2.jpg",
-        "image_3": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimps) 3.jpg",
+        "name": "Mi Quang (Vietnamese Noodle with Pork n Shrimp)",
+        "description": "Mi Quang is a Vietnamese noodle dish originating from the central region of Vietnam. It features wide rice noodles, pork, shrimp, and a flavorful broth made with turmeric and aromatics. Mi Quang is often garnished with peanuts, fresh herbs, and crispy rice crackers, and it is typically served as a light meal or snack.",
+        "image": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimp) 1.jpg",
+        "image_2": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimp) 2.jpg",
+        "image_3": "data/images/viD_img/Mi Quang (Vietnames Noodle with Pork n Shrimp) 3.jpg",
         "recipe": {
             "ingredients": [
                 "300g wide rice noodles (mi quang noodles)",
@@ -535,7 +535,7 @@
     {
         "id": "VN-0015",
         "name": "Nem Nuong (Vietnamese Grilled Pork Skewers)",
-        "description": "Nem Nuong is a Vietnamese dish consisting of seasoned ground pork grilled on skewers. The pork is flavored with garlic, shallots, fish sauce, and sugar, giving it a savory and slightly sweet taste. Nem Nuong is often served as an appetizer or as part of a larger meal, and it's typically accompanied by lettuce leaves, fresh herbs, and rice paper for wrapping.",
+        "description": "Nem Nuong is a Vietnamese dish consisting of seasoned ground pork grilled on skewers. The pork is flavored with garlic, shallots, fish sauce, and sugar, giving it a savory and slightly sweet taste. Nem Nuong is often served as an appetizer or as part of a larger meal, and it is typically accompanied by lettuce leaves, fresh herbs, and rice paper for wrapping.",
         "image": "data/images/viD_img/Nem Nuong (Vietnamese Grilled Pork Skewers) 1.jpg",
         "image_2": "data/images/viD_img/Nem Nuong (Vietnamese Grilled Pork Skewers) 2.jpg",
         "recipe": {
@@ -567,7 +567,7 @@
     {
         "id": "VN-0016",
         "name": "Pho Bo (Beef Pho)",
-        "description": "Pho Bo is a traditional Vietnamese soup consisting of beef broth, rice noodles, and thinly sliced beef. It's flavored with aromatic spices like star anise, cinnamon, and cloves, and it's typically served with fresh herbs, bean sprouts, lime wedges, and chili peppers on the side. Pho Bo is a popular street food dish enjoyed throughout Vietnam.",
+        "description": "Pho Bo is a traditional Vietnamese soup consisting of beef broth, rice noodles, and thinly sliced beef. It is flavored with aromatic spices like star anise, cinnamon, and cloves, and it is typically served with fresh herbs, bean sprouts, lime wedges, and chili peppers on the side. Pho Bo is a popular street food dish enjoyed throughout Vietnam.",
         "image": "data/images/viD_img/Pho Bo (Beef Pho) 1.jpg",
         "image_2": "data/images/viD_img/Pho Bo (Beef Pho) 2.jpg",
         "recipe": {
