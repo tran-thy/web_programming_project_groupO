@@ -23,7 +23,7 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 80px auto 20px;
+    margin: 20px auto 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
