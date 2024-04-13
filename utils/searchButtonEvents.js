@@ -19,29 +19,24 @@ document.addEventListener('keypress', function(event) {
     }
 });
 
-// Function to fetch recipes from JSON files
-async function fetchRecipes() {
+// Function to retrieve all dishes data from the backend
+const getAllDishesData = async() => {
     try {
-        const chineseRecipesResponse = await fetch('data/chinese_recipes.json');
-        const vietnameseRecipesResponse = await fetch('data/vietnamese_recipes.json');
-
-        const chineseRecipes = await chineseRecipesResponse.json();
-        const vietnameseRecipes = await vietnameseRecipesResponse.json();
-
-        return [...chineseRecipes, ...vietnameseRecipes];
+        const response = await fetch(`${BACKEND_ROOT_URL}`);
+        const dishesData = await response.json();
+        return dishesData;
     } catch (error) {
-        console.error('Error fetching recipes:', error);
-        throw error;
+        throw new Error(`Error retrieving all dishes data: ${error.message}`);
     }
-}
+};
 
 // Function to search recipes by name or ingredients
 function searchRecipes(recipes, searchTerm) {
     searchTerm = searchTerm.toLowerCase().trim();
     return recipes.filter(recipe => {
         // Check if recipe name or any ingredient contains the search term
-        return recipe.name.toLowerCase().includes(searchTerm) ||
-            (recipe.recipe && recipe.recipe.ingredients && recipe.recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm)));
+        return recipe.dishname.toLowerCase().includes(searchTerm) ||
+            (recipe.recipeIngredients && recipe.recipeIngredients.toLowerCase().includes(searchTerm));
     });
 }
 
@@ -55,17 +50,17 @@ async function handleSearch() {
 
     // Check if search term is empty
     if (!searchTerm.trim()) {
-        // Display an alert or handle it in your preferred way
+        // Display an alert
         alert("Please enter a dish name or ingredient to search.");
         return;
     }
 
     try {
-        // Fetch recipes from JSON files
-        const recipes = await fetchRecipes();
+        // Fetch all dishes from the backend server
+        const dishesData = await getAllDishesData();
 
         // Perform search and display results
-        const searchResults = searchRecipes(recipes, searchTerm);
+        const searchResults = searchRecipes(dishesData, searchTerm);
 
         // Display search results section
         displaySearchResults(searchResults);
@@ -85,6 +80,8 @@ function displaySearchResults(searchResults) {
     // Hide the section
     document.getElementById('highlighted-section').style.display = 'none';
     document.getElementById('myCarousel').style.display = 'none';
+    document.getElementById('about-us-section').style.display = 'none';
+    document.getElementById('vn-recipe-display-section').style.display = 'none';
 
     if (searchResults.length === 0) {
         // If no search results found, display a message
@@ -110,12 +107,12 @@ function displaySearchResults(searchResults) {
 
             const image = document.createElement('img');
             image.classList.add('equal-img');
-            image.src = result.image;
-            image.alt = result.name;
+            image.src = result.dishimage; // Update to match data structure
+            image.alt = result.dishname; // Update to match data structure
 
             const title = document.createElement('div');
             title.classList.add('category-title');
-            title.textContent = result.name;
+            title.textContent = result.dishname; // Update to match data structure
 
             link.appendChild(image);
             link.appendChild(title);
