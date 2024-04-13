@@ -36,6 +36,13 @@ const displayVietnameseDishes = (dishesData) => {
     // Clear previous content
     vietnameseRecipeSection.innerHTML = '';
 
+    // Hide the section
+    document.getElementById('highlighted-section').style.display = 'none';
+    document.getElementById('myCarousel').style.display = 'none';
+    document.getElementById('search-results-section').style.display = 'none';
+    document.getElementById('about-us-section').style.display = 'none';
+
+
     // Display each Vietnamese dish
     dishesData.forEach((dish) => {
         const dishElement = document.createElement('div');
