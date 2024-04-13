@@ -15,8 +15,8 @@ const getVietnameseDishesData = async() => {
 // Function to render Vietnamese dishes
 const renderVietnameseDishes = async() => {
     try {
-        document.getElementById('highlighted-section').style.display = 'none';
-        document.getElementById('myCarousel').style.display = 'none';
+        // Hide sections
+        hideSections();
 
         const vietnameseDishesData = await getVietnameseDishesData();
         displayVietnameseDishes(vietnameseDishesData);
@@ -35,13 +35,6 @@ const displayVietnameseDishes = (dishesData) => {
 
     // Clear previous content
     vietnameseRecipeSection.innerHTML = '';
-
-    // Hide the section
-    document.getElementById('highlighted-section').style.display = 'none';
-    document.getElementById('myCarousel').style.display = 'none';
-    document.getElementById('search-results-section').style.display = 'none';
-    document.getElementById('about-us-section').style.display = 'none';
-
 
     // Display each Vietnamese dish
     dishesData.forEach((dish) => {
@@ -70,7 +63,7 @@ const displayVietnameseDishes = (dishesData) => {
     vietnameseRecipeSection.style.display = 'block';
 };
 
-// Event listener for Vietnamese recipes button
+// Event listener for Vietnamese recipes button in navigation
 document.addEventListener('DOMContentLoaded', () => {
     const vietnameseRecipesBtn = document.getElementById('vietnamese-recipes-btn');
     if (!vietnameseRecipesBtn) {
@@ -82,3 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
         await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
     });
 });
+
+// Event listener for Vietnamese recipes button in footer
+document.addEventListener('DOMContentLoaded', () => {
+    const vietnameseRecipesBtnFooter = document.getElementById('vietnamese-recipes-btn-footer');
+    if (!vietnameseRecipesBtnFooter) {
+        throw new Error("Vietnamese recipes button in footer not found");
+    }
+
+    vietnameseRecipesBtnFooter.addEventListener('click', async(event) => {
+        event.preventDefault(); // Prevent default button behavior
+        await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
+    });
+});
+
+// Function to hide sections
+const hideSections = () => {
+    document.getElementById('highlighted-section').style.display = 'none';
+    document.getElementById('myCarousel').style.display = 'none';
+    document.getElementById('search-results-section').style.display = 'none';
+    document.getElementById('about-us-section').style.display = 'none';
+};
