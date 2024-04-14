@@ -61,27 +61,19 @@ const displayVietnameseDishes = (dishesData) => {
             image.src = dish.dishimage;
             image.alt = dish.dishname;
 
+            // Set the link for the image
+            const imageLink = link.cloneNode(true);
+            imageLink.appendChild(image);
+            listItem.appendChild(imageLink);
+
             const title = document.createElement("div");
             title.classList.add("category-title");
             title.textContent = dish.dishname;
 
-            link.appendChild(image);
-            link.appendChild(title);
-            listItem.appendChild(link);
-
-            const buttonsContainer = document.createElement("div");
-            buttonsContainer.classList.add("category-buttons");
-
-            const button = document.createElement("a");
-            button.classList.add("category-btn", "btn", "btn-primary");
-            button.href = `dish-details.html?id=${dish.id}`; // Update to match your file and parameter name
-
-            const strong = document.createElement("strong");
-            strong.classList.add("category-more-detail");
-
-            button.appendChild(strong);
-            buttonsContainer.appendChild(button);
-            listItem.appendChild(buttonsContainer);
+            // Set the link for the dish name
+            const titleLink = link.cloneNode(true);
+            titleLink.appendChild(title);
+            listItem.appendChild(titleLink);
 
             row.appendChild(listItem);
         });
@@ -127,4 +119,5 @@ const hideSections = () => {
     document.getElementById('myCarousel').style.display = 'none';
     document.getElementById('search-results-section').style.display = 'none';
     document.getElementById('about-us-section').style.display = 'none';
+    document.getElementById('cn-recipe-display-section').style.display = 'none';
 };

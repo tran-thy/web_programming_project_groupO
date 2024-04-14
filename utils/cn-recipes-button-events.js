@@ -13,7 +13,12 @@ const getChineseDishesData = async() => {
 const renderChineseDishes = async() => {
     try {
         // Hide sections
-        hideSections();
+        document.getElementById('highlighted-section').style.display = 'none';
+        document.getElementById('myCarousel').style.display = 'none';
+        document.getElementById('search-results-section').style.display = 'none';
+        document.getElementById('about-us-section').style.display = 'none';
+        document.getElementById('vn-recipe-display-section').style.display = 'none';
+
 
         const chineseDishesData = await getChineseDishesData();
         displayChineseDishes(chineseDishesData);
@@ -57,27 +62,19 @@ const displayChineseDishes = (dishesData) => {
             image.src = dish.dishimage;
             image.alt = dish.dishname;
 
+            // Set the link for the image
+            const imageLink = link.cloneNode(true);
+            imageLink.appendChild(image);
+            listItem.appendChild(imageLink);
+
             const title = document.createElement("div");
             title.classList.add("category-title");
             title.textContent = dish.dishname;
 
-            link.appendChild(image);
-            link.appendChild(title);
-            listItem.appendChild(link);
-
-            const buttonsContainer = document.createElement("div");
-            buttonsContainer.classList.add("category-buttons");
-
-            const button = document.createElement("a");
-            button.classList.add("category-btn", "btn", "btn-primary");
-            button.href = `dish-details.html?id=${dish.id}`; // Update to match your file and parameter name
-
-            const strong = document.createElement("strong");
-            strong.classList.add("category-more-detail");
-
-            button.appendChild(strong);
-            buttonsContainer.appendChild(button);
-            listItem.appendChild(buttonsContainer);
+            // Set the link for the dish name
+            const titleLink = link.cloneNode(true);
+            titleLink.appendChild(title);
+            listItem.appendChild(titleLink);
 
             row.appendChild(listItem);
         });
@@ -89,6 +86,8 @@ const displayChineseDishes = (dishesData) => {
     // Display the section
     chineseRecipeSection.style.display = "block";
 };
+
+
 
 // Event listener for Chinese recipes button in navigation
 document.addEventListener('DOMContentLoaded', () => {
