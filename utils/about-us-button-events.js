@@ -1,7 +1,7 @@
 document.getElementById("about-btn").addEventListener("click", function() {
     const aboutUsSection = document.getElementById("about-us-section");
 
-    fetch("about_us_content.html")
+    fetch("a-about-us-content.html")
         .then((response) => response.text())
         .then((data) => {
             aboutUsSection.innerHTML = data;
@@ -19,7 +19,7 @@ document
     .addEventListener("click", function() {
         const aboutUsSection = document.getElementById("about-us-section");
 
-        fetch("about_us_content.html")
+        fetch("a-about-us-content.html")
             .then((response) => response.text())
             .then((data) => {
                 aboutUsSection.innerHTML = data;
@@ -33,7 +33,7 @@ document
     .addEventListener("click", function() {
         const aboutUsSection = document.getElementById("about-us-section");
 
-        fetch("about_us_content.html")
+        fetch("a-about-us-content.html")
             .then((response) => response.text())
             .then((data) => {
                 aboutUsSection.innerHTML = data;
