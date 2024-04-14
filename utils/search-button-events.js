@@ -95,15 +95,15 @@ const displaySearchResults = (searchResults, eachRecipeDetailsBaseUrl) => {
         row.classList.add('row', 'category-list');
 
         searchResults.forEach((result, index) => {
-            if (index > 0 && index % 2 === 0) {
-                // Create a new row after every two results
+            if (index > 0 && index % 3 === 0) {
+                // Create a new row after every three results
                 displayResults.appendChild(row);
                 row = document.createElement('div');
                 row.classList.add('row', 'category-list');
             }
 
             const listItem = document.createElement('div');
-            listItem.classList.add('col-md-6', 'listing-item');
+            listItem.classList.add('col-md-4', 'listing-item'); // Change to col-md-4
 
             const link = document.createElement('a');
             link.href = `${eachRecipeDetailsBaseUrl}?id=${result.id}`; // Constructing the dish details URL
@@ -123,11 +123,12 @@ const displaySearchResults = (searchResults, eachRecipeDetailsBaseUrl) => {
 
             // Add a line break after the dish name
             listItem.appendChild(document.createElement('br'));
+            listItem.appendChild(document.createElement('br'));
 
             row.appendChild(listItem);
         });
 
-        // Append the last row if it contains less than 2 items
+        // Append the last row if it contains less than 3 items
         displayResults.appendChild(row);
     }
 
