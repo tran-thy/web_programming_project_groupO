@@ -447,9 +447,82 @@ footer p {
     margin-bottom: 15px;
   }
 
+<<<<<<< HEAD
   .navbar .nav-links {
     display: none;
   }
+=======
+    .navbar .nav-links {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background-color: transparent;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 100;
+        display: flex; 
+    }
+
+  
+
+    .navbar .nav-links li a {
+        color: #4c7599; 
+        font-weight: bold;
+    }
+
+    .navbar .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        
+    }
+
+
+    .toggle-nav-btn {
+        display: block; 
+    }
+
+    .toggle-nav-btn {
+        margin-top: -5px;
+        margin-right: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer; 
+    }
+    
+    .toggle-nav-btn i {
+        font-size: 20px;
+        color: #0e5079;
+    }
+
+    .navbar .nav-links {
+        display: flex; 
+        flex-direction: column; 
+        position: fixed; 
+        top: 60px;
+        right: 20px; 
+        background-color: #fff; 
+        /* align-items: flex-start;  */
+        z-index: 100;
+        padding:10px;
+        padding-top:20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+
+    .navbar .nav-links li {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .navbar .nav-links.show {
+        display: flex;
+        flex-direction: column; 
+    }
+>>>>>>> dff2cbfe20f0b2200a1ab5e06961d695e8f1c1b1
 
   .navbar .nav-links.show {
     display: flex;
