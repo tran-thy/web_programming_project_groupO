@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Vietnamese recipes</title>
+    <link rel="stylesheet" href="chinese_styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* CSS for recipe gallery */
+
+      /* CSS for pagination buttons */
+      a {
+        text-decoration: none;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 0 5px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #currentPage {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" id="recipeGallery">
+      <div class="recipe">
+        <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
+          <div class="image"></div>
+          <div class="info">
+            <h2 class="title-item"></h2>
+            <!-- <p class="author"></p> -->
+            <!-- <p class="description"></p> -->
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="pagination">
+      <button id="prevPage">Previous</button>
+      <button id="currentPage">Page 1</button>
+
+      <button id="nextPage">Next</button>
+    </div>
+
+    <script>
+      const BACKEND_ROOT_URL = "http://localhost:3001";
+
+      // Function to retrieve Vietnamese dishes data from the backend
+      const getVietnameseDishesData = async (startIndex, endIndex) => {
+        try {
+          const response = await fetch(`${BACKEND_ROOT_URL}`);
+          const dishesData = await response.json();
+          return dishesData
+            .filter((dish) => dish.dishtype === "Vietnamese Dish")
+            .slice(startIndex, endIndex);
+        } catch (error) {
+          throw new Error(
+            `Error retrieving Vietnamese dishesData: ${error.message}`
+          );
+        }
+      };
+
+      // Function to render Vietnamese dishes
+      const renderVietnameseDishes = async () => {
+        try {
+          const vietnameseDishesData = await getVietnameseDishesData(0, 6);
+          let currentPage = 1;
+          const pageSize = 6;
+          const dishesData = await getVietnameseDishesData();
+          totalRecipes = dishesData.length; // Update totalRecipes with the length of Vietnamese dishes data
+          //   const totalRecipes = 16;
+          const totalPages = Math.ceil(totalRecipes / pageSize); // This should give 3  pages
+          console.log(totalPages); // Check if this gives the expected result
+
+          const renderDishesForPage = async (page) => {
+            try {
+              const startIndex = (page - 1) * pageSize;
+              //   const endIndex = Math.min(startIndex + pageSize, totalRecipes);
+              const endIndex = startIndex + pageSize;
+              const dishesData = await getVietnameseDishesData(
+                startIndex,
+                endIndex
+              );
+              displayVietnameseDishes(dishesData);
+            } catch (error) {
+              alert(error.message);
+            }
+          };
+
+          const updatePaginationControls = () => {
+            document.getElementById(
+              "currentPage"
+            ).textContent = `Page ${currentPage}`;
+          };
+
+          document
+            .getElementById("nextPage")
+            .addEventListener("click", async () => {
+              currentPage++;
+              if (currentPage > Math.ceil(totalPages)) {
+                currentPage = Math.ceil(totalPages);
+              }
+              await renderDishesForPage(currentPage);
+              updatePaginationControls();
+            });
+
+          document.getElementById("prevPage").addEventListener("click", () => {
+            if (currentPage > 1) {
+              currentPage--;
+              renderDishesForPage(currentPage);
+              updatePaginationControls();
+            }
+          });
+
+          renderDishesForPage(currentPage);
+          updatePaginationControls();
+        } catch (error) {
+          alert(error.message);
+        }
+      };
+
+      const displayVietnameseDishes = (dishesData) => {
+        vietnameseRecipeSection = document.getElementById("recipeGallery");
+        if (!vietnameseRecipeSection) {
+          throw new Error("Vietnamese recipe display section not found");
+        }
+        vietnameseRecipeSection.innerHTML = "";
+
+        dishesData.forEach((dish) => {
+          const dishElement = document.createElement("div");
+          dishElement.classList.add("recipe");
+          const dishLink = document.createElement("a");
+          dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`; // Set the href attribute to '#' for now, replace with actual link destination
+
+          const imageDiv = document.createElement("div");
+          imageDiv.classList.add("image");
+
+          const dishImage = document.createElement("img");
+          dishImage.src = dish.dishimage;
+          dishImage.alt = dish.dishname;
+
+          imageDiv.appendChild(dishImage);
+
+          const infoDiv = document.createElement("div");
+          infoDiv.classList.add("info");
+
+          const dishName = document.createElement("h2");
+          dishName.classList.add("title-item");
+          dishName.textContent = dish.dishname;
+
+          // Create the p element for dish name with class "author"
+          //  const dishAuthor = document.createElement("p");
+          //   dishAuthor.classList.add("author");
+          //   dishAuthor.textContent = dish.dishauthor;
+
+          // Create the p element for dish name with class "author"
+          //   const dishDescription = document.createElement("p");
+          //   dishDescription.classList.add("description");
+          //   dishDescription.textContent = dish.dishdescription;
+
+          infoDiv.appendChild(dishName);
+
+          dishLink.appendChild(imageDiv);
+          dishLink.appendChild(infoDiv);
+          dishElement.appendChild(dishLink);
+          vietnameseRecipeSection.appendChild(dishElement); //
+        });
+
+        vietnameseRecipeSection.style.display = "block";
+      };
+
+      renderVietnameseDishes();
+    </script>
+  </body>
+</html>

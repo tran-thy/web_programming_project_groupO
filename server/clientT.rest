@@ -9,5 +9,20 @@ Content-Type: application/json
   "description": "Test from REST Client"
 }
 
+### get id
+GET http://localhost:3001/get/VN-0002
+
+### get cmt
+GET http://localhost:3001/cmt
+
+### Add new cmt
+POST http://localhost:3001/cmt/new HTTP/1.1
+content-type: application/json
+
+{
+  "commenter_name": "Name",
+  "comment_content": "Test"
+}
 
 
+ 

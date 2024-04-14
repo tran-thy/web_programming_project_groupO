@@ -1,73 +1,135 @@
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
 const { Pool } = require("pg");
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-const port = 3001;
-
-// Define route handler for fetching recipes
-app.get("/recipes", (req, res) => {
-  let page = req.query.page || 1; // Default to page 1 if no page parameter is provided
-  const pageSize = 6; // Number of recipes per page
-
-  if (page <= 1) {
-    page = 1; // Ensure page number is at least 1
-  }
-
-  const pool = openDb();
-  const offset = (page - 2) * pageSize;
-
-  pool.query(
-    "SELECT * FROM chinese_recipes LIMIT $1 OFFSET $2",
-    [pageSize, offset],
-    (error, result) => {
-      if (error) {
-        res.status(500).json({ error: error.message });
-      } else {
-        res.status(200).json(result.rows);
-      }
-    }
-  );
-});
-
-// Define route handler for adding a new recipe
-// INSERT INTO Chinese_Recipes (recipe_id, recipe_name, description, image_file)
-// VALUES (1, 'Big Plate Chicken', 'Spicy chicken with potatoes',
-// '/css/dapanji.jpg');
-// INSERT INTO Chinese_Recipes (recipe_id, recipe_name, description, image_file
-app.post("/newrecipe", (req, res) => {
-  const pool = openDb();
-  const query_post =
-    "INSERT INTO chinese_recipes ((recipe_id, recipe_name, description, image_file) VALUES ($1) RETURNING *";
-  const values_post = [
-    req.body.recipe_id,
-    req.body.recipe_name,
-    req.body.description,
-    req.body.image_file,
-  ];
-  pool.query(query_post, values_post, (error, result) => {
-    if (error) {
-      res.status(500).json({ error: error.message });
-    } else {
-      res.status(200).json({ id: result.rows[0].id });
-    }
-  });
-});
+require("dotenv").config();
 
 const openDb = () => {
   const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "ChineseRecipes",
-    password: "83304127",
-    port: 5432,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
   });
   return pool;
 };
+const port = process.env.PORT;
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+const query = (sql, values = []) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const pool = openDb();
+      const result = await pool.query(sql, values);
+      resolve(result);
+    } catch (error) {
+      reject(error.message);
+    }
+  });
+};
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.listen(port);
+// Start the server
+
+//get/post recipe
+
+app.get("/", async (req, res) => {
+  console.log(query);
+  try {
+    const result = await query("SELECT * FROM dishesData");
+    const rows = result.rows ? result.rows : [];
+    res.status(200).json(rows);
+  } catch (error) {
+    console.log(error);
+    res.statusMessage = error;
+    res.status(500).json({ error: error });
+  }
+});
+
+// not yet test post
+app.post("/new", async (req, res) => {
+  console.log(req.body);
+  try {
+    const result = await query(
+      "INSERT INTO dishesData (dishid, dishtype, dishname, dishdescription, dishimage, recipeingredients, recipeinstruction) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [
+        req.body.dishid,
+        req.body.dishtype,
+        req.body.dishname,
+        req.body.dishdescription,
+        req.body.dishimage,
+        req.body.recipeingredients,
+        req.body.recipeinstruction,
+      ]
+    );
+    res.status(200).json({ dishid: result.rows[0].dishid });
+  } catch (error) {
+    console.error("Error inserting recipe:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+//
+
+// Backend API endpoint for fetching a dish by its ID
+
+app.get("/get/:id", async (req, res) => {
+  const { id } = req.params; // Get the id from request parameters
+  console.log(id); // Logging the id to verify
+
+  try {
+    const result = await query("SELECT * FROM dishesData WHERE dishid = $1", [
+      id,
+    ]);
+    const rows = result.rows[0];
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//For comments
+//
+app.get("/cmt", async (req, res) => {
+  console.log(query);
+  try {
+    const result = await query("SELECT * FROM comments");
+    const rows = result.rows ? result.rows : [];
+    res.status(200).json(rows);
+  } catch (error) {
+    console.log(error);
+    res.statusMessage = error;
+    res.status(500).json({ error: error });
+  }
+});
+
+app.post("/cmt/new", async (req, res) => {
+  // console.log(req.body);
+  try {
+    const result = await query(
+      "INSERT INTO comments (commenter_name, comment_content) VALUES ($1, $2) RETURNING *",
+      [req.body.commenter_name, req.body.comment_content]
+    );
+    res.status(200).json({ comment_id: result.rows[0].comment_id });
+  } catch (error) {
+    console.error("Error inserting comment:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.delete("/cmt/delete/:id", async (req, res) => {
+  const id_cmt = Number(req.params.id);
+  try {
+    const result = await query("delete from comments where comment_id = $1", [
+      id_cmt,
+    ]);
+    res.status(200).json({ comment_id: id_cmt });
+  } catch (error) {
+    console.log(error);
+    res.statusMessage = error;
+    res.status(500).json({ error: error });
+  }
 });
