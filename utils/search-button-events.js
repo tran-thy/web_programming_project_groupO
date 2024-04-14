@@ -1,3 +1,6 @@
+// Base URL for dish details page
+const EACH_RECIPE_DETAIL_BASE_URL = "_each-recipe-detail.html";
+
 // Function to handle click event on search symbol button
 document.getElementById('search-button-icon').addEventListener('click', function() {
     const searchBox = document.querySelector('.search-box');
@@ -70,7 +73,7 @@ async function handleSearch() {
 }
 
 // Function to display search results
-function displaySearchResults(searchResults) {
+const displaySearchResults = (searchResults, eachRecipeDetailsBaseUrl) => {
     const searchResultsSection = document.getElementById('search-results-section');
     const displayResults = document.getElementById('search-results');
 
@@ -103,7 +106,7 @@ function displaySearchResults(searchResults) {
             listItem.classList.add('col-md-6', 'listing-item');
 
             const link = document.createElement('a');
-            link.href = ''; // Replace with the actual link for each search result
+            link.href = `${eachRecipeDetailsBaseUrl}?id=${result.id}`; // Constructing the dish details URL
 
             const image = document.createElement('img');
             image.classList.add('equal-img');
@@ -118,20 +121,8 @@ function displaySearchResults(searchResults) {
             link.appendChild(title);
             listItem.appendChild(link);
 
-            const buttonsContainer = document.createElement('div');
-            buttonsContainer.classList.add('category-buttons');
-
-            const button = document.createElement('a');
-            button.classList.add('category-btn', 'btn', 'btn-primary');
-            button.href = ''; // Replace with the actual link for each search result
-
-            const strong = document.createElement('strong');
-            strong.classList.add('category-more-detail');
-            strong.textContent = 'Explore More Recipes >';
-
-            button.appendChild(strong);
-            buttonsContainer.appendChild(button);
-            listItem.appendChild(buttonsContainer);
+            // Add a line break after the dish name
+            listItem.appendChild(document.createElement('br'));
 
             row.appendChild(listItem);
         });
@@ -142,4 +133,4 @@ function displaySearchResults(searchResults) {
 
     // Display search results section
     searchResultsSection.style.display = 'block';
-}
+};
