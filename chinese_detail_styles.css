@@ -447,11 +447,6 @@ footer p {
     margin-bottom: 15px;
   }
 
-<<<<<<< HEAD
-  .navbar .nav-links {
-    display: none;
-  }
-=======
     .navbar .nav-links {
         position: fixed;
         top: 80px;
@@ -522,7 +517,6 @@ footer p {
         display: flex;
         flex-direction: column; 
     }
->>>>>>> dff2cbfe20f0b2200a1ab5e06961d695e8f1c1b1
 
   .navbar .nav-links.show {
     display: flex;
