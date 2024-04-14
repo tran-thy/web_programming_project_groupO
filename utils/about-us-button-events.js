@@ -1,7 +1,7 @@
 document.getElementById("about-btn").addEventListener("click", function() {
     const aboutUsSection = document.getElementById("about-us-section");
 
-    fetch("a-about-us-content.html")
+    fetch("_about-us-content.html")
         .then((response) => response.text())
         .then((data) => {
             aboutUsSection.innerHTML = data;
@@ -18,7 +18,7 @@ document.getElementById("about-btn").addEventListener("click", function() {
 document.getElementById("carousel-btn-about").addEventListener("click", function() {
     const aboutUsSection = document.getElementById("about-us-section");
 
-    fetch("a-about-us-content.html")
+    fetch("_about-us-content.html")
         .then((response) => response.text())
         .then((data) => {
             aboutUsSection.innerHTML = data;
@@ -30,7 +30,7 @@ document.getElementById("carousel-btn-about").addEventListener("click", function
 document.getElementById("footer-btn-about").addEventListener("click", function() {
     const aboutUsSection = document.getElementById("about-us-section");
 
-    fetch("a-about-us-content.html")
+    fetch("_about-us-content.html")
         .then((response) => response.text())
         .then((data) => {
             aboutUsSection.innerHTML = data;
