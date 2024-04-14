@@ -126,9 +126,9 @@ body {
   color: #d2b48c;
   transition: all 0.3s;
 }
-
+/* toggle */
 .navbar {
-  overflow: hidden;
+  overflow: visible;
   height: 0;
   transition: height 0.5s ease;
 }
@@ -340,7 +340,7 @@ body {
   color: #35190da4;
   font-family: cursive;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   letter-spacing: 2px;
   white-space: nowrap;
 }
@@ -353,15 +353,11 @@ body {
   white-space: nowrap;
 }
 @media screen and (max-width: 768px) {
-  #toggle {
-    display: block;
-    background-color: transparent;
-  }
-
   .navbar {
-    float: none;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
   }
-
   .signup-search-area {
     float: none;
     justify-content: center;
@@ -377,13 +373,10 @@ body {
 
   #toggle {
     display: block;
-    background-color: transparent;
   }
-
   .navbar {
     float: none;
   }
-
   .navbar-nav {
     margin-left: 30px;
     text-align: left;
