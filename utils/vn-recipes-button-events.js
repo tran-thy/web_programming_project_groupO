@@ -2,14 +2,14 @@ const BACKEND_ROOT_URL = "http://localhost:3001";
 let vietnameseRecipeSection; // Declare the variable for later assignment
 
 // Function to retrieve Vietnamese dishes data from the backend
-const getVietnameseDishesData = async () => {
-  try {
-    const response = await fetch(`${BACKEND_ROOT_URL}`);
-    const dishesData = await response.json();
-    return dishesData.filter((dish) => dish.dishtype === "Vietnamese Dish");
-  } catch (error) {
-    throw new Error(`Error retrieving Vietnamese dishesData: ${error.message}`);
-  }
+const getVietnameseDishesData = async() => {
+    try {
+        const response = await fetch(`${BACKEND_ROOT_URL}`);
+        const dishesData = await response.json();
+        return dishesData.filter((dish) => dish.dishtype === "Vietnamese Dish");
+    } catch (error) {
+        throw new Error(`Error retrieving Vietnamese dishesData: ${error.message}`);
+    }
 };
 
 // Function to render Vietnamese dishes
@@ -18,52 +18,81 @@ const renderVietnameseDishes = async() => {
         // Hide sections
         hideSections();
 
-    const vietnameseDishesData = await getVietnameseDishesData();
-    displayVietnameseDishes(vietnameseDishesData);
-  } catch (error) {
-    alert(error.message);
-  }
+        const vietnameseDishesData = await getVietnameseDishesData();
+        displayVietnameseDishes(vietnameseDishesData);
+    } catch (error) {
+        alert(error.message);
+    }
 };
 
 // Function to display Vietnamese dishes
 const displayVietnameseDishes = (dishesData) => {
-  // Ensure vietnameseRecipeSection is defined
-  vietnameseRecipeSection = document.getElementById(
-    "vn-recipe-display-section"
-  );
-  if (!vietnameseRecipeSection) {
-    throw new Error("Vietnamese recipe display section not found");
-  }
+    const vietnameseRecipeSection = document.getElementById("vn-recipe-display-section");
+    const displayResults = document.getElementById("vn-recipe-display");
 
-  // Clear previous content
-  vietnameseRecipeSection.innerHTML = "";
+    // Clear previous content
+    displayResults.innerHTML = "";
 
-  // Display each Vietnamese dish
-  dishesData.forEach((dish) => {
-    const dishElement = document.createElement("div");
-    dishElement.classList.add("dish");
+    if (dishesData.length === 0) {
+        // If no Vietnamese dishes found, display a message
+        displayResults.innerHTML = "<p>No Vietnamese dishes found.</p>";
+    } else {
+        // Display Vietnamese dishes
+        let row = document.createElement("div");
+        row.classList.add("row", "category-list");
 
-    // Create elements for dish details
-    const dishName = document.createElement("h3");
-    dishName.textContent = dish.dishname;
-    const dishDescription = document.createElement("p");
-    dishDescription.textContent = dish.dishdescription;
-    const dishImage = document.createElement("img");
-    dishImage.src = dish.dishimage;
-    dishImage.alt = dish.dishname;
+        dishesData.forEach((dish, index) => {
+            if (index > 0 && index % 2 === 0) {
+                // Create a new row after every two dishes
+                displayResults.appendChild(row);
+                row = document.createElement("div");
+                row.classList.add("row", "category-list");
+            }
 
-    // Append dish details to dish element
-    dishElement.appendChild(dishName);
-    dishElement.appendChild(dishDescription);
-    dishElement.appendChild(dishImage);
+            const listItem = document.createElement("div");
+            listItem.classList.add("col-md-6", "listing-item");
 
-    // Append dish element to Vietnamese recipe section
-    vietnameseRecipeSection.appendChild(dishElement);
-  });
+            const link = document.createElement("a");
+            link.href = `dish-details.html?id=${dish.id}`; // Update to match your file and parameter name
 
-  // Display the section
-  vietnameseRecipeSection.style.display = "block";
+            const image = document.createElement("img");
+            image.classList.add("equal-img");
+            image.src = dish.dishimage;
+            image.alt = dish.dishname;
+
+            const title = document.createElement("div");
+            title.classList.add("category-title");
+            title.textContent = dish.dishname;
+
+            link.appendChild(image);
+            link.appendChild(title);
+            listItem.appendChild(link);
+
+            const buttonsContainer = document.createElement("div");
+            buttonsContainer.classList.add("category-buttons");
+
+            const button = document.createElement("a");
+            button.classList.add("category-btn", "btn", "btn-primary");
+            button.href = `dish-details.html?id=${dish.id}`; // Update to match your file and parameter name
+
+            const strong = document.createElement("strong");
+            strong.classList.add("category-more-detail");
+
+            button.appendChild(strong);
+            buttonsContainer.appendChild(button);
+            listItem.appendChild(buttonsContainer);
+
+            row.appendChild(listItem);
+        });
+
+        // Append the last row if it contains less than 2 items
+        displayResults.appendChild(row);
+    }
+
+    // Display the section
+    vietnameseRecipeSection.style.display = "block";
 };
+
 
 // Event listener for Vietnamese recipes button in navigation
 document.addEventListener('DOMContentLoaded', () => {
