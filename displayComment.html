@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comments</title>
+    <style>
+      .comment {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        max-width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="comments-container"></div>
+      <div id="error-message"></div>
+      <!-- Placeholder for error messages -->
+
+      <form id="comment-form" action="submit_comment.php" method="post">
+        <label for="commenter_name">User Name:</label><br />
+        <input
+          type="text"
+          id="commenter_name"
+          name="commenter_name"
+          required
+        /><br />
+
+        <label for="comment_content">Comment:</label><br />
+        <textarea
+          id="comment_content"
+          name="comment_content"
+          rows="4"
+          cols="50"
+          required
+        ></textarea
+        ><br />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <!-- JavaScript code to fetch, display comments and delete comments -->
+    <script>
+      const BACKEND_ROOT_URL = "http://localhost:3001";
+
+      const getCommentsData = async () => {
+        try {
+          const response = await fetch(`${BACKEND_ROOT_URL}/cmt`);
+          const cmtData = await response.json();
+          return cmtData;
+        } catch (error) {
+          throw new Error(`Error retrieving comments data: ${error.message}`);
+        }
+      };
+
+      const renderComments = async () => {
+        try {
+          const cmtData = await getCommentsData();
+          displayComments(cmtData);
+        } catch (error) {
+          document.getElementById("error-message").textContent = error.message;
+        }
+      };
+
+      const displayComments = (cmtData) => {
+        const commentsContainer = document.getElementById("comments-container");
+        commentsContainer.innerHTML = "";
+
+        cmtData.forEach((comment) => {
+          const commentElement = document.createElement("div");
+          commentElement.classList.add("comment");
+          commentElement.innerHTML = `
+          <p><strong>${comment.commenter_name}</strong>: ${comment.comment_content}</p>
+          <p><em>${comment.created_at}</em> <button class="delete-btn" data-id="${comment.comment_id}">Delete</button></p>
+        `;
+          commentsContainer.appendChild(commentElement);
+        });
+
+        // Add event listeners to delete buttons
+        const deleteButtons = document.querySelectorAll(".delete-btn");
+        deleteButtons.forEach((button) => {
+          button.addEventListener("click", async () => {
+            const commentId = parseInt(button.getAttribute("data-id"));
+            try {
+              await deleteComment(commentId);
+              renderComments(); // Re-render comments after deletion
+            } catch (error) {
+              alert(error.message);
+            }
+          });
+        });
+      };
+
+      const postComment = async (name, content) => {
+        try {
+          const response = await fetch(`${BACKEND_ROOT_URL}/cmt/new`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              commenter_name: name,
+              comment_content: content,
+            }),
+          });
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          throw new Error(`Error adding comment: ${error.message}`);
+        }
+      };
+
+      const deleteComment = async (commentId) => {
+        try {
+          const response = await fetch(
+            `${BACKEND_ROOT_URL}/cmt/delete/${commentId}`,
+            {
+              method: "DELETE",
+            }
+          );
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          throw new Error(`Error deleting comment: ${error.message}`);
+        }
+      };
+
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const commenterName = formData.get("commenter_name");
+          const commentContent = formData.get("comment_content");
+
+          try {
+            await postComment(commenterName, commentContent);
+            renderComments();
+            event.target.reset();
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+
+      renderComments();
+    </script>
+  </body>
+</html>

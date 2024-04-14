@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Vietnamese recipes</title>
+    <link rel="stylesheet" href="#" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .title-item {
+        text-align: left;
+        color: #333;
+      }
+
+      .info {
+        margin-top: 20px;
+      }
+
+      .description {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .image {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #dish-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        margin-top: 20px;
+        color: #333;
+      }
+
+      ul,
+      ol {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .comment {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        max-width: 500px;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="dish">
+      <h2 class="title-item" id="dish-name"></h2>
+      <div class="info">
+        <p class="description" id="dish-description"></p>
+        <div class="image">
+          <img id="dish-image" src="" alt="" />
+        </div>
+        <h3>Recipe Ingredients:</h3>
+        <ul id="recipe-ingredients">
+          <!-- Ingredients will be populated dynamically -->
+        </ul>
+        <h3>Recipe Instructions:</h3>
+        <ol id="recipe-instructions">
+          <!-- Instructions will be populated dynamically -->
+        </ol>
+      </div>
+
+      <!-- comment part -->
+      <div id="comments-container"></div>
+      <div id="error-message"></div>
+      <!-- Placeholder for error messages -->
+
+      <form id="comment-form" action="submit_comment.php" method="post">
+        <label for="commenter_name">User Name:</label><br />
+        <input
+          type="text"
+          id="commenter_name"
+          name="commenter_name"
+          required
+        /><br />
+
+        <label for="comment_content">Comment:</label><br />
+        <textarea
+          id="comment_content"
+          name="comment_content"
+          rows="4"
+          cols="50"
+          required
+        ></textarea
+        ><br />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <script>
+      const BACKEND_ROOT_URL = "http://localhost:3001";
+
+      const fetchData = async (endpoint) => {
+        try {
+          const response = await fetch(`${BACKEND_ROOT_URL}/${endpoint}`);
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("There was a problem with the fetch operation:", error);
+          throw error;
+        }
+      };
+
+      const renderVietnameseDish = async (id) => {
+        try {
+          const vietnameseDishData = await fetchData(`get/${id}`);
+          displayDish(vietnameseDishData);
+        } catch (error) {
+          alert(error.message);
+        }
+      };
+
+      const renderComments = async () => {
+        try {
+          const commentsData = await fetchData("cmt");
+          displayComments(commentsData);
+        } catch (error) {
+          document.getElementById("error-message").textContent = error.message;
+        }
+      };
+
+      const displayDish = (dish) => {
+        const dishNameElement = document.getElementById("dish-name");
+        const dishDescriptionElement =
+          document.getElementById("dish-description");
+        const dishImageElement = document.getElementById("dish-image");
+        const recipeIngredientsElement =
+          document.getElementById("recipe-ingredients");
+        const recipeInstructionsElement = document.getElementById(
+          "recipe-instructions"
+        );
+
+        dishNameElement.textContent = dish.dishname;
+        dishDescriptionElement.textContent = dish.dishdescription;
+        dishImageElement.src = dish.dishimage;
+
+        // Populate Ingredients
+        dish.recipeingredients.split(",").forEach((ingredient) => {
+          const li = document.createElement("li");
+          li.textContent = ingredient.trim();
+          recipeIngredientsElement.appendChild(li);
+        });
+
+        // Populate Instructions
+        dish.recipeinstruction.split(".").forEach((instruction) => {
+          const li = document.createElement("li");
+          li.textContent = instruction.trim();
+          recipeInstructionsElement.appendChild(li);
+        });
+      };
+
+      const displayComments = (comments) => {
+        const commentsContainer = document.getElementById("comments-container");
+        commentsContainer.innerHTML = "";
+
+        comments.forEach((comment) => {
+          const commentElement = document.createElement("div");
+          commentElement.classList.add("comment");
+          commentElement.innerHTML = `
+          <p><strong>${comment.commenter_name}</strong>: ${comment.comment_content}</p>
+          <p><em>${comment.created_at}</em> <button class="delete-btn" data-id="${comment.comment_id}">Delete</button></p>
+        `;
+          commentsContainer.appendChild(commentElement);
+        });
+
+        // Add event listeners to delete buttons
+        const deleteButtons = document.querySelectorAll(".delete-btn");
+        deleteButtons.forEach((button) => {
+          button.addEventListener("click", async () => {
+            const commentId = parseInt(button.getAttribute("data-id"));
+            try {
+              await deleteComment(commentId);
+              renderComments(); // Re-render comments after deletion
+            } catch (error) {
+              alert(error.message);
+            }
+          });
+        });
+      };
+
+      const postComment = async (name, content) => {
+        try {
+          const response = await fetch(`${BACKEND_ROOT_URL}/cmt/new`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              commenter_name: name,
+              comment_content: content,
+            }),
+          });
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          throw new Error(`Error adding comment: ${error.message}`);
+        }
+      };
+
+      const deleteComment = async (commentId) => {
+        try {
+          const response = await fetch(
+            `${BACKEND_ROOT_URL}/cmt/delete/${commentId}`,
+            {
+              method: "DELETE",
+            }
+          );
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          throw new Error(`Error deleting comment: ${error.message}`);
+        }
+      };
+
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const commenterName = formData.get("commenter_name");
+          const commentContent = formData.get("comment_content");
+
+          try {
+            await postComment(commenterName, commentContent);
+            renderComments();
+            event.target.reset();
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+
+      // renderVietnameseDish("VN-0002"); //test
+
+      // Get the dish ID from the URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const dishId = urlParams.get("id");
+
+      // Render the Vietnamese dish using the retrieved dishId
+      renderVietnameseDish(dishId);
+      renderComments();
+    </script>
+  </body>
+</html>

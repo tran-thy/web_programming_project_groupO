@@ -1,139 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chinese Recipes</title>
-    <link rel="stylesheet" href="chinese_styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-
- <nav class="navbar">
-    <div class="container">
+    <link rel="stylesheet" href="chinese_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
         <h1 class="logo">Chinese Recipes</h1>
 
         <ul class="nav-links">
-            <li class="nav-link"><a href="#">Home</a></li>
-            <li class="nav-link"><a href="#">Vietnamese Recipes</a></li>
-            <li class="nav-link"><a href="#">Chinese Recipes</a></li>
-            <li class="nav-link"><a href="#">About us</a></li>
+          <li class="nav-link"><a href="#">Home</a></li>
+          <li class="nav-link"><a href="#">Vietnamese Recipes</a></li>
+          <li class="nav-link"><a href="#">Chinese Recipes</a></li>
+          <li class="nav-link"><a href="#">About us</a></li>
         </ul>
+      </div>
+    </nav>
+
+    <button id="toggleNavBtn" class="toggle-nav-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="social-media-container">
+      <ul class="social-media">
+        <li>
+          <a href="https://twitter.com" class="social-button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://facebook.com" class="social-button"
+            ><i class="fab fa-facebook"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://instagram.com" class="social-button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://linkedin.com" class="social-button"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </li>
+      </ul>
     </div>
-</nav> 
 
-
-<button id="toggleNavBtn" class="toggle-nav-btn">
-    <i class="fas fa-bars"></i>
-</button>
-
-
-<div class="social-media-container">
-    <ul class="social-media">
-        <li><a href="https://twitter.com" class="social-button"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://facebook.com" class="social-button"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="https://instagram.com" class="social-button"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://linkedin.com" class="social-button"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-
-<form action="/search" method="GET" class="search-box">
-    <div class="logo">
-        <img src="chinese_images/logo.png" alt="Logo">
-    </div>
-    <input type="text" name="keyword" placeholder="Search">
-    <button type="submit">Search</button>
-</form>
+    <form action="/search" method="GET" class="search-box">
+      <div class="logo">
+        <img src="chinese_images/logo.png" alt="Logo" />
+      </div>
+      <input type="text" name="keyword" placeholder="Search" />
+      <button type="submit">Search</button>
+    </form>
 
     <div class="container">
-        <div class="recipe">
-            <a href="sweet_and_sour_pork_tenderloin.html">
-                <div class="image">
-                    <img src="chinese_images/sweet_and_sour_pork_tenderloin.jpg" alt="Sweet and Sour Pork Tenderloin">
-                </div>
-                <div class="info">
-                    <h2>Sweet and Sour Pork Tenderloin</h2>
-                    <p class="author">By: Author 1</p>
-                    <p class="description">
-                        Classic Chinese dish. Sweet and tangy pork with bell peppers and pineapple.
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="recipe">
-            <a href="recipe2.html">
-                <div class="image">
-                    <img src="chinese_images/mapo_tofu.jpg" alt="Mapo Tofu">
-                </div>
-                <div class="info">
-                    <h2>Mapo Tofu</h2>
-                    <p class="author">By: Author 2</p>
-                    <p class="description">
-                        Popular Chinese dish. Spicy tofu and pork with black beans.
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="recipe">
-            <a href="recipe3.html">
-                <div class="image">
-                    <img src="chinese_images/crystal_dumplings.jpg" alt="Crystal Dumplings">
-                </div>
-                <div class="info">
-                    <h2>Crystal Dumplings</h2>
-                    <p class="author">By: Author 3</p>
-                    <p class="description">
-                        Translucent dumplings. Savory pork, shrimp, and vegetable filling.
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="recipe">
-            <a href="recipe4.html">
-                <div class="image">
-                    <img src="chinese_images/stir_fried_beef_with_rice_noodles.jpg" alt="Stir-Fried Beef with Rice Noodles">
-                </div>
-                <div class="info">
-                    <h2>Stir-Fried Beef with Rice Noodles</h2>
-                    <p class="author">By: Author 4</p>
-                    <p class="description">
-                        Cantonese favorite. Tender beef, flat rice noodles, and crunchy bean sprouts.
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="recipe">
-            <a href="recipe5.html">
-                <div class="image">
-                    <img src="chinese_images/fried_rice.jpg" alt="Fried Rice">
-                </div>
-                <div class="info">
-                    <h2>Fried Rice</h2>
-                    <p class="author">By: Author 5</p>
-                    <p class="description">
-                        Simple and satisfying. Rice, vegetables, and eggs stir-fried to perfection.
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="recipe">
-            <a href="recipe6.html">
-                <div class="image">
-                    <img src="chinese_images/spicy_kung_pao_chicken.jpg" alt="Spicy Kung Pao Chicken">
-                </div>
-                <div class="info">
-                    <h2>Spicy Kung Pao Chicken</h2>
-                    <p class="author">By: Author 6</p>
-                    <p class="description">
-                        Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.
-                    </p>
-                </div>
-            </a>
-        </div>
+      <div class="recipe">
+        <a href="sweet_and_sour_pork_tenderloin.html">
+          <div class="image">
+            <img
+              src="chinese_images/sweet_and_sour_pork_tenderloin.jpg"
+              alt="Sweet and Sour Pork Tenderloin"
+            />
+          </div>
+          <div class="info">
+            <h2>Sweet and Sour Pork Tenderloin</h2>
+            <p class="author">By: Author 1</p>
+            <p class="description">
+              Classic Chinese dish. Sweet and tangy pork with bell peppers and
+              pineapple.
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="recipe">
+        <a href="recipe2.html">
+          <div class="image">
+            <img src="chinese_images/mapo_tofu.jpg" alt="Mapo Tofu" />
+          </div>
+          <div class="info">
+            <h2>Mapo Tofu</h2>
+            <p class="author">By: Author 2</p>
+            <p class="description">
+              Popular Chinese dish. Spicy tofu and pork with black beans.
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="recipe">
+        <a href="recipe3.html">
+          <div class="image">
+            <img
+              src="chinese_images/crystal_dumplings.jpg"
+              alt="Crystal Dumplings"
+            />
+          </div>
+          <div class="info">
+            <h2>Crystal Dumplings</h2>
+            <p class="author">By: Author 3</p>
+            <p class="description">
+              Translucent dumplings. Savory pork, shrimp, and vegetable filling.
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="recipe">
+        <a href="recipe4.html">
+          <div class="image">
+            <img
+              src="chinese_images/stir_fried_beef_with_rice_noodles.jpg"
+              alt="Stir-Fried Beef with Rice Noodles"
+            />
+          </div>
+          <div class="info">
+            <h2>Stir-Fried Beef with Rice Noodles</h2>
+            <p class="author">By: Author 4</p>
+            <p class="description">
+              Cantonese favorite. Tender beef, flat rice noodles, and crunchy
+              bean sprouts.
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="recipe">
+        <a href="recipe5.html">
+          <div class="image">
+            <img src="chinese_images/fried_rice.jpg" alt="Fried Rice" />
+          </div>
+          <div class="info">
+            <h2>Fried Rice</h2>
+            <p class="author">By: Author 5</p>
+            <p class="description">
+              Simple and satisfying. Rice, vegetables, and eggs stir-fried to
+              perfection.
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="recipe">
+        <a href="recipe6.html">
+          <div class="image">
+            <img
+              src="chinese_images/spicy_kung_pao_chicken.jpg"
+              alt="Spicy Kung Pao Chicken"
+            />
+          </div>
+          <div class="info">
+            <h2>Spicy Kung Pao Chicken</h2>
+            <p class="author">By: Author 6</p>
+            <p class="description">
+              Fiery and flavorful. Chicken, peanuts, and chili peppers in a
+              spicy sauce.
+            </p>
+          </div>
+        </a>
+      </div>
     </div>
 
-   <div class="pagination"> </div> 
+    <div class="pagination"></div>
 
-   <script src="chinese_index.js"></script>   
-</body>
+    <script src="chinese_index.js"></script>
+  </body>
 </html>
