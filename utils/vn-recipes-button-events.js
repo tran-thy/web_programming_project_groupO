@@ -75,6 +75,9 @@ const displayVietnameseDishes = (dishesData) => {
             titleLink.appendChild(title);
             listItem.appendChild(titleLink);
 
+            // Add a line break after the dish name
+            listItem.appendChild(document.createElement('br'));
+
             row.appendChild(listItem);
         });
 
