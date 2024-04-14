@@ -127,6 +127,15 @@ body {
   transition: all 0.3s;
 }
 
+.navbar {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s ease;
+}
+.navbar.open {
+  height: auto;
+}
+
 #toggle {
   display: none;
   background: #fff;
@@ -344,6 +353,15 @@ body {
   white-space: nowrap;
 }
 @media screen and (max-width: 768px) {
+  #toggle {
+    display: block;
+    background-color: transparent;
+  }
+
+  .navbar {
+    float: none;
+  }
+
   .signup-search-area {
     float: none;
     justify-content: center;
@@ -359,10 +377,13 @@ body {
 
   #toggle {
     display: block;
+    background-color: transparent;
   }
+
   .navbar {
     float: none;
   }
+
   .navbar-nav {
     margin-left: 30px;
     text-align: left;
