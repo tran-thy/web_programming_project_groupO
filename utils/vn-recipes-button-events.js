@@ -25,6 +25,7 @@ const renderVietnameseDishes = async() => {
     }
 };
 
+
 // Function to display Vietnamese dishes
 const displayVietnameseDishes = (dishesData) => {
     const vietnameseRecipeSection = document.getElementById("vn-recipe-display-section");
@@ -42,15 +43,15 @@ const displayVietnameseDishes = (dishesData) => {
         row.classList.add("row", "category-list");
 
         dishesData.forEach((dish, index) => {
-            if (index > 0 && index % 2 === 0) {
-                // Create a new row after every two dishes
+            if (index > 0 && index % 3 === 0) {
+                // Create a new row after every three dishes
                 displayResults.appendChild(row);
                 row = document.createElement("div");
                 row.classList.add("row", "category-list");
             }
 
             const listItem = document.createElement("div");
-            listItem.classList.add("col-md-6", "listing-item");
+            listItem.classList.add("col-md-4", "listing-item");
 
             const link = document.createElement("a");
             link.href = `dish-details.html?id=${dish.id}`; // Update to match your file and parameter name
@@ -85,7 +86,7 @@ const displayVietnameseDishes = (dishesData) => {
             row.appendChild(listItem);
         });
 
-        // Append the last row if it contains less than 2 items
+        // Append the last row if it contains less than 3 items
         displayResults.appendChild(row);
     }
 
