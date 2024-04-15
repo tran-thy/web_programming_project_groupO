@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     vietnameseRecipesBtn.addEventListener('click', async(event) => {
         event.preventDefault(); // Prevent default button behavior
+        console.log("Vietnamese recipes button clicked"); // Thêm console.log ở đây
         await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
     });
 });
