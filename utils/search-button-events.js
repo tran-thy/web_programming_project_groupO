@@ -25,7 +25,7 @@ document.addEventListener('keypress', function(event) {
 // Function to retrieve all dishes data from the backend
 const getAllDishesData = async() => {
     try {
-        const response = await fetch(`${BACKEND_ROOT_URL}`);
+        const response = await fetch(`${BACKEND_ROOT_URL}/get`);
         const dishesData = await response.json();
         return dishesData;
     } catch (error) {

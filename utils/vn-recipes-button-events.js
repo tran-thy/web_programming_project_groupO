@@ -4,7 +4,7 @@ let vietnameseRecipeSection; // Declare the variable for later assignment
 // Function to retrieve Vietnamese dishes data from the backend
 const getVietnameseDishesData = async() => {
     try {
-        const response = await fetch(`${BACKEND_ROOT_URL}`);
+        const response = await fetch(`${BACKEND_ROOT_URL}/get`);
         const dishesData = await response.json();
         return dishesData.filter((dish) => dish.dishtype === "Vietnamese Dish");
     } catch (error) {
@@ -25,6 +25,41 @@ const renderVietnameseDishes = async() => {
     }
 };
 
+// Event listener for Vietnamese recipes button in navigation
+document.addEventListener('DOMContentLoaded', () => {
+    const vietnameseRecipesBtn = document.getElementById('vietnamese-recipes-btn');
+    if (!vietnameseRecipesBtn) {
+        throw new Error("Vietnamese recipes button not found");
+    }
+
+    vietnameseRecipesBtn.addEventListener('click', async(event) => {
+        event.preventDefault(); // Prevent default button behavior
+        console.log("Vietnamese recipes button clicked"); // Thêm console.log ở đây
+        await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
+    });
+});
+
+// Event listener for Vietnamese recipes button in footer
+document.addEventListener('DOMContentLoaded', () => {
+    const vietnameseRecipesBtnFooter = document.getElementById('vietnamese-recipes-btn-footer');
+    if (!vietnameseRecipesBtnFooter) {
+        throw new Error("Vietnamese recipes button in footer not found");
+    }
+
+    vietnameseRecipesBtnFooter.addEventListener('click', async(event) => {
+        event.preventDefault(); // Prevent default button behavior
+        await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
+    });
+});
+
+// Function to hide sections
+const hideSections = () => {
+    document.getElementById('highlighted-section').style.display = 'none';
+    document.getElementById('myCarousel').style.display = 'none';
+    document.getElementById('search-results-section').style.display = 'none';
+    document.getElementById('about-us-section').style.display = 'none';
+    document.getElementById('cn-recipe-display-section').style.display = 'none';
+};
 
 // Function to display Vietnamese dishes
 const displayVietnameseDishes = (dishesData) => {
@@ -54,7 +89,7 @@ const displayVietnameseDishes = (dishesData) => {
             listItem.classList.add("col-md-4", "listing-item");
 
             const link = document.createElement("a");
-            link.href = `dish-details.html?id=${dish.id}`; // Update to match your file and parameter name
+            link.href = `_each-recipe-detail.html?dishId=${dish.dishid}&dishName=${encodeURIComponent(dish.dishname)}&dishType=${encodeURIComponent(dish.dishtype)}&dishDescription=${encodeURIComponent(dish.dishdescription)}&recipeIngredients=${encodeURIComponent(dish.recipeingredients)}&recipeInstruction=${encodeURIComponent(dish.recipeinstruction)}`;
 
             const image = document.createElement("img");
             image.classList.add("equal-img");
@@ -88,40 +123,4 @@ const displayVietnameseDishes = (dishesData) => {
 
     // Display the section
     vietnameseRecipeSection.style.display = "block";
-};
-
-
-// Event listener for Vietnamese recipes button in navigation
-document.addEventListener('DOMContentLoaded', () => {
-    const vietnameseRecipesBtn = document.getElementById('vietnamese-recipes-btn');
-    if (!vietnameseRecipesBtn) {
-        throw new Error("Vietnamese recipes button not found");
-    }
-
-    vietnameseRecipesBtn.addEventListener('click', async(event) => {
-        event.preventDefault(); // Prevent default button behavior
-        await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
-    });
-});
-
-// Event listener for Vietnamese recipes button in footer
-document.addEventListener('DOMContentLoaded', () => {
-    const vietnameseRecipesBtnFooter = document.getElementById('vietnamese-recipes-btn-footer');
-    if (!vietnameseRecipesBtnFooter) {
-        throw new Error("Vietnamese recipes button in footer not found");
-    }
-
-    vietnameseRecipesBtnFooter.addEventListener('click', async(event) => {
-        event.preventDefault(); // Prevent default button behavior
-        await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
-    });
-});
-
-// Function to hide sections
-const hideSections = () => {
-    document.getElementById('highlighted-section').style.display = 'none';
-    document.getElementById('myCarousel').style.display = 'none';
-    document.getElementById('search-results-section').style.display = 'none';
-    document.getElementById('about-us-section').style.display = 'none';
-    document.getElementById('cn-recipe-display-section').style.display = 'none';
 };
