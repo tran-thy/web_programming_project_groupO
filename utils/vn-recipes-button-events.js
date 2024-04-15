@@ -4,7 +4,7 @@ let vietnameseRecipeSection; // Declare the variable for later assignment
 // Function to retrieve Vietnamese dishes data from the backend
 const getVietnameseDishesData = async() => {
     try {
-        const response = await fetch(`${BACKEND_ROOT_URL}`);
+        const response = await fetch(`${BACKEND_ROOT_URL}/get`);
         const dishesData = await response.json();
         return dishesData.filter((dish) => dish.dishtype === "Vietnamese Dish");
     } catch (error) {

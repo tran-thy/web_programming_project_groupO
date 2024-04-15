@@ -24,7 +24,7 @@ pool.on("error", (err) => {
 });
 
 // Define the route
-app.get("/", (req, res) => {
+app.get("/get", (req, res) => {
     pool.query("SELECT * FROM dishesData", (error, result) => {
         if (error) {
             res.status(500).json({ error: error.message });
