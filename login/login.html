@@ -5,9 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="login.css">
+  <style>
+    h1 {
+      font-family: "Arial Black", sans-serif; 
+      font-size: 36px; 
+      margin-bottom: 85px; 
+    }
+  </style>
 </head>
 <body>
   <div class="container">
+        <!-- Add left arrow symbol to return to home page -->
+        <div class="icon-container">
+          <a href="login-interface.html" class="return-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill left-arrow-icon" viewBox="0 0 16 16">
+                  <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+              </svg>
+          </a>
+      </div>
     <h1>Login</h1>
     <div class="form-container">
       <form>
@@ -19,7 +34,7 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" placeholder="Enter your password">
         </div>
-        <button type="submit">Confirm</button>
+        <button type="button" onclick="window.location.href='/index.html'">Confirm</button>
       </form>
     </div>
   </div>
