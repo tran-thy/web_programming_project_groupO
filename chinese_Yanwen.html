@@ -4,206 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,
-    300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;
-    1,900&display=swap" rel="stylesheet" />
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
     rel="stylesheet" />
-     <title>CHOPSTICKS WORLD</title>
+    <title>CHOPSTICKS WORLD</title>
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style_Yanwen.css">
+    <!--<link rel="stylesheet" href="./css/chinese_styles.css">-->
     <title>Chinese Recipes</title>        
 </head>
 <body>
     <!-- Part I -->
-    <div class="top-header bg-light-brown py-2">
-        <div class="menu-container">
-            <div class="row align-items-center">
-                <!-- Social Media Icons -->
-                <div class="col-md-6 mr-auto">
-                    <div class="top_social text-white">
-                        <a href="#"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-                    </div>
-                </div>
-                <!-- Search and Login/Register Area -->
-                <!-- I think this part need more discussion: many ways to that -->
-                <div class="col-7 col-sm-6">
-                    <div class="signup-search-area d-flex align-items-center justify-content-end">
-                        <!-- Login/Register Area -->
-                        <!-- It is can be change other way by by button ... -->
-                        <div class="login_register_area d-flex">
-                            <div class="login">
-                                <a href="register.html" class="text-black">Sign in</a>
-                            </div>
-                        </div>
-                        <!-- Search section -->
-                        <div class="d-flex justify-content-between align-items-center" id="search-container">
-                            <div class="search-options">
-                                <button class="btn btn-primary search-symbol" type="button" id="search-button-icon">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <div class="input-group search-box" style="display: none">
-                                    <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." aria-label="Search for a dish" aria-describedby="search-box-expanded" autocomplete="off" />
-                                    <button class="btn btn-primary" type="button" id="search-button">
-                                        Search
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Part II: Menu bar -->
-    <header class="header">
+    <nav class="navbar">
         <div class="container">
-            <div class="row align-items-center">
-                <!-- Left Side - Logo and Name -->
-                <div class="col-6 col-sm-6 d-flex align-items-center">
-                    <img class="image-wrapper logo" src="./css/logo.png" alt="Logo" width="15%" />
-                    <h1 class="logo_name">CHOPSTICKS WORLD</h1>
-                </div>
-                <!-- Right Side - Navigation -->
-                <nav class="col-6 col-sm-6 navbar navbar-expand-md">
-                    <ul class="container-fluid custom-list navbar-nav justify-content-end">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link"><span style="font-weight: bold;">HOME</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="vietnamese_recipes.html" class="nav-link"><span
-                                    style="font-weight: bold;">VIETNAMESE RECIPES</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="chinese_recipes_page/index1.html" class="nav-link"><span
-                                    style="font-weight: bold;">CHINESE RECIPES</span></a>
-                        </li>
-                        <li>
-                            <button class="btn about-btn" id="about-btn"><span style="font-weight: bold;">ABOUT
-                                    US</span>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <h1 class="logo">Chinese Recipes</h1>
+        
+            <ul class="nav-links">
+                <li class="nav-link-home"><a href="#">Home</a></li>
+                <li class="nav-link-vietnamese"><a href="#">Vietnamese Recipes</a></li>
+                <li class="nav-link"><a href="#">Chinese Recipes</a></li>
+                <li class="nav-link"><a href="#">About us</a></li>
+            </ul>
         </div>
-    </header>
-
-
-    <div class="northern-chinese-page">
-        <h2 class="northern-chinese">Northern Chinese Food</h2>
+    </nav> 
+        
+        
+    <button id="toggleNavBtn" class="toggle-nav-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+        
+        
+    <div class="social-media-container">
+        <ul class="social-media">
+            <li><a href="https://twitter.com" class="social-button"><i class="fab 
+    fa-twitter"></i></a></li>
+            <li><a href="https://facebook.com" class="social-button"><i class="fab 
+    fa-facebook"></i></a></li>
+            <li><a href="https://instagram.com" class="social-button"><i class="fab 
+    fa-instagram"></i></a></li>
+            <li><a href="https://linkedin.com" class="social-button"><i class="fab 
+    fa-linkedin"></i></a></li>
+        </ul>
     </div>
+    <!--明瑞button-->
+    <!--<form action="/search" method="GET" class="search-box">
+        <div class="logo">
+            <img src="css/logo.png" alt="Logo">
+        </div>
+        <input type="text" name="keyword" placeholder="Search">
+        <button type="submit">Search</button>
+    </form> -->
 
-    
-                                                                                   
-    <!--菜谱介绍-->
-    <!--采用蔡明瑞的方案-->
+    <form action="/search" method="GET" class="search-box">
+        <div class="logo">
+            <img src="css/logo.png" alt="Logo">
+        </div>
+        <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
+        <button type="submit">Search</button>
+    </form>
+
+       
+
+       
     <div class="recipe-container">
-      <!--第一个食谱-->
-      <div class="recipe" style="display: block;">
-          <a href="bigplatechicken.html">
-              <div class="image">
-                  <img src="./css/dapanji.jpg">
-              </div>
-              <div class="info">
-                  <h2>Big Plate Chicken</h2>
-                  <!--<p class="author">By: Author 1</p>-->
-                  <p class="description">
-                      Classic Chinese dish. Sweet and tangy pork  with bell peppers and pineapple.
-                  </p>
-              </div>
-          </a>
-      </div>
-      <!--第二个食谱-->
-      <div class="recipe" style="display: block;">
-          <a href="daoxiaomian.html">
-              <div class="image">
-                  <img src="./css/daxiaomian.jpeg" alt="Dao Xiao Mian">
-              </div>
-              <div class="info">
-                  <h2>Dao Xiao Mian</h2>
-                  <!--<p class="author">By: Author 2</p>-->
-                  <p class="description">
-                      Popular Chinese dish. Spicy tofu and pork with black beans.
-                  </p>
-              </div>
-          </a>
-      </div>
-      <!--第三个食谱-->
-      <div class="recipe" style="display: block;">
-          <a href="dumplings.html">
-              <div class="image">
-                  <img src="./css/jiaozi.jfif" alt="Dumplings">
-              </div>
-              <div class="info">
-                  <h2>Dumplings</h2>
-                  <!--<p class="author">By: Author 3</p>-->
-                  <p class="description">
-                      Translucent dumplings. Savory pork, shrimp, and vegetable filling.
-                  </p>
-              </div>
-          <!--</a>-->
-      </div>
-      <!--第四个食谱-->
-      <div class="recipe" style="display: block;">
-          <a href="beijingKaoya.html">
-              <div class="image">
-                  <img src="./css/beijingkaoya.jpeg" alt="BeijingkaoyaNoodles">
-              </div>
-              <div class="info">
-                  <h2>Bei Jing Kao ya</h2>
-                  <!--<p class="author">By: Author 4</p>-->
-                  <p class="description">
-                      Cantonese favorite. Tender beef, flat rice noodles, and crunchy 
-    bean sprouts.
-                  </p>
-              </div>
-          </a>
-      </div>
-      <!--第五个食谱-->
-      <div class="recipe" style="display: block;">
-          <a href="yangroupaomo.html">
-              <div class="image">
-                  <img src="./css/yangroupaomo.jpeg" alt="Yang Rou Pao Mo">
-              </div>
-              <div class="info">
-                  <h2>Yang Rou Pao Mo</h2>
-                  <!--<p class="author">By: Author 5</p>-->
-                  <p class="description">
-                      Lamb with sliced chinese bread and rice noodles.
-                  </p>
-              </div>
-          <!--</a>-->
-      </div>
-      <!--第六个食谱-->
-      <div class="recipe" style="display: block;">
-          <a href="crispysweetsoupork.html">
-              <div class="image">
-                  <img src="./css/guobaorou.jpg.crdownload"  alt="Crispy Sweet & Sour Pork">
-              </div>
-              <div class="info">
-                  <h2>Crispy Sweet & Sour Pork</h2>
-                  <!--<p class="author">By: Author 6</p>-->
-                  <p class="description">
-                      Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.
-                  </p>
-              </div>
-          </a>
-      </div>
+        <div class="recipe">
+            <a href="sweet_and_sour_pork_tenderloin.html">
+                <div class="image">
+                    <img src="css/sweet_and_sour_pork_tenderloin.jpg" alt="Sweet and Sour Pork Tenderloin">
+                </div>
+                <div class="info">
+                    <h2>Sweet and Sour Pork Tenderloin</h2>
+                    <p class="author">By: Author 1</p>
+                    <p class="description">
+                        Classic Chinese dish. Sweet and tangy pork with bell peppers and pineapple.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="recipe">
+            <a href="recipe2.html">
+                <div class="image">
+                    <img src="css/mapo_tofu.jpg" alt="Mapo Tofu">
+                </div>
+                <div class="info">
+                    <h2>Mapo Tofu</h2>
+                    <p class="author">By: Author 2</p>
+                    <p class="description">
+                        Popular Chinese dish. Spicy tofu and pork with black beans.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="recipe">
+            <a href="recipe3.html">
+                <div class="image">
+                    <img src="css/crystal_dumplings.jpg" alt="Crystal Dumplings">
+                </div>
+                <div class="info">
+                    <h2>Crystal Dumplings</h2>
+                    <p class="author">By: Author 3</p>
+                    <p class="description">
+                        Translucent dumplings. Savory pork, shrimp, and vegetable filling.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="recipe">
+            <a href="recipe4.html">
+                <div class="image">
+                    <img src="css/stir_fried_beef_with_rice_noodles.jpg" 
+alt="Stir-Fried Beef with Rice Noodles">
+                </div>
+                <div class="info">
+                    <h2>Stir-Fried Beef with Rice Noodles</h2>
+                    <p class="author">By: Author 4</p>
+                    <p class="description">
+                        Cantonese favorite. Tender beef, flat rice noodles, and crunchy bean sprouts.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="recipe">
+            <a href="recipe5.html">
+                <div class="image">
+                    <img src="css/fried_rice.jpg" alt="Fried Rice">
+                </div>
+                <div class="info">
+                    <h2>Fried Rice</h2>
+                    <p class="author">By: Author 5</p>
+                    <p class="description">
+                        Simple and satisfying. Rice, vegetables, and eggs stir-fried to perfection.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="recipe">
+            <a href="recipe6.html">
+                <div class="image">
+                    <img src="css/spicy_kung_pao_chicken.jpg" alt="Spicy Kung Pao Chicken">
+                </div>
+                <div class="info">
+                    <h2>Spicy Kung Pao Chicken</h2>
+                    <p class="author">By: Author 6</p>
+                    <p class="description">
+                        Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.
+                    </p>
+                </div>
+            </a>
+        </div>
     </div>
-      <!----> 
-    <div class="container">
-    <!-- Page buttons will be dynamically added here -->
-        <button class="pagination-button">1</button>
-        <button class="pagination-button">2</button>
-        <button class="pagination-button">3</button>
-        <button class="pagination-button">4</button>
-        <button class="pagination-button">5</button>
-    <!--<button class="button_next">Next</button>-->
+    
+<div class="pagination"> </div> 
+        
+                                                                                                                                                                        
+                                                                                       
+<!----> 
+    <div class="pagination-container">
+<!-- Page buttons will be dynamically added here -->
+        <button type="button" class="btn btn-primary pagination-button">1</button>
+        <button type="button" class="btn btn-primary pagination-button">2</button>
+        <button type="button" class="btn btn-primary pagination-button">3</button>
+        <button type="button" class="btn btn-primary pagination-button">4</button>
+        <button type="button" class="btn btn-primary pagination-button">5</button>
+        <button type="button" class="btn btn-primary pagination-button">6</button>
+        <button type="button" class="btn btn-primary pagination-button">7</button>
+<!--<button class="button_next">Next</button>-->
     </div>
+    
+    <!--for the responsive action--> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./js/index-heyanwen.js"></script>             
 </body>

@@ -1,45 +1,705 @@
 /* Original styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
 a {
     text-decoration: none;
-}
+}  
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+    background-color: #fff;
 }
-/* for the index.html recipe cards */
-.recipe-container {
+
+body {
+    padding-top: 60px; 
+}
+
+body {
+    overflow-x: auto;
+} 
+
+.container {
     max-width: 1200px;
-    margin: 10px auto;
+    margin: 20px auto 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+} 
+
+.recipe {
+    width: calc(33.33% - 20px);
+    margin-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 500px; 
+} 
+
+.recipe:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
+
+.image {
+    width: 100%;
+    height: 77%;
+    overflow: hidden;
+} 
+
+.image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.info {
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+h2, .author, .description {
+    text-align: center;
+} 
+
+h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}  
+
+.author {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+} 
+
+.pagination button {
+    padding: 8px 20px;
+    background-color: #D2B48C;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.pagination button.active {
+    background-color: #ad8e65;
+}
+
+.pagination button:hover {
+    transform: scale(1.15);
+}
+
+.pagination .page-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pagination .page-buttons button {
+    margin: 5px;
+}   
+
+
+.navbar {
+    background-color: #D2B48C;
+    color: #fff;
+    padding: 13px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; 
+}
+.navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    margin: 0;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.navbar .nav-links li:first-child {
+    margin-left: 0;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.navbar .nav-links li a:hover {
+    text-decoration: none; 
+    color: #ff4500;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center; 
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+}
+
+.navbar .nav-links li a {
+    font-weight: bold;
+}
+
+.social-media-container {
+    margin-top: 25px; 
+    margin-bottom: 0px; 
+    text-align: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+}
+
+.social-media-container .social-media i {
+    font-size: 1.75em; 
+    color: #9b59b6;
+    transition: transform 0.3s ease; 
+}
+
+.social-media-container .social-media i:hover {
+    transform: scale(1.2); 
+}
+
+.social-media li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-media li:last-child {
+    margin-right: 0;
+}
+
+.social-media img {
+    width: 200px;
+    height: 200px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box .logo {
+    margin-right: 60px; 
+}
+
+.search-box input[type="text"] {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff6347;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-box button:hover {
+    background-color: #ff4500;
+}
+
+ .logo img {
+    height: 100px; 
+}  
+
+
+
+
+
+.toggle-nav-btn {
+    display: none; 
+}
+
+.toggle-nav-btn {
+    display: none; 
+    position: fixed;
+    top: 20px;
+    right: 20px; 
+    z-index: 9999;
+}
+
+
+
+.search-box {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 40px; 
+    z-index: 999; 
+    background-color: #fff; 
+    padding: 10px; 
+    
+}
+
+
+
+
+
+
+.footer {
+    background-color: #fff;
+    color: #D2B48C;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.footer h1.logo_name_footer {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.footer .nav-footer {
+    margin-bottom: 20px;
+}
+
+.footer .nav-footer .custom-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer .nav-footer .custom-list li {
+    margin-bottom: 10px;
+}
+
+.footer .nav-footer .custom-list li a,
+.footer .nav-footer .custom-list li button {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.footer .nav-footer .custom-list li a:hover,
+.footer .nav-footer .custom-list li button:hover {
+    color: #ff4500;
+}
+
+.footer .social {
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.footer .social a {
+    margin-left: 20px; 
+    color: #fff;
+    font-size: 24px; 
+}
+
+.footer .social a:first-child {
+    margin-left: 0; 
+}
+
+.footer .social a:hover {
+    color: #ff4500;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .social-media-container {
+        margin-top: 10px;
+    }
+
+    .search-box {
+        display: block;
+        margin-top: 20px;
+    }
+    .search-box input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+
+    .social-media-container {
+        margin-top: 20px; 
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        margin-top: 20px; 
+    }
+
+
+   
+    .recipe {
+        width: calc(100% - 20px); 
+    } 
+
+    .recipe {
+        width: 90%; 
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column; 
+    }
+
+    .pagination button {
+        margin: 5px;
+    }
+
+ 
+    .pagination .page-buttons button {
+        margin: 5px;
+    }
+
+    .pagination button:nth-last-child(-n+2) {
+        display: block;
+    }
+
+    .pagination button:first-child,
+    .pagination button:last-child {
+        margin-top: 10px; 
+    }
+
+
+
+    .search-box input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+
+    .search-box {
+        display: block;
+        margin-top: 20px;
+        padding-left: 20px; 
+    }
+
+    .recipe {
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .social-media-container .social-media i {
+        margin-left: -100px; 
+    }
+
+    .social-media-container .social-media li {
+        margin-right: 40px; 
+    }
+ 
+
+
+
+    .navbar .nav-links {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background-color: transparent;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 100;
+        display: flex; 
+    }
+
+  
+
+    .navbar .nav-links li a {
+        color: #4c7599; 
+        font-weight: bold;
+    }
+
+    .navbar .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        
+    }
+
+
+    .toggle-nav-btn {
+        display: block; 
+    }
+
+    .toggle-nav-btn {
+        margin-top: -5px;
+        margin-right: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer; 
+    }
+    
+    .toggle-nav-btn i {
+        font-size: 20px;
+        color: #ac8c61;
+    }
+
+    .navbar .nav-links {
+        display: flex; 
+        flex-direction: column; 
+        position: fixed; 
+        top: 60px;
+        right: 20px; 
+        background-color: #fff; 
+        /* align-items: flex-start;  */
+        z-index: 100;
+        padding:10px;
+        padding-top:20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+
+    .navbar .nav-links li {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .navbar .nav-links.show {
+        display: flex;
+        flex-direction: column; 
+    }
+
+}
+
+
+/* .footer .container {
+    padding: 0 10px;
+    flex-direction: column; 
+    align-items: flex-start; 
+
+.footer .social {
+    margin-top: 10px; 
+    justify-content: center; 
+}
+
+.footer .social a {
+    margin: 0 10px; 
+    font-size: 20px; 
+} */
+* for northern chinese recipes */
+.search-chinese-recipe-container {
+    
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 80px auto 20px;
+}
+
+
+.northern-chinese-page {
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left */
+    margin-left: 0;
+}
+
+.northern-chinese {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    font-style: initial;
+    margin-bottom: 0; /* Adjust margin to your preference */
+}
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* for northern chinese recipes */
+.search-chinese-recipe-container {
+    
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 80px auto 20px;
+}
+
+
+.northern-chinese-page {
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left */
+    margin-left: 0;
+}
+
+.northern-chinese {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    font-style: initial;
+    margin-bottom: 0; /* Adjust margin to your preference */
+}
+
+
+
+/* for the chinese recipes index.html recipe cards贺艳文 */
+/* .recipe-container { */
+    /* max-width: 1200px; */
+    /* margin: 0; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+/* } */
 /* for the index.html logo 贺艳文 */
 .menu-container {
     max-width: 1200px;
     margin-left: 10px;
 
 }
-/* for index.html */
-.northern-chinese-page {
+/* for index.html贺艳文 */
+/* .northern-chinese-page { */
+    /* display: flex; */
+    /* justify-content: left; */
+    /* margin-left: 0px; */
+/* } */
+/*  */
+/* for northern chinese h2 贺艳文 */
+/* .northern-chinese { */
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    /* font-size: 30px; */
+    /* font-style: initial; */
+/* } */
+/* .northern-chinese-page { */
+    /* margin-bottom: 35px; */
+/* } */
+/* .search-chinese-recipe-container { */
+    /* max-width: 1200px; */
+    /* margin: 0; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+/* } */
+.recipe-container {    
+    max-width: 1200px;
+    margin: 80px auto 20px;
     display: flex;
-    justify-content: left;
-    margin-left: 100px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-/* for norther chinese h2 贺艳文*/
+.search-chinese-recipe-container {
+    
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 80px auto 20px;
+}
+
+
+.northern-chinese-page {
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left */
+    margin-left: 0;
+}
+
 .northern-chinese {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     font-style: initial;
+    margin-bottom: 0; /* Adjust margin to your preference */
 }
-.northern-chinese-page {
-    margin-bottom: 35px;
-}
-/* above is for norther-chinese recipes 贺艳文 */
+
+/*for the images in chinese recipes html*/
+/* above is for northern-chinese recipes 贺艳文 */
 /* for dumplings html */
 .recipe-title {
     color:#deb887;
@@ -73,7 +733,6 @@ body {
     font-size: 15px;
     color:black;
     margin-left: 20px;
-
 }
 /* for dumplings html */
 .entry-content {
@@ -98,15 +757,9 @@ body {
     margin-top: 40px;
 }
 /* for index.html */
-/* for dumping title */
-.recipe {
-    width: calc(33.33% - 20px);
-    margin-bottom: 80px;
-    background-color: #c0b3b3;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-}
+/* for recipes cards in chinese recipes website html title */
+
+
 /* for dumplings html */
 /* for dumpling recipe-paragraph */
 .recipe-paragraph {
@@ -166,408 +819,3 @@ h2 {
 }
 
 /* Modified styles for page buttons */
-#pageButtons {
-    margin-top: 20px;
-    margin-bottom: 20px; /* Add space between page buttons and bottom */
-    text-align: center;
-}
-
-.page {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    color: #333;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition-duration: 0.4s;
-}
-
-.page.active {
-    background-color: #4CAF50;
-    border: 1px solid #4CAF50;
-    color: white;
-}
-
-.page:hover {
-    background-color: #ddd;
-}
-
-.container {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.container button {
-    padding: 8px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.container button:hover {
-    background-color: #0056b3;
-}
-
-
-.search-box {
-    position: relative;
-}
-
-.search-box input[type="text"] {
-    width: 250px;
-    padding: 10px 15px;
-    background-color: #f2f2f2;
-    font-size: 14px;
-    color: #333;
-    outline: none;
-}
-
-.search-box input[type="text"]::placeholder {
-    color: #999;
-}
-
-.search-box button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px 20px;
-    background-color: blue; /* Match the color of the search button */
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    outline: none;
-}
-
-.search-box button:hover {
-    background-color: black; /* Darken the color of the search button on hover */
-}
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: "Poppins", sans-serif;
-    position: relative;
-    z-index: auto;
-}
-
- :root {
-    --main-color: #d2b48c;
-    /* Define your main color here */
-}
-
-.btn i {
-    margin-right: 5px;
-    /* Add a margin to the right of the icon for spacing */
-}
-
-.search-options {
-    display: flex;
-    align-items: center;
-}
-
-.search-symbol {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.search-symbol i {
-    margin-right: 5px;
-}
-
-.search-symbol:hover {
-    background-color: #90999b;
-}
-
-.search-box {
-    display: none;
-}
-
-.content {
-    padding: 10px;
-    margin-left: 20px;
-    text-align: justify;
-}
-
-.container-fluid.custom-list {
-    white-space: nowrap;
-    /* Prevent menu items from wrapping */
-}
-
-
-/* Ha did */
-
-#search-button-icon,
-#search-button {
-    background-color: #d2b48c;
-    border-color: #d2b48c;
-    /* border: none; */
-    font-size: 16px;
-}
-
-
-/* preheader */
-
-
-/* Custom CSS */
-
-.top-header {
-    background-color: #d2b48c;
-    /* Light brown background color */
-}
-
-.top_social a {
-    color: #fff;
-    /* White color for social media icons */
-    font-size: 12px;
-    margin-right: 20px;
-}
-
-.top_social a:hover {
-    color: #afeeee;
-}
-
-.login_register_area .login a {
-    color: #fff;
-    /* White color for the "Sign in" text */
-    text-decoration: none;
-    /* Remove underline from the link */
-}
-
-
-/* nav */
-
-.header {
-    max-width: 1200px;
-    margin-right: 0px;
-    margin-left:10px;     /*by 贺艳文*/
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.navbar-nav .nav-link {
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    color: #000;
-    margin-right: 10px;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #d2b48c;
-}
-
-
-/* carousel */
-
-.bg-img1 {
-    background-image: url("https://st3.depositphotos.com/1105977/14354/i/1600/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-}
-
-.bg-img2 {
-    background-image: url("https://apicms.thestar.com.my/uploads/images/2023/11/19/2396564.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-}
-
-.bg-img3 {
-    background-image: url("https://png.pngtree.com/background/20230516/original/pngtree-lot-of-chinese-food-on-a-table-filled-with-chopsticks-picture-image_2612447.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-}
-
-.carousel-btn {
-    background-color: #deb887 !important;
-    border-color: #deb887;
-}
-
-
-/* Define styles for button hover state */
-
-.carousel-btn:hover {
-    background-color: #fff;
-    border-color: #fff;
-}
-
-.carousel-caption a {
-    color: white;
-}
-
-.carousel-caption a:hover {
-    color: white;
-}
-
-
-/* cozy food */
-
-.block-heading {
-    margin-bottom: 30px;
-}
-
-.equal-img {
-    width: 100%;
-    height: 20vw;
-    object-fit: cover;
-    border-radius: 50px;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.category-index {
-    margin-top: 50px;
-}
-
-.category-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.listing-item {
-    margin-bottom: 20px;
-}
-
-.category-title {
-    margin-top: 10px;
-    font-weight: bold;
-    text-align: center;
-    color: #000;
-    font-size: 16px;
-}
-
-.category-buttons {
-    text-align: center;
-}
-
-.category-btn {
-    background-color: #deb887 !important;
-    border-color: #deb887 !important;
-    margin-top: 10px;
-}
-
-.category-btn:hover {
-    background-color: #d2b48c !important;
-    border-color: #d2b48c !important;
-}
-
-.listing-item a {
-    text-decoration: none;
-}
-
-
-/* Recommentdation recipes */
-
-.greatest-post {
-    padding-top: 30px;
-}
-
-.greatest-post h2 {
-    margin-bottom: 40px;
-}
-
-.greatest-post-one {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.greatest-img {
-    max-width: 100%;
-    border-radius: 10px;
-    transition: transform 0.2s ease-in;
-}
-
-.greatest-img:hover {
-    transform: translateY(-15px);
-}
-
-.greatest-title {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.greatest-title a {
-    text-decoration: none;
-    color: #000;
-}
-
-.greatest-title a:hover {
-    color: #deb887;
-}
-
-.greatest-title h6 {
-    font-weight: bold;
-    font-size: 24px;
-}
-
-
-/* footer */
-
-.footer {
-    margin-top: 50px;
-    background-color: #d2b48c;
-}
-
-.footer .social a {
-    margin: 0 10px;
-    color: #fff;
-    /* White color for social media icons */
-    font-size: 12px;
-    margin-right: 20px;
-}
-
-.nav-link-footer {
-    text-decoration: none;
-    list-style: none;
-    color: #fff;
-}
-
-.nav-link-footer:hover {
-    color: #000;
-}
-
-.nav-footer {
-    margin-left: 100px;
-}
-
-.custom-list {
-    margin-left: 100px;
-    list-style-type: none;
-    /* Remove bullet points from the list */
-}
-
-.footer-cont {
-    padding-left: 100px !important;
-}
-
-
-/* logo name */
-
-.logo_name {
-    color: #35190da4;
-    font-family: cursive;
-    font-weight: bold;
-    font-size: 24px;
-    letter-spacing: 2px;
-    white-space: nowrap;
-}
