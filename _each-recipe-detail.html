@@ -1,15 +1,25 @@
-<div id="recipe-display-section">
-    <h1>Dish Details</h1>
-    <div class="dish-details">
-        <div id="dish-image"></div>
-        <div id="dish-info">
-            <h2 id="dish-name"></h2>
-            <p id="dish-type"></p>
-            <p id="dish-description"></p>
-            <h3>Recipe Ingredients</h3>
-            <ul id="recipe-ingredients"></ul>
-            <h3>Recipe Instructions</h3>
-            <p id="recipe-instructions"></p>
+<div id="recipe-display-section" class="article">
+    <form id="recipeForm">
+        <h1 class="entry-title">Dish Name: <span id="dish-name"></span></h1>
+        <div class="dish-image-container" id="dish-image">
+            <!-- Image will be displayed dynamically -->
         </div>
-    </div>
+        <div class="entry-content">
+            <h2 class="recipe-title">History of <span id="dish-name-title"></span></h2>
+            <p class="recipe-paragraph">Description: <span id="dish-description"></span></p>
+            <h2 class="recipe-title">Ingredients</h2>
+            <ul class="list-container" id="ingredient-list">
+                <!-- Ingredient list items will be populated dynamically -->
+            </ul>
+            <h2 class="recipe-title">Instructions</h2>
+            <p>Instructions: <span id="dish-instructions"></span></p>
+
+            <div class="iframe-container">
+                <!-- Video will be embedded dynamically -->
+                <iframe id="recipe-video" width="677" height="392" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <p>Congratulations! You've made <span id="dish-name-congratulations"></span>. Practice makes perfection. Let every bite be a step towards culinary excellence!</p>
+        </div>
+    </form>
 </div>

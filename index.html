@@ -175,21 +175,29 @@
                 <strong>Search Result</strong>
             </h2>
             <div id="search-results" class="category-index">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Part VI: Each Recipe Display Section -->
+    <div id="recipe-display-section" class="site-inner" style="display: none">
+        <div class="container">
+            <h2 class="block-heading text-center">
+                <strong>Search Result</strong>
+            </h2>
+            <div id="recipe-display" class="category-index">
                 <div class="row category-list">
                     <div class="col-md-6 listing-item">
                         <div class="category-buttons">
-                            <a class="category-btn btn btn-primary" href="vietnamese_recipes.html">
-                                <!-- change href -->
-                            </a>
+                            <a class="category-btn btn btn-primary" href="_each-recipe-detail.html?dishId=VN-0002">View Details</a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Part VI: Recipe Display Section -->
-    <div id="recipe-display-section"></div>
 
     <!-- Part VII: Vietnamese Recipes Section -->
     <div id="vn-recipe-display-section" class="site-inner" style="display: none">
@@ -200,13 +208,7 @@
             <div id="vn-recipe-display" class="category-index">
                 <!-- Update ID to "vn-recipe-display" -->
                 <div class="row category-list">
-                    <div class="col-md-6 listing-item">
-                        <div class="category-buttons">
-                            <a class="category-btn btn btn-primary" href="example.html">
-                                <!-- depends on each dish, we will past its href here -->
-                            </a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -220,15 +222,12 @@
             </h2>
             <div id="cn-recipe-display" class="category-index">
                 <!-- Update ID to "vn-recipe-display" -->
-                <div class="row category-list">
+                <!-- <div class="row category-list">
                     <div class="col-md-6 listing-item">
                         <div class="category-buttons">
                             <a class="category-btn btn btn-primary" href="example.html">
                                 <!-- depends on each dish, we will past its href here -->
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -375,7 +374,8 @@
     <script src="utils/search-button-events.js "></script>
     <script src="utils/about-us-button-events.js "></script>
     <script src="utils/vn-recipes-button-events.js"></script>
-    <script src="utils/cn-recipes-button-events.js"></script>
+    <!-- <script src="utils/cn-recipes-button-events.js"></script> -->
+    <script src="utils/each-recipe-detail.js"></script>
 
     <!-- script for css -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
