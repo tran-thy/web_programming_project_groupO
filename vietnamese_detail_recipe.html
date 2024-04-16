@@ -87,6 +87,9 @@
         max-width: 500px;
       }
 
+      #success-message {
+        color: red;
+      }
       @media (max-width: 600px) {
         .container {
           padding: 10px;
@@ -112,13 +115,16 @@
         </ol>
       </div>
 
-      <!-- comment part -->
+      <!-- Comment Part -->
       <div id="comments-container"></div>
       <div id="error-message"></div>
-      <!-- Placeholder for error messages -->
+      <!-- Placeholder for error message -->
+      <div id="success-message" style="display: none" ;>
+        <strong>Your comment posted. Please refresh page for updates.</strong>
+      </div>
 
-      <form id="comment-form" action="#" method="post">
-        <label for="commenter_name">User Name:</label><br />
+      <form id="comment-form">
+        <label for="commenter_name">Reviewer</label><br />
         <input
           type="text"
           id="commenter_name"
@@ -126,7 +132,7 @@
           required
         /><br />
 
-        <label for="comment_content">Comment:</label><br />
+        <label for="comment_content">Comment</label><br />
         <textarea
           id="comment_content"
           name="comment_content"
@@ -135,6 +141,10 @@
           required
         ></textarea
         ><br />
+
+        <label for="recipe ID">Recipe ID</label><br />
+
+        <input type="text" id="dishId" name="dishId" required /><br />
 
         <input type="submit" value="Submit" />
       </form>
@@ -157,6 +167,7 @@
         }
       };
 
+      //Render Recipe
       const renderVietnameseDish = async (id) => {
         try {
           const vietnameseDishData = await fetchData(`get/${id}`);
@@ -166,15 +177,29 @@
         }
       };
 
-      const renderComments = async () => {
+      //Render Comments
+      const getCommentsData = async (id) => {
         try {
-          const commentsData = await fetchData("cmt");
-          displayComments(commentsData);
+          const cmtData = await fetchData(`cmt/${id}`);
+          return cmtData;
+        } catch (error) {
+          throw new Error(`Error retrieving comments data: ${error.message}`);
+        }
+      };
+
+      const renderComments = async (id) => {
+        try {
+          // Set the value of the dishId input field
+          document.getElementById("dishId").value = id;
+
+          const cmtData = await getCommentsData(id);
+          displayComments(cmtData);
         } catch (error) {
           document.getElementById("error-message").textContent = error.message;
         }
       };
 
+      //Display Recipe
       const displayDish = (dish) => {
         const dishNameElement = document.getElementById("dish-name");
         const dishDescriptionElement =
@@ -205,28 +230,31 @@
         });
       };
 
-      const displayComments = (comments) => {
+      //Display Comment
+
+      const displayComments = (cmtData) => {
         const commentsContainer = document.getElementById("comments-container");
         commentsContainer.innerHTML = "";
 
-        comments.forEach((comment) => {
+        cmtData.forEach((comment) => {
           const commentElement = document.createElement("div");
           commentElement.classList.add("comment");
           commentElement.innerHTML = `
-          <p><strong>${comment.commenter_name}</strong>: ${comment.comment_content}</p>
-          <p><em>${comment.created_at}</em> <button class="delete-btn" data-id="${comment.comment_id}">Delete</button></p>
-        `;
+            <p><strong>${comment.commenter_name}</strong>: ${comment.comment_content}</p>
+            <p><em>${comment.created_at}</em> <button class="delete-btn" data-id="${comment.comment_id}">Delete</button></p>
+          `;
           commentsContainer.appendChild(commentElement);
         });
 
         // Add event listeners to delete buttons
+
         const deleteButtons = document.querySelectorAll(".delete-btn");
         deleteButtons.forEach((button) => {
           button.addEventListener("click", async () => {
             const commentId = parseInt(button.getAttribute("data-id"));
             try {
               await deleteComment(commentId);
-              renderComments(); // Re-render comments after deletion
+              renderComments(document.getElementById("dishId").value); // Re-render comments after deletion
             } catch (error) {
               alert(error.message);
             }
@@ -234,7 +262,8 @@
         });
       };
 
-      const postComment = async (name, content) => {
+      //Render PostComments
+      const postComment = async (name, content, id) => {
         try {
           const response = await fetch(`${BACKEND_ROOT_URL}/cmt/new`, {
             method: "POST",
@@ -244,9 +273,15 @@
             body: JSON.stringify({
               commenter_name: name,
               comment_content: content,
+              dishId: id,
             }),
           });
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
           const data = await response.json();
+          // Show success message after posting comment
+          document.getElementById("success-message").style.display = "block";
           return data;
         } catch (error) {
           throw new Error(`Error adding comment: ${error.message}`);
@@ -261,8 +296,10 @@
               method: "DELETE",
             }
           );
-          const data = await response.json();
-          return data;
+
+          if (!response.ok) {
+            throw new Error("Failed to delete comment");
+          }
         } catch (error) {
           throw new Error(`Error deleting comment: ${error.message}`);
         }
@@ -275,25 +312,27 @@
           const formData = new FormData(event.target);
           const commenterName = formData.get("commenter_name");
           const commentContent = formData.get("comment_content");
+          const dishId = formData.get("dishId");
 
           try {
-            await postComment(commenterName, commentContent);
-            renderComments();
+            await postComment(commenterName, commentContent, dishId);
+            renderComments(dishId);
             event.target.reset();
           } catch (error) {
             alert(error.message);
           }
         });
 
-      // renderVietnameseDish("VN-0002"); //test
-
       // Get the dish ID from the URL query parameters
       const urlParams = new URLSearchParams(window.location.search);
       const dishId = urlParams.get("id");
 
+      // renderVietnameseDish("VN-0002"); //test
+      // renderComments("VN-0002"); //test
+
       //Render the Vietnamese dish using the retrieved dishId
       renderVietnameseDish(dishId);
-      renderComments();
+      renderComments(dishId);
     </script>
   </body>
 </html>

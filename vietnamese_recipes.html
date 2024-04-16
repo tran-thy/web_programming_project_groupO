@@ -146,19 +146,30 @@
           alert(error.message);
         }
       };
-
       const displayVietnameseDishes = (dishesData) => {
-        vietnameseRecipeSection = document.getElementById("recipeGallery");
+        const vietnameseRecipeSection =
+          document.getElementById("recipeGallery");
         if (!vietnameseRecipeSection) {
           throw new Error("Vietnamese recipe display section not found");
         }
         vietnameseRecipeSection.innerHTML = "";
 
-        dishesData.forEach((dish) => {
+        // Create a row container
+        let row = document.createElement("div");
+        row.classList.add("row", "container");
+
+        dishesData.forEach((dish, index) => {
+          // Create a new row after every three dishes
+          if (index > 0 && index % 3 === 0) {
+            vietnameseRecipeSection.appendChild(row);
+            // row = document.createElement("div");
+            // row.classList.add("row", "category-list");
+          }
+
           const dishElement = document.createElement("div");
-          dishElement.classList.add("recipe");
+          dishElement.classList.add("recipe", "col-md-4");
           const dishLink = document.createElement("a");
-          dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`; // Set the href attribute to '#' for now, replace with actual link destination
+          dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`;
 
           const imageDiv = document.createElement("div");
           imageDiv.classList.add("image");
@@ -176,23 +187,16 @@
           dishName.classList.add("title-item");
           dishName.textContent = dish.dishname;
 
-          //// Create the p element for dish name with class "author"
-          //  const dishAuthor = document.createElement("p");
-          //   dishAuthor.classList.add("author");
-          //   dishAuthor.textContent = dish.dishauthor;
-
-          // Create the p element for dish name with class "author"
-          //   const dishDescription = document.createElement("p");
-          //   dishDescription.classList.add("description");
-          //   dishDescription.textContent = dish.dishdescription;
-
           infoDiv.appendChild(dishName);
 
           dishLink.appendChild(imageDiv);
           dishLink.appendChild(infoDiv);
           dishElement.appendChild(dishLink);
-          vietnameseRecipeSection.appendChild(dishElement); //
+          row.appendChild(dishElement);
         });
+
+        // Append the last row
+        vietnameseRecipeSection.appendChild(row);
 
         vietnameseRecipeSection.style.display = "block";
       };

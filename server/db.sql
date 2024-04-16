@@ -239,16 +239,21 @@ VALUES (
     'In a bowl, toss the pork tenderloin pieces with cornstarch until evenly coated. Dip the cornstarch-coated pork pieces into the beaten eggs, shaking off any excess. Heat vegetable oil in a large skillet or wok over medium-high heat. Fry the pork pieces in batches until golden brown and crispy, about 3-4 minutes per side. Remove from the skillet and drain on paper towels. In the same skillet, add a little more oil if needed. Add the onion and bell pepper chunks. Stir-fry until crisp-tender, about 3-4 minutes. Add the pineapple chunks to the skillet and cook for another minute. In a small bowl, whisk together the ketchup, rice vinegar, brown sugar, and soy sauce to make the sweet and sour sauce. Pour the sauce into the skillet with the vegetables. Bring to a simmer. Stir in the cornstarch slurry to thicken the sauce. Cook until the sauce has thickened and coats the back of a spoon. Return the fried pork pieces to the skillet. Stir until evenly coated with the sauce. Adjust seasoning with soy sauce or sugar, if needed. Serve hot with steamed rice.'
 );
 
+
+CREATE TABLE comments (
+    comment_id SERIAL PRIMARY KEY,
+    commenter_name VARCHAR(100) NOT NULL,
+    comment_content TEXT NOT NULL,
+    dishId VARCHAR(10) NOT NULL, -- New field to store dishId
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (dishId) REFERENCES dishesData(dishId) ON DELETE CASCADE
+);
+
+
+
 -- CREATE TABLE comments (
 --     comment_id SERIAL PRIMARY KEY,
 --     commenter_name VARCHAR(100) NOT NULL,
 --     comment_content TEXT NOT NULL,
 --     created_at DATE DEFAULT CURRENT_DATE
 -- );
-
-CREATE TABLE comments (
-    comment_id SERIAL PRIMARY KEY,
-    commenter_name VARCHAR(100) NOT NULL,
-    comment_content TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);

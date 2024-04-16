@@ -93,16 +93,20 @@ app.get("/get/:id", async (req, res) => {
 
 //For comments
 //
-app.get("/cmt", async (req, res) => {
-  console.log(query);
+app.get("/cmt/:id", async (req, res) => {
+  const { id } = req.params; // Get the dishId from request parameters
+
   try {
-    const result = await query("SELECT * FROM comments");
-    const rows = result.rows ? result.rows : [];
-    res.status(200).json(rows);
+    // Query to get comments for the specified dishId
+    const result = await query("SELECT * FROM comments WHERE dishId = $1", [
+      id,
+    ]);
+
+    // Send the comments as a JSON response
+    res.status(200).json(result.rows);
   } catch (error) {
-    console.log(error);
-    res.statusMessage = error;
-    res.status(500).json({ error: error });
+    console.error("Error fetching comments:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -110,8 +114,8 @@ app.post("/cmt/new", async (req, res) => {
   // console.log(req.body);
   try {
     const result = await query(
-      "INSERT INTO comments (commenter_name, comment_content) VALUES ($1, $2) RETURNING *",
-      [req.body.commenter_name, req.body.comment_content]
+      "INSERT INTO comments (commenter_name, comment_content, dishId) VALUES ($1, $2, $3) RETURNING *",
+      [req.body.commenter_name, req.body.comment_content, req.body.dishId]
     );
     res.status(200).json({ comment_id: result.rows[0].comment_id });
   } catch (error) {
