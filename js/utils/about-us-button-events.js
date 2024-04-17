@@ -11,7 +11,7 @@ document.getElementById("about-btn").addEventListener("click", function() {
             document.getElementById('myCarousel').style.display = 'none';
             document.getElementById('search-results-section').style.display = 'none';
             document.getElementById('vn-recipe-display-section').style.display = 'none';
-            document.getElementById('cn-recipe-display-section').style.display = 'none';
+            // document.getElementById('cn-recipe-display-section').style.display = 'none';
         });
 });
 

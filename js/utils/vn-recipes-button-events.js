@@ -58,7 +58,7 @@ const hideSections = () => {
     document.getElementById('myCarousel').style.display = 'none';
     document.getElementById('search-results-section').style.display = 'none';
     document.getElementById('about-us-section').style.display = 'none';
-    document.getElementById('cn-recipe-display-section').style.display = 'none';
+    // document.getElementById('cn-recipe-display-section').style.display = 'none';
 };
 
 // Function to display Vietnamese dishes
