@@ -1,24 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Function to extract dishId from URL
     function getDishIdFromUrl(url) {
-        // Find the index of the 'dishId' parameter in the URL
-        const dishIdIndex = url.indexOf('dishId=');
-        if (dishIdIndex !== -1) {
-            // Extract the substring starting from the dishIdIndex
-            const substring = url.substring(dishIdIndex + 7); // 7 is the length of 'dishId='
-            // Find the index of the next '&' character after the dishId
-            const nextParamIndex = substring.indexOf('&');
-            // Return the substring from dishIdIndex to nextParamIndex (if found), else return the whole substring
-            return nextParamIndex !== -1 ? substring.substring(0, nextParamIndex) : substring;
-        } else {
-            return null; // dishId parameter not found
-        }
+        const urlParams = new URLSearchParams(url.search);
+        return urlParams.get('dishId');
     }
 
     // Extract dishId from the current URL
-    const currentUrl = window.location.href;
-    console.log("Current URL:", currentUrl);
+    const currentUrl = new URL(window.location.href);
     const dishId = getDishIdFromUrl(currentUrl);
+    console.log("Current URL:", currentUrl);
     console.log("Dish ID:", dishId);
 
     // Check if dishId is defined
@@ -26,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Call the API to fetch data details according to the ID
         fetch(`http://localhost:3001/${dishId}`)
             .then(response => {
-                // Check if response is successful
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
