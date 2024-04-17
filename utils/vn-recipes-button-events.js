@@ -91,14 +91,25 @@ const displayVietnameseDishes = (dishesData) => {
             const link = document.createElement("a");
             link.href = `_each-recipe-detail.html?dishId=${dish.dishid}&dishName=${encodeURIComponent(dish.dishname)}&dishType=${encodeURIComponent(dish.dishtype)}&dishDescription=${encodeURIComponent(dish.dishdescription)}&recipeIngredients=${encodeURIComponent(dish.recipeingredients)}&recipeInstruction=${encodeURIComponent(dish.recipeinstruction)}`;
 
+            // Image display section
             const image = document.createElement("img");
             image.classList.add("equal-img");
             image.src = dish.dishimage;
             image.alt = dish.dishname;
 
-            // Set the link for the image
+            // Image display section: Set the border radius for the image
+            const borderRadius = "8px"; // Adjust the border radius value as needed
+            image.style.borderRadius = borderRadius;
+
+            // Image display section: Create a container div for the image
+            const imageContainer = document.createElement("div");
+            imageContainer.style.overflow = "hidden";
+            imageContainer.style.borderRadius = borderRadius;
+            imageContainer.appendChild(image);
+
+            // Image display section: Set the link for the image
             const imageLink = link.cloneNode(true);
-            imageLink.appendChild(image);
+            imageLink.appendChild(imageContainer);
             listItem.appendChild(imageLink);
 
             const title = document.createElement("div");
@@ -108,6 +119,7 @@ const displayVietnameseDishes = (dishesData) => {
             // Set the link for the dish name
             const titleLink = link.cloneNode(true);
             titleLink.appendChild(title);
+            titleLink.style.textDecoration = "none"; // Remove underline
             listItem.appendChild(titleLink);
 
             // Add a line break after the dish name
