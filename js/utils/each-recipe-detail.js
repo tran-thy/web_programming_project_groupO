@@ -5,6 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return urlParams.get('dishId');
     }
 
+    // Function to hide sections
+    const hideSectionsInEachRecipePage = () => {
+        document.getElementById('highlighted-section').style.display = 'none';
+        document.getElementById('myCarousel').style.display = 'none';
+        document.getElementById('search-results-section').style.display = 'none';
+        document.getElementById('about-us-section').style.display = 'none';
+        document.getElementById('vn-recipe-display-section').style.display = 'none';
+        // document.getElementById('cn-recipe-display-section').style.display = 'none';
+    };
+
     // Extract dishId from the current URL
     const currentUrl = new URL(window.location.href);
     const dishId = getDishIdFromUrl(currentUrl);
@@ -31,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('recipe-instructions').textContent = data.recipeinstruction;
                 document.getElementById('dish-name-2').textContent = data.dishname;
                 document.getElementById('dish-name-congratulations').textContent = data.dishname;
+
+                // Hide sections after displaying recipe details
+                hideSectionsInEachRecipePage();
             })
             .catch(error => console.error('Error retrieving dish data:', error));
 

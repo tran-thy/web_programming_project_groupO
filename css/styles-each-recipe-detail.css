@@ -1,11 +1,141 @@
-.recipe-image {
+/* .recipe-image {
     text-align: center;
     margin-bottom: 10px;
+} */
+
+
+/* Styles for the recipe display section container */
+
+#recipe-display-section {
+    max-width: 1800px;
+    /* Maximum width of the container */
+    margin: 0 auto;
+    /* Center the container horizontally */
+    padding: 7.5%;
+    /* Padding inside the container */
+    background-color: #fff;
+    /* Background color */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
 }
 
-.entry-title {
-    font-size: 30px;
-    color: #843838;
-    margin-bottom: 25px;
+
+/* Styles for the content within the recipe display section */
+
+#recipe-display-section .entry-content {
+    margin-top: 20px;
+    /* Margin at the top of the content */
+    font-size: 18px;
+    /* Increase font size */
+}
+
+
+/* Styles for recipe titles within the recipe display section */
+
+#recipe-display-section .recipe-title {
+    font-size: 24px;
+    /* Font size */
     font-weight: bold;
+    /* Bold text */
+    margin-bottom: 10px;
+    /* Margin at the bottom */
+}
+
+
+/* Styles for recipe paragraphs within the recipe display section */
+
+#recipe-display-section .recipe-paragraph {
+    font-size: 18px;
+    /* Font size */
+    line-height: 1.5;
+    /* Line height */
+    margin-bottom: 20px;
+    /* Margin at the bottom */
+}
+
+
+/* Styles for ingredient lists within the recipe display section */
+
+#recipe-display-section .list-container ul {
+    list-style-type: none;
+    /* Remove default list styles */
+    padding-left: 0;
+    /* Remove left padding */
+}
+
+
+/* Styles for list items within the recipe display section */
+
+#recipe-display-section .list-container li {
+    margin-bottom: 10px;
+    /* Margin at the bottom of list items */
+}
+
+
+/* Styles for recipe images within the recipe display section */
+
+#recipe-display-section .recipe-image {
+    text-align: center;
+    /* Center align images */
+    margin-bottom: 20px;
+    /* Margin at the bottom */
+}
+
+
+/* Styles for images within the recipe display section */
+
+#recipe-display-section .recipe-image img {
+    max-width: 100%;
+    /* Maximum width of images */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+}
+
+
+/* Styles for the last paragraph within the recipe display section */
+
+#recipe-display-section p:last-child {
+    margin-bottom: 0;
+    /* Remove margin at the bottom */
+}
+
+
+/* Styles for the iframe container within the recipe display section */
+
+#recipe-display-section .iframe-container {
+    position: -webkit-sticky;
+    /* Sticky positioning for older browsers */
+    position: sticky;
+    /* Sticky positioning */
+    top: calc(200px);
+    /* Distance from the top */
+    width: 100%;
+    /* Full width */
+    padding-bottom: 56.25%;
+    /* Aspect ratio for responsive videos */
+    overflow: hidden;
+    /* Hide overflow */
+    margin-bottom: 20px;
+    /* Margin at the bottom */
+    max-width: 100%;
+    /* Maximum width */
+    height: 0;
+    /* Initial height */
+}
+
+#recipe-display-section .list-container,
+#recipe-display-section #recipe-instructions,
+#recipe-display-section p strong {
+    font-size: 20px;
+}
+
+#recipe-display-section .list-container li {
+    margin-bottom: 3px;
+    /* Space between ingredients */
 }
