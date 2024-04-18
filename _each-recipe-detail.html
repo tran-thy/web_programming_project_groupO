@@ -10,30 +10,44 @@
 
 <body>
     <div id="recipe-display" class="article">
-        <form id="recipeForm">
-            <h1 class="entry-title">Dish Name: <span id="dish-name"></span></h1>
-            <div class="dish-image-container" id="dish-image">
-                <!-- Image will be displayed dynamically -->
-            </div>
-            <div class="entry-content">
-                <h2 class="recipe-title">History of <span id="dish-name-title"></span></h2>
-                <p class="recipe-paragraph">Description: <span id="dish-description"></span></p>
-                <p class="recipe-paragraph">Dish Type: <span id="dish-type"></span></p>
-                <h2 class="recipe-title">Ingredients</h2>
-                <ul class="list-container" id="recipe-ingredients">
-                    <!-- Ingredient list items will be populated dynamically -->
-                </ul>
-                <h2 class="recipe-title">Instructions</h2>
-                <p>Instructions: <span id="dish-instructions"></span></p>
 
-                <div class="iframe-container">
-                    <!-- Video will be embedded dynamically -->
-                    <iframe id="recipe-video" width="677" height="392" frameborder="0" allowfullscreen></iframe>
-                </div>
+        <h1 class="entry-title"><span id="dish-name"></span></h1>
+        <p class="recipe-paragraph">Cagetory: <span id="dish-type"></span></p>
+        <br>
 
-                <p>Congratulations! You've made <span id="dish-name-congratulations"></span>. Practice makes perfection. Let every bite be a step towards culinary excellence!</p>
+        <figure class="recipe-image" id="dish-image">
+            <!-- Image will be displayed dynamically -->
+        </figure>
+
+        <div class="entry-content">
+
+            <h2 class="recipe-title">What is the dish<span id="dish-name-title"></span></h2>
+            <p class="recipe-paragraph"><span id="dish-description"></span></p>
+            <br>
+
+            <h2 class="recipe-title">What are the ingredients?</h2>
+            <ul class="list-container" id="recipe-ingredients">
+                <!-- Ingredient list items will be populated dynamically -->
+            </ul>
+            <br>
+
+            <h2 class="recipe-title">How to make this <span id="dish-name-2"></span> ?</h2>
+            <p>
+                <span id="recipe-instructions"></span>
+            </p>
+            <br>
+
+            <div class="iframe-container">
+                <!-- Video will be embedded dynamically -->
+                <iframe id="recipe-video" width="677" height="392" frameborder="0" allowfullscreen></iframe>
             </div>
-        </form>
+            <br>
+
+            <p>
+                <strong>Congratulations! You 've made <span id="dish-name-congratulations"></span>. Practice makes perfection. Let every bite be a step towards culinary excellence!</strong>
+            </p>
+
+        </div>
     </div>
 
     <!-- Include each-recipe-detail.js -->

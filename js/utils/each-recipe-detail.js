@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('dish-description').textContent = data.dishdescription;
                 document.getElementById('recipe-ingredients').innerHTML = data.recipeingredients.split(',').map(ingredient => `<li>${ingredient}</li>`).join('');
                 document.getElementById('recipe-instructions').textContent = data.recipeinstruction;
+                document.getElementById('dish-name-2').textContent = data.dishname;
+                document.getElementById('dish-name-congratulations').textContent = data.dishname;
             })
             .catch(error => console.error('Error retrieving dish data:', error));
 
