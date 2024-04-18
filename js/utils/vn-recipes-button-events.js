@@ -16,7 +16,7 @@ const getVietnameseDishesData = async() => {
 const renderVietnameseDishes = async() => {
     try {
         // Hide sections
-        hideSections();
+        hideSectionsInVietnameseRecipesPage();
 
         const vietnameseDishesData = await getVietnameseDishesData();
         displayVietnameseDishes(vietnameseDishesData);
@@ -53,11 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Function to hide sections
-const hideSections = () => {
+const hideSectionsInVietnameseRecipesPage = () => {
     document.getElementById('highlighted-section').style.display = 'none';
     document.getElementById('myCarousel').style.display = 'none';
     document.getElementById('search-results-section').style.display = 'none';
     document.getElementById('about-us-section').style.display = 'none';
+    document.getElementById('recipe-display-section').style.display = 'none';
     // document.getElementById('cn-recipe-display-section').style.display = 'none';
 };
 
