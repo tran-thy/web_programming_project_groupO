@@ -233,16 +233,53 @@ const displayRecipes = (recipes) => {
 // 
 
 
-
+// pagination button 
 document.addEventListener("DOMContentLoaded", function() {
-    const buttons = document.querySelectorAll('.pagination-button');
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const pageNumber = parseInt(button.textContent);
-            fetchRecipesForPage(pageNumber);
-        });
+    const totalPages = 20; // Example total number of pages
+    const itemsPerPage = 5; // Example number of items per page
+    let currentPage = 1; // Example current page
+
+    // Function to generate pagination buttons
+    const generatePaginationButtons = () => {
+        const paginationContainer = document.querySelector('.pagination-container');
+        paginationContainer.innerHTML = ''; // Clear previous buttons
+
+        const startPage = Math.max(currentPage - 2, 1); // Calculate start page
+        const endPage = Math.min(startPage + 4, totalPages); // Calculate end page
+
+        for (let i = startPage; i <= endPage; i++) {
+            const button = document.createElement('button');
+            button.classList.add('pagination-button');
+            button.textContent = i;
+            if (i === currentPage) {
+                button.classList.add('active');
+            }
+            paginationContainer.appendChild(button);
+        }
+    };
+
+    // Initial generation of pagination buttons
+    generatePaginationButtons();
+
+    // Event listener for pagination button clicks
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('pagination-button')) {
+            currentPage = parseInt(event.target.textContent);
+            generatePaginationButtons();
+            fetchRecipesForPage(currentPage);
+        }
     });
 });
+
+// document.addEventListener("DOMContentLoaded", function() {
+    // const buttons = document.querySelectorAll('.pagination-button');
+    // buttons.forEach(button => {
+        // button.addEventListener('click', () => {
+            // const pageNumber = parseInt(button.textContent);
+            // fetchRecipesForPage(pageNumber);
+        // });
+    // });
+// });
 
 
 
