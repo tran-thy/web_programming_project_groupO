@@ -1,6 +1,16 @@
-GET http://localhost:3001/recipes
+//GET http://localhost:3001/recipes
 
-POST http://localhost:3001/newrecipe HTTP/1.1
+//GET http://localhost:3001/search
+
+//GET http://localhost:3001/search/random-recipes
+
+//GET http://localhost:3001/hotpotrecipes
+
+GET http://localhost:3001/detailrecipe/CH-0002
+
+# GET http://localhost:3001/dsearchondetail/CH-0001
+
+//POST http://localhost:3001/newrecipe HTTP/1.1
 Content-Type: application/json
 {
     "description":"Test from REST Client"
