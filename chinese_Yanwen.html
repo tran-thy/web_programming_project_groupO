@@ -3,77 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
-    rel="stylesheet" />
-    <title>CHOPSTICKS WORLD</title>
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style_Yanwen.css">
-    <!--<link rel="stylesheet" href="./css/chinese_styles.css">-->
-    <title>Chinese Recipes</title>        
+    <title>Chinese Recipes</title>
+    <link rel="stylesheet" href="chinese_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Part I -->
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">Chinese Recipes</h1>
-        
-            <ul class="nav-links">
-                <li class="nav-link-home"><a href="#">Home</a></li>
-                <li class="nav-link-vietnamese"><a href="#">Vietnamese Recipes</a></li>
-                <li class="nav-link"><a href="#">Chinese Recipes</a></li>
-                <li class="nav-link"><a href="#">About us</a></li>
-            </ul>
-        </div>
-    </nav> 
-        
-        
-    <button id="toggleNavBtn" class="toggle-nav-btn">
-        <i class="fas fa-bars"></i>
-    </button>
-        
-        
-    <div class="social-media-container">
-        <ul class="social-media">
-            <li><a href="https://twitter.com" class="social-button"><i class="fab 
-    fa-twitter"></i></a></li>
-            <li><a href="https://facebook.com" class="social-button"><i class="fab 
-    fa-facebook"></i></a></li>
-            <li><a href="https://instagram.com" class="social-button"><i class="fab 
-    fa-instagram"></i></a></li>
-            <li><a href="https://linkedin.com" class="social-button"><i class="fab 
-    fa-linkedin"></i></a></li>
+
+ <nav class="navbar">
+    <div class="container">
+        <h1 class="logo">Chinese recipes</h1>
+
+        <ul class="nav-links">
+            <li class="nav-link"><a href="index.html">Home</a></li>
+            <li class="nav-link"><a href="#">Vietnamese Recipes</a></li>
+            <li class="nav-link"><a href="#">Chinese Recipes</a></li>
+            <li class="nav-link"><a href="#">About us</a></li>
         </ul>
     </div>
-    <!--明瑞button-->
-    <!--<form action="/search" method="GET" class="search-box">
-        <div class="logo">
-            <img src="css/logo.png" alt="Logo">
-        </div>
-        <input type="text" name="keyword" placeholder="Search">
-        <button type="submit">Search</button>
-    </form> -->
+</nav> 
 
-    <form action="/search" method="GET" class="search-box">
-        <div class="logo">
-            <img src="css/logo.png" alt="Logo">
-        </div>
-        <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
-        <button type="submit">Search</button>
-    </form>
 
-       
+<button id="toggleNavBtn" class="toggle-nav-btn">
+    <i class="fas fa-bars"></i>
+</button>
 
-       
-    <div class="recipe-container">
+
+<!-- <div class="social-media-container">
+    <ulli class="social-media">
+        <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
+        <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
+        <li><a href="https://instagram"><i class="fab fa-instagram fa-2x"></i></a></li>
+        <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
+    </ul>
+</div> -->
+
+
+<form action="/search" method="GET" class="search-box">
+    <div class="logo">
+        <img src="chinese_images/logo.png" alt="Logo">
+    </div>
+    <input type="text" name="keyword" placeholder="Search">
+    <button type="submit">Search</button>
+</form>
+
+    <div class="container">
         <div class="recipe">
-            <a href="sweet_and_sour_pork_tenderloin.html">
+            <a href="sweet_and_sour_pork.html">
                 <div class="image">
-                    <img src="css/sweet_and_sour_pork_tenderloin.jpg" alt="Sweet and Sour Pork Tenderloin">
+                    <img src="chinese_images/sweet_and_sour_pork_tenderloin.jpg" alt="Sweet and Sour Pork">
                 </div>
                 <div class="info">
-                    <h2>Sweet and Sour Pork Tenderloin</h2>
-                    <p class="author">By: Author 1</p>
+                    <h2>Sweet and Sour Pork</h2>
+                    <!-- <p class="author">By: Author 1</p> -->
                     <p class="description">
                         Classic Chinese dish. Sweet and tangy pork with bell peppers and pineapple.
                     </p>
@@ -83,11 +67,11 @@
         <div class="recipe">
             <a href="recipe2.html">
                 <div class="image">
-                    <img src="css/mapo_tofu.jpg" alt="Mapo Tofu">
+                    <img src="chinese_images/mapo_tofu.jpg" alt="Mapo Tofu">
                 </div>
                 <div class="info">
                     <h2>Mapo Tofu</h2>
-                    <p class="author">By: Author 2</p>
+                    <!-- <p class="author">By: Author 2</p> -->
                     <p class="description">
                         Popular Chinese dish. Spicy tofu and pork with black beans.
                     </p>
@@ -97,11 +81,11 @@
         <div class="recipe">
             <a href="recipe3.html">
                 <div class="image">
-                    <img src="css/crystal_dumplings.jpg" alt="Crystal Dumplings">
+                    <img src="chinese_images/crystal_dumplings.jpg" alt="Crystal Dumplings">
                 </div>
                 <div class="info">
                     <h2>Crystal Dumplings</h2>
-                    <p class="author">By: Author 3</p>
+                    <!-- <p class="author">By: Author 3</p> -->
                     <p class="description">
                         Translucent dumplings. Savory pork, shrimp, and vegetable filling.
                     </p>
@@ -111,12 +95,11 @@
         <div class="recipe">
             <a href="recipe4.html">
                 <div class="image">
-                    <img src="css/stir_fried_beef_with_rice_noodles.jpg" 
-alt="Stir-Fried Beef with Rice Noodles">
+                    <img src="chinese_images/beef_with_rice_noodles.jpg" alt="Stir-Fried Beef with Rice Noodles">
                 </div>
                 <div class="info">
-                    <h2>Stir-Fried Beef with Rice Noodles</h2>
-                    <p class="author">By: Author 4</p>
+                    <h2>Beef with Rice Noodles</h2>
+                    <!-- <p class="author">By: Author 4</p> -->
                     <p class="description">
                         Cantonese favorite. Tender beef, flat rice noodles, and crunchy bean sprouts.
                     </p>
@@ -126,11 +109,11 @@ alt="Stir-Fried Beef with Rice Noodles">
         <div class="recipe">
             <a href="recipe5.html">
                 <div class="image">
-                    <img src="css/fried_rice.jpg" alt="Fried Rice">
+                    <img src="chinese_images/fried_rice.jpg" alt="Fried Rice">
                 </div>
                 <div class="info">
                     <h2>Fried Rice</h2>
-                    <p class="author">By: Author 5</p>
+                    <!-- <p class="author">By: Author 5</p> -->
                     <p class="description">
                         Simple and satisfying. Rice, vegetables, and eggs stir-fried to perfection.
                     </p>
@@ -140,39 +123,62 @@ alt="Stir-Fried Beef with Rice Noodles">
         <div class="recipe">
             <a href="recipe6.html">
                 <div class="image">
-                    <img src="css/spicy_kung_pao_chicken.jpg" alt="Spicy Kung Pao Chicken">
+                    <img src="chinese_images/spicy_kung_pao_chicken.jpg" alt="Spicy Kung Pao Chicken">
                 </div>
                 <div class="info">
                     <h2>Spicy Kung Pao Chicken</h2>
-                    <p class="author">By: Author 6</p>
+                    <!-- <p class="author">By: Author 6</p> -->
                     <p class="description">
                         Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.
                     </p>
                 </div>
             </a>
+        </div>  
+    </div>
+
+   <div class="pagination"> </div> 
+    
+
+
+    <!-- Part X: Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="logo_name_footer">Chopsticks &nbsp World</h1>
+                    <p>Copyright &copy; 2024</p>
+                </div>
+                <!-- <div class="col-md-4">
+                    <nav class="nav-footer">
+                        <ul class="custom-list">
+                            <li><a href="index.html" class="nav-link-footer">HOME</a></li>
+                            <li>
+                                <button class="btn footer-btn-about" id="vietnamese-recipes-btn-footer">VIETNAMESE RECIPES</button>
+                            </li>
+                            <<li>
+                                <button class="btn footer-btn-about" id="chinese-recipes-btn-footer">CHINESE RECIPES</button>
+                            </li> 
+                            <li><a href="chinese_Yanwen.html" class="nav-link-footer">CHINESE RECIPES</a></li>
+
+                            <li>
+                                <button class="btn footer-btn-about" id="footer-btn-about">ABOUT US</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div> -->
+
+                <div class="social-media-container">
+                    <ulli class="social-media">
+                        <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
+                        <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
+                        <li><a href="https://instagram"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-    
-<div class="pagination"> </div> 
-        
-                                                                                                                                                                        
-                                                                                       
-<!----> 
-    <div class="pagination-container">
-<!-- Page buttons will be dynamically added here -->
-        <button type="button" class="btn btn-primary pagination-button">1</button>
-        <button type="button" class="btn btn-primary pagination-button">2</button>
-        <button type="button" class="btn btn-primary pagination-button">3</button>
-        <button type="button" class="btn btn-primary pagination-button">4</button>
-        <button type="button" class="btn btn-primary pagination-button">5</button>
-        <button type="button" class="btn btn-primary pagination-button">6</button>
-        <button type="button" class="btn btn-primary pagination-button">7</button>
-<!--<button class="button_next">Next</button>-->
-    </div>
-    
-    <!--for the responsive action--> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./js/index-heyanwen.js"></script>             
+    </footer>
+
+   <script src="chinese_index.js"></script>   
 </body>
 </html>
-
