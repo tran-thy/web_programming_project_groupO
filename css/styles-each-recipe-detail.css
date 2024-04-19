@@ -142,3 +142,12 @@
     margin-bottom: 3px;
     /* Space between ingredients */
 }
+
+
+/* Add black round bullets before each list item */
+
+.list-container li {
+    list-style-type: disc;
+    margin-left: 20px;
+    /* Adjust the margin as needed */
+}

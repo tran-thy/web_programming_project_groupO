@@ -36,10 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const updateElement = (id, value) => {
                     const element = document.getElementById(id);
                     if (element) {
-                        element.textContent = value;
+                        if (id === 'dish-image') {
+                            // For the image, set innerHTML instead of textContent
+                            element.innerHTML = value;
+                        } else if (id === 'recipe-ingredients') {
+                            // For the ingredients list, set innerHTML with <ul> tags
+                            element.innerHTML = `<ul>${value}</ul>`;
+                        } else {
+                            // For other elements, set textContent
+                            element.textContent = value;
+                        }
                     }
                 };
 
+                // Call the updateElement function with appropriate values
                 updateElement('dish-image', `<img src="${data.dishimage}" alt="${data.dishname}">`);
                 updateElement('dish-name', data.dishname);
                 updateElement('dish-type', data.dishtype);
@@ -65,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Hide sections after displaying recipe details
                 hideSectionsInEachRecipePage();
+
             })
             .catch(error => {
                 console.error('Error retrieving dish data:', error);
