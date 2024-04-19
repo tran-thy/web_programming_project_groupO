@@ -109,24 +109,27 @@
 /* Styles for the iframe container within the recipe display section */
 
 #recipe-display-section .iframe-container {
-    position: -webkit-sticky;
-    /* Sticky positioning for older browsers */
-    position: sticky;
-    /* Sticky positioning */
-    top: calc(200px);
-    /* Distance from the top */
+    position: relative;
     width: 100%;
-    /* Full width */
-    padding-bottom: 56.25%;
-    /* Aspect ratio for responsive videos */
-    overflow: hidden;
-    /* Hide overflow */
+    max-width: 800px;
+    margin: 0 auto;
     margin-bottom: 20px;
-    /* Margin at the bottom */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+}
+
+
+/* Styles for the video within the recipe display section */
+
+#recipe-display-section .iframe-container iframe#dish-video {
+    display: block;
     max-width: 100%;
-    /* Maximum width */
-    height: 0;
-    /* Initial height */
+    max-height: 100%;
+    /* Adjusted height to fill the container */
 }
 
 #recipe-display-section .list-container,
