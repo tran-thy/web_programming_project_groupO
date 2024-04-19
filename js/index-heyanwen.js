@@ -391,7 +391,7 @@ const searchdisplayRecipes = (search_recipes) => {
 // from chinese web page to navigate to the homepage by clicking the home button
 document.addEventListener("DOMContentLoaded", function() {
     // Event listener for pagination buttons
-    const navhomeButton = document.querySelector('.nav-link-home')
+    const navhomeButton = document.querySelector('.nav-link-h')
     
     navhomeButton.addEventListener('click', navtoHome)
 
@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function() {
             paginationbutton.style.display = 'none';
 
         } else {
-            paginationbutton.style.display = 'block';
+            paginationbutton.style.display = 'flex';
             alert("Please enter a search query.");
         }
     });
@@ -572,4 +572,12 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleNavBtn = document.getElementById('toggleNavBtn');
+    const navLinks = document.querySelector('.nav-links');
 
+
+    toggleNavBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('show'); 
+    });
+});
