@@ -52,7 +52,7 @@ h4 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  height: 25vw;
+  height: 23vw;
   max-height: 100vw;
   position: relative;
 }
@@ -62,7 +62,7 @@ h4 {
   width: 100%;
   height: auto;
   position: absolute;
-  bottom: 0;
+  /* bottom: 0; */
   border-radius: 5px;
 }
 .content-detail {

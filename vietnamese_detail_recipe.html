@@ -150,7 +150,7 @@
         });
 
         // Populate Instructions
-        dish.recipeinstruction.split(".").forEach((instruction) => {
+        dish.recipeinstruction.split("_").forEach((instruction) => {
           const li = document.createElement("li");
           li.textContent = instruction.trim();
           recipeInstructionsElement.appendChild(li);
