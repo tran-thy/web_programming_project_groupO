@@ -8,9 +8,10 @@ document.getElementById('search-button-icon').addEventListener('click', function
     searchBox.style.display = searchBox.style.display === 'none' ? 'flex' : 'none';
 });
 
+
 // Function to handle search button click
 document.addEventListener('click', function(event) {
-    if (event.target && event.target.id === 'find-button') {
+    if (event.target && event.target.id === 'search-button') {
         handleSearch();
     }
 });
@@ -22,17 +23,7 @@ document.addEventListener('keypress', function(event) {
     }
 });
 
-// Function to retrieve all dishes data from the backend
-const getAllDishesData = async() => {
-    try {
-        const response = await fetch(`${BACKEND_ROOT_URL}/get`);
-        const dishesData = await response.json();
-        return dishesData;
-    } catch (error) {
-        throw new Error(`Error retrieving all dishes data: ${error.message}`);
-    }
-};
-
+// Function to search recipes by name or ingredients
 // Function to search recipes by name or ingredients
 function searchRecipes(recipes, searchTerm) {
     searchTerm = searchTerm.toLowerCase().trim();
@@ -43,27 +34,53 @@ function searchRecipes(recipes, searchTerm) {
     });
 }
 
+// Function to check if the dish ID corresponds to a Vietnamese dish
+function isVietnameseDish(dishId) {
+    return dishId.toLowerCase().startsWith('vn-');
+}
+
+// Function to check if the dish ID corresponds to a Chinese dish
+function isChineseDish(dishId) {
+    return dishId.toLowerCase().startsWith('ch-');
+}
+
 // Function to handle search
 async function handleSearch() {
     const searchInput = document.getElementById("search-input");
-    const searchTerm = searchInput.value;
+    const searchTerm = searchInput.value.trim().toLowerCase();
 
     // Clear the input field
     searchInput.value = '';
 
     // Check if search term is empty
-    if (!searchTerm.trim()) {
+    if (!searchTerm) {
         // Display an alert
         alert("Please enter a dish name or ingredient to search.");
         return;
     }
 
     try {
-        // Fetch all dishes from the backend server
-        const dishesData = await getAllDishesData();
+        // Fetch all recipes from the backend server
+        console.log("Fetching all recipes...");
+        const allRecipesData = await getAllRecipes();
+        console.log("All recipes data:", allRecipesData);
 
-        // Perform search and display results
-        const searchResults = searchRecipes(dishesData, searchTerm);
+        // Combine Vietnamese and Chinese recipes into a single array
+        const allRecipes = allRecipesData.reduce((accumulator, current) => {
+            if (current.dishtype === "Vietnamese Dish") {
+                current.dishid = `VN-${current.dishid}`; // Add prefix to dishid to identify Vietnamese dishes
+            } else if (current.dishtype === "Chinese Dish") {
+                current.dishid = `CH-${current.dishid}`; // Add prefix to dishid to identify Chinese dishes
+            }
+            accumulator.push(current);
+            return accumulator;
+        }, []);
+
+        console.log("Combined recipes:", allRecipes);
+
+        // Perform search locally on the client side
+        const searchResults = searchRecipes(allRecipes, searchTerm);
+        console.log("Search results:", searchResults);
 
         // Display search results section
         displaySearchResults(searchResults);
