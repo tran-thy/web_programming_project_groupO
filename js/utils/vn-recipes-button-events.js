@@ -6,8 +6,7 @@ const getAllRecipes = async() => {
             throw new Error("Network response was not ok");
         }
         const allRecipes = await response.json();
-        const vietnameseRecipes = allRecipes.filter(recipe => recipe.dishtype === "Vietnamese Dish");
-        return vietnameseRecipes;
+        return allRecipes;
     } catch (error) {
         throw new Error(`Error retrieving recipes data: ${error.message}`);
     }
