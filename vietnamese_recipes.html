@@ -15,39 +15,23 @@
       rel="stylesheet"
     />
     <title>Vietnamese recipes</title>
-    <link rel="stylesheet" href="chinese_styles.css" />
+    <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <style>
+    <!-- <style>
       /* CSS for recipe gallery */
 
       /* CSS for pagination buttons */
+      
       a {
         text-decoration: none;
       }
-      button {
-        padding: 10px 20px;
-        margin: 0 5px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-
-      #currentPage {
-        font-size: 16px;
-        margin: 0 10px;
-      }
-    </style>
+      
+    </style> -->
   </head>
 
   <body>
@@ -183,7 +167,7 @@
           const infoDiv = document.createElement("div");
           infoDiv.classList.add("info");
 
-          const dishName = document.createElement("h2");
+          const dishName = document.createElement("h4");
           dishName.classList.add("title-item");
           dishName.textContent = dish.dishname;
 
