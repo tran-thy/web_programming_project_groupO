@@ -23,23 +23,30 @@ pool.on("error", (err) => {
     process.exit(-1);
 });
 
+// Function to determine dish type based on dishId
+function getDishType(dishId) {
+    return dishId.startsWith("VN") ? "Vietnamese" : "Chinese";
+}
+
 // Route to get all recipes (both Vietnamese and Chinese)
 app.get("/all", (req, res) => {
-    let allRecipes = [];
-
-    // Query Vietnamese recipes
     pool.query("SELECT * FROM vietnamese_recipes", (vietnameseError, vietnameseResult) => {
         if (vietnameseError) {
             res.status(500).json({ error: vietnameseError.message });
         } else {
-            allRecipes = allRecipes.concat(vietnameseResult.rows);
-
-            // Query Chinese recipes
+            const vietnameseRecipes = vietnameseResult.rows.map(row => {
+                row.dishtype = "Vietnamese";
+                return row;
+            });
             pool.query("SELECT * FROM chinese_recipes", (chineseError, chineseResult) => {
                 if (chineseError) {
                     res.status(500).json({ error: chineseError.message });
                 } else {
-                    allRecipes = allRecipes.concat(chineseResult.rows);
+                    const chineseRecipes = chineseResult.rows.map(row => {
+                        row.dishtype = "Chinese";
+                        return row;
+                    });
+                    const allRecipes = [...vietnameseRecipes, ...chineseRecipes];
                     res.status(200).json(allRecipes);
                 }
             });
@@ -140,14 +147,16 @@ app.get("/chinese/:dishId", (req, res) => {
     );
 });
 
-// Route to add a new Vietnamese recipe
+// Route to add a new recipe
 app.post("/new", (req, res) => {
-    const pool = openDb();
+    const dishId = req.body.dishid;
+    const dishType = getDishType(dishId);
+    const tableName = dishType === "Vietnamese" ? "vietnamese_recipes" : "chinese_recipes";
     const query_post =
-        "INSERT INTO vietnamese_recipes (dishid, dishtype, dishname, dishdescription, dishimage, recipeingredients, recipeinstruction) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *";
+        `INSERT INTO ${tableName} (dishid, dishtype, dishname, dishdescription, dishimage, recipeingredients, recipeinstruction) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
     const values_post = [
         req.body.dishid,
-        req.body.dishtype,
+        dishType,
         req.body.dishname,
         req.body.dishdescription,
         req.body.dishimage,
