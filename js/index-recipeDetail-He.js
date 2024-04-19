@@ -145,7 +145,7 @@ const displayRecipeDetails = (recipeData, dishid) => { // Use dishid here
     const recipeHTML = `
         <h1 class="entry-title" data-recipe-id="${dishid}">${dishname}</h1>
         <div class="entry-content">
-            <h2 class="recipe-title">Who Invented ${dishname} ?</h2>
+            <h2 class="recipe-title" style="text-align: left;">Who Invented ${dishname} ?</h2>
             <p class="recipe-paragraph" style="font-size: 16px;
             line-height: 1.5; margin-bottom: 20px">${dishhistory}</p>
             <figure class="recipe-image">
