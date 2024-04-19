@@ -36,11 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('dish-image').innerHTML = `<img src="${data.dishimage}" alt="${data.dishname}">`;
                 document.getElementById('dish-name').textContent = data.dishname;
                 document.getElementById('dish-type').textContent = data.dishtype;
-                document.getElementById('dish-description').textContent = data.dishdescription;
+                // document.getElementById('dish-description').textContent = data.dishdescription;
+                document.getElementById('dish-history').textContent = data.dishhistory;
                 document.getElementById('recipe-ingredients').innerHTML = data.recipeingredients.split(',').map(ingredient => `<li>${ingredient}</li>`).join('');
                 document.getElementById('recipe-instructions').textContent = data.recipeinstruction;
                 document.getElementById('dish-name-2').textContent = data.dishname;
                 document.getElementById('dish-name-congratulations').textContent = data.dishname;
+
+                // Check if dish video exists and embed it
+                if (data.dishvideo) {
+                    // Extract video ID from YouTube URL
+                    const videoId = data.dishvideo.split('v=')[1];
+                    if (videoId) {
+                        // Construct embedded player URL
+                        const embeddedUrl = `https://www.youtube.com/embed/${videoId}`;
+                        document.getElementById('dish-video').src = embeddedUrl;
+                    }
+                }
 
                 // Hide sections after displaying recipe details
                 hideSectionsInEachRecipePage();
