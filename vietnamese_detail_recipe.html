@@ -2,117 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vietnamese recipes</title>
+    <link rel="stylesheet" href="css/vietnamese_recipe_detail_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <title>Vietnamese recipes</title>
-    <link rel="stylesheet" href="#" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .title-item {
-        text-align: left;
-        color: #333;
-      }
-
-      .info {
-        margin-top: 20px;
-      }
-
-      .description {
-        font-size: 18px;
-        line-height: 1.5;
-      }
-
-      .image {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      #dish-image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      }
-
-      h3 {
-        margin-top: 20px;
-        color: #333;
-      }
-
-      ul,
-      ol {
-        list-style-type: none;
-        padding-left: 0;
-      }
-
-      li {
-        margin-bottom: 10px;
-        font-size: 16px;
-      }
-
-      .comment {
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        max-width: 500px;
-      }
-
-      #success-message {
-        color: red;
-      }
-      @media (max-width: 600px) {
-        .container {
-          padding: 10px;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div class="container" id="dish">
+    <div class="article" id="dish">
       <h2 class="title-item" id="dish-name"></h2>
       <div class="info">
-        <p class="description" id="dish-description"></p>
+        <h4>Description</h4>
+        <div class="description" id="dish-description"></div>
         <div class="image">
           <img id="dish-image" src="" alt="" />
         </div>
-        <h3>Recipe Ingredients:</h3>
-        <ul id="recipe-ingredients">
-          <!-- Ingredients will be populated dynamically -->
-        </ul>
-        <h3>Recipe Instructions:</h3>
-        <ol id="recipe-instructions">
-          <!-- Instructions will be populated dynamically -->
-        </ol>
+        <h4>What are the Ingredients?</h4>
+        <div class="content-detail">
+          <ul id="recipe-ingredients">
+            <!-- Ingredients will be populated dynamically -->
+          </ul>
+        </div>
+        <h4>What are the Instructions?</h4>
+        <div class="content-detail">
+          <ol id="recipe-instructions">
+            <!-- Instructions will be populated dynamically -->
+          </ol>
+        </div>
       </div>
 
       <!-- Comment Part -->
@@ -124,7 +48,8 @@
       </div>
 
       <form id="comment-form">
-        <label for="commenter_name">Reviewer</label><br />
+        <label for="commenter_name"><strong>Reviewer</strong></label
+        ><br />
         <input
           type="text"
           id="commenter_name"
@@ -132,7 +57,8 @@
           required
         /><br />
 
-        <label for="comment_content">Comment</label><br />
+        <label for="comment_content"><strong>Comment</strong></label
+        ><br />
         <textarea
           id="comment_content"
           name="comment_content"
@@ -142,11 +68,12 @@
         ></textarea
         ><br />
 
-        <label for="recipe ID">Recipe ID</label><br />
+        <label for="recipe ID"><strong>Recipe ID</strong></label
+        ><br />
 
         <input type="text" id="dishId" name="dishId" required /><br />
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="SUBMIT" />
       </form>
     </div>
 
