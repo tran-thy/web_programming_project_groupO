@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+body {
+  overflow-x: auto;
+  padding-top: 60px;
+}
+
+.article {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 7.5%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.info {
+  margin-top: 10px;
+}
+
+.title-item {
+  font-size: 30px;
+  color: #843838;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+h4 {
+  color: #e69d3e;
+  font-size: 20px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.image {
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 25vw;
+  max-height: 100vw;
+  position: relative;
+}
+
+#dish-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  border-radius: 5px;
+}
+.content-detail {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  line-height: 1.6;
+  /* border: 1px solid #e69d3e; */
+}
+ul,
+ol {
+  list-style-type: disc;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* CSS for comment section and form */
+#comments-container {
+  margin-top: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: 0.5px solid #ccc;
+}
+
+#comment-form {
+  margin-top: 20px;
+}
+
+#comment-form label {
+  /* display: block; */
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#comment-form input[type="text"],
+#comment-form textarea {
+  width: 70%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#comment-form textarea {
+  resize: vertical; /* Allows vertical resizing */
+}
+
+#comment-form input[type="submit"] {
+  background-color: #deb887;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#comment-form input[type="submit"]:hover {
+  background-color: #47974b;
+}
+
+.comment {
+  margin-bottom: 10px;
+  /* border: 1px solid #ccc; */
+  padding: 10px;
+  max-width: 500px;
+}
+
+#success-message {
+  color: red;
+}
+.delete-btn {
+  /* background-color: #deb887;
+  color: white; */
+  /* border: none; */
+  /* border-radius: 5px; */
+  padding: 2px 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+@media screen and (max-width: 600px) {
+  #dish .container {
+    padding: 10px;
+  }
+}
