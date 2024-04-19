@@ -1,10 +1,22 @@
-const BACKEND_ROOT_URL = "http://localhost:3001";
-let vietnameseRecipeSection; // Declare the variable for later assignment
+// Function to retrieve all recipes (both Vietnamese and Chinese) from the back-end
+const getAllRecipes = async() => {
+    try {
+        const response = await fetch("http://localhost:3001/all");
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const allRecipes = await response.json();
+        const vietnameseRecipes = allRecipes.filter(recipe => recipe.dishtype === "Vietnamese Dish");
+        return vietnameseRecipes;
+    } catch (error) {
+        throw new Error(`Error retrieving recipes data: ${error.message}`);
+    }
+};
 
-// Function to retrieve Vietnamese dishes data from the backend
+// Function to retrieve Vietnamese dishes data from the back-end
 const getVietnameseDishesData = async() => {
     try {
-        const response = await fetch(`${BACKEND_ROOT_URL}/get`);
+        const response = await fetch("http://localhost:3001/vietnamese");
         const dishesData = await response.json();
         return dishesData.filter((dish) => dish.dishtype === "Vietnamese Dish");
     } catch (error) {
@@ -34,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     vietnameseRecipesBtn.addEventListener('click', async(event) => {
         event.preventDefault(); // Prevent default button behavior
-        console.log("Vietnamese recipes button clicked"); // Thêm console.log ở đây
+        console.log("Vietnamese recipes button clicked");
         await renderVietnameseDishes(); // Fetch and render Vietnamese dishes
     });
 });
@@ -59,7 +71,6 @@ const hideSectionsInVietnameseRecipesPage = () => {
     document.getElementById('search-results-section').style.display = 'none';
     document.getElementById('about-us-section').style.display = 'none';
     document.getElementById('recipe-display-section').style.display = 'none';
-    // document.getElementById('cn-recipe-display-section').style.display = 'none';
 };
 
 // Function to display Vietnamese dishes

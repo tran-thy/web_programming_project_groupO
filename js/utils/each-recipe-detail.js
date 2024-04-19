@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('search-results-section').style.display = 'none';
         document.getElementById('about-us-section').style.display = 'none';
         document.getElementById('vn-recipe-display-section').style.display = 'none';
-        // document.getElementById('cn-recipe-display-section').style.display = 'none';
+        document.getElementById('cn-recipe-display-section').style.display = 'none'; // Show the Chinese recipe section
     };
 
     // Extract dishId from the current URL
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if dishId is defined
     if (dishId) {
         // Call the API to fetch data details according to the ID
-        fetch(`http://localhost:3001/${dishId}`)
+        fetch(`http://localhost:3001/vietnamese/${dishId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -32,16 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                // Update the content of HTML elements
-                document.getElementById('dish-image').innerHTML = `<img src="${data.dishimage}" alt="${data.dishname}">`;
-                document.getElementById('dish-name').textContent = data.dishname;
-                document.getElementById('dish-type').textContent = data.dishtype;
-                // document.getElementById('dish-description').textContent = data.dishdescription;
-                document.getElementById('dish-history').textContent = data.dishhistory;
-                document.getElementById('recipe-ingredients').innerHTML = data.recipeingredients.split(',').map(ingredient => `<li>${ingredient}</li>`).join('');
-                document.getElementById('recipe-instructions').textContent = data.recipeinstruction;
-                document.getElementById('dish-name-2').textContent = data.dishname;
-                document.getElementById('dish-name-congratulations').textContent = data.dishname;
+                // Update the content of HTML elements if they exist
+                const updateElement = (id, value) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.textContent = value;
+                    }
+                };
+
+                updateElement('dish-image', `<img src="${data.dishimage}" alt="${data.dishname}">`);
+                updateElement('dish-name', data.dishname);
+                updateElement('dish-type', data.dishtype);
+                updateElement('dish-history', data.dishhistory);
+                updateElement('recipe-ingredients', data.recipeingredients.split(',').map(ingredient => `<li>${ingredient}</li>`).join(''));
+                updateElement('recipe-instructions', data.recipeinstruction);
+                updateElement('dish-name-2', data.dishname);
+                updateElement('dish-name-congratulations', data.dishname);
 
                 // Check if dish video exists and embed it
                 if (data.dishvideo) {
@@ -50,14 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (videoId) {
                         // Construct embedded player URL
                         const embeddedUrl = `https://www.youtube.com/embed/${videoId}`;
-                        document.getElementById('dish-video').src = embeddedUrl;
+                        const dishVideoElement = document.getElementById('dish-video');
+                        if (dishVideoElement) {
+                            dishVideoElement.src = embeddedUrl;
+                        }
                     }
                 }
 
                 // Hide sections after displaying recipe details
                 hideSectionsInEachRecipePage();
             })
-            .catch(error => console.error('Error retrieving dish data:', error));
+            .catch(error => {
+                console.error('Error retrieving dish data:', error);
+                // Display a user-friendly error message
+                const errorMessageElement = document.getElementById('error-message');
+                if (errorMessageElement) {
+                    errorMessageElement.textContent = 'Error retrieving dish data. Please try again later.';
+                }
+            });
 
         // Add event listener for view details buttons
         const viewDetailButtons = document.querySelectorAll('.view-details');
