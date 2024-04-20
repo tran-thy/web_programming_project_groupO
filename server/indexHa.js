@@ -39,7 +39,7 @@ app.listen(port);
 app.get("/", async (req, res) => {
   console.log(query);
   try {
-    const result = await query("SELECT * FROM dishesData");
+    const result = await query("SELECT * FROM Vietnamese_Recipes");
     const rows = result.rows ? result.rows : [];
     res.status(200).json(rows);
   } catch (error) {
@@ -54,7 +54,7 @@ app.post("/new", async (req, res) => {
   console.log(req.body);
   try {
     const result = await query(
-      "INSERT INTO dishesData (dishid, dishtype, dishname, dishdescription, dishimage, recipeingredients, recipeinstruction) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO Vietnamese_Recipes (dishid, dishtype, dishname, dishdescription, dishimage, recipeingredients, recipeinstruction) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [
         req.body.dishid,
         req.body.dishtype,
@@ -80,9 +80,10 @@ app.get("/get/:id", async (req, res) => {
   console.log(id); // Logging the id to verify
 
   try {
-    const result = await query("SELECT * FROM dishesData WHERE dishid = $1", [
-      id,
-    ]);
+    const result = await query(
+      "SELECT * FROM Vietnamese_Recipes WHERE dishid = $1",
+      [id]
+    );
     const rows = result.rows[0];
     res.status(200).json(rows);
   } catch (error) {
@@ -141,7 +142,7 @@ app.delete("/cmt/delete/:id", async (req, res) => {
 // Endpoint to get random food data
 app.get("/randomFood", async (req, res) => {
   try {
-    const disData = await query("SELECT * FROM dishesData");
+    const disData = await query("SELECT * FROM Vietnamese_Recipes");
     const rows = disData.rows || [];
 
     const randomIndex = Math.floor(Math.random() * rows.length);
