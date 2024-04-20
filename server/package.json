@@ -6,6 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "devStart": "nodemon index.js",
+        "devStartH": "nodemon indexHa.js",
         "devStartT": "nodemon indexT.js",
         "devStart3": "nodemon indexHY.js"
     },
