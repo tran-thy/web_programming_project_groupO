@@ -64,7 +64,7 @@ body {
   /* border: none; */
 
   /* border: none; */
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* preheader */
@@ -92,6 +92,9 @@ body {
   /* White color for the "Sign in" text */
   text-decoration: none;
   /* Remove underline from the link */
+}
+.login {
+  font-size: 18px;
 }
 /* nav wrapper */
 .header {
@@ -126,7 +129,6 @@ body {
   color: #d2b48c;
   transition: all 0.3s;
 }
-/* toggle */
 .navbar {
   overflow: visible;
   height: 0;
@@ -193,21 +195,40 @@ body {
 .carousel-caption a:hover {
   color: #fff;
 }
-
+.carousel-caption p {
+  font-size: 18px;
+}
 /* cozy food */
 
 .block-heading {
   margin-bottom: 30px;
 }
+.list-item {
+  width: calc(50% - 20px);
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 500px;
+}
+
+.cozy-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+}
 
 .equal-img {
-  width: 100%;
-  height: 20vw;
-  object-fit: cover;
-  border-radius: 50px;
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 100%;
+  border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
   margin-top: 10px;
+  border-radius: 10px;
 }
 
 .category-index {
@@ -216,20 +237,21 @@ body {
 
 .category-list {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  /* padding: 0; */
+  padding-top: 10px;
 }
 
 .list-item {
   margin-bottom: 20px;
 }
+/* cozy and recom part */
 
 .category-title {
   margin-top: 10px;
   font-weight: bold;
   text-align: center;
   color: #000;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .category-buttons {
@@ -247,7 +269,9 @@ body {
   border-color: #d2b48c !important;
   transition: all 0.3s;
 }
-
+.category-more-detail {
+  font-size: 18px;
+}
 .list-item a {
   text-decoration: none;
 }
@@ -263,40 +287,56 @@ body {
 }
 
 .greatest-post-one {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  width: calc(25% - 20px); /* 25% width for each recipe, subtracting margin */
+  /* margin-right: 10px; */
+  /* margin-bottom: 40px;  */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
 }
 
 .greatest-img {
-  max-width: 100%;
-  border-radius: 10px;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+}
+
+.greatest-img img {
+  width: 100%;
+  height: 80%;
+  display: block;
+  object-fit: cover;
+  border-radius: 15px;
   transition: transform 0.2s ease-in;
 }
 
-.greatest-img:hover {
+#recommend-options-vnese {
+  margin-bottom: 20px;
+}
+
+.greatest-img img:hover {
   transform: translateY(-15px);
 }
 
 .greatest-title {
   text-align: center;
-  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  /* margin-top: 20px; */
 }
 
-.greatest-title a {
+.greatest-post-one a {
   text-decoration: none;
   color: #000;
 }
 
-.greatest-title a:hover {
+.greatest-post-one a:hover {
   color: #deb887;
 }
 
-.greatest-title h6 {
-  font-weight: bold;
-  font-size: 24px;
-}
+/*  */
 
 /* footer */
 
@@ -389,5 +429,8 @@ body {
   .equal-img {
     /* width: 50vw; */
     height: 50vw;
+  }
+  .greatest-post-one {
+    height: 450px;
   }
 }
