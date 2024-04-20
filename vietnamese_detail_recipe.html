@@ -2,26 +2,177 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vietnamese recipes</title>
-    <link rel="stylesheet" href="css/vietnamese_recipe_detail_styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Vietnamese detail recipe</title>
+    <link rel="stylesheet" href="css/vietnamese_recipe_detail_styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
   </head>
+
   <body>
+    <!-- Part I -->
+    <div class="top-header bg-light-brown py-2">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Social Media Icons -->
+          <div class="col-md-6">
+            <div class="top-social text-white">
+              <a href="https://github.com"
+                ><i class="fab fa-github fa-2x"></i
+              ></a>
+              <a href="https://facebook.com"
+                ><i class="fab fa-facebook fa-2x"></i
+              ></a>
+              <a href="https://instagram"
+                ><i class="fab fa-instagram fa-2x"></i
+              ></a>
+              <a href="https://twitter.com"
+                ><i class="fab fa-twitter fa-2x"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Search and Login/Register Area -->
+          <!-- I think this part need more discussion: many ways to that -->
+          <div class="col-md-6">
+            <div class="signup-search-area d-flex align-items-center">
+              <!-- Login/Register Area -->
+              <!-- It is can be change other way by by button ... -->
+              <div class="login_register_area d-flex">
+                <div class="login">
+                  <a href="../login/login-interface.html" class="text-black"
+                    >Sign in</a
+                  >
+                </div>
+              </div>
+
+              <!-- Search section -->
+              <div
+                class="d-flex justify-content-between align-items-center"
+                id="search-container"
+              >
+                <div class="search-options">
+                  <button
+                    class="btn btn-primary search-symbol"
+                    type="button"
+                    id="search-button-icon"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <div class="input-group search-box" style="display: none">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="search-input"
+                      placeholder="Dish or ingredient..."
+                      aria-label="Search for a dish"
+                      aria-describedby="search-box-expanded"
+                      autocomplete="off"
+                    />
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      id="search-button"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part II: Menu bar -->
+    <header class="header">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side - Logo and Name -->
+          <div class="logo col-md-6 d-flex align-items-center">
+            <img
+              class="image-wrapper"
+              id="image-wrapper-left"
+              src="data/images/logo/logo.png"
+              alt="Logo"
+              width="15%"
+            />
+            <h1 class="logo_name" id="logo-name-left">CHOPSTICKS WORLD</h1>
+          </div>
+
+          <!-- Right Side - Navigation -->
+          <div class="wrapper col-md-6">
+            <div id="nav-wrapper">
+              <div id="toggle">
+                <i class="fas fa-bars"></i>
+              </div>
+              <nav class="navbar navbar-expand-md">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="index.html" class="nav-link"
+                      ><strong>HOME</strong></a
+                    >
+                  </li>
+
+                  <li class="nav-item-btn">
+                    <button
+                      class="btn vietnamese-recipes-btn"
+                      id="vietnamese-recipes-btn"
+                    >
+                      <strong>VIETNAMESE RECIPES</strong>
+                    </button>
+                  </li>
+
+                  <!-- <li class="nav-item-btn">
+                                  <button class="btn chinese-recipes-btn" id="chinese-recipes-btn">
+                                      <strong>CHINESE RECIPES</strong>
+                                  </button>
+                              </li> -->
+
+                  <li class="nav-item">
+                    <a href="chinese_Yanwen.html" class="nav-link"
+                      ><strong>CHINESE RECIPES</strong></a
+                    >
+                  </li>
+
+                  <li class="nav-item-btn">
+                    <button class="btn about-btn" id="about-btn">
+                      <strong>ABOUT US</strong>
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- recipe part -->
     <div class="article" id="dish">
       <h2 class="title-item" id="dish-name"></h2>
       <div class="info">
         <h4>Description</h4>
         <div class="description" id="dish-description"></div>
+        <h4>Food History</h4>
+        <div class="history" id="dish-history"></div>
         <div class="image">
           <img id="dish-image" src="" alt="" />
         </div>
@@ -37,6 +188,19 @@
             <!-- Instructions will be populated dynamically -->
           </ol>
         </div>
+      </div>
+
+      <div class="iframe-container">
+        <iframe
+          width="800"
+          height="400"
+          src="${dishvideo}"
+          title="#"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </div>
 
       <!-- Comment Part -->
@@ -77,189 +241,67 @@
       </form>
     </div>
 
-    <script>
-      const BACKEND_ROOT_URL = "http://localhost:3001";
+    <!-- Part X: Footer -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h1 class="logo_name_footer">CHOPSTICKS WORLD</h1>
+            <p>Copyright &copy; 2024</p>
+          </div>
+          <div class="col-md-4">
+            <nav class="nav-footer">
+              <ul class="custom-list">
+                <li><a href="index.html" class="nav-link-footer">HOME</a></li>
+                <li>
+                  <button
+                    class="btn footer-btn-about"
+                    id="vietnamese-recipes-btn-footer"
+                  >
+                    VIETNAMESE RECIPES
+                  </button>
+                </li>
+                <!-- <li>
+                                <button class="btn footer-btn-about" id="chinese-recipes-btn-footer">CHINESE RECIPES</button>
+                            </li> -->
+                <li>
+                  <a href="chinese_Yanwen.html" class="nav-link-footer"
+                    >CHINESE RECIPES</a
+                  >
+                </li>
 
-      const fetchData = async (endpoint) => {
-        try {
-          const response = await fetch(`${BACKEND_ROOT_URL}/${endpoint}`);
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.error("There was a problem with the fetch operation:", error);
-          throw error;
-        }
-      };
+                <li>
+                  <button class="btn footer-btn-about" id="footer-btn-about">
+                    ABOUT US
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-      //Render Recipe
-      const renderVietnameseDish = async (id) => {
-        try {
-          const vietnameseDishData = await fetchData(`get/${id}`);
-          displayDish(vietnameseDishData);
-        } catch (error) {
-          alert(error.message);
-        }
-      };
+          <div class="social col-md-4">
+            <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://facebook.com"
+              ><i class="fab fa-facebook fa-2x"></i
+            ></a>
+            <a href="https://instagram"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+            <a href="https://twitter.com"
+              ><i class="fab fa-twitter fa-2x"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-      //Render Comments
-      const getCommentsData = async (id) => {
-        try {
-          const cmtData = await fetchData(`cmt/${id}`);
-          return cmtData;
-        } catch (error) {
-          throw new Error(`Error retrieving comments data: ${error.message}`);
-        }
-      };
+    <!-- Utils scripts - menu bar-->
+    <script src="js/utils/search-button-events.js "></script>
+    <script src="js/utils/about-us-button-events.js "></script>
+    <script src="js/utils/vietnamese_detail_recipe_comments.js"></script>
 
-      const renderComments = async (id) => {
-        try {
-          // Set the value of the dishId input field
-          document.getElementById("dishId").value = id;
-
-          const cmtData = await getCommentsData(id);
-          displayComments(cmtData);
-        } catch (error) {
-          document.getElementById("error-message").textContent = error.message;
-        }
-      };
-
-      //Display Recipe
-      const displayDish = (dish) => {
-        const dishNameElement = document.getElementById("dish-name");
-        const dishDescriptionElement =
-          document.getElementById("dish-description");
-        const dishImageElement = document.getElementById("dish-image");
-        const recipeIngredientsElement =
-          document.getElementById("recipe-ingredients");
-        const recipeInstructionsElement = document.getElementById(
-          "recipe-instructions"
-        );
-
-        dishNameElement.textContent = dish.dishname;
-        dishDescriptionElement.textContent = dish.dishdescription;
-        dishImageElement.src = dish.dishimage;
-
-        // Populate Ingredients
-        dish.recipeingredients.split(",").forEach((ingredient) => {
-          const li = document.createElement("li");
-          li.textContent = ingredient.trim();
-          recipeIngredientsElement.appendChild(li);
-        });
-
-        // Populate Instructions
-        dish.recipeinstruction.split("_").forEach((instruction) => {
-          const li = document.createElement("li");
-          li.textContent = instruction.trim();
-          recipeInstructionsElement.appendChild(li);
-        });
-      };
-
-      //Display Comment
-
-      const displayComments = (cmtData) => {
-        const commentsContainer = document.getElementById("comments-container");
-        commentsContainer.innerHTML = "";
-
-        cmtData.forEach((comment) => {
-          const commentElement = document.createElement("div");
-          commentElement.classList.add("comment");
-          commentElement.innerHTML = `
-            <p><strong>${comment.commenter_name}</strong>: ${comment.comment_content}</p>
-            <p><em>${comment.created_at}</em> <button class="delete-btn" data-id="${comment.comment_id}">Delete</button></p>
-          `;
-          commentsContainer.appendChild(commentElement);
-        });
-
-        // Add event listeners to delete buttons
-
-        const deleteButtons = document.querySelectorAll(".delete-btn");
-        deleteButtons.forEach((button) => {
-          button.addEventListener("click", async () => {
-            const commentId = parseInt(button.getAttribute("data-id"));
-            try {
-              await deleteComment(commentId);
-              renderComments(document.getElementById("dishId").value); // Re-render comments after deletion
-            } catch (error) {
-              alert(error.message);
-            }
-          });
-        });
-      };
-
-      //Render PostComments
-      const postComment = async (name, content, id) => {
-        try {
-          const response = await fetch(`${BACKEND_ROOT_URL}/cmt/new`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              commenter_name: name,
-              comment_content: content,
-              dishId: id,
-            }),
-          });
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const data = await response.json();
-          // Show success message after posting comment
-          document.getElementById("success-message").style.display = "block";
-          return data;
-        } catch (error) {
-          throw new Error(`Error adding comment: ${error.message}`);
-        }
-      };
-
-      const deleteComment = async (commentId) => {
-        try {
-          const response = await fetch(
-            `${BACKEND_ROOT_URL}/cmt/delete/${commentId}`,
-            {
-              method: "DELETE",
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to delete comment");
-          }
-        } catch (error) {
-          throw new Error(`Error deleting comment: ${error.message}`);
-        }
-      };
-
-      document
-        .getElementById("comment-form")
-        .addEventListener("submit", async (event) => {
-          event.preventDefault();
-          const formData = new FormData(event.target);
-          const commenterName = formData.get("commenter_name");
-          const commentContent = formData.get("comment_content");
-          const dishId = formData.get("dishId");
-
-          try {
-            await postComment(commenterName, commentContent, dishId);
-            renderComments(dishId);
-            event.target.reset();
-          } catch (error) {
-            alert(error.message);
-          }
-        });
-
-      // Get the dish ID from the URL query parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const dishId = urlParams.get("id");
-
-      // renderVietnameseDish("VN-0002"); //test
-      // renderComments("VN-0002"); //test
-
-      //Render the Vietnamese dish using the retrieved dishId
-      renderVietnameseDish(dishId);
-      renderComments(dishId);
-    </script>
+    <!-- Other scripts -->
+    <script src="js/utils/navbar.js "></script>
+    <!-- <script src="js/utils/header_footer_index.js"></script> -->
   </body>
 </html>

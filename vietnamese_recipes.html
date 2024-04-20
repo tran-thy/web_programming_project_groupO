@@ -16,25 +16,156 @@
     />
     <title>Vietnamese recipes</title>
     <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <!-- <style>
-      /* CSS for recipe gallery */
-
-      /* CSS for pagination buttons */
-      
-      a {
-        text-decoration: none;
-      }
-      
-    </style> -->
   </head>
 
   <body>
+    <!-- Part I -->
+    <div class="top-header bg-light-brown py-2">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Social Media Icons -->
+          <div class="col-md-6">
+            <div class="top-social text-white">
+              <a href="https://github.com"
+                ><i class="fab fa-github fa-2x"></i
+              ></a>
+              <a href="https://facebook.com"
+                ><i class="fab fa-facebook fa-2x"></i
+              ></a>
+              <a href="https://instagram"
+                ><i class="fab fa-instagram fa-2x"></i
+              ></a>
+              <a href="https://twitter.com"
+                ><i class="fab fa-twitter fa-2x"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Search and Login/Register Area -->
+          <!-- I think this part need more discussion: many ways to that -->
+          <div class="col-md-6">
+            <div class="signup-search-area d-flex align-items-center">
+              <!-- Login/Register Area -->
+              <!-- It is can be change other way by by button ... -->
+              <div class="login_register_area d-flex">
+                <div class="login">
+                  <a href="../login/login-interface.html" class="text-black"
+                    >Sign in</a
+                  >
+                </div>
+              </div>
+
+              <!-- Search section -->
+              <div
+                class="d-flex justify-content-between align-items-center"
+                id="search-container"
+              >
+                <div class="search-options">
+                  <button
+                    class="btn btn-primary search-symbol"
+                    type="button"
+                    id="search-button-icon"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <div class="input-group search-box" style="display: none">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="search-input"
+                      placeholder="Dish or ingredient..."
+                      aria-label="Search for a dish"
+                      aria-describedby="search-box-expanded"
+                      autocomplete="off"
+                    />
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      id="search-button"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part II: Menu bar -->
+    <header class="header">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side - Logo and Name -->
+          <div class="logo col-md-6 d-flex align-items-center">
+            <img
+              class="image-wrapper"
+              id="image-wrapper-left"
+              src="data/images/logo/logo.png"
+              alt="Logo"
+              width="15%"
+            />
+            <h1 class="logo_name" id="logo-name-left">CHOPSTICKS WORLD</h1>
+          </div>
+
+          <!-- Right Side - Navigation -->
+          <div class="wrapper col-md-6">
+            <div id="nav-wrapper">
+              <div id="toggle">
+                <i class="fas fa-bars"></i>
+              </div>
+              <nav class="navbar navbar-expand-md">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="index.html" class="nav-link"
+                      ><strong>HOME</strong></a
+                    >
+                  </li>
+
+                  <li class="nav-item-btn">
+                    <button
+                      class="btn vietnamese-recipes-btn"
+                      id="vietnamese-recipes-btn"
+                    >
+                      <strong>VIETNAMESE RECIPES</strong>
+                    </button>
+                  </li>
+
+                  <!-- <li class="nav-item-btn">
+                                  <button class="btn chinese-recipes-btn" id="chinese-recipes-btn">
+                                      <strong>CHINESE RECIPES</strong>
+                                  </button>
+                              </li> -->
+
+                  <li class="nav-item">
+                    <a href="chinese_Yanwen.html" class="nav-link"
+                      ><strong>CHINESE RECIPES</strong></a
+                    >
+                  </li>
+
+                  <li class="nav-item-btn">
+                    <button class="btn about-btn" id="about-btn">
+                      <strong>ABOUT US</strong>
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- recipes part -->
     <div class="container" id="recipeGallery">
       <div class="recipe">
         <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
@@ -54,136 +185,67 @@
       <button id="nextPage">Next</button>
     </div>
 
-    <script>
-      const BACKEND_ROOT_URL = "http://localhost:3001";
+    <!-- Part X: Footer -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h1 class="logo_name_footer">CHOPSTICKS WORLD</h1>
+            <p>Copyright &copy; 2024</p>
+          </div>
+          <div class="col-md-4">
+            <nav class="nav-footer">
+              <ul class="custom-list">
+                <li><a href="index.html" class="nav-link-footer">HOME</a></li>
+                <li>
+                  <button
+                    class="btn footer-btn-about"
+                    id="vietnamese-recipes-btn-footer"
+                  >
+                    VIETNAMESE RECIPES
+                  </button>
+                </li>
+                <!-- <li>
+                                <button class="btn footer-btn-about" id="chinese-recipes-btn-footer">CHINESE RECIPES</button>
+                            </li> -->
+                <li>
+                  <a href="chinese_Yanwen.html" class="nav-link-footer"
+                    >CHINESE RECIPES</a
+                  >
+                </li>
 
-      // Function to retrieve Vietnamese dishes data from the backend
-      const getVietnameseDishesData = async (startIndex, endIndex) => {
-        try {
-          const response = await fetch(`${BACKEND_ROOT_URL}`);
-          const dishesData = await response.json();
-          return dishesData.slice(startIndex, endIndex);
-        } catch (error) {
-          throw new Error(
-            `Error retrieving Vietnamese dishesData: ${error.message}`
-          );
-        }
-      };
+                <li>
+                  <button class="btn footer-btn-about" id="footer-btn-about">
+                    ABOUT US
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-      // Function to render Vietnamese dishes
-      const renderVietnameseDishes = async () => {
-        try {
-          const vietnameseDishesData = await getVietnameseDishesData(0, 6);
-          let currentPage = 1;
-          const pageSize = 6;
-          const dishesData = await getVietnameseDishesData();
-          totalRecipes = dishesData.length; // Update totalRecipes with the length of Vietnamese dishes data
-          //   const totalRecipes = 16;
-          const totalPages = Math.ceil(totalRecipes / pageSize); // This should give 3  pages
-          console.log(totalPages); // Check if this gives the expected result
+          <div class="social col-md-4">
+            <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://facebook.com"
+              ><i class="fab fa-facebook fa-2x"></i
+            ></a>
+            <a href="https://instagram"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+            <a href="https://twitter.com"
+              ><i class="fab fa-twitter fa-2x"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-          const renderDishesForPage = async (page) => {
-            try {
-              const startIndex = (page - 1) * pageSize;
-              //   const endIndex = Math.min(startIndex + pageSize, totalRecipes);
-              const endIndex = startIndex + pageSize;
-              const dishesData = await getVietnameseDishesData(
-                startIndex,
-                endIndex
-              );
-              displayVietnameseDishes(dishesData);
-            } catch (error) {
-              alert(error.message);
-            }
-          };
+    <!-- Utils scripts - menu bar-->
+    <script src="js/utils/search-button-events.js "></script>
+    <script src="js/utils/about-us-button-events.js "></script>
+    <script src="js/utils/vietnamese_recipes.js"></script>
 
-          const updatePaginationControls = () => {
-            document.getElementById(
-              "currentPage"
-            ).textContent = `Page ${currentPage}`;
-          };
-
-          document
-            .getElementById("nextPage")
-            .addEventListener("click", async () => {
-              currentPage++;
-              if (currentPage > Math.ceil(totalPages)) {
-                currentPage = Math.ceil(totalPages);
-              }
-              await renderDishesForPage(currentPage);
-              updatePaginationControls();
-            });
-
-          document.getElementById("prevPage").addEventListener("click", () => {
-            if (currentPage > 1) {
-              currentPage--;
-              renderDishesForPage(currentPage);
-              updatePaginationControls();
-            }
-          });
-
-          renderDishesForPage(currentPage);
-          updatePaginationControls();
-        } catch (error) {
-          alert(error.message);
-        }
-      };
-      const displayVietnameseDishes = (dishesData) => {
-        const vietnameseRecipeSection =
-          document.getElementById("recipeGallery");
-        if (!vietnameseRecipeSection) {
-          throw new Error("Vietnamese recipe display section not found");
-        }
-        vietnameseRecipeSection.innerHTML = "";
-
-        // Create a row container
-        let row = document.createElement("div");
-        row.classList.add("row", "container");
-
-        dishesData.forEach((dish, index) => {
-          // Create a new row after every three dishes
-          if (index > 0 && index % 3 === 0) {
-            vietnameseRecipeSection.appendChild(row);
-            // row = document.createElement("div");
-            // row.classList.add("row", "category-list");
-          }
-
-          const dishElement = document.createElement("div");
-          dishElement.classList.add("recipe", "col-md-4");
-          const dishLink = document.createElement("a");
-          dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`;
-
-          const imageDiv = document.createElement("div");
-          imageDiv.classList.add("image");
-
-          const dishImage = document.createElement("img");
-          dishImage.src = dish.dishimage;
-          dishImage.alt = dish.dishname;
-
-          imageDiv.appendChild(dishImage);
-
-          const infoDiv = document.createElement("div");
-          infoDiv.classList.add("info");
-
-          const dishName = document.createElement("h4");
-          dishName.classList.add("title-item");
-          dishName.textContent = dish.dishname;
-
-          infoDiv.appendChild(dishName);
-
-          dishLink.appendChild(imageDiv);
-          dishLink.appendChild(infoDiv);
-          dishElement.appendChild(dishLink);
-          row.appendChild(dishElement);
-        });
-
-        // Append the last row
-        vietnameseRecipeSection.appendChild(row);
-
-        vietnameseRecipeSection.style.display = "block";
-      };
-
-      renderVietnameseDishes();
-    </script>
+    <!-- Other scripts -->
+    <script src="js/utils/navbar.js "></script>
+    <!-- <script src="js/utils/header_footer_index.js"></script> -->
   </body>
 </html>

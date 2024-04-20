@@ -36,7 +36,7 @@ app.listen(port);
 
 //get/post recipe
 
-app.get("/", async (req, res) => {
+app.get("/Vietnamese_Recipes", async (req, res) => {
   console.log(query);
   try {
     const result = await query("SELECT * FROM Vietnamese_Recipes");
@@ -50,7 +50,7 @@ app.get("/", async (req, res) => {
 });
 
 // not yet test post
-app.post("/new", async (req, res) => {
+app.post("/Vietnamese_Recipes/new", async (req, res) => {
   console.log(req.body);
   try {
     const result = await query(
@@ -75,7 +75,7 @@ app.post("/new", async (req, res) => {
 
 // Backend API endpoint for fetching a dish by its ID
 
-app.get("/get/:id", async (req, res) => {
+app.get("/Vietnamese_Recipes/:id", async (req, res) => {
   const { id } = req.params; // Get the id from request parameters
   console.log(id); // Logging the id to verify
 
@@ -140,7 +140,7 @@ app.delete("/cmt/delete/:id", async (req, res) => {
 });
 //randame food
 // Endpoint to get random food data
-app.get("/randomFood", async (req, res) => {
+app.get("/Vietnamese_Recipes/randomFood", async (req, res) => {
   try {
     const disData = await query("SELECT * FROM Vietnamese_Recipes");
     const rows = disData.rows || [];
