@@ -62,9 +62,7 @@
         try {
           const response = await fetch(`${BACKEND_ROOT_URL}`);
           const dishesData = await response.json();
-          return dishesData
-            .filter((dish) => dish.dishtype === "Vietnamese Dish")
-            .slice(startIndex, endIndex);
+          return dishesData.slice(startIndex, endIndex);
         } catch (error) {
           throw new Error(
             `Error retrieving Vietnamese dishesData: ${error.message}`
