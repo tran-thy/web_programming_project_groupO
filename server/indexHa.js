@@ -135,7 +135,7 @@ app.delete("/cmt/delete/:id", async(req, res) => {
 });
 //randame food
 // Endpoint to get random food data
-app.get("/Vietnamese_Recipes/randomFood", async(req, res) => {
+app.get("/randomFood", async(req, res) => {
     try {
         const disData = await query("SELECT * FROM Vietnamese_Recipes");
         const rows = disData.rows || [];
