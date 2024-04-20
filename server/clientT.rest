@@ -1,23 +1,19 @@
 ### Get all data (both Vietnamese and Chinese Recipes)
 GET http://localhost:3001/recipes/all
 
-### Get data by dishId from both Vietnamese and Chinese Recipes
-GET http://localhost:3001/recipes/:recipeType/:dishId
-
-### Get data by table name
-GET http://localhost:3001/recipes/:recipeType
-
 ### Get all Vietnamese recipes
 GET http://localhost:3001/vietnamese
-
-### Get Vietnamese recipw by dishId
-GET http://localhost:3001/vietnamese/:dishId
 
 ### Get all Chinese recipes
 GET http://localhost:3001/chinese
 
+### Get Vietnamese recipw by dishId
+GET http://localhost:3001/vietnamese/:dishId
+
 ### Get Chinese recipw by dishId
 GET http://localhost:3001/chinese/:dishId
+
+
 
 ### get cmt
 GET http://localhost:3001/cmt
