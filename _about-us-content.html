@@ -1,33 +1,312 @@
-<section class="about-us-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" id="about-us-content">
-                <!-- Empty div for spacing -->
-                <div class="spacer"></div>
+!DOCTYPE html>
+<html lang="en">
 
-                <h2 class="block-heading text-center">
-                    <strong>About Us</strong>
-                </h2>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <title>CHOPSTICKS WORLD</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles-vn-recipes.css" />
+    <link rel="stylesheet" href="css/styles-each-recipe-detail.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
 
-                <blockquote class="wp-block-quote is-style-default text-justify" style="font-size: larger;">
-                    <p></p><strong>Welcome to our CHOPSTICKS WORLD!</strong> Explore the vibrant and diverse world of food through the lens of chopsticks. Whether you're an experienced chopsticks user or new to this culinary journey, we're here to excite
-                    your taste buds and ignite your kitchen adventures.</p>
+<body>
+    <!-- Part I -->
+    <div class="top-header bg-light-brown py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Social Media Icons -->
+                <div class="col-md-6">
+                    <div class="top-social text-white">
+                        <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+                        <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="https://instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
 
-                    <p>At CHOPSTICKS WORLD, we celebrate the rich culinary traditions of China and Vietnam. Chopsticks are not just utensils but symbols of cultural heritage and culinary artistry. From comforting slurps of steaming hot noodles to delicate
-                        spring rolls, we showcase authentic flavors and cultural significance. Our journey takes us beyond the kitchen, into bustling markets where chopsticks reign supreme amidst a world of flavors, from fiery hotpots to fragrant bowls
-                        of bún cha.</p>
+                <!-- Search and Login/Register Area -->
+                <!-- I think this part need more discussion: many ways to that -->
+                <div class="col-md-6">
+                    <div class="signup-search-area d-flex align-items-center">
+                        <!-- Login/Register Area -->
+                        <!-- It is can be change other way by by button ... -->
+                        <div class="login_register_area d-flex">
+                            <div class="login">
+                                <a href="../login/login-interface.html" class="text-black">Sign in</a>
+                            </div>
+                        </div>
 
-                    <p>Established in 2024, CHOPSTICKS WORLD is a vibrant community of food lovers sharing their passion for chopstick cuisine. Join us to explore new flavors, techniques, and culinary traditions. Whether it's quick weeknight meals or impressive
-                        dishes for guests, CHOPSTICKS WORLD has you covered. Join us as we discover the endless possibilities of food.</p>
-                    <p>Thank you for visiting CHOPSTICKS WORLD, where every meal is an adventure!</p>
-
-                    <p><strong>Sincerely,</strong></p>
-                    <p><strong>The CHOPSTICKS WORLD Team</strong></p>
-
-                </blockquote>
-
-
+                        <!-- Search section -->
+                        <div class="d-flex justify-content-between align-items-center" id="search-container">
+                            <div class="search-options">
+                                <button class="btn btn-primary search-symbol" type="button" id="search-button-icon">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="input-group search-box" style="display: none">
+                                    <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." aria-label="Search for a dish" aria-describedby="search-box-expanded" autocomplete="off" />
+                                    <button class="btn btn-primary" type="button" id="search-button">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
+
+    <!-- Part II: Menu bar -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Side - Logo and Name -->
+                <div class="logo col-md-6 d-flex align-items-center">
+                    <img class="image-wrapper" id="image-wrapper-left" src="data/images/logo/logo.png" alt="Logo" width="15%" />
+                    <h1 class="logo_name" id="logo-name-left">CHOPSTICKS WORLD</h1>
+                </div>
+
+                <!-- Right Side - Navigation -->
+                <div class="wrapper col-md-6">
+                    <div id="nav-wrapper">
+                        <div id="toggle">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <nav class="navbar navbar-expand-md">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="index.html" class="nav-link"><strong>HOME</strong></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="vietnamese_recipes.html" class="nav-link"><strong>VIETNAMESE
+                                            RECIPES</strong></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="chinese_Yanwen.html" class="nav-link"><strong>CHINESE RECIPES</strong></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="_about-us-content.html" class="nav-link"><strong>ABOUT US</strong></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Part IV: About Us content -->
+    <div id="about-us-section">
+        <section class="about-us-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" id="about-us-content">
+                        <!-- Empty div for spacing -->
+                        <div class="spacer"></div>
+
+                        <h2 class="block-heading text-center">
+                            <strong>About Us</strong>
+                        </h2>
+
+                        <blockquote class="wp-block-quote is-style-default text-justify" style="font-size: larger;">
+                            <p></p><strong>Welcome to our CHOPSTICKS WORLD!</strong> Explore the vibrant and diverse world of food through the lens of chopsticks. Whether you're an experienced chopsticks user or new to this culinary journey, we're here to
+                            excite your taste buds and ignite your kitchen adventures.</p>
+
+                            <p>At CHOPSTICKS WORLD, we celebrate the rich culinary traditions of China and Vietnam. Chopsticks are not just utensils but symbols of cultural heritage and culinary artistry. From comforting slurps of steaming hot noodles to
+                                delicate spring rolls, we showcase authentic flavors and cultural significance. Our journey takes us beyond the kitchen, into bustling markets where chopsticks reign supreme amidst a world of flavors, from fiery hotpots
+                                to fragrant bowls of bún cha.</p>
+
+                            <p>Established in 2024, CHOPSTICKS WORLD is a vibrant community of food lovers sharing their passion for chopstick cuisine. Join us to explore new flavors, techniques, and culinary traditions. Whether it's quick weeknight meals
+                                or impressive dishes for guests, CHOPSTICKS WORLD has you covered. Join us as we discover the endless possibilities of food.</p>
+                            <p>Thank you for visiting CHOPSTICKS WORLD, where every meal is an adventure!</p>
+
+                            <p><strong>Sincerely,</strong></p>
+                            <p><strong>The CHOPSTICKS WORLD Team</strong></p>
+
+                        </blockquote>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Part IX: This section will be motify later use dynamic data -->
+    <section id="recommend-options-vnese" class="greatest-post container">
+        <h2 class="block-heading has-text-align-center">
+            <strong>Recommendation Vietnamese Recipes</strong>
+        </h2>
+        <div class="container row">
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recommend-options-cnese" class="greatest-post container">
+        <h2 class="block-heading has-text-align-center">
+            <strong>Recommendation Chinese Recipes</strong>
+        </h2>
+        <div class="container row">
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="greatest-post-one">
+                    <a href="# ">
+                        <img class="greatest-img" src="https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2018/06/Bun-Rieu-07.jpg?fit=1300%2C731&ssl=1 " alt=" " />
+                        <div class="greatest-title">
+                            <a href="# ">
+                                <strong>Bun Rieu</strong>
+                            </a>
+                            <p>Wednesday, March 20, 2024</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part X: Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="logo_name_footer">CHOPSTICKS WORLD</h1>
+                    <p>Copyright &copy; 2024</p>
+                </div>
+                <div class="col-md-4">
+                    <nav class="nav-footer">
+                        <ul class="custom-list">
+                            <li><a href="index.html" class="nav-link-footer">HOME</a></li>
+                            <li><a href="vietnamese_recipes.html" class="nav-link-footer">VIETNAMESE RECIPES</a></li>
+                            <li>
+                                <a href="chinese_Yanwen.html" class="nav-link-footer">CHINESE RECIPES</a>
+                            </li>
+                            <li>
+                                <a href="_about-us-content.html" class="nav-link-footer">ABOUT US</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="social col-md-4">
+                    <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Utils scripts - menu bar-->
+    <script src="js/utils/search-button-events.js "></script>
+    <script src="js/utils/about-us-button-events.js "></script>
+    <script src="js/utils/cozy-and-randome-food.js"></script>
+
+    <!-- <script src="js/utils/inactive/vn-recipes-button-events.js"></script> -->
+    <!-- <script src="js/utils/inactive/each-recipe-detail.js" defer></script> -->
+    <!-- <script src="js/utils/inactive/cn-recipes-button-events.js"></script> -->
+
+    <!-- Other scripts -->
+    <script src="js/utils/navbar.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
+</body>
+
+</html>
