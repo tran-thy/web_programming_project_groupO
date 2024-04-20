@@ -1,21 +1,5 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #fff;
-}
-
-body {
-  overflow-x: auto;
-  padding-top: 60px;
-} */
-
 .article {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 7%;
   background-color: #fff;
@@ -80,9 +64,9 @@ h4 {
 
 #dish-image {
   width: 80%;
-  height: 50%;
+  /* height: 40%; */
   max-width: 100%;
-  max-height: 100%;
+  /* max-height: 100%; */
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 40px;
@@ -109,7 +93,11 @@ li {
   font-size: 18px;
 }
 .iframe-container {
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 60px;
 }
 
 /* CSS for comment section and form */

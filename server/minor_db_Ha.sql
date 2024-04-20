@@ -34,7 +34,7 @@ VALUES (
 ),
 (
      'VN-0003',
-    'Bo Bia (Vietnamese Spring Rolls with Jicama n Egg)',
+    'Bo Bia (Vietnamese jicama and carrot spring roll)',
     'Bo Bia is a Vietnamese spring roll filled with jicama, carrots, Chinese sausage, egg, and dried shrimp, wrapped in rice paper and served with a sweet and savory dipping sauce. A beloved street food snack in Vietnam.',
     '"Bò bía" (Hokkien: pȯh-piáⁿ, 薄皮卷, in Sino-Vietnamese is "Bạc bính," meaning "thin pastry roll") is a dish originating from the culinary styles of Chaozhou (Teochew) and Fujian, China, now popular in Taiwan, Singapore, and Malaysia. In Fujian, it is often consumed in Haixi, while in Chaozhou, it is a common dish in the Chaozhou region in the east of the province during Qingming Festival. In Vietnam, this dish may have been introduced by Chaozhou immigrants or Peranakan people (also known as Baba Nyonya or simply Baba).
     Traditional-style "bò bía" is rare in Vietnam nowadays. The original type of rice paper used for wrapping traditional Fujian-style "bò bía" is a smooth rice paper made from wheat flour (which housewives often use for wrapping spring rolls). The ingredients of "bò bía" rolls are very diverse: lettuce, bean sprouts, eggs, shrimp, dried shrimp, peanuts, chili sauce, black bean sauce alongside the main ingredient of a mixture of jicama and carrot. The original "bò bía" rolls are quite large, three times larger than those in Saigon. Therefore, vendors often cut them into multiple portions for easier consumption.

@@ -54,15 +54,16 @@ app.post("/Vietnamese_Recipes/new", async (req, res) => {
   console.log(req.body);
   try {
     const result = await query(
-      "INSERT INTO Vietnamese_Recipes (dishid, dishtype, dishname, dishdescription, dishimage, recipeingredients, recipeinstruction) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO Vietnamese_Recipes (dishid, dishname, dishdescription,dishhistory, dishimage, recipeingredients, recipeinstruction,dishVideo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
       [
         req.body.dishid,
-        req.body.dishtype,
         req.body.dishname,
         req.body.dishdescription,
+        req.body.dishhistory,
         req.body.dishimage,
         req.body.recipeingredients,
         req.body.recipeinstruction,
+        req.body.dishvideo,
       ]
     );
     res.status(200).json({ dishid: result.rows[0].dishid });

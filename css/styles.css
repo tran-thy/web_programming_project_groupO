@@ -242,7 +242,7 @@ body {
 }
 
 .list-item {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 /* cozy and recom part */
 
@@ -283,7 +283,7 @@ body {
 }
 
 .greatest-post h2 {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .greatest-post-one {
@@ -305,7 +305,7 @@ body {
 
 .greatest-img img {
   width: 100%;
-  height: 80%;
+  height: 90%;
   display: block;
   object-fit: cover;
   border-radius: 15px;
@@ -324,7 +324,6 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
-  /* margin-top: 20px; */
 }
 
 .greatest-post-one a {
