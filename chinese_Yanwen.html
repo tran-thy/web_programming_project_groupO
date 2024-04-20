@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,31 @@
 4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" 
-rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
- <nav class="navbar">
-    <div class="container">
-        <h1 class="logo">Chinese recipes</h1>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Chinese recipes</h1>
 
-        <ul class="nav-links">
-            <li class="nav-link-h"><a href="index.html">Home</a></li>
-            <li class="nav-link-v"><a href="#">Vietnamese Recipes</a></li>
-            <li class="nav-link-c"><a href="#">Chinese Recipes</a></li>
-            <li class="nav-link-a"><a href="#">About us</a></li>
-        </ul>
-    </div>
-</nav> 
+            <ul class="nav-links">
+                <li class="nav-link-h"><a href="index.html">Home</a></li>
+                <li class="nav-link-v"><a href="vietnamese_recipes.html">Vietnamese Recipes</a></li>
+                <li class="nav-link-c"><a href="#">Chinese Recipes</a></li>
+                <li class="nav-link-a"><a href="_about-us-content.html">About us</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
-<button id="toggleNavBtn" class="toggle-nav-btn">
+    <button id="toggleNavBtn" class="toggle-nav-btn">
     <i class="fas fa-bars"></i>
 </button>
 
 
-<!-- <div class="social-media-container">
+    <!-- <div class="social-media-container">
     <ulli class="social-media">
         <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
         <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
@@ -43,37 +43,37 @@ rel="stylesheet">
     </ul>
 </div> -->
 
-<form action="/search" method="GET" class="search-box">
-    <div class="logo">
-        <img src="css/logo.png" alt="Logo">
-    </div>
-    <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
-    <button clsss="search-button" type="submit">Search</button>
-</form>
-<!-- <form action="/search" method="GET" class="search-box"> -->
+    <form action="/search" method="GET" class="search-box">
+        <div class="logo">
+            <img src="css/logo.png" alt="Logo">
+        </div>
+        <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
+        <button clsss="search-button" type="submit">Search</button>
+    </form>
+    <!-- <form action="/search" method="GET" class="search-box"> -->
     <!-- <div class="logo"> -->
-        <!-- <img src="chinese_images/logo.png" alt="Logo"> -->
+    <!-- <img src="chinese_images/logo.png" alt="Logo"> -->
     <!-- </div> -->
     <!-- <input type="text" name="keyword" placeholder="Search"> -->
     <!-- <button type="submit">Search</button> -->
-<!-- </form> -->
+    <!-- </form> -->
 
-<div class="recipe-container">
-    <div class="recipe">
-        <a href="sweet_and_sour_pork.html">
+    <div class="recipe-container">
+        <div class="recipe">
+            <a href="sweet_and_sour_pork.html">
+                <div class="image">
+                    <img src="css/sweet_and_sour_pork_tenderloin.jpg" alt="Sweet and Sour Pork Tenderloin">
+                </div>
+                <div class="info">
+                    <h2 class="recipe-name" data-recipe-id="CH-0001">Sweet and Sour Pork Tenderloin</h2>
+                    <p class="description">
+                        Classic Chinese dish. Sweet and tangy pork with bell peppers and pineapple.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="recipe">
             <div class="image">
-                <img src="css/sweet_and_sour_pork_tenderloin.jpg" alt="Sweet and Sour Pork Tenderloin">
-            </div>
-            <div class="info">
-                <h2 class="recipe-name" data-recipe-id="CH-0001">Sweet and Sour Pork Tenderloin</h2>
-                <p class="description">
-                    Classic Chinese dish. Sweet and tangy pork with bell peppers and pineapple.
-                </p>
-            </div>
-        </a>
-    </div>
-    <div class="recipe">
-            <div class="image" >
                 <img src="css/mapo_tofu.jpg" alt="Mapo Tofu">
             </div>
             <div class="info">
@@ -82,9 +82,9 @@ rel="stylesheet">
                     Popular Chinese dish. Spicy tofu and pork with black beans.
                 </p>
             </div>
-       
-    </div>
-    <div class="recipe">
+
+        </div>
+        <div class="recipe">
             <div class="image">
                 <img src="css/crystal_dumplings.jpg" alt="Crystal Dumplings">
             </div>
@@ -94,8 +94,8 @@ rel="stylesheet">
                     Translucent dumplings. Savory pork, shrimp, and vegetable filling.
                 </p>
             </div>
-    </div>
-    <div class="recipe">
+        </div>
+        <div class="recipe">
             <div class="image">
                 <img src="css/stir_fried_beef_with_rice_noodles.jpg" alt="Stir-Fried Beef with Rice Noodles">
             </div>
@@ -105,19 +105,19 @@ rel="stylesheet">
                     Cantonese favorite. Tender beef, flat rice noodles, and crunchy bean sprouts.
                 </p>
             </div>
-    </div>
-    <div class="recipe">
-        <div class="image">
-            <img src="css/fried_rice.jpg" alt="Fried Rice">
         </div>
-        <div class="info">
-            <h2 class="recipe-name" data-recipe-id="CH-0005">Fried Rice</h2>
-            <p class="description">
-                Simple and satisfying. Rice, vegetables, and eggs stir-fried to perfection.
-            </p>
+        <div class="recipe">
+            <div class="image">
+                <img src="css/fried_rice.jpg" alt="Fried Rice">
+            </div>
+            <div class="info">
+                <h2 class="recipe-name" data-recipe-id="CH-0005">Fried Rice</h2>
+                <p class="description">
+                    Simple and satisfying. Rice, vegetables, and eggs stir-fried to perfection.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="recipe">
+        <div class="recipe">
             <div class="image">
                 <img src="css/spicy_kung_pao_chicken.jpg" alt="Spicy Kung Pao Chicken">
             </div>
@@ -127,20 +127,20 @@ rel="stylesheet">
                     Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.
                 </p>
             </div>
+        </div>
     </div>
-</div>
 
-   <!-- <div class="pagination"> </div>  -->
-<div class="pagination-container">
-    <!-- //Page buttons will be dynamically added here -->
-    <button type="button" class="pagination-button">1</button>
-    <button type="button" class="pagination-button">2</button>
-    <button type="button" class="pagination-button">3</button>
-    <button type="button" class="pagination-button">4</button>
-    <button type="button" class="pagination-button">5</button>
-   
-</div>
-<!--      -->
+    <!-- <div class="pagination"> </div>  -->
+    <div class="pagination-container">
+        <!-- //Page buttons will be dynamically added here -->
+        <button type="button" class="pagination-button">1</button>
+        <button type="button" class="pagination-button">2</button>
+        <button type="button" class="pagination-button">3</button>
+        <button type="button" class="pagination-button">4</button>
+        <button type="button" class="pagination-button">5</button>
+
+    </div>
+    <!--      -->
 
 
     <!-- Part X: Footer -->
@@ -155,16 +155,12 @@ rel="stylesheet">
                     <nav class="nav-footer">
                         <ul class="custom-list">
                             <li><a href="index.html" class="nav-link-footer">HOME</a></li>
+                            <li><a href="vietnamese_recipes.html" class="nav-link-footer">VIETNAMESE RECIPES</a></li>
                             <li>
-                                <button class="btn footer-btn-about" id="vietnamese-recipes-btn-footer">VIETNAMESE RECIPES</button>
+                                <a href="chinese_Yanwen.html" class="nav-link-footer">CHINESE RECIPES</a>
                             </li>
-                            <<li>
-                                <button class="btn footer-btn-about" id="chinese-recipes-btn-footer">CHINESE RECIPES</button>
-                            </li> 
-                            <li><a href="chinese_Yanwen.html" class="nav-link-footer">CHINESE RECIPES</a></li>
-
                             <li>
-                                <button class="btn footer-btn-about" id="footer-btn-about">ABOUT US</button>
+                                <a href="_about-us-content.html" class="nav-link-footer">ABOUT US</a>
                             </li>
                         </ul>
                     </nav>
@@ -176,12 +172,13 @@ rel="stylesheet">
                         <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
                         <li><a href="https://instagram"><i class="fab fa-instagram fa-2x"></i></a></li>
                         <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
-                    </ul>
+                        </ul>
                 </div>
             </div>
         </div>
     </footer>
 
-   <script src="./js/index-heyanwen.js"></script>   
+    <script src="./js/index-heyanwen.js"></script>
 </body>
+
 </html>
