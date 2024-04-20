@@ -150,27 +150,17 @@ app.get("/Vietnamese_Recipes/randomFood", async(req, res) => {
 });
 
 // Route to get all recipes (both Vietnamese and Chinese)
-app.get("/all", (req, res) => {
-    pool.query("SELECT * FROM vietnamese_recipes", (vietnameseError, vietnameseResult) => {
-        if (vietnameseError) {
-            res.status(500).json({ error: vietnameseError.message });
-        } else {
-            const vietnameseRecipes = vietnameseResult.rows.map(row => {
-                row.dishtype = "Vietnamese";
-                return row;
-            });
-            pool.query("SELECT * FROM chinese_recipes", (chineseError, chineseResult) => {
-                if (chineseError) {
-                    res.status(500).json({ error: chineseError.message });
-                } else {
-                    const chineseRecipes = chineseResult.rows.map(row => {
-                        row.dishtype = "Chinese";
-                        return row;
-                    });
-                    const allRecipes = [...vietnameseRecipes, ...chineseRecipes];
-                    res.status(200).json(allRecipes);
-                }
-            });
-        }
-    });
+app.get("/all", async(req, res) => {
+    try {
+        const vietnameseRecipes = await query("SELECT * FROM vietnamese_recipes");
+        const chineseRecipes = await query("SELECT * FROM chinese_recipes");
+
+        // Combine Vietnamese and Chinese recipes into a single array
+        const allRecipes = [...vietnameseRecipes.rows, ...chineseRecipes.rows];
+
+        res.status(200).json(allRecipes);
+    } catch (error) {
+        console.error("Error fetching all recipes:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 });
