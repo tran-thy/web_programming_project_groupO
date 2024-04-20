@@ -1,19 +1,15 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
-a {
-  text-decoration: none !important;
-}
-
-body {
-  font-family: Arial, sans-serif;
+/* body {
+  font-family: "Poppins", sans-serif;
   background-color: #fff;
-}
+} */
 
-body {
+/* body {
   padding-top: 60px;
   overflow-x: auto;
 }
@@ -24,6 +20,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+} */
+
+#recipeGallery {
+  margin-top: 40px;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .recipe {
@@ -137,268 +141,4 @@ h4 {
 
 .pagination .page-buttons button {
   margin: 5px;
-}
-
-.navbar {
-  background-color: #d2b48c;
-  color: #fff;
-  padding: 13px 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-}
-.navbar .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navbar .logo {
-  margin: -4px;
-}
-
-.navbar .nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar .nav-links li {
-  display: inline;
-  margin-left: 20px;
-}
-
-.navbar .nav-links li:first-child {
-  margin-left: 0;
-}
-
-.navbar .nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: normal;
-}
-
-.navbar .nav-links li a:hover {
-  text-decoration: none;
-  color: #ff4500;
-}
-
-.navbar .nav-links {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar .nav-links li {
-  margin-left: 20px;
-}
-
-.navbar .nav-links li a {
-  font-weight: bold;
-}
-
-.social-media-container {
-  margin-top: 25px;
-  margin-bottom: 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.social-media {
-  list-style: none;
-  padding: 0;
-}
-
-.social-media-container .social-media i {
-  font-size: 1.75em;
-  color: #9b59b6;
-  transition: transform 0.3s ease;
-}
-
-.social-media-container .social-media i:hover {
-  transform: scale(1.2);
-}
-
-.social-media li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.social-media li:last-child {
-  margin-right: 0;
-}
-
-.social-media img {
-  width: 200px;
-  height: 200px;
-}
-
-.search-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-box .logo {
-  margin-right: 60px;
-}
-
-.search-box input[type="text"] {
-  width: 80%;
-  max-width: 600px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 25px;
-  background-color: #f2f2f2;
-  font-size: 14px;
-  color: #333;
-  outline: none;
-}
-
-.search-box button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 25px;
-  background-color: #ff6347;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  outline: none;
-}
-
-.search-box button:hover {
-  background-color: #ff4500;
-}
-
-.logo img {
-  height: 100px;
-}
-
-.toggle-nav-btn {
-  display: none;
-}
-
-.toggle-nav-btn {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-}
-
-.search-box {
-  top: 40px;
-  z-index: 999;
-  background-color: #fff;
-  padding: 10px;
-}
-
-.footer {
-  background-color: #fff;
-  color: #9b7a50;
-  padding: 30px 0;
-  /* text-align: center; */
-}
-
-.footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.footer h1.logo_name_footer {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  font-family: "Courgette", cursive;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.footer p {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.footer {
-  text-align: center;
-}
-
-.footer .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-@media screen and (max-width: 768px) {
-  .recipe {
-    width: calc(100% - 80px);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .navbar .nav-links {
-    position: fixed;
-    top: 53.5px;
-    right: 0px;
-    background-color: #fff;
-    z-index: 100;
-    padding: 8px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: none;
-  }
-
-  .navbar .nav-links.show {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .toggle-nav-btn {
-    display: block;
-    position: fixed;
-    top: 16px;
-    right: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 9999;
-  }
-
-  .toggle-nav-btn i {
-    font-size: 20px;
-    color: #9b7a50;
-  }
-
-  .navbar .nav-links li {
-    margin-left: 0;
-    margin-top: 7.5px;
-    margin-bottom: 7.5px;
-  }
-
-  .navbar .nav-links li a {
-    color: #9b7a50;
-    font-weight: bold;
-  }
-
-  .search-box .logo {
-    margin-right: 5px;
-  }
-
-  .search-box {
-    margin-left: 5px;
-  }
 }
