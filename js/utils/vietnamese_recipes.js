@@ -71,20 +71,20 @@ const displayVietnameseDishes = (dishesData) => {
   }
   vietnameseRecipeSection.innerHTML = "";
 
-  // Create a row container
-  let row = document.createElement("div");
-  row.classList.add("row", "container");
+  // Create a container for the dishes
+  const container = document.createElement("div");
+  container.classList.add("container");
+
+  // Set container style to use flexbox
+  container.style.display = "flex";
+  container.style.flexWrap = "wrap";
+  container.style.justifyContent = "space-between";
 
   dishesData.forEach((dish, index) => {
-    // Create a new row after every three dishes
-    if (index > 0 && index % 3 === 0) {
-      vietnameseRecipeSection.appendChild(row);
-      // row = document.createElement("div");
-      // row.classList.add("row", "category-list");
-    }
-
     const dishElement = document.createElement("div");
-    dishElement.classList.add("recipe", "col-md-4");
+    dishElement.classList.add("recipe");
+    dishElement.style.width = "calc(33.33% - 20px)"; // Each column takes 33.33% of container width with some spacing
+
     const dishLink = document.createElement("a");
     dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`;
 
@@ -109,13 +109,28 @@ const displayVietnameseDishes = (dishesData) => {
     dishLink.appendChild(imageDiv);
     dishLink.appendChild(infoDiv);
     dishElement.appendChild(dishLink);
-    row.appendChild(dishElement);
+
+    container.appendChild(dishElement);
   });
 
-  // Append the last row
-  vietnameseRecipeSection.appendChild(row);
-
-  vietnameseRecipeSection.style.display = "block";
+  vietnameseRecipeSection.appendChild(container);
 };
+
+const styleElement = document.createElement("style");
+
+// Define the CSS rule for the media query
+const cssRule = `@media screen and (max-width: 768px) {
+  .recipe {
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}`;
+
+const cssTextNode = document.createTextNode(cssRule);
+
+styleElement.appendChild(cssTextNode);
+
+document.head.appendChild(styleElement);
 
 renderVietnameseDishes();
