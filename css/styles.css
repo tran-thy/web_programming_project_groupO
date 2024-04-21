@@ -220,6 +220,13 @@ body {
     margin-bottom: 30px;
 }
 
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Adjust alignment as needed */
+}
+
 .list-item {
     width: calc(50% - 20px);
     background-color: #fff;
@@ -227,6 +234,16 @@ body {
     border-radius: 8px;
     overflow: hidden;
     height: 500px;
+    width: calc(50% - 20px);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 450px;
+}
+
+.list-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .cozy-img {
@@ -234,6 +251,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 75%;
+    width: 100%;
+    height: 77%;
+    overflow: hidden;
 }
 
 .equal-img {
@@ -246,6 +266,11 @@ body {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
 }
 
 .category-index {
@@ -460,6 +485,46 @@ body {
     .equal-img {
         /* width: 50vw; */
         height: 50vw;
+    }
+    .greatest-post-one {
+        height: 450px;
+    }
+    .navbar {
+        overflow: hidden;
+        height: 0;
+        transition: height 0.5s ease;
+    }
+    .signup-search-area {
+        float: none;
+        justify-content: center;
+    }
+    .top-social {
+        display: flex;
+        justify-content: center;
+    }
+    .top-social a {
+        margin: 12px;
+        /* Adjust as needed */
+    }
+    #toggle {
+        display: block;
+    }
+    .navbar {
+        float: none;
+    }
+    .navbar-nav {
+        margin-left: 30px;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .nav-item {
+        padding-left: 12px;
+    }
+    .list-item {
+        width: 100%;
+        /* Occupy the full width of the container */
+        margin-bottom: 40px;
+        /* Add some spacing between items */
     }
     .greatest-post-one {
         height: 450px;
