@@ -71,46 +71,51 @@ const displayVietnameseDishes = (dishesData) => {
   }
   vietnameseRecipeSection.innerHTML = "";
 
-  // Create a row container
-  let row = document.createElement("div");
-  row.classList.add("row", "container");
+  // Calculate number of rows needed
+  const numRows = Math.ceil(dishesData.length / 3);
 
-  dishesData.forEach((dish, index) => {
-    // Create a new row after every three dishes
-    if (index > 0 && index % 3 === 0) {
-      vietnameseRecipeSection.appendChild(row);
-      // row = document.createElement("div");
-      // row.classList.add("row", "category-list");
+  for (let i = 0; i < numRows; i++) {
+    // Create a new row
+    const row = document.createElement("div");
+    row.classList.add("row");
+
+    // Add dishes to the row
+    for (let j = 0; j < 3; j++) {
+      const index = i * 3 + j;
+      if (index >= dishesData.length) break;
+
+      const dish = dishesData[index];
+
+      // Create dish element
+      const dishElement = document.createElement("div");
+      dishElement.classList.add("col");
+
+      const dishLink = document.createElement("a");
+      dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`;
+
+      const imageDiv = document.createElement("div");
+      imageDiv.classList.add("image");
+
+      const dishImage = document.createElement("img");
+      dishImage.src = dish.dishimage;
+      dishImage.alt = dish.dishname;
+
+      imageDiv.appendChild(dishImage);
+
+      const infoDiv = document.createElement("div");
+      infoDiv.classList.add("info");
+
+      const dishName = document.createElement("h4");
+      dishName.classList.add("title-item");
+      dishName.textContent = dish.dishname;
+
+      infoDiv.appendChild(dishName);
+
+      dishLink.appendChild(imageDiv);
+      dishLink.appendChild(infoDiv);
+      dishElement.appendChild(dishLink);
+      row.appendChild(dishElement);
     }
-
-    const dishElement = document.createElement("div");
-    dishElement.classList.add("recipe", "col-md-4");
-    const dishLink = document.createElement("a");
-    dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`;
-
-    const imageDiv = document.createElement("div");
-    imageDiv.classList.add("image");
-
-    const dishImage = document.createElement("img");
-    dishImage.src = dish.dishimage;
-    dishImage.alt = dish.dishname;
-
-    imageDiv.appendChild(dishImage);
-
-    const infoDiv = document.createElement("div");
-    infoDiv.classList.add("info");
-
-    const dishName = document.createElement("h4");
-    dishName.classList.add("title-item");
-    dishName.textContent = dish.dishname;
-
-    infoDiv.appendChild(dishName);
-
-    dishLink.appendChild(imageDiv);
-    dishLink.appendChild(infoDiv);
-    dishElement.appendChild(dishLink);
-    row.appendChild(dishElement);
-  });
 
   // Append the last row
   vietnameseRecipeSection.appendChild(row);
