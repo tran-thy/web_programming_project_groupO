@@ -55,24 +55,27 @@
 //   console.log(`Server is listening at http://localhost:${port}`);
 // });
 // Import required modules
-// Import required modules
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
+const cors = require('cors');
+
 
 // Create Express app
 const app = express();
 const port = 3000;
 
 // Middleware to parse JSON bodies
-app.use(bodyParser.json());
-
+// app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
 // Database connection pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'login',
-  password: 'root',
+  password: 'yexijun9717',
   port: 5432,
 });
 
@@ -91,8 +94,26 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// Test route for inserting dummy data
+app.post('/test-insert', async (req, res) => {
+  try {
+    // Perform database operation (insert dummy data)
+    const query = 'INSERT INTO test_table (name) VALUES ($1)';
+    await pool.query(query, ['Dummy Data']);
+    
+    res.status(200).send('Dummy data inserted successfully');
+  } catch (error) {
+    console.error('Error inserting dummy data:', error);
+    res.status(500).send('Error inserting dummy data');
+  }
+});
 
-// Test route for checking database connection
+// Route handler for the root path
+app.get('/', (req, res) => {
+    res.send('Server is running.');
+  });
+
+// Route handler to check database connection
 app.get('/check-db-connection', async (req, res) => {
   try {
     const result = await pool.query('SELECT $1::text as message', ['Connected to database successfully']);
@@ -102,7 +123,6 @@ app.get('/check-db-connection', async (req, res) => {
     res.status(500).send('Error connecting to database');
   }
 });
-
 
 // Start the server
 app.listen(port, () => {

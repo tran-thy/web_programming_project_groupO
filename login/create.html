@@ -25,18 +25,18 @@
     </div>
     <h1>Create Account</h1>
     <div class="form-container">
-      <form id="registrationForm" action="http://localhost:3000/register" method="POST">
+      <form id="registrationForm">
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email">
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
         </div>
         <div class="form-group">
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username" placeholder="Enter your username">
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password">
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
         </div>
         <button type="submit">Confirm</button>
       </form>
@@ -49,17 +49,19 @@
     document.getElementById('registrationForm').addEventListener('submit', async function(event) {
       event.preventDefault(); // Prevent default form submission
       
-      // Retrieve form data
-      const formData = new FormData(this);
+      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-      // Send POST request to server
+      const formData = { email, username, password };
+
       try {
         const response = await fetch('http://localhost:3000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(Object.fromEntries(formData)) // Convert FormData to JSON
+          body: JSON.stringify(formData)
         });
 
         if (!response.ok) {
@@ -84,5 +86,6 @@
       }
     });
   </script>
+
 </body>
 </html>
