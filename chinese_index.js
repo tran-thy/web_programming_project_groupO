@@ -8,7 +8,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const pagination = document.querySelector('.pagination'); // Get pagination container
 
 
-
+    document.addEventListener("DOMContentLoaded", function() {
+        // Assume you fetch the total number of recipes from the backend
+        fetch('url_to_your_backend_endpoint')
+            .then(response => response.json())
+            .then(data => {
+                const totalRecipes = data.totalRecipes; // Assuming your API response contains the total number of recipes
+                const itemsPerPage = 6; // Number of recipes to display per page
+                const totalPages = Math.ceil(totalRecipes / itemsPerPage); // Calculate total number of pages
+                const pagination = document.querySelector('.pagination'); // Get pagination container
+    
+                // Rest of your code that uses totalRecipes
+            })
+            .catch(error => {
+                console.error('Error fetching recipe data:', error);
+            });
+    });
 
 
     // // Create previous page button
@@ -149,4 +164,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
+window.addEventListener('DOMContentLoaded', function() {
+     let descriptions = document.querySelectorAll('.description');
+     descriptions.forEach(function(description) {
+       if (description.scrollHeight > description.clientHeight) {
+         description.classList.add('clamp'); 
+       }
+   });
+});
+  
 
