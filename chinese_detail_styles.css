@@ -1,8 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
 } 
 
 a {
@@ -11,8 +10,7 @@ a {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
-    
+    background-color: #fff;   
 } 
 
 
@@ -24,13 +22,6 @@ body {
     overflow-x: auto;
 }   
 
-/* .container {
-    max-width: 1200px;
-    margin: 80px auto 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}  */
 
 .navbar {
     background-color: #D2B48C;
@@ -60,16 +51,11 @@ body {
     font-style: normal;
   }
 
-  .navbar .logo {
+.navbar .logo {
     margin: -4px;
   } 
 
-.navbar .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-  
+
 .navbar .nav-links li {
     display: inline;
     margin-left: 20px;
@@ -82,7 +68,6 @@ body {
 .navbar .nav-links li a {
     color: #fff;
     text-decoration: none;
-    font-weight: normal;
 }
   
 .navbar .nav-links li a:hover {
@@ -91,16 +76,14 @@ body {
 }
   
 .navbar .nav-links {
+    list-style: none;
     display: flex;
     align-items: center; 
     margin: 0;
     padding: 0;
 }
   
-.navbar .nav-links li {
-    margin-left: 20px;
-}
-  
+
 .navbar .nav-links li a {
     font-weight: bold;
 }
@@ -196,8 +179,6 @@ body {
   
   
   
-  
-  
 .toggle-nav-btn {
     display: none; 
 }
@@ -220,7 +201,6 @@ body {
 }
   
   
-
 
 .article {
     max-width: 1000px;
@@ -283,10 +263,7 @@ main {
     overflow: hidden!important;
 } 
 
-/* .article {
-    margin-bottom: 40px; 
-    overflow: hidden;
-} */
+
 
 .entry-title {
     font-size: 30px;
@@ -294,6 +271,7 @@ main {
     margin-bottom: 25px; 
     font-weight: bold;
 }
+
 
 .entry-content {
     line-height: 1.6;
@@ -351,12 +329,11 @@ main {
 
 
 
-
 .footer {
     background-color: #fff;
     color: #9b7a50;
     padding: 30px 0;
-    /* text-align: center; */
+    text-align: center;
   }
   
   .footer .container {
@@ -364,9 +341,11 @@ main {
     margin: 0 auto; 
     padding: 0 20px;
     display: flex; 
-    justify-content: flex-start; 
+    justify-content: center; ; 
     align-items: center; 
+    flex-direction: column; 
   }
+
   
   .footer h1.logo_name_footer {
     font-size: 36px;
@@ -380,20 +359,6 @@ main {
     font-size: 14px;
     margin-bottom: 20px;
   }
-  
-  
-  .footer {
-    text-align: center; 
-  }
-  
-  .footer .container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column; 
-  }
-
-
 
 
 
