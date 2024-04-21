@@ -1,6 +1,3 @@
-// Base URL for dish details page
-const EACH_RECIPE_DETAIL_BASE_URL = "_each-recipe-detail.html";
-
 // Function to handle click event on search symbol button
 document.getElementById('search-button-icon').addEventListener('click', function() {
     const searchBox = document.querySelector('.search-box');
@@ -17,7 +14,7 @@ document.addEventListener('click', function(event) {
 
 // Function to handle Enter key press on search input
 document.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && document.activeElement.id === 'search-input') {
         handleSearch();
     }
 });
@@ -28,24 +25,14 @@ function searchRecipes(recipes, searchTerm) {
     return recipes.filter(recipe => {
         // Check if recipe name or any ingredient contains the search term
         return recipe.dishname.toLowerCase().includes(searchTerm) ||
-            (recipe.recipeIngredients && recipe.recipeIngredients.toLowerCase().includes(searchTerm));
+            (recipe.recipeingredients && recipe.recipeingredients.toLowerCase().includes(searchTerm));
     });
-}
-
-// Function to check if the dish ID corresponds to a Vietnamese dish
-function isVietnameseDish(dishId) {
-    return dishId.toLowerCase().startsWith('vn-');
-}
-
-// Function to check if the dish ID corresponds to a Chinese dish
-function isChineseDish(dishId) {
-    return dishId.toLowerCase().startsWith('ch-');
 }
 
 // Function to fetch all recipes from the server
 async function getAllRecipes() {
     try {
-        const response = await fetch('/all'); // Update the endpoint URL if needed
+        const response = await fetch('http://localhost:3001/all'); // Update the endpoint URL if needed
         if (!response.ok) {
             throw new Error('Failed to fetch recipes');
         }
@@ -88,63 +75,59 @@ async function handleSearch() {
 }
 
 // Function to display search results
-const displaySearchResults = (searchResults, eachRecipeDetailsBaseUrl) => {
+// Function to display search results
+const displaySearchResults = (searchResults) => {
+    console.log(`Check if the displaySearchResults run`);
+
     const searchResultsSection = document.getElementById('search-results-section');
-    const displayResults = document.getElementById('search-results');
+
+    // Check if searchResultsSection is null
+    if (!searchResultsSection) {
+        console.error('Error displaying search results: Search results section not found.');
+        return;
+    }
 
     // Clear previous search results
-    displayResults.innerHTML = '';
-
-    // Hide the section
-    document.getElementById('highlighted-section').style.display = 'none';
-    document.getElementById('myCarousel').style.display = 'none';
-    document.getElementById('about-us-section').style.display = 'none';
-    document.getElementById('vn-recipe-display-section').style.display = 'none';
+    searchResultsSection.innerHTML = '';
 
     if (searchResults.length === 0) {
         // If no search results found, display a message
-        displayResults.innerHTML = '<p>No results found.</p>';
+        searchResultsSection.innerHTML = '<p>No results found.</p>';
     } else {
         // Display search results
-        let row = document.createElement('div');
-        row.classList.add('row', 'category-list');
+        searchResults.forEach(result => {
+            const recipeDiv = document.createElement('div');
+            recipeDiv.classList.add('recipe');
 
-        searchResults.forEach((result, index) => {
-            if (index > 0 && index % 3 === 0) {
-                // Create a new row after every three results
-                displayResults.appendChild(row);
-                row = document.createElement('div');
-                row.classList.add('row', 'category-list');
-            }
+            const recipeLink = document.createElement('a');
+            recipeLink.href = `vietnamese_detail_recipe.html?id=${result.dishid}`;
 
-            const listItem = document.createElement('div');
-            listItem.classList.add('col-md-4', 'listing-item'); // Change to col-md-4
+            const dishImageDiv = document.createElement('div');
+            dishImageDiv.classList.add('image');
+            // Dynamically display dish image here (if available from server)
+            dishImageDiv.innerHTML = `<img src="${result.dishimage}" alt="${result.dishname}">`;
 
-            const link = document.createElement('a');
-            link.href = `${eachRecipeDetailsBaseUrl}?id=${result.id}`; // Constructing the dish details URL
+            const infoDiv = document.createElement('div');
+            infoDiv.classList.add('info');
 
-            const image = document.createElement('img');
-            image.classList.add('equal-img');
-            image.src = result.dishimage; // Update to match data structure
-            image.alt = result.dishname; // Update to match data structure
+            const recipeName = document.createElement('h2');
+            recipeName.classList.add('recipe-name');
+            recipeName.textContent = result.dishname;
 
-            const title = document.createElement('div');
-            title.classList.add('category-title');
-            title.textContent = result.dishname; // Update to match data structure
+            const description = document.createElement('p');
+            description.classList.add('description');
+            description.textContent = result.dishdescription;
 
-            link.appendChild(image);
-            link.appendChild(title);
-            listItem.appendChild(link);
+            infoDiv.appendChild(recipeName);
+            infoDiv.appendChild(description);
 
-            // Add a line break after the dish name
-            listItem.appendChild(document.createElement('br'));
-            listItem.appendChild(document.createElement('br'));
+            recipeLink.appendChild(dishImageDiv);
+            recipeLink.appendChild(infoDiv);
 
-            row.appendChild(listItem);
+            recipeDiv.appendChild(recipeLink);
+
+            searchResultsSection.appendChild(recipeDiv);
         });
-
-        // Append the last row if it contains less than 3 items
-        displayResults.appendChild(row);
     }
 
     // Display search results section
