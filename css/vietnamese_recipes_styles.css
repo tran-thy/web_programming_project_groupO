@@ -4,10 +4,12 @@
   box-sizing: border-box;
 } */
 
+
 /* body {
   font-family: "Poppins", sans-serif;
   background-color: #fff;
 } */
+
 
 /* body {
   padding-top: 60px;
@@ -22,72 +24,79 @@
   justify-content: space-between;
 } */
 
+#search-results-section {
+    margin-top: 40px;
+}
+
 #recipeGallery {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 a {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .recipe {
-  width: calc(33.33% - 20px);
-  margin-bottom: 40px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  height: 400px;
+    width: calc(33.33% - 20px);
+    margin-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 400px;
 }
 
 .recipe:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .image {
-  width: 100%;
-  height: 70%;
-  overflow: hidden;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
 }
 
 .image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  max-width: 100%;
-  border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 .info {
-  padding: 10px;
-  text-align: center;
-  text-overflow: ellipsis;
+    padding: 10px;
+    text-align: center;
+    text-overflow: ellipsis;
 }
 
 .navbar h1 {
-  font-family: "Courgette", cursive;
-  font-size: 28px;
-  font-weight: 600;
-  font-style: normal;
+    font-family: "Courgette", cursive;
+    font-size: 28px;
+    font-weight: 600;
+    font-style: normal;
 }
 
 h4,
 .author,
 .description {
-  text-align: center;
+    text-align: center;
 }
+
 h4 {
-  /* font-size: 20px; */
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: #333;
+    /* font-size: 20px; */
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
 }
+
 
 /* .author {
     color: #666;
     margin-bottom: 10px;
   } */
+
 
 /* .description {
   color: #666;
@@ -104,42 +113,42 @@ h4 {
 } */
 
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .pagination button {
-  padding: 8px 20px;
-  background-color: #d2b48c;
-  color: #fff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
+    padding: 8px 20px;
+    background-color: #d2b48c;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
 }
 
 .pagination button.active {
-  background-color: #d2b48c;
+    background-color: #d2b48c;
 }
 
 .pagination button:hover {
-  transform: scale(1.15);
+    transform: scale(1.15);
 }
 
 .pagination button:hover {
-  transform: scale(1.15);
+    transform: scale(1.15);
 }
 
 .pagination .page-buttons {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .pagination .page-buttons button {
-  margin: 5px;
+    margin: 5px;
 }
