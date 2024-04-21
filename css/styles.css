@@ -53,6 +53,7 @@ body {
   white-space: nowrap;
   /* Prevent menu items from wrapping */
 }
+
 .signup-search-area {
   float: right;
 }
@@ -62,7 +63,6 @@ body {
   background-color: #d2b48c;
   border-color: #d2b48c;
   /* border: none; */
-
   /* border: none; */
   font-size: 18px;
 }
@@ -93,10 +93,13 @@ body {
   text-decoration: none;
   /* Remove underline from the link */
 }
+
 .login {
   font-size: 18px;
 }
+
 /* nav wrapper */
+
 .header {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -129,11 +132,13 @@ body {
   color: #d2b48c;
   transition: all 0.3s;
 }
+
 .navbar {
   overflow: visible;
   height: 0;
   transition: height 0.5s ease;
 }
+
 .navbar.open {
   height: auto;
 }
@@ -176,9 +181,11 @@ body {
   background-color: #deb887 !important;
   border-color: #deb887;
 }
+
 .carousel-btn-about {
   color: #fff !important;
 }
+
 /* Define styles for button hover state */
 
 .carousel-btn-about,
@@ -195,14 +202,24 @@ body {
 .carousel-caption a:hover {
   color: #fff;
 }
+
 .carousel-caption p {
   font-size: 18px;
 }
+
 /* cozy food */
 
 .block-heading {
   margin-bottom: 30px;
 }
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Adjust alignment as needed */
+}
+
 .list-item {
   width: calc(50% - 20px);
   background-color: #fff;
@@ -210,6 +227,16 @@ body {
   border-radius: 8px;
   overflow: hidden;
   height: 500px;
+  width: calc(50% - 20px);
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 450px;
+}
+
+.list-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .cozy-img {
@@ -217,6 +244,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 75%;
+  width: 100%;
+  height: 77%;
+  overflow: hidden;
 }
 
 .equal-img {
@@ -229,6 +259,11 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
   border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
 }
 
 .category-index {
@@ -242,8 +277,9 @@ body {
 }
 
 .list-item {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
+
 /* cozy and recom part */
 
 .category-title {
@@ -269,9 +305,11 @@ body {
   border-color: #d2b48c !important;
   transition: all 0.3s;
 }
+
 .category-more-detail {
   font-size: 18px;
 }
+
 .list-item a {
   text-decoration: none;
 }
@@ -283,18 +321,20 @@ body {
 }
 
 .greatest-post h2 {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .greatest-post-one {
-  width: calc(25% - 20px); /* 25% width for each recipe, subtracting margin */
+  width: calc(25% - 20px);
+  /* 25% width for each recipe, subtracting margin */
   /* margin-right: 10px; */
   /* margin-bottom: 40px;  */
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  height: 300px;
+  /* height: 300px; */
+  min-height: 350px;
 }
 
 .greatest-img {
@@ -305,7 +345,7 @@ body {
 
 .greatest-img img {
   width: 100%;
-  height: 80%;
+  height: 90%;
   display: block;
   object-fit: cover;
   border-radius: 15px;
@@ -324,7 +364,6 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
-  /* margin-top: 20px; */
 }
 
 .greatest-post-one a {
@@ -350,9 +389,11 @@ body {
   font-size: 12px;
   margin-right: 20px;
 }
+
 .footer .social a:hover {
   color: #afeeee;
 }
+
 .nav-link-footer {
   text-decoration: none;
   list-style: none;
@@ -368,9 +409,11 @@ body {
   list-style-type: none;
   /* Remove bullet points from the list */
 }
+
 .footer-btn-about {
   color: #fff !important;
 }
+
 .footer-btn-about:hover {
   color: #000 !important;
 }
@@ -385,6 +428,7 @@ body {
   letter-spacing: 2px;
   white-space: nowrap;
 }
+
 .logo_name_footer {
   font-size: 20px;
   color: #35190da4;
@@ -393,6 +437,7 @@ body {
   letter-spacing: 2px;
   white-space: nowrap;
 }
+
 @media screen and (max-width: 768px) {
   .navbar {
     overflow: hidden;
@@ -403,15 +448,14 @@ body {
     float: none;
     justify-content: center;
   }
-
   .top-social {
     display: flex;
     justify-content: center;
   }
   .top-social a {
-    margin: 12px; /* Adjust as needed */
+    margin: 12px;
+    /* Adjust as needed */
   }
-
   #toggle {
     display: block;
   }
@@ -429,6 +473,46 @@ body {
   .equal-img {
     /* width: 50vw; */
     height: 50vw;
+  }
+  .greatest-post-one {
+    height: 450px;
+  }
+  .navbar {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+  }
+  .signup-search-area {
+    float: none;
+    justify-content: center;
+  }
+  .top-social {
+    display: flex;
+    justify-content: center;
+  }
+  .top-social a {
+    margin: 12px;
+    /* Adjust as needed */
+  }
+  #toggle {
+    display: block;
+  }
+  .navbar {
+    float: none;
+  }
+  .navbar-nav {
+    margin-left: 30px;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .nav-item {
+    padding-left: 12px;
+  }
+  .list-item {
+    width: 100%;
+    /* Occupy the full width of the container */
+    margin-bottom: 40px;
+    /* Add some spacing between items */
   }
   .greatest-post-one {
     height: 450px;

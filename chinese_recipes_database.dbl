@@ -1,3 +1,5 @@
+-- SELECT * FROM Chinese_Recipes;
+-- DROP TABLE Chinese_Recipes;
 CREATE TABLE Chinese_Recipes (
     dishID VARCHAR(50) PRIMARY KEY,
     dishName VARCHAR(255),
@@ -30,7 +32,7 @@ VALUES ('CH-0002', 'Mapo Tofu', 'Popular Chinese dish. Spicy tofu and pork with 
 7. Carefully add the tofu cubes to the wok and stir gently to combine with the pork mixture.
 8. Season with soy sauce, sugar, and sesame oil, and stir gently to coat the tofu evenly.
 9. Cook for a few minutes until the tofu is heated through and has absorbed the flavors of the sauce.
-10. Garnish with chopped green onions and serve hot with steamed rice.', 'https://youtu.be/VASOBzYNrGY');
+10. Garnish with chopped green onions and serve hot with steamed rice.', 'https://www.youtube.com/embed/YYUhtNe8sBg');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0003', 'Crystal Dumplings', 'Translucent dumplings. Savory pork, shrimp, and vegetable filling.', 'Crystal dumplings, also known as har gow, are a classic Cantonese dim sum dish. They are known for their translucent wrappers made from a combination of wheat starch and tapioca starch, giving them a chewy and slightly sticky texture. The filling typically consists of a savory mixture of shrimp, pork, and bamboo shoots, seasoned with soy sauce, sesame oil, and other aromatics. Crystal dumplings are steamed to perfection and served hot with a dipping sauce made from soy sauce and rice vinegar.', './css/crystal_dumplings.jpg', 'For the dough:
@@ -58,7 +60,7 @@ For the dipping sauce:
 7. Fold the edges of the dough circle up and around the filling, pleating to seal.
 8. Place the dumplings in a steamer basket lined with parchment paper.
 9. Steam the dumplings for 8-10 minutes until the filling is cooked through and the wrappers are translucent.
-10. Serve hot with dipping sauce on the side.', 'https://youtu.be/0BqFQQbG8So');
+10. Serve hot with dipping sauce on the side.', 'https://www.youtube.com/embed/0BqFQQbG8So');
 
 -- Rest of the data
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
@@ -71,7 +73,7 @@ VALUES ('CH-0004', 'Stir-Fried Beef with Rice Noodles', 'Cantonese favorite. Ten
 7. Add the cooked rice noodles and beef back to the pan.
 8. Pour in soy sauce and oyster sauce, then toss everything together until well combined.
 9. Cook for another minute or until heated through.
-10. Serve hot as a delicious and satisfying meal.', 'https://youtu.be/zi81XhTodc4');
+10. Serve hot as a delicious and satisfying meal.', 'https://www.youtube.com/embed/zi81XhTodc4');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0005', 'Fried Rice', 'Simple and satisfying. Rice, vegetables, and eggs stir-fried to perfection.', 'Fried rice is a popular Chinese dish that has been enjoyed for centuries. It originated as a way to use up leftover rice and has since evolved into a versatile and delicious meal. The dish typically consists of cooked rice stir-fried with various ingredients such as eggs, vegetables, and meat, seasoned with soy sauce and other seasonings. Fried rice is quick and easy to make, making it a favorite choice for busy weeknights or as a side dish to accompany other Chinese dishes.', '/css/fried_rice.jpg', '2 cups cooked rice, 2 eggs, 1 cup mixed vegetables (such as peas, carrots, and corn), 2 cloves garlic, 2 green onions, 2 tablespoons soy sauce, 1 tablespoon oyster sauce, 1 tablespoon vegetable oil, Salt and pepper to taste', '1. Heat oil in a large skillet or wok over medium heat.
@@ -83,7 +85,7 @@ VALUES ('CH-0005', 'Fried Rice', 'Simple and satisfying. Rice, vegetables, and e
 7. Pour in soy sauce and oyster sauce, then toss everything together until well combined.
 8. Add the scrambled eggs back to the skillet and mix well with the rice.
 9. Cook for another minute or until heated through.
-10. Serve hot as a delicious and satisfying meal.', 'https://youtu.be/e_s8xMEfseo');
+10. Serve hot as a delicious and satisfying meal.', 'https://www.youtube.com/embed/e_s8xMEfseo');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0006', 'Spicy Kung Pao Chicken', 'Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.', 'Kung Pao chicken is a classic Sichuan dish known for its bold and spicy flavors. It originated in the Sichuan province of China and has become popular worldwide for its combination of tender chicken, crunchy peanuts, and fiery chili peppers in a savory and slightly sweet sauce. The dish is typically stir-fried with other ingredients such as bell peppers, onions, and garlic, creating a flavorful and aromatic dish that pairs well with steamed rice.', '/css/spicy_kung_pao_chicken.jpg', '400g chicken breast, 1/2 cup peanuts, 2 bell peppers, 2 green onions, 2 cloves garlic, 2 tablespoons soy sauce, 1 tablespoon rice vinegar, 1 tablespoon hoisin sauce, 1 tablespoon cornstarch, 1 teaspoon sugar, 1 teaspoon Sichuan peppercorns, 2 tablespoons vegetable oil, Salt and pepper to taste', '1. Cut the chicken breast into bite-sized pieces and season with salt and pepper.
@@ -95,7 +97,7 @@ VALUES ('CH-0006', 'Spicy Kung Pao Chicken', 'Fiery and flavorful. Chicken, pean
 7. Pour the sauce over the vegetables in the pan and cook until thickened.
 8. Add the cooked chicken back to the pan and toss everything together until well coated.
 9. Cook for another minute or until heated through.
-10. Serve hot as a delicious and satisfying meal.', 'https://youtu.be/BEQCLCLaf7c');
+10. Serve hot as a delicious and satisfying meal.', 'https://www.youtube.com/embed/BEQCLCLaf7c');
 	
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0007', 'Big Plate Chicken', 'Classic Chinese dish. Sweet and tangy pork with bell peppers and pineapple.', 'Big Plate Chicken, also known as "Da Pan Ji" in Chinese, is a popular dish originating from the Xinjiang region of China. It is characterized by its bold and flavorful sauce made with a combination of chili peppers, garlic, ginger, and various spices. The dish typically includes chicken pieces, potatoes, bell peppers, and onions, all cooked together in a large wok or pan. It is often served with a side of steamed rice or noodles, making it a satisfying and hearty meal.', './css/dapanji.jpg', 'For the sauce:
@@ -155,7 +157,7 @@ For the toppings:
 7. Cook the prepared noodles in boiling water for 2-3 minutes, then drain and rinse with cold water.
 8. Divide the cooked noodles among serving bowls and top with bamboo shoots, chopped spinach, julienned carrots, sliced black fungus, and chopped green onions.
 9. Ladle the hot broth over the noodles and toppings.
-10. Serve hot as a comforting and satisfying meal.', 'https://youtu.be/kiLh7z7oHS8');
+10. Serve hot as a comforting and satisfying meal.', 'https://www.youtube.com/embed/kiLh7z7oHS8');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0009', 'Dumplings', 'Translucent dumplings. Savory pork, shrimp, and vegetable filling.', 'Dumplings, also known as "jiaozi" in Chinese, are a traditional Chinese dish that is enjoyed throughout the country, especially during the Chinese New Year celebration. They are made from a simple dough of flour and water, which is filled with a savory mixture of pork, shrimp, vegetables, and aromatics. Dumplings can be boiled, steamed, or pan-fried, and are often served with a dipping sauce made from soy sauce, vinegar, and chili oil. They are a symbol of good luck and prosperity, making them an essential part of any festive meal.', './css/jiaozi.jfif', 'For the dough:
@@ -185,7 +187,7 @@ For the dipping sauce:
 7. Repeat with the remaining dough and filling.
 8. To cook the dumplings, bring a large pot of water to a boil.
 9. Carefully add the dumplings to the boiling water and cook until they float to the surface, about 3-4 minutes.
-10. Remove the dumplings with a slotted spoon and serve hot with dipping sauce on the side.', 'https://youtu.be/yx7EvNwkZqQ');
+10. Remove the dumplings with a slotted spoon and serve hot with dipping sauce on the side.', 'https://www.youtube.com/embed/yx7EvNwkZqQ');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0010', 'Bei Jing Kao ya', 'Cantonese favorite. Tender beef, flat rice noodles, and crunchy bean sprouts.', 'Beijing Kao Ya, also known as Peking Duck, is a famous Chinese dish that originated in Beijing, China. It is characterized by its crispy skin, tender meat, and rich flavor, which comes from the traditional method of roasting the duck over an open flame. The duck is usually served with thin pancakes, sliced scallions, and hoisin sauce, allowing diners to wrap the duck and condiments in the pancakes for a delicious and satisfying meal. Beijing Kao Ya is often enjoyed during special occasions and celebrations, making it a beloved dish in Chinese cuisine.', './css/beijingkaoya.jpeg', '1 whole duck
@@ -243,7 +245,7 @@ Chopped cilantro', '1. To prepare the lamb, place diced lamb shoulder in a pot a
 7. To serve, tear Chinese bread into bite-sized pieces and place in individual serving bowls.
 8. Ladle hot broth over the bread, then add cooked lamb and rice noodles to each bowl.
 9. Garnish with chopped green onions and cilantro.
-10. Serve hot as a hearty and satisfying meal.', 'https://youtu.be/lxcHCgObobg');
+10. Serve hot as a hearty and satisfying meal.', 'https://www.youtube.com/embed/lxcHCgObobg');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0012', 'Crispy Sweet & Sour Pork', 'Fiery and flavorful. Chicken, peanuts, and chili peppers in a spicy sauce.', 'Crispy Sweet & Sour Pork, also known as "Guo Bao Rou" in Chinese, is a popular dish originating from the northeastern region of China. It is characterized by its crispy and tangy pork pieces, which are coated in a sweet and sour sauce made from vinegar, sugar, and ketchup. The dish often includes bell peppers, onions, and pineapple, adding a colorful and flavorful twist to the classic recipe. Crispy Sweet & Sour Pork is a favorite choice for many diners, thanks to its irresistible combination of flavors and textures.', './css/Crispy_Sweet_Sour_Pork.jpg', 'For the pork:
@@ -276,7 +278,7 @@ Pineapple chunks', '1. To prepare the pork, season sliced pork loin with salt an
 9. Cook the sauce over medium heat, stirring constantly, until thickened.
 10. Add sliced bell peppers, onions, and pineapple chunks to the sauce, then toss to coat.
 11. Serve the crispy pork with the sweet and sour sauce and vegetables.
-12. Enjoy hot as a delicious and satisfying meal.', 'https://youtu.be/gFXq8iIjgQ8');
+12. Enjoy hot as a delicious and satisfying meal.', 'https://www.youtube.com/embed/gFXq8iIjgQ8');
 
 -- 18 more items
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
@@ -289,7 +291,7 @@ VALUES ('CH-0013', 'Gong Bao Chicken', 'Traditional Chinese dish with chicken, p
 7. Pour the sauce over the vegetables in the pan and cook until thickened.
 8. Add the cooked chicken back to the pan and toss everything together until well coated.
 9. Cook for another minute or until heated through.
-10. Serve hot as a delicious and satisfying meal.', 'https://youtu.be/-qwUsa9tGrU');
+10. Serve hot as a delicious and satisfying meal.', 'https://www.youtube.com/embed/-qwUsa9tGrU');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0014', 'Hot and Sour Soup', 'Classic Chinese soup with tofu, mushrooms, and bamboo shoots in a tangy broth.', 'Hot and Sour Soup is a classic Chinese soup that originated in the Sichuan province. It is known for its bold and contrasting flavors, with a tangy and slightly spicy broth made from vinegar, soy sauce, and chili oil, along with savory ingredients such as tofu, mushrooms, bamboo shoots, and eggs. Hot and Sour Soup is often enjoyed as a starter or appetizer at Chinese restaurants, thanks to its warming and comforting properties that are believed to aid digestion and stimulate the appetite.', './css/hot_and_sour_soup.jpg', '4 cups chicken broth, 2 cups water, 200g firm tofu, 100g bamboo shoots, 100g shiitake mushrooms, 2 eggs, 2 tablespoons soy sauce, 2 tablespoons rice vinegar, 1 tablespoon chili oil, 1 tablespoon cornstarch, 1 tablespoon water, 2 green onions, chopped, Salt and pepper to taste', '1. In a pot, combine chicken broth, water, diced tofu, sliced bamboo shoots, and sliced shiitake mushrooms.
@@ -300,7 +302,7 @@ VALUES ('CH-0014', 'Hot and Sour Soup', 'Classic Chinese soup with tofu, mushroo
 6. Stir the slurry into the soup and cook until thickened.
 7. Season the soup with salt and pepper to taste.
 8. Garnish with chopped green onions before serving.
-9. Serve hot as a comforting and satisfying soup.', 'https://youtu.be/f9vFj7vwGTE');
+9. Serve hot as a comforting and satisfying soup.', 'https://www.youtube.com/embed/f9vFj7vwGTE');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0015', 'Egg Foo Young', 'Chinese-style omelette with vegetables, shrimp, and pork, served with gravy.', 'Egg Foo Young is a Chinese-style omelette that originated in the Guangdong province of China. It is made with beaten eggs mixed with various ingredients such as shrimp, pork, vegetables, and bean sprouts, then pan-fried until golden brown and crispy. Egg Foo Young is often served with a savory gravy made from chicken broth, soy sauce, and other seasonings, adding a rich and flavorful touch to the dish. It is a popular choice for many diners, thanks to its versatility and satisfying flavors.', './css/Egg_Foo_Young.jpg', 'For the omelette:
@@ -316,7 +318,7 @@ For the gravy:
 8. Bring the mixture to a boil, then reduce the heat and let simmer until thickened.
 9. Stir in chopped green onions before serving.
 10. Serve the omelettes hot with the savory gravy on top.
-11. Enjoy as a satisfying and delicious meal.', 'https://youtu.be/LPHKrh0FbZQ');
+11. Enjoy as a satisfying and delicious meal.', 'https://www.youtube.com/embed/LPHKrh0FbZQ');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0016', 'Kung Pao Shrimp', 'Stir-fried shrimp with peanuts, vegetables, and chili peppers in a spicy sauce.', 'Kung Pao Shrimp is a Chinese stir-fry dish that originated in the Sichuan province. It is named after Ding Baozhen, a Qing dynasty official known as "Gong Bao," who is said to have enjoyed the dish. Kung Pao Shrimp features tender shrimp stir-fried with peanuts, vegetables, and chili peppers in a spicy and flavorful sauce made from soy sauce, hoisin sauce, and other seasonings. It is a popular choice for many diners, thanks to its bold flavors and satisfying texture.', './css/kung_pao_shrimp.jpg', '400g shrimp, 1/2 cup peanuts, 2 bell peppers, 2 green onions, 2 cloves garlic, 2 tablespoons soy sauce, 1 tablespoon rice vinegar, 1 tablespoon hoisin sauce, 1 tablespoon cornstarch, 1 teaspoon sugar, 1 teaspoon Sichuan peppercorns, 2 tablespoons vegetable oil, Salt and pepper to taste', '1. Peel and devein shrimp, then season with salt and pepper.
@@ -328,7 +330,7 @@ VALUES ('CH-0016', 'Kung Pao Shrimp', 'Stir-fried shrimp with peanuts, vegetable
 7. Pour the sauce over the vegetables in the pan and cook until thickened.
 8. Add the cooked shrimp back to the pan and toss everything together until well coated.
 9. Cook for another minute or until heated through.
-10. Serve hot as a delicious and satisfying meal.', 'https://youtu.be/RQWCCT43ofQ');
+10. Serve hot as a delicious and satisfying meal.', 'https://www.youtube.com/embed/RQWCCT43ofQ');
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
 VALUES ('CH-0017', 'Ma Po Eggplant', 'Sichuan-style dish with eggplant cooked in a spicy, flavorful sauce with tofu.', 'Ma Po Eggplant is a classic Sichuan dish that is loved for its bold flavors and spicy kick. It features tender eggplant cooked in a flavorful sauce made from chili bean paste, fermented black beans, garlic, ginger, and other aromatic spices. The dish is often served with tofu and minced pork, adding protein and texture to the meal. Ma Po Eggplant is a popular choice for many diners, thanks to its satisfying flavors and comforting qualities.', './css/Ma_Po_Eggplant.jpg', '2 Japanese eggplants, 200g tofu, 100g ground pork, 2 cloves garlic, minced, 1 tablespoon ginger, minced, 2 green onions, chopped, 2 tablespoons chili bean paste, 1 tablespoon fermented black beans, 1 tablespoon soy sauce, 1 teaspoon sugar, 1/2 cup chicken broth, 2 tablespoons vegetable oil, Salt and pepper to taste', '1. Cut eggplants into bite-sized pieces and soak in salted water for 10 minutes.
@@ -478,7 +480,7 @@ VALUES ('CH-0026', 'Chinese BBQ Pork (Char Siu)', 'Sweet and savory roasted pork
 10. Enjoy as a delicious and satisfying meal.', NULL);
 
 INSERT INTO Chinese_Recipes (dishID, dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo)
-VALUES ('CH-0027', 'Dan Dan Noodles', 'Spicy Sichuan-style noodles topped with minced pork and preserved vegetables.', 'Dan Dan Noodles is a classic Sichuan dish that is loved for its bold flavors and spicy kick. It features thin noodles topped with a spicy sauce made from chili oil, Sichuan peppercorns, garlic, and soy sauce, as well as minced pork and preserved vegetables. The dish is often garnished with chopped green onions and crushed peanuts for added texture and flavor. Dan Dan Noodles are a popular street food snack in China and are enjoyed by many for their satisfying taste and comforting qualities.', './css/Dan_Dan_Noodles.jpg.jpg', 'For the noodles:
+VALUES ('CH-0027', 'Dan Dan Noodles', 'Spicy Sichuan-style noodles topped with minced pork and preserved vegetables.', 'Dan Dan Noodles is a classic Sichuan dish that is loved for its bold flavors and spicy kick. It features thin noodles topped with a spicy sauce made from chili oil, Sichuan peppercorns, garlic, and soy sauce, as well as minced pork and preserved vegetables. The dish is often garnished with chopped green onions and crushed peanuts for added texture and flavor. Dan Dan Noodles are a popular street food snack in China and are enjoyed by many for their satisfying taste and comforting qualities.', './css/Dan_Dan_Noodles.jpg', 'For the noodles:
 200g thin wheat noodles, 1 tablespoon vegetable oil, 1 tablespoon soy sauce
 For the sauce:
 2 tablespoons chili oil, 2 tablespoons soy sauce, 1 tablespoon black vinegar, 1 tablespoon sugar, 1 teaspoon Sichuan peppercorns, crushed, 2 cloves garlic, minced, 1 teaspoon ginger, minced
@@ -547,4 +549,4 @@ SELECT * FROM Chinese_Recipes;
 -- recipeInstruction: let ask chat ChatGPT 
 -- dishVideo: just 3-4 videos for  10 recipes.)
 
-DROP TABLE chinese_recipes
+-- DROP TABLE chinese_recipes

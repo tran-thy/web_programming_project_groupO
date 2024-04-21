@@ -1,101 +1,93 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #fff;
-}
-
-body {
-  overflow-x: auto;
-  padding-top: 60px;
-} */
-
 .article {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 7%;
+  padding: 40px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.info {
-  margin-top: 10px;
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
+.article img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: inherit;
+  margin-bottom: 40px;
+}
 .title-item {
-  font-size: 30px;
+  font-size: 26px;
   color: #843838;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-weight: bold;
 }
-
+.description {
+  margin-bottom: 40px;
+  font-style: italic;
+}
 h4 {
   color: #e69d3e;
-  font-size: 20px;
+  font-size: 22px;
+  /* margin-bottom: 40px; */
+  padding-bottom: 20px;
 }
-
+.history {
+  margin-bottom: 40px;
+}
 .description,
 .history,
 .content-detail,
 #recipe-ingredients li,
 #recipe-instructions li {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
+  text-align: justify;
+}
+
+#recipe-ingredients li,
+#recipe-instructions li {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.history {
-  margin-bottom: 40px;
-}
-.image {
-  text-align: center;
-  margin-bottom: 50px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  height: 32vw;
-  max-height: 100vw;
-  position: relative;
-}
 
-#dish-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  /* bottom: 0; */
-  border-radius: 5px;
-}
 .content-detail {
-  margin-top: 40px;
   margin-bottom: 40px;
   border-radius: 8px;
   line-height: 1.6;
   /* border: 1px solid #e69d3e; */
 }
-ul,
+#recipe-ingredients,
+#recipe-instructions ul,
 ol {
   list-style-type: disc;
   margin-bottom: 10px;
   margin-left: 20px;
 }
 
-li {
+#recipe-ingredients,
+#recipe-instructions li {
   margin-bottom: 10px;
   font-size: 18px;
 }
 .iframe-container {
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 /* CSS for comment section and form */
 #comments-container {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 70%;
   border-radius: 5px;
   border: 0.5px solid #ccc;
@@ -127,14 +119,14 @@ li {
 #comment-form input[type="submit"] {
   background-color: #deb887;
   color: white;
-  padding: 10px 15px;
+  padding: 6px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 #comment-form input[type="submit"]:hover {
-  background-color: #47974b;
+  background-color: #d2b48c;
 }
 
 .comment {
@@ -156,8 +148,22 @@ li {
   cursor: pointer;
   margin-left: 10px;
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 900px) {
   #dish .container {
     padding: 10px;
+  }
+  .article img {
+    height: 60vw;
+  }
+
+  .description,
+  .history,
+  .content-detail,
+  #recipe-ingredients li,
+  #recipe-instructions li {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
   }
 }

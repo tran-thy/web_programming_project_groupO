@@ -34,43 +34,46 @@ const displayDish = (dish) => {
 };
 renderVietnameseDish("VN-0016");
 
-// const renderVietnameseRandom = async () => {
-//   try {
-//     const vietnameseDishRandom = await fetchData(`randomFood`);
-//     displayDishRandom(vietnameseDishRandom);
-//   } catch (error) {
-//     alert(error.message);
-//   }
-// };
-
-// const displayDishRandom = (dish) => {
-//   const dishImageRandom1 = document.getElementById("randome-img-1");
-//   dishImageRandom1.src = dish.dishimage; // Assuming the property name is 'image'
-//   const dishNameRandom1 = document.getElementById("randome-title-1");
-//   dishNameRandom1.textContent = dish.dishname;
-// };
-
-const renderRandomRecipes = async () => {
+const fetchRandomRecipes = async () => {
   try {
-    // Loop to fetch four random recipes one by one
-    for (let index = 1; index <= 4; index++) {
-      const recipe = await fetchData("randomFood");
-      const recipeImgElement = document.getElementById(`recipe-img-${index}`);
-      const recipeTitleElement = document.getElementById(
-        `recipe-title-${index}`
-      );
-      const recipeLinkElement = document.getElementById(`recipe-link-${index}`);
-
-      recipeImgElement.src = recipe.dishimage;
-      recipeTitleElement.textContent = recipe.dishname;
-
-      // Set the href attribute of the link to the detail page with the dishid as a query parameter
-      recipeLinkElement.href = `vietnamese_detail_recipe.html?id=${recipe.dishid}`;
-    }
+    const vietnameseDishRandom = await fetchData(`randomFood`);
+    displayDishRandom(vietnameseDishRandom);
   } catch (error) {
-    console.error("Error rendering random recipes:", error);
-    // Handle error
+    alert(error.message);
   }
 };
 
-renderRandomRecipes();
+const displayDishRandom = (recipes) => {
+  const recipesContainer = document.getElementById("recipes-container");
+  recipesContainer.innerHTML = "";
+  recipes.forEach((recipe, index) => {
+    const recipeDiv = document.createElement("div");
+    recipeDiv.classList.add(
+      "col-md-3",
+      "greatest-post-one",
+      "has-text-align-center"
+    );
+
+    const recipeLink = document.createElement("a");
+    recipeLink.href = `vietnamese_detail_recipe.html?id=${recipe.dishid}`;
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("greatest-img");
+
+    const recipeImg = document.createElement("img");
+    recipeImg.src = recipe.dishimage;
+
+    const titleDiv = document.createElement("div");
+    titleDiv.classList.add("greatest-title");
+    titleDiv.textContent = recipe.dishname;
+
+    console.log("Title:", recipe.dishname); // Log the title
+
+    imgDiv.appendChild(recipeImg);
+    recipeLink.appendChild(imgDiv);
+    recipeLink.appendChild(titleDiv);
+    recipeDiv.appendChild(recipeLink);
+    recipesContainer.appendChild(recipeDiv);
+  });
+};
+
+fetchRandomRecipes();

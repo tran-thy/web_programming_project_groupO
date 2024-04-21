@@ -108,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Function to fetch recipe details based on recipe ID
-const fetchRecipeDetails = async (dishid) => { 
+const fetchRecipeDetails = async (dishid,page) => { 
     try {
-        const response = await fetch(`${BACKEND_ROOT_URL}/detailrecipe/${dishid}`);
+        const response = await fetch(`${BACKEND_ROOT_URL}/detailrecipe/${dishid}?page=${page}`);
         if (!response.ok) {
             throw new Error('Failed to fetch recipe details');
         }
@@ -200,15 +200,23 @@ const getRecipeIdFromUrl = () => {
 };
 
 // Fetch recipe details when the window loads
-window.onload = () => {
+// window.onload = () => {
+    // const dishid = getRecipeIdFromUrl();
+    // if (dishid) { // Use dishid here
+        // fetchRecipeDetails(dishid);
+    // } else {
+        // console.error('Recipe ID not found in URL');
+    // }
+// };
+// 
+document.addEventListener("DOMContentLoaded", function() {
     const dishid = getRecipeIdFromUrl();
-    if (dishid) { // Use dishid here
-        fetchRecipeDetails(dishid);
+    if (dishid) {
+        fetchRecipeDetails(dishid,'chineserecipe');
     } else {
         console.error('Recipe ID not found in URL');
     }
-};
-
+});
 
 // document.addEventListener("DOMContentLoaded", function() {
     // fetchRecipesForSearch();
