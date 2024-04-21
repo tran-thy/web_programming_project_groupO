@@ -19,7 +19,7 @@ const attachRecipeDetailEventListeners = () => {
 document.addEventListener("DOMContentLoaded", function() {
     attachRecipeDetailEventListeners();
 });
-
+// fetch for the pagination button
 const fetchRecipesForPage = async (page) => {
     try {
         const response = await fetch(`${BACKEND_ROOT_URL}/recipes?page=${page}`);
@@ -391,7 +391,7 @@ const searchdisplayRecipes = (search_recipes) => {
 // from chinese web page to navigate to the homepage by clicking the home button
 document.addEventListener("DOMContentLoaded", function() {
     // Event listener for pagination buttons
-    const navhomeButton = document.querySelector('.nav-link-h')
+    const navhomeButton = document.querySelector('.nav-link-home')
     
     navhomeButton.addEventListener('click', navtoHome)
 
@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function() {
             paginationbutton.style.display = 'none';
 
         } else {
-            paginationbutton.style.display = 'flex';
+            paginationbutton.style.display = 'block';
             alert("Please enter a search query.");
         }
     });
@@ -562,22 +562,51 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'aboutus.html';
     }
     
-    
-    
    
 
-    function navtoHome() {
-        window.location.href = 'index.html';
-    }
+    // function navtoHome() {
+        // window.location.href = 'index.html';
+    // }
 })
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const toggleNavBtn = document.getElementById('toggleNavBtn');
-    const navLinks = document.querySelector('.nav-links');
+// Function to fetch random recipes for the home page recommended recipes section
+//why there is this line>
+// const fetchRecipesForRecommendedRecipes = async () => {
+    // try {
+        // const response = await fetch(`${BACKEND_ROOT_URL}/random-recipes`);
+        // if (!response.ok) {
+            // throw new Error('Failed to fetch recipes');
+        // }
+        // const recipes = await response.json();
+        // displayRecommendedRecipes(recipes);
+        // attachRecipeDetailEventListeners(); // Attach event listeners after recipes are displayed
+    // } catch (error) {
+        // console.error("Error fetching recipes:", error.message);
+        // alert("Error fetching recipes. Please try again later.");
+    // }
+// };
 
+// Function to display recipes on the frontend
+const displayRecommendedRecipes = (recipes) => {
+    const homeRecommendedChineseRecipes = document.querySelector(".recommended-recipes-container");
+    homeRecommendedChineseRecipes.innerHTML = '';
 
-    toggleNavBtn.addEventListener('click', function() {
-        navLinks.classList.toggle('show'); 
+    recipes.forEach(recipe => {
+        const recipeDiv = document.createElement('div');
+        recipeDiv.classList.add('col-md-3');
+        recipeDiv.innerHTML = `
+            <div class="greatest-post-one">
+                <img class="greatest-img" src="${recipe.dishimage}" alt="${recipe.dishname}" />
+                <div class="greatest-title">
+                    <strong>${recipe.dishname}</strong>
+                </div>
+            </div>
+        `;
+        homeRecommendedChineseRecipes.appendChild(recipeDiv);
     });
-});
+};
+
+// Call fetchRecipesForRecommendedRecipes when the window loads
+window.onload = fetchRecipesForRecommendedRecipes;
+

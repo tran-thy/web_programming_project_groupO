@@ -65,31 +65,89 @@ app.get('/recipes', (req, res) => {
 //   });
 // 
 
-
-
-// Define route handler for searching recipes
-// app.get('/search', async (req, res) => {
-    // const query = req.query.query || '';
-    // const keywords = query.split('+');
-    // const pool = openDb();
+// Endpoint to fetch random recipes
+// app.get('/random-recipes', async (req, res) => {
     // try {
-        // let results = [];
+        //Count the total number of recipes in the database
+        // const countQuery = 'SELECT COUNT(*) FROM chinese_recipes';
+        // const pool = openDb();
+        // const countResult = await pool.query(countQuery);
+        // const totalCount = parseInt(countResult.rows[0].count);
 // 
-        // for (const keyword of keywords) {
-            // const { rows } = await pool.query(
-                // 'SELECT * FROM chinese_recipes WHERE recipe_name ILIKE $1 OR description ILIKE $1',
-                // [`%${keyword}%`]
-            // );
-            // results = results.concat(rows);
+        //Generate two random numbers within the range of total recipes
+        // const index1 = Math.floor(Math.random() * totalCount) + 1;
+        // let index2 = Math.floor(Math.random() * totalCount) + 1;
+        // let index3 = Math.floor(Math.random() * totalCount) + 1;
+        // let index4 = Math.floor(Math.random() * totalCount) + 1;
+// 
+        //Ensure index2 is different from index1
+        // while (index2 === index1) {
+            // index2 = Math.floor(Math.random() * totalCount) + 1;
         // }
 // 
-        // res.json({ results });
+        //Construct the dish IDs based on the format "CH-00X"
+        // const dishid1 = 'CH-' + index1.toString().padStart(4, '0');
+        // const dishid2 = 'CH-' + index2.toString().padStart(4, '0');
+        // const dishid3 = 'CH-' + index3.toString().padStart(4, '0');
+        // const dishid4 = 'CH-' + index4.toString().padStart(4, '0');
+// 
+        //Query to fetch the random recipes from the database
+        // const query = {
+            // text: 'SELECT * FROM chinese_recipes WHERE dishid = $1 OR dishid = $2',
+            // values: [dishid1, dishid2],
+        // };
+// 
+        //Execute the query
+        // const { rows } = await pool.query(query);
+// 
+        //Send the retrieved data as JSON response
+        // res.json(rows);
     // } catch (error) {
-        // console.error('Error querying database:', error);
+        // console.error('Error fetching random recipes:', error.message);
         // res.status(500).json({ error: 'Internal Server Error' });
     // }
 // });
 // 
+
+app.get('/random-recipes', async (req, res) => {
+    try {
+        // Count the total number of recipes in the database
+        const countQuery = 'SELECT COUNT(*) FROM chinese_recipes';
+        const pool = openDb();
+        const countResult = await pool.query(countQuery);
+        const totalCount = parseInt(countResult.rows[0].count);
+
+        // Generate four unique random numbers within the range of total recipes
+        let indexes = [];
+        while (indexes.length < 4) {
+            const randomIndex = Math.floor(Math.random() * totalCount) + 1;
+            if (!indexes.includes(randomIndex)) {
+                indexes.push(randomIndex);
+            }
+        }
+
+        // Construct the dish IDs based on the format "CH-00X"
+        const dishIds = indexes.map(index => 'CH-' + index.toString().padStart(4, '0'));
+
+        // Query to fetch the random recipes from the database
+        const query = {
+            text: `SELECT * FROM chinese_recipes WHERE dishid IN (${dishIds.map((_, i) => `$${i + 1}`).join(', ')})`,
+            values: dishIds,
+        };
+
+        // Execute the query
+        const { rows } = await pool.query(query);
+
+        // Send the retrieved data as JSON response
+        res.json(rows);
+    } catch (error) {
+        console.error('Error fetching random recipes:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
+// for the search 
 app.get('/search', async (req, res) => {
     const query = req.query.query || '';
     const page = req.query.page || ''; // Retrieve the page parameter from the request
@@ -123,73 +181,7 @@ app.get('/search', async (req, res) => {
 })
 
 
-// Define route handler for searching recipes
-// app.get('/search', async (req, res) => {
-    // const query = req.query.query || '';
-    // const keywords = query.split(' '); // Split by spaces
-    // const pool = openDb();
-    // try {
-        // let results = [];
-// 
-        // for (const keyword of keywords) {
-            // const { rows } = await pool.query(
-                // 'SELECT * FROM chinese_recipes WHERE dishname ILIKE $1 OR dishdescription ILIKE $2',
-                // [`%${keyword}%`, `%${keyword}%`]
-            // );
-            // results = results.concat(rows);
-        // }
-// 
-        // res.json({ results });
-    // } catch (error) {
-        // console.error('Error querying database:', error);
-        // res.status(500).json({ error: 'Internal Server Error' });
-    // }
-// });
-// 
-
-//Define route handler for searching recipes
-// app.get('/searchondetail', async (req, res) => {
-    // const query = req.query.query || '';
-    // const keywords = query.split(' '); // Split by spaces
-    // const pool = openDb();
-    // try {
-        // let results1 = [];
-// 
-        // for (const keyword of keywords) {
-            // const { rows } = await pool.query(
-                // 'SELECT * FROM chinese_recipes WHERE dishname ILIKE $1 OR dishdescription ILIKE $2',
-                // [`%${keyword}%`, `%${keyword}%`]
-            // );
-                    //  
-            // results1 = results1.concat(rows);
-        // }
-// 
-        // res.json({ results1 });
-    // } catch (error) {
-        // console.error('Error querying database:', error);
-        // res.status(500).json({ error: 'Internal Server Error' });
-    // }
-// });
-// app.get('/search', async (req, res) => {
-    // const query = req.query.query || '';
-    // const keywords = query.split(' '); // Split by spaces
-    // const pool = openDb();
-    // try {
-        // let results = [];
-// 
-        // for (const keyword of keywords) {
-            // const { rows } = await pool.query(
-                // 'SELECT * FROM chinese_recipes WHERE recipe_name ILIKE $1 OR description ILIKE $2',
-                // [`%${keyword}%`, `%${keyword}%`] );
-            // results = results.concat(rows);
-        // }
-// 
-        // res.json({ results });
-    // } catch (error) {
-        // console.error('Error querying database:', error);
-        // res.status(500).json({ error: 'Internal Server Error' });
-    // }
-// });
+// for the detail 
 app.get('/detailrecipe/:dishid', async (req, res) => {
     // const recipeId = req.query.recipeId; // Use req.query to get query parameters
 
