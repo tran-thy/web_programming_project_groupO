@@ -212,6 +212,17 @@
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // +totalSlides to avoid negative index
         showSlide(currentSlide);
       }
+      const carousel = document.getElementById("myCarousel");
+      const slidetime = 8000; //8 seconds
+      let slideTimer = setInterval(nextSlide, slidetime);
+
+      carousel.addEventListener("mouseenter", () => {
+        clearInterval(slideTimer); // Pause auto-slide when mouse enters
+      });
+
+      carousel.addEventListener("mouseleave", () => {
+        slideTimer = setInterval(nextSlide, slidetime); // Resume auto-slide when mouse leaves
+      });
     </script>
   </body>
 </html>
