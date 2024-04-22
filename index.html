@@ -35,33 +35,32 @@
                 </div>
 
                 <!-- Search and Login/Register Area -->
-                <!-- I think this part need more discussion: many ways to that -->
                 <div class="col-md-6">
                     <div class="signup-search-area d-flex align-items-center">
                         <!-- Login/Register Area -->
                         <!-- It is can be change other way by by button ... -->
-                        <div class="login_register_area d-flex">
-                            <div class="login">
-                                <a href="../login/login-interface.html" class="text-black">Sign in</a>
+                        <div class="col-md-3">
+                            <div class="login_register_area d-flex">
+                                <div class="login">
+                                    <a href="../login/login-interface.html" class="text-black">Sign in</a>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Search section -->
-                        <div class="d-flex justify-content-between align-items-center" id="search-container">
-                            <div class="search-options">
-                                <button class="btn btn-primary search-symbol" type="button" id="search-button-icon">
+                        <div class="col-md-9">
+                            <div class="search-options" id="search-container">
+                                <div class="input-group search-box-vn-detail">
+                                    <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
+                                    <button class="btn btn-primary search-symbol" type="button" id="search-button-icon">
                                     <i class="fas fa-search"></i>
                                 </button>
-                                <div class="input-group search-box" style="display: none">
-                                    <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." aria-label="Search for a dish" aria-describedby="search-box-expanded" autocomplete="off" />
-                                    <button class="btn btn-primary" type="button" id="search-button">
-                                        Search
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
