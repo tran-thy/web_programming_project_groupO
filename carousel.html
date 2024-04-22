@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      .carousel {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .carousel-item {
+        flex: 0 0 100%; /* Make each item take full width */
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: auto;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+      }
+
+      .carousel-control-prev {
+        left: 10px;
+      }
+
+      .carousel-control-next {
+        right: 10px;
+      }
+      .bg-img1 {
+        background-image: url("https://st3.depositphotos.com/1105977/14354/i/450/depositphotos_143540965-stock-photo-asian-food-served-on-wooden.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+      }
+
+      .bg-img2 {
+        background-image: url("https://static.vinwonders.com/production/central-vietnam-food-banner.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+      }
+
+      .bg-img3 {
+        background-image: url("https://as2.ftcdn.net/v2/jpg/07/65/31/75/1000_F_765317508_aCNWmNJ9avwHAGHAd2DlWnFNZvZJvFVq.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+      }
+
+      .carousel-btn {
+        background-color: #deb887;
+        border-color: #deb887;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 5px;
+      }
+
+      /* Define styles for button hover state */
+
+      .carousel-btn:hover {
+        background-color: #d2b48c;
+        border-color: #d2b48c;
+        transition: all 0.3s;
+      }
+
+      .carousel-caption a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .carousel-caption a:hover {
+        color: #fff;
+      }
+
+      .carousel-caption p {
+        font-size: 20px;
+      }
+      .text-start {
+        text-align: left;
+        color: #fff;
+        padding-left: 10%;
+        padding-top: 8vh;
+      }
+      .text-end {
+        text-align: right;
+        color: #fff;
+        padding-right: 10%;
+        padding-top: 10vh;
+      }
+      .carousel-caption h1 {
+        font-size: 25px;
+      }
+      .carousel-control-prev,
+      .carousel-control-next {
+        background-color: transparent;
+      }
+
+      @media screen and (max-width: 768px) {
+        .text-start {
+          padding-top: 8vh;
+        }
+        .text-end {
+          padding-top: 12vh; /* Adjust percentage value as needed */
+        }
+        .carousel-caption p {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div id="myCarousel" class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-img1">
+            <div class="carousel-caption text-start">
+              <h1>Simple Chinese and Vietnamese Recipes</h1>
+              <p>
+                Explore our blog for tasty Chinese and Vietnamese-inspired
+                dishes. Find authentic flavors, easy recipes, and ingredient
+                tips to make traditional favorites at home
+              </p>
+              <p>
+                <button
+                  class="carousel-btn carousel-btn-about"
+                  id="carousel-btn-about"
+                >
+                  ABOUT US
+                </button>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-img2">
+            <div class="carousel-caption text-end">
+              <h1>Tasty</h1>
+              <p>
+                Explore the vibrant flavors of Vietnamese cuisine, full of
+                freshness and aromatic spices
+              </p>
+              <p>
+                <button class="carousel-btn">
+                  <a href="vietnamese_recipes.html">VIETNAMESE RECIPES</a>
+                </button>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-img3">
+            <div class="carousel-caption text-end">
+              <h1>Tasty</h1>
+              <p>
+                Explore the real taste of China, a delicious journey of flavors
+                that excites the palate
+              </p>
+              <p>
+                <button class="carousel-btn">
+                  <a href="chinese.html">CHINESE RECIPES</a>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" onclick="prevSlide()" href="#"
+          ><i class="carousel-icon fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next" onclick="nextSlide()" href="#"
+          ><i class="carousel-icon fas fa-chevron-right"></i
+        ></a>
+      </div>
+    </section>
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".carousel-item");
+      const totalSlides = 3; //slides.length
+
+      function showSlide(index) {
+        slides.forEach((slide) => {
+          slide.style.transform = `translateX(-${index * 100}%)`;
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides; //modulo: for index is always < totalSlides
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // +totalSlides to avoid negative index
+        showSlide(currentSlide);
+      }
+    </script>
+  </body>
+</html>
