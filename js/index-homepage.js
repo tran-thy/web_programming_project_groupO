@@ -1,5 +1,4 @@
 // const BACKEND_ROOT_URL = 'http://localhost:3001';
-
 // Function to fetch random recipes for the home page recommended recipes section
 const fetchRecipesForRecommendedRecipes = async () => {
     try {
@@ -9,7 +8,7 @@ const fetchRecipesForRecommendedRecipes = async () => {
         }
         const recipes = await response.json();
         displayRecommendedRecipes(recipes);
-        attachRecipeDetailEventListeners(); // Attach event listeners after recipes are displayed
+        // Attach event listeners after recipes are displayed
     } catch (error) {
         console.error("Error fetching recipes:", error.message);
         alert("Error fetching recipes. Please try again later.");
@@ -17,7 +16,6 @@ const fetchRecipesForRecommendedRecipes = async () => {
 };
 
 //Function to display recommended recipes on the frontend
-
 const displayRecommendedRecipes = (recipes) => {
     const homeRecommendedChineseRecipes = document.querySelector(".recommended-recipes-container");
     homeRecommendedChineseRecipes.innerHTML = '';
@@ -29,37 +27,18 @@ const displayRecommendedRecipes = (recipes) => {
             <div class="greatest-post-two">
                 <img class="greatest-img" src="${recipe.dishimage}" alt="dish" />
                 <div class="greatest-title">
-                    <strong class="home_recipe_name">${recipe.dishname}</strong>
+                    <strong class="home_recipe_name" data-recipe-id="${recipe.dishid}">${recipe.dishname}</strong>
                 </div>
             </div>
         `;
         homeRecommendedChineseRecipes.appendChild(recipeDiv6);
     });
+
+    // Attach event listeners after recipes are displayed
+    attachRecipeDetailEventListeners();
 };
-
-////Call fetchRecipesForRecommendedRecipes when the window loads
-// window.onload = fetchRecipesForRecommendedRecipes;
-document.addEventListener("DOMContentLoaded", function() {
-    fetchRecipesForRecommendedRecipes();
-});
-
 
 //
-const attachRecipeDetailEventListeners = () => {
-    //Get all recipe name elements
-    const eachRecipes = document.querySelectorAll('.home_recipe_name');
-    //Add event listener to each recipe name link
-    eachRecipes.forEach(function(eachRecipe) {
-        eachRecipe.addEventListener('click', function(event) {
-            //Prevent default link behavior
-            event.preventDefault();      
-                        
-           // Navigate to the recipe detail page
-            const dishid = eachRecipe.getAttribute('data-recipe-id'); 
-            window.location.href = `recipe_detail.html?dishid=${dishid}`;
-        });
-    });
-};
 //Call the function to attach event listeners when the DOM is loaded
 // document.addEventListener("DOMContentLoaded", function() {
     // attachRecipeDetailEventListeners();
@@ -126,8 +105,7 @@ trim() !== '');
 
 
             <br>
-            <h2 class="recipe-title" style="text-align: left;">What are the 
-Instructions?</h2>
+            <h2 class="recipe-title" style="text-align: left;">What are the Instructions?</h2>
             <br>
             <div class="list-container">                
                 <ul style="text-align: left;">
@@ -161,28 +139,14 @@ Instructions?</h2>
 // };
 // 
 // Fetch recipe details when the window loads
-// window.onload = () => {
-    // const dishid = getRecipeIdFromUrl();
-    // if (dishid) { // Use dishid here
-        // fetchRecipeDetails(dishid);
-    // } else {
-        // console.error('Recipe ID not found in URL');
-    // }
-// };
-
-
 const getRecipeIdFromUrl = () => {
     const queryParams = new URLSearchParams(window.location.search);
     console.log("Query Params:", queryParams); // Log the parsed URL parameters
     return queryParams.get('dishid');
 };
-
-// Fetch recipe details when the window loads
 window.onload = () => {
-    console.log("URL Search:", window.location.search); // Log the URL search string
     const dishid = getRecipeIdFromUrl();
-    console.log("Recipe ID:", dishid); // Log the extracted dish ID
-    if (dishid) {
+    if (dishid) { // Use dishid here
         fetchRecipeDetails(dishid);
     } else {
         console.error('Recipe ID not found in URL');
@@ -190,15 +154,28 @@ window.onload = () => {
 };
 
 
+const attachRecipeDetailEventListeners = () => {
+    //Get all recipe name elements
+    const eachRecipes = document.querySelectorAll('.home_recipe_name');
+    //Add event listener to each recipe name link
+    eachRecipes.forEach(function(eachRecipe) {
+        eachRecipe.addEventListener('click', function(event) {
+            //Prevent default link behavior
+            event.preventDefault();      
+                        
+            // Navigate to the recipe detail page
+            const dishid = eachRecipe.getAttribute('data-recipe-id'); 
+            window.location.href = `recipe_detail.html?dishid=${dishid}`;
+        });
+    });
+};
+// Call fetchRecipesForRecommendedRecipes when the window loads
+document.addEventListener("DOMContentLoaded", function() {
+    fetchRecipesForRecommendedRecipes();
+});
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-    // fetchRecipesForSearch();
-// });
-// 
 
-
-// from recipe detail page to navigate to the homepage/about us/ chinese/vienamane by 
 
 
 
