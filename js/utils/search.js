@@ -90,6 +90,40 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Function to handle click event on recipe name links
+    const attachRecipeDetailEventListeners = () => {
+        // Get all recipe name elements
+        const eachRecipes = document.querySelectorAll('.recipe-name');
+        // Add event listener to each recipe name link
+        eachRecipes.forEach(function(eachRecipe) {
+            eachRecipe.addEventListener('click', function(event) {
+                // Prevent default link behavior
+                event.preventDefault();
+
+                // Navigate to the correct recipe detail page based on dish ID
+                const dishid = eachRecipe.getAttribute('data-recipe-id');
+                const isChineseDish = dishid.startsWith("CH");
+
+                if (isChineseDish) {
+                    // For Chinese dishes, navigate to recipe_detail_new.html
+                    window.location.href = `recipe_detail_search.html?dishid=${dishid}`;
+                } else if (dishid.startsWith("VN")) {
+                    // For Vietnamese dishes, navigate to vietnamese_detail_recipe.html
+                    window.location.href = `vietnamese_detail_recipe.html?id=${dishid}`;
+                } else {
+                    // Handle other cases
+                    console.error("Invalid dish ID:", dishid);
+                    alert("Invalid dish ID. Please try again.");
+                }
+            });
+        });
+    };
+
+    // Call the function to attach event listeners when the DOM is loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        attachRecipeDetailEventListeners();
+    });
+
     // Function to display search results
     const displaySearchResults = (searchResults) => {
         const searchResultsSection = document.getElementById(
@@ -117,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // If no search results found, display a message
             searchResultsSection.innerHTML = "<p>No results found.</p>";
         } else {
-            // Create a container for the search results//H
+            // Create a container for the search results
             const resultsContainer = document.createElement("div");
             resultsContainer.classList.add("container");
             // Display search results in rows with 3 items per row
@@ -127,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Create a new row for every 3rd item
                     rowDiv = document.createElement("div");
                     rowDiv.classList.add("row");
-                    //container appendchild //H
+                    //container appendchild
                     resultsContainer.appendChild(rowDiv);
                 }
 
@@ -135,8 +169,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipeDiv.classList.add("col-md-4"); // Bootstrap column class for 3 items per row
 
                 const recipeLink = document.createElement("a");
-                recipeLink.href = `vietnamese_detail_recipe.html?id=${result.dishid}`;
-                //style //H
+                // Check the dish ID prefix and set the appropriate link
+                if (result.dishid.startsWith("VN")) {
+                    recipeLink.href = `vietnamese_detail_recipe.html?id=${result.dishid}`;
+                } else if (result.dishid.startsWith("CH")) {
+                    recipeLink.href = `recipe_detail_search.html?id=${result.dishid}`;
+                }
+                //style
                 recipeLink.style.textDecoration = "none";
 
                 const dishImageDiv = document.createElement("div");
@@ -149,13 +188,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 const recipeName = document.createElement("h2");
                 recipeName.classList.add("recipe-name");
                 recipeName.textContent = result.dishname;
-                //style //H
+                //style
                 recipeName.style.color = "black";
 
                 // const description = document.createElement("p");
                 // description.classList.add("description");
                 // description.textContent = result.dishdescription;
-                //style //H
+                //style
                 // description.style.color = "black";
 
                 infoDiv.appendChild(recipeName);
@@ -167,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipeDiv.appendChild(recipeLink);
 
                 rowDiv.appendChild(recipeDiv);
-                //container appendchild //H
+                //container appendchild
                 searchResultsSection.appendChild(resultsContainer);
             });
         }
