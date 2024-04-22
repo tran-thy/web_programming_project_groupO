@@ -90,6 +90,41 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Function to handle click event on recipe name links
+    const attachRecipeDetailEventListeners = () => {
+        // Get all recipe name elements
+        const eachRecipes = document.querySelectorAll('.recipe-name');
+        // Add event listener to each recipe name link
+        eachRecipes.forEach(function(eachRecipe) {
+            eachRecipe.addEventListener('click', function(event) {
+                // Prevent default link behavior
+                event.preventDefault();
+
+                // Navigate to the correct recipe detail page based on dish ID
+                const dishid = eachRecipe.getAttribute('data-recipe-id');
+                const isChineseDish = dishid.startsWith("CH");
+
+                if (isChineseDish) {
+                    // For Chinese dishes, navigate to recipe_detail_new.html
+                    window.location.href = `recipe_detail_search.html?dishid=${dishid}`;
+                } else if (dishid.startsWith("VN")) {
+                    // For Vietnamese dishes, navigate to vietnamese_detail_recipe.html
+                    window.location.href = `vietnamese_detail_recipe.html?id=${dishid}`;
+                } else {
+                    // Handle other cases
+                    console.error("Invalid dish ID:", dishid);
+                    alert("Invalid dish ID. Please try again.");
+                }
+            });
+        });
+    };
+
+    // Call the function to attach event listeners when the DOM is loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        attachRecipeDetailEventListeners();
+    });
+
+
     // Function to display search results
     const displaySearchResults = (searchResults) => {
         const searchResultsSection = document.getElementById(
@@ -132,7 +167,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipeDiv.classList.add("col-md-4"); // Bootstrap column class for 3 items per row
 
                 const recipeLink = document.createElement("a");
-                recipeLink.href = `vietnamese_detail_recipe.html?id=${result.dishid}`;
+                // Check the dish ID prefix and set the appropriate link
+                if (result.dishid.startsWith("VN")) {
+                    recipeLink.href = `vietnamese_detail_recipe.html?id=${result.dishid}`;
+                } else if (result.dishid.startsWith("CH")) {
+                    recipeLink.href = `recipe_detail_search.html?id=${result.dishid}`;
+                }
+                //style
+                recipeLink.style.textDecoration = "none";
 
                 const dishImageDiv = document.createElement("div");
                 dishImageDiv.classList.add("image");
