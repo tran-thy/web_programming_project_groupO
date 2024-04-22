@@ -33,27 +33,25 @@
                 </div>
 
                 <!-- Search and Login/Register Area -->
-                <!-- I think this part need more discussion: many ways to that -->
                 <div class="col-md-6">
                     <div class="signup-search-area d-flex align-items-center">
                         <!-- Login/Register Area -->
                         <!-- It is can be change other way by by button ... -->
-                        <div class="login_register_area d-flex">
-                            <div class="login">
-                                <a href="../login/login-interface.html" class="text-black">Sign in</a>
+                        <div class="col-md-3">
+                            <div class="login_register_area d-flex">
+                                <div class="login">
+                                    <a href="../login/login-interface.html" class="text-black">Sign in</a>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Search section -->
-                        <div class="d-flex justify-content-between align-items-center" id="search-container">
-                            <div class="search-options">
-                                <button class="btn btn-primary search-symbol" type="button" id="search-button-icon">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <div class="input-group search-box" style="display: none">
-                                    <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." aria-label="Search for a dish" aria-describedby="search-box-expanded" autocomplete="off" />
-                                    <button class="btn btn-primary" type="button" id="search-button">
-                                        Search
+                        <div class="col-md-9">
+                            <div class="search-options" id="search-container-about">
+                                <div class="input-group search-box-about">
+                                    <input type="text" class="form-control" id="search-input-about" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
+                                    <button class="btn btn-primary search-symbol" type="button" id="search-button-icon-about">
+                                        <i class="fas fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -128,7 +126,7 @@
     </section>
 
     <!-- Part V: Search Results section -->
-    <div id="search-results-section" class="site-inner" style="display: none">
+    <div id="search-results-section-about" class="site-inner" style="display: none">
         <div class="container">
             <h2 class="block-heading text-center">
                 <strong>Search Result</strong>
@@ -208,13 +206,8 @@
     </footer>
 
     <!-- Utils scripts - menu bar-->
-    <script src="js/utils/search-button-events.js "></script>
+    <script src="js/utils/search-about.js "></script>
     <script src="js/utils/cozy-and-randome-food.js"></script>
-
-    <!-- <script src="js/utils/about-us-button-events.js "></script> -->
-    <!-- <script src="js/utils/inactive/vn-recipes-button-events.js"></script> -->
-    <!-- <script src="js/utils/inactive/each-recipe-detail.js" defer></script> -->
-    <!-- <script src="js/utils/inactive/cn-recipes-button-events.js"></script> -->
 
     <!-- Other scripts -->
     <script src="js/utils/navbar.js "></script>
