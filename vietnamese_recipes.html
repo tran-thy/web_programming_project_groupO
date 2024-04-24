@@ -15,8 +15,10 @@
       rel="stylesheet"
     />
     <title>Vietnamese recipes</title>
-    <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/recommeded_chinese_recipes.css" />
+    <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
+    <link rel="stylesheet" href="css/vietnamese_recipe_detail_styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -49,48 +51,39 @@
           </div>
 
           <!-- Search and Login/Register Area -->
-          <!-- I think this part need more discussion: many ways to that -->
           <div class="col-md-6">
             <div class="signup-search-area d-flex align-items-center">
               <!-- Login/Register Area -->
               <!-- It is can be change other way by by button ... -->
-              <div class="login_register_area d-flex">
-                <div class="login">
-                  <a href="../login/login-interface.html" class="text-black"
-                    >Sign in</a
-                  >
+              <div class="col-md-3">
+                <div class="login_register_area d-flex">
+                  <div class="login">
+                    <a href="../login/login-interface.html" class="text-black"
+                      >Sign in</a
+                    >
+                  </div>
                 </div>
               </div>
 
               <!-- Search section -->
-              <div
-                class="d-flex justify-content-between align-items-center"
-                id="search-container"
-              >
-                <div class="search-options">
-                  <button
-                    class="btn btn-primary search-symbol"
-                    type="button"
-                    id="search-button-icon"
-                  >
-                    <i class="fas fa-search"></i>
-                  </button>
-                  <div class="input-group search-box" style="display: none">
+              <div class="col-md-9">
+                <div class="search-options" id="search-container-vn-recipes">
+                  <div class="input-group search-box-vn-recipes">
                     <input
                       type="text"
                       class="form-control"
-                      id="search-input"
+                      id="search-input-vn-recipes"
                       placeholder="Dish or ingredient..."
+                      autocomplete="off"
                       aria-label="Search for a dish"
                       aria-describedby="search-box-expanded"
-                      autocomplete="off"
                     />
                     <button
-                      class="btn btn-primary"
+                      class="btn btn-primary search-symbol"
                       type="button"
-                      id="search-button"
+                      id="search-button-icon-vn-recipes"
                     >
-                      Search
+                      <i class="fas fa-search"></i>
                     </button>
                   </div>
                 </div>
@@ -154,7 +147,7 @@
     </header>
 
     <!-- recipes part -->
-     <div id="recipeGallery">
+    <div id="recipeGallery">
       <div class="container">
         <div class="recipe">
           <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
@@ -173,6 +166,22 @@
       <button id="currentPage">Page 1</button>
 
       <button id="nextPage">Next</button>
+    </div>
+
+    <!-- Part V: Search Results section -->
+    <div id="search-results-section-vn-recipes" style="display: none">
+      <div class="container">
+        <div class="recipe">
+          <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
+            <div class="image"><img src="" alt="" /></div>
+            <div class="info">
+              <h2 class="title-item"></h2>
+              <!-- <p class="author"></p> -->
+              <!-- <p class="description"></p> -->
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Part X: Footer -->
@@ -223,7 +232,7 @@
     </footer>
 
     <!-- Utils scripts - menu bar-->
-    <script src="js/utils/search-button-events.js "></script>
+    <script src="js/utils/search-vn-recipes.js"></script>
     <script src="js/utils/vietnamese_recipes.js"></script>
 
     <!-- Other scripts -->

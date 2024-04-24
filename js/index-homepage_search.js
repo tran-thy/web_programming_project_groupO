@@ -1,13 +1,11 @@
-// const BACKEND_ROOT_URL = 'http://localhost:3001';
-// Function to fetch random recipes for the home page recommended recipes section
-const fetchRecipesForRecommendedRecipes = async () => {
+const fetchRecipesForRecommendedRecipes = async() => {
     try {
         const response = await fetch(`${BACKEND_ROOT_URL}/random-recipes`);
         if (!response.ok) {
             throw new Error('Failed to fetch recipes');
         }
         const recipes = await response.json();
-        displayRecommendedRecipes(recipes);
+        displayRecommendedRecipesNew(recipes);
         // Attach event listeners after recipes are displayed
     } catch (error) {
         console.error("Error fetching recipes:", error.message);
@@ -16,7 +14,7 @@ const fetchRecipesForRecommendedRecipes = async () => {
 };
 
 //Function to display recommended recipes on the frontend
-const displayRecommendedRecipes = (recipes) => {
+const displayRecommendedRecipesNew = (recipes) => {
     const homeRecommendedChineseRecipes = document.querySelector(".recommended-recipes-container");
     homeRecommendedChineseRecipes.innerHTML = '';
 
@@ -38,15 +36,8 @@ const displayRecommendedRecipes = (recipes) => {
     attachRecipeDetailEventListeners();
 };
 
-//
-//Call the function to attach event listeners when the DOM is loaded
-// document.addEventListener("DOMContentLoaded", function() {
-    // attachRecipeDetailEventListeners();
-// });
-
-
 // Function to fetch recipe details based on recipe ID
-const fetchRecipeDetails = async (dishid) => { 
+const fetchRecipeDetails = async(dishid) => {
     try {
         const response = await fetch(`${BACKEND_ROOT_URL}/detailrecipe/${dishid}`);
         if (!response.ok) {
@@ -60,28 +51,25 @@ const fetchRecipeDetails = async (dishid) => {
     }
 };
 
-
-
 // Function to display recipe details on the page
 const displayRecipeDetails = (recipeData, dishid) => { // Use dishid here
-    const articleContainer = document.querySelector('.article');
-    articleContainer.innerHTML = ''; // Clear previous content
+        const articleContainer = document.querySelector('.article');
+        articleContainer.innerHTML = ''; // Clear previous content
 
-    const {
-        dishname,
-        dishimage,
-        dishdescription,
-        dishhistory,
-        recipeingredients,
-        recipeinstruction,
-        dishvideo
-    } = recipeData;
+        const {
+            dishname,
+            dishimage,
+            dishdescription,
+            dishhistory,
+            recipeingredients,
+            recipeinstruction,
+            dishvideo
+        } = recipeData;
 
-    const instructionLines = recipeinstruction.split(/\d+\.\s+/).filter(line => line.
-trim() !== '');
+        const instructionLines = recipeinstruction.split(/\d+\.\s+/).filter(line => line.trim() !== '');
 
-    // Create HTML elements to display recipe details
-    const recipeHTML = `
+        // Create HTML elements to display recipe details
+        const recipeHTML = `
         <h1 class="entry-title" data-recipe-id="${dishid}">${dishname}</h1>
         <div class="entry-content">
             <h2 class="recipe-title" style="text-align: left;">Who Invented ${dishname} ?</h2>
@@ -91,7 +79,7 @@ trim() !== '');
                 <img src="${dishimage}" alt="Sweet and Sour Pork Tend
             </figure>
             <br>
-            
+
             <br>      
             <p class="recipe-paragraph"></p>
             <h2 class="recipe-title" style="text-align: left;">What are the Ingredients ?</h2>
@@ -112,9 +100,9 @@ trim() !== '');
                     ${instructionLines.map((line, index) => `<li>${line}</li>`).join('')}
                 </ul>
             </div>  
-                                                            
+
             </div>  
-            
+
             <br>
             <h2 class="recipe-title" style="text-align: left;">How to Make ${dishname} ?</h2>
             <br>
@@ -132,12 +120,6 @@ trim() !== '');
     articleContainer.innerHTML = recipeHTML;
 };
 
-// Function to extract recipe ID from URL query parameter
-// const getRecipeIdFromUrl = () => {
-    // const queryParams = new URLSearchParams(window.location.search);
-    // return queryParams.get('dishid');
-// };
-// 
 // Fetch recipe details when the window loads
 const getRecipeIdFromUrl = () => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -153,7 +135,6 @@ window.onload = () => {
     }
 };
 
-
 const attachRecipeDetailEventListeners = () => {
     //Get all recipe name elements
     const eachRecipes = document.querySelectorAll('.home_recipe_name');
@@ -161,10 +142,10 @@ const attachRecipeDetailEventListeners = () => {
     eachRecipes.forEach(function(eachRecipe) {
         eachRecipe.addEventListener('click', function(event) {
             //Prevent default link behavior
-            event.preventDefault();      
-                        
+            event.preventDefault();
+
             // Navigate to the recipe detail page
-            const dishid = eachRecipe.getAttribute('data-recipe-id'); 
+            const dishid = eachRecipe.getAttribute('data-recipe-id');
             window.location.href = `recipe_detail.html?dishid=${dishid}`;
         });
     });
@@ -173,13 +154,3 @@ const attachRecipeDetailEventListeners = () => {
 document.addEventListener("DOMContentLoaded", function() {
     fetchRecipesForRecommendedRecipes();
 });
-
-
-
-
-
-
-
-
-
-

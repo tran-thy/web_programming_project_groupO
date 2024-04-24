@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Function to handle click event on search symbol button
     document
-        .getElementById("search-button-icon")
+        .getElementById("search-button-icon-vn-recipes")
         .addEventListener("click", function() {
-            const searchBox = document.querySelector(".search-box");
-            const searchInput = document.getElementById("search-input");
+            const searchBox = document.querySelector(".search-box-vn-recipes");
+            const searchInput = document.getElementById("search-input-vn-recipes");
 
             // Toggle the display of the search box
             searchBox.style.display =
@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to handle search button click
     document.addEventListener("click", function(event) {
-        if (event.target && event.target.id === "search-button-icon") {
+        if (event.target && event.target.id === "search-button-icon-vn-recipes") {
             handleSearch();
         }
     });
 
     // Function to handle Enter key press on search input
     document.addEventListener("keypress", function(event) {
-        const searchInput = document.getElementById("search-input");
+        const searchInput = document.getElementById("search-input-vn-recipes");
         if (event.key === "Enter" && document.activeElement === searchInput) {
             handleSearch();
         }
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to handle search
     async function handleSearch() {
         console.log(`function handleSearch runs`);
-        const searchInput = document.getElementById("search-input");
+        const searchInput = document.getElementById("search-input-vn-recipes");
         const searchTerm = searchInput.value.trim().toLowerCase();
 
         // Clear the input field
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to display search results
     const displaySearchResults = (searchResults) => {
         const searchResultsSection = document.getElementById(
-            "search-results-section"
+            "search-results-section-vn-recipes"
         );
 
         // Check if searchResultsSection is null
@@ -139,10 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Hide other sections
-        document.getElementById("highlighted-section").style.display = "none";
-        document.getElementById("myCarousel").style.display = "none";
-        document.getElementById("recommend-options-vnese").style.display = "none";
-        document.getElementById("recommend-options-cnese").style.display = "none";
+        document.getElementById("recipeGallery").style.display = "none";
 
         // Clear previous search results
         searchResultsSection.innerHTML = "";
@@ -151,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // If no search results found, display a message
             searchResultsSection.innerHTML = "<p>No results found.</p>";
         } else {
-            // Create a container for the search results
+            // Create a container for the search results//H
             const resultsContainer = document.createElement("div");
             resultsContainer.classList.add("container");
             // Display search results in rows with 3 items per row
@@ -161,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Create a new row for every 3rd item
                     rowDiv = document.createElement("div");
                     rowDiv.classList.add("row");
-                    //container appendchild
+                    //container appendchild //H
                     resultsContainer.appendChild(rowDiv);
                 }
 
@@ -188,17 +185,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 const recipeName = document.createElement("h2");
                 recipeName.classList.add("recipe-name");
                 recipeName.textContent = result.dishname;
-                //style
+                //style //H
                 recipeName.style.color = "black";
 
-                // const description = document.createElement("p");
-                // description.classList.add("description");
-                // description.textContent = result.dishdescription;
-                //style
-                // description.style.color = "black";
-
                 infoDiv.appendChild(recipeName);
-                // infoDiv.appendChild(description);
 
                 recipeLink.appendChild(dishImageDiv);
                 recipeLink.appendChild(infoDiv);
@@ -206,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipeDiv.appendChild(recipeLink);
 
                 rowDiv.appendChild(recipeDiv);
-                //container appendchild
+                //container appendchild //H
                 searchResultsSection.appendChild(resultsContainer);
             });
         }

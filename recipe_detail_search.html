@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,45 +10,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-    
-    
+
+
 </head>
-<body> 
-    
+
+<body>
     <nav class="navbar">
         <div class="container">
             <h1 class="logo">Chinese Recipes</h1>
-    
+
             <ul class="nav-links">
-                <li class="nav-link-h"><a href="#">Home</a></li>
-                <li class="nav-link-v"><a href="#">Vietnamese Recipes</a></li>
-                <li class="nav-link-c"><a href="#">Chinese Recipes</a></li>
-                <li class="nav-link-a"><a href="#">About us</a></li>
+                <li class="nav-link-h"><a href="index.html">Home</a></li>
+                <li class="nav-link-v"><a href="vietnamese_recipes.html">Vietnamese Recipes</a></li>
+                <li class="nav-link-c"><a href="chinese_Yanwen.html">Chinese Recipes</a></li>
+                <li class="nav-link-a"><a href="_about-us-content.html">About us</a></li>
             </ul>
         </div>
-    </nav> 
-    
-    
+    </nav>
+
     <button id="toggleNavBtn" class="toggle-nav-btn">
         <i class="fas fa-bars"></i>
     </button>
-    
-    
-                                    
-    <!--<form action="/search" method="GET" class="search-box">
-        <div class="logo">
-            <img src="chinese_images/logo.png" alt="Logo">
-        </div>
-        <input type="text" name="keyword" placeholder="Search">
-        <button type="submit">Search</button>
-    </form>-->
-    <!--<form action="/search" method="GET" class="search-box">
-        <div class="logo">
-            <img src="chinese_images/logo.png" alt="Logo">
-        </div>
-        <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
-        <button class="search-button" type="submit">Search</button>
-    </form>-->
+
     <form action="/search" method="GET" class="search-box">
         <div class="logo">
             <img src="chinese_images/logo.png" alt="Logo">
@@ -56,15 +40,14 @@
         <button class="search-button" type="submit">Search</button>
     </form>
 
-<!--for the display of the searched recipes-->
-    <div class="recipe-container">
-
-    </div>
+    <!--for the display of the searched recipes-->
+    <div class="recipe-container"></div>
 
     <main>
-        <div class="article">             
+        <div class="article">
         </div>
     </main>
+
     <!-- Part X: Footer -->
     <footer class="footer py-5">
         <div class="container">
@@ -73,23 +56,24 @@
                     <h1 class="logo_name_footer">Chopsticks &nbsp World</h1>
                     <p>Copyright &copy; 2024</p>
                 </div>
-    
+
                 <div class="social-media-container">
                     <ulli class="social-media">
                         <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
                         <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
                         <li><a href="https://instagram"><i class="fab fa-instagram fa-2x"></i></a></li>
                         <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
-                    </ul>
+                        </ul>
                 </div>
-                
+
             </div>
         </div>
     </footer>
-    
-    
+
+
     <!-- <script src="/js/index-recipeDetail-He.js"></script> -->
-    <script src="/js/index-heyanwen.js"></script> 
-    <script src="/js/index-homepage.js"></script>      
+    <script src="/js/index-heyanwen_search.js"></script>
+    <script src="/js/index-homepage_search.js"></script>
 </body>
+
 </html>
