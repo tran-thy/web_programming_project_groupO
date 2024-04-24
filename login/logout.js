@@ -8,7 +8,7 @@ document.querySelector('#confirm-button').addEventListener('click',(event) => {
   event.preventDefault()
   const email = email_input.value
   const password = password_input.value
-user.login(email, password).then(user => {
+user.logout(email, password).then(user => {
   window.location.href = '../index.html'
 }).catch((error) => {
   alert(error)})
