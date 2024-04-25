@@ -28,15 +28,20 @@
       <form>
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email">
+          <input type="email" id="user-email" name="email" placeholder="Enter your email">
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" placeholder="Enter your password">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html" id="login-link"></a>
+          </li>
         </div>
-        <button type="button" onclick="window.location.href='/index.html'">Confirm</button>
+        <button type="button" id="confirm-button">Confirm</button>
       </form>
     </div>
   </div>
+  <script type="module" src="user.js"></script>
+  <script type="module" src="login.js"></script>
 </body>
 </html>

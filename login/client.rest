@@ -1,0 +1,22 @@
+# ### get login
+GET http://localhost:3000
+
+### login with valid credentials
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "123@qq.com",
+    "password": "password123"
+}
+
+### rigister with valid credentials
+
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "email": "test1@qq.com",
+    "password": "passwordtest1",
+    "username": "test1"
+}
