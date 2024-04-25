@@ -1,4 +1,4 @@
-//cozy food
+//cozy food vnese
 const BACKEND_ROOT_URL = "http://localhost:3001";
 
 const fetchData = async (endpoint) => {
@@ -29,10 +29,31 @@ const renderVietnameseDish = async (id) => {
 const displayDish = (dish) => {
   const dishImageElement = document.getElementById("img-vn-cozy");
   dishImageElement.src = dish.dishimage;
-  const dishNameElement = document.getElementById("category-title");
+  const dishNameElement = document.getElementById("category-title-vn");
   dishNameElement.textContent = dish.dishname;
 };
 renderVietnameseDish("VN-0016");
+
+//cozy food cnese
+const renderChineseDish = async (id) => {
+  try {
+    const chineseDishData = await fetchData(`detailrecipe/${id}`);
+    displaychineseDish(chineseDishData);
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+//Function to display dish
+const displaychineseDish = (dish) => {
+  const dishImageElement = document.getElementById("img-cn-cozy");
+  dishImageElement.src = dish.dishimage;
+  const dishNameElement = document.getElementById("category-title-cn");
+  dishNameElement.textContent = dish.dishname;
+};
+renderChineseDish("CH-0020");
+
+//Randome food vnese
 
 const fetchRandomRecipes = async () => {
   try {
