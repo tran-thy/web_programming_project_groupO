@@ -147,13 +147,23 @@ document.addEventListener("DOMContentLoaded", function() {
         // Clear previous search results
         searchResultsSection.innerHTML = "";
 
+        // Create a container for the search results
+        const resultsContainer = document.createElement("div");
+        resultsContainer.classList.add("container");
+
         if (searchResults.length === 0) {
             // If no search results found, display a message
-            searchResultsSection.innerHTML = "<p>No results found.</p>";
+            const noResultsDiv = document.createElement("div");
+            noResultsDiv.classList.add("row", "justify-content-center", "text-center"); // Center the message
+            noResultsDiv.innerHTML = "<div class='col'><br><br><p class='h3 mb-0'>No results found. Please search for other dishes or refer to the suggested dishes below.</p><br><br></div>";
+
+            // Append the "No results found" message to the results container
+            resultsContainer.appendChild(noResultsDiv);
+
+            document.getElementById("recommend-options-vnese").style.display = "block";
+            document.getElementById("recommend-options-cnese").style.display = "block";
+
         } else {
-            // Create a container for the search results
-            const resultsContainer = document.createElement("div");
-            resultsContainer.classList.add("container");
             // Display search results in rows with 3 items per row
             let rowDiv;
             searchResults.forEach((result, index) => {
@@ -161,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Create a new row for every 3rd item
                     rowDiv = document.createElement("div");
                     rowDiv.classList.add("row");
-                    //container appendchild
+                    // Append the row to the results container
                     resultsContainer.appendChild(rowDiv);
                 }
 
@@ -206,12 +216,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipeDiv.appendChild(recipeLink);
 
                 rowDiv.appendChild(recipeDiv);
-                //container appendchild
-                searchResultsSection.appendChild(resultsContainer);
             });
         }
 
+        // Clear previous search results
+        searchResultsSection.innerHTML = "";
+        // Append the container (with either search results or message) to the search results section
+        searchResultsSection.appendChild(resultsContainer);
         // Display search results section
         searchResultsSection.style.display = "block";
     };
+
 });
