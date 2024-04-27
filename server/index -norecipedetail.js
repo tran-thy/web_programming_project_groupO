@@ -1,4 +1,3 @@
-
 const cors = require("cors");
 const express = require("express");
 const { Pool } = require("pg");
@@ -309,7 +308,7 @@ app.get('/detailrecipe/:dishid', async (req, res) => {
 });
 
 // Now use the reusable function in your endpoint handler
-app.get('/random-recipes', async(req, res) => {
+app.get('/random-recipes', async (req, res) => {
     try {
         // Count the total number of recipes in the database
         const countQuery = 'SELECT COUNT(*) FROM chinese_recipes';
@@ -319,7 +318,7 @@ app.get('/random-recipes', async(req, res) => {
 
         // Generate four unique random numbers within the range of total recipes
         let indexes = [];
-        while (indexes.length < 3) {
+        while (indexes.length < 5) {
             const randomIndex = Math.floor(Math.random() * totalCount) + 1;
             if (!indexes.includes(randomIndex)) {
                 indexes.push(randomIndex);
@@ -331,23 +330,20 @@ app.get('/random-recipes', async(req, res) => {
 
         // Query to fetch the random recipes from the database
         const query = {
-                text: `SELECT * FROM chinese_recipes WHERE dishid IN (${dishIds.map((_, i) => `$${i + 1}`).join(', ')})`,
-values: dishIds,
-};
+            text: `SELECT * FROM chinese_recipes WHERE dishid IN (${dishIds.map((_, i) => `$${i + 1}`).join(', ')})`,
+            values: dishIds,
+        };
 
-// Execute the query
-const { rows } = await pool.query(query);
+        // Execute the query
+        const { rows } = await pool.query(query);
 
-// Send the retrieved data as JSON response
-res.json(rows);
-} catch (error) {
-console.error('Error fetching random recipes:', error.message);
-res.status(500).json({ error: 'Internal Server Error' });
-}
+        // Send the retrieved data as JSON response
+        res.json(rows);
+    } catch (error) {
+        console.error('Error fetching random recipes:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
-
-
-
 // app.get('/random-recipes', async (req, res) => {
 //     try {
 //         // Count the total number of recipes in the database

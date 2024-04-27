@@ -1,4 +1,4 @@
-import { BACKEND_URL } from './config.js';
+const BACKEND_URL = 'http://localhost:3001'
 class User {
   #id = undefined
   #email = undefined
@@ -22,23 +22,25 @@ return this.#id !== undefined ? true : false
   }
   async login(email, password) {
       const data = JSON.stringify({ email: email, password: password });
-  const response = await fetch(BACKEND_URL + '/user/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: data
+      const response = await fetch(BACKEND_URL + '/user/login', {
+
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: data
   });
-  if (response.ok === true) {
-    const json = await response.json();
-   this.#id = json.id;
-   this.#email = json.email;
-   sessionStorage.setItem('user', JSON.stringify(json));
-    return this
-  } else {
-    throw response.statusText;
-  }
+    if (response.ok === true) {
+      const json = await response.json();
+    this.#id = json.id;
+    this.#email = json.email;
+    sessionStorage.setItem('user', JSON.stringify(json));
+      return this
+    } else {
+      throw response.statusText;
+    }
 }
+
 async register(email, password,username) {
   const data = JSON.stringify({ email: email, password: password,username:username });
 const response = await fetch(BACKEND_URL + '/user/register', {

@@ -9,7 +9,7 @@ document.querySelector('#confirm-button').addEventListener('click',(event) => {
   const email = email_input.value
   const password = password_input.value
 user.login(email, password).then(user => {
-  localStorage.setItem('isLoggedIn', 'true');// heyanwen added
+  localStorage.setItem('isLoggedIn', 'true');
   window.location.href = '../index.html'
 }).catch((error) => {
   alert(error)})

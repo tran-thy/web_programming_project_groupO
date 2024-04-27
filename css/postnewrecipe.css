@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+} 
+/* for the tile:add a recipe   */
+.post-title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: -20px;
+    }
+/* for the add a recipe picture */
+.add-a-recipe-img {
+        width: 20px;
+        height: 20px;
+    }
+/* for the container which include the post-tile and the form */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4.5% 7.5%;
+
+    background-color:burlywood;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+       
+
+.recipe-form {
+    display:flex;
+    justify-content: center;
+
+}
+
+/* Apply styles to the form container */
+#recipeForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Apply styles to form labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Apply styles to form inputs and textareas */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the submit button */
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style the submit button on hover */
+button[type="submit"]:hover {
+    background-color: #45a049;
+}

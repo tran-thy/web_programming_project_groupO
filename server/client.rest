@@ -2,11 +2,11 @@
 
 //GET http://localhost:3001/search
 
-//GET http://localhost:3001/search/random-recipes
+GET http://localhost:3001/search/random-recipes/CH-003
 
 //GET http://localhost:3001/hotpotrecipes
 
-GET http://localhost:3001/detailrecipe/CH-0002
+# GET http://localhost:3001/detailrecipe/CH-0002
 
 # GET http://localhost:3001/dsearchondetail/CH-0001
 
