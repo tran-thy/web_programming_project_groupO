@@ -71,66 +71,29 @@ const displayVietnameseDishes = (dishesData) => {
   }
   vietnameseRecipeSection.innerHTML = "";
 
-  // Create a container for the dishes
-  const container = document.createElement("div");
-  container.classList.add("container");
+  // Create a container for the recipes
+  // const recipesContainer = document.createElement("div");
+  // recipesContainer.classList.add("container-main");
 
-  // Set container style to use flexbox
-  container.style.display = "flex";
-  container.style.flexWrap = "wrap";
-  container.style.justifyContent = "space-between";
-
-  dishesData.forEach((dish, index) => {
-    const dishElement = document.createElement("div");
-    dishElement.classList.add("recipe");
-    dishElement.style.width = "calc(33.33% - 20px)"; // Each column takes 33.33% of container width with some spacing
-
-    const dishLink = document.createElement("a");
-    dishLink.href = `vietnamese_detail_recipe.html?id=${dish.dishid}`;
-
-    const imageDiv = document.createElement("div");
-    imageDiv.classList.add("image");
-
-    const dishImage = document.createElement("img");
-    dishImage.src = dish.dishimage;
-    dishImage.alt = dish.dishname;
-
-    imageDiv.appendChild(dishImage);
-
-    const infoDiv = document.createElement("div");
-    infoDiv.classList.add("info");
-
-    const dishName = document.createElement("h4");
-    dishName.classList.add("title-item");
-    dishName.textContent = dish.dishname;
-
-    infoDiv.appendChild(dishName);
-
-    dishLink.appendChild(imageDiv);
-    dishLink.appendChild(infoDiv);
-    dishElement.appendChild(dishLink);
-
-    container.appendChild(dishElement);
+  dishesData.forEach((dish) => {
+    const recipeDiv = document.createElement("div");
+    recipeDiv.classList.add("recipe");
+    recipeDiv.innerHTML = `
+      <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
+        <div class="image">
+          <img src="${dish.dishimage}" alt="${dish.dishname}">
+        </div>
+        <div class="info">
+          <h2 class="recipe-name" data-recipe-id="${dish.dishid}">${dish.dishname}</h2>
+        </div>
+      </a>
+    `;
+    // Append each recipe to the recipes container
+    vietnameseRecipeSection.appendChild(recipeDiv);
   });
 
-  vietnameseRecipeSection.appendChild(container);
+  // Append the recipes container to the recipe section
+  // vietnameseRecipeSection.appendChild(recipesContainer);
 };
-
-const styleElement = document.createElement("style");
-
-// Define the CSS rule for the media query
-const cssRule = `@media screen and (max-width: 768px) {
-  .recipe {
-    width: 100% !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}`;
-
-const cssTextNode = document.createTextNode(cssRule);
-
-styleElement.appendChild(cssTextNode);
-
-document.head.appendChild(styleElement);
 
 renderVietnameseDishes();

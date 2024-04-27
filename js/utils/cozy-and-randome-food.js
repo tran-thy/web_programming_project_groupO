@@ -1,5 +1,5 @@
 //cozy food vnese
-// const BACKEND_ROOT_URL = "http://localhost:3001";
+//const BACKEND_ROOT_URL = "http://localhost:3001";
 
 const fetchData = async (endpoint) => {
   try {
