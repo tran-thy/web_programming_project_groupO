@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chopsticks World</title>
     <link rel="stylesheet" href="mingrui_index1.css">
+    <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
+    <link rel="stylesheet" href="css/vietnamese_recipe_detail_styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,451 +16,461 @@
 </head>
 
 <body>
-<nav class="navbar">
-    <div class="container">
-        <h1 class="logo">Chopsticks World</h1>
-        <ul class="nav-links">
-            <li class="nav-link"><a href="#">Home</a></li>
-            <li class="nav-link"><a href="#">Vietnamese Recipes</a></li>
-            <li class="nav-link"><a href="chinese_index.html">Chinese Recipes</a></li>
-            <li class="nav-link"><a href="#">About Us</a></li>
-            <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px;">
-              <div id="signIn" class="signIn" style="display: flex; align-items: center;">
-                <a href="#">
-                    <img src="chinese_images/head1.png"  style="width: 30px; height: 30px; opacity: 0.3;"; alt ="Sign In" >
-                </a>
-              </div>
-            </li>
-        </ul>
-    </div>
-</nav> 
-
-
-<section>
-  <button id="toggleNavBtn" class="toggle-nav-btn">
-    <i class="fas fa-bars"></i>
-  </button>
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const toggleNavBtn = document.getElementById('toggleNavBtn');
-    const navLinks = document.querySelector('.nav-links');
-
-
-    toggleNavBtn.addEventListener('click', function() {
-      navLinks.classList.toggle('show'); 
-    });
-  });
-  </script>
-</section>
-
-<section>
- <form action="/search" method="GET" class="search-box" style="display: flex; align-items: center;">
-    <div class="logo">
-        <img src="chinese_images/logo.png" alt="Logo">
-    </div>
-    <input type="text" name="keyword" placeholder="Search">
-    <!-- <button type="submit" style="margin-right: 30px;">Search</button>  -->
-    <div id="post"; class="post">
-        <a href="#" class="text-black" style="display: flex; align-items: center;">
-          <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px;" alt="post your recipes">
-        </a>
-    </div>
- </form>
-</section>
-
-<div class="blank" style="padding: 12px;"></div>
-
-
-<section>
-  <style>
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 350px;
-      overflow: hidden;
-    }
-        
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-        
-    .carousel-item {
-      flex: 0 0 100%; 
-    }
-            
-    .carousel-item img {
-      width: 100%;
-      height: auto;
-    }
-        
-    .carousel-control-prev,
-    .carousel-control-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-    }
-        
-    .carousel-control-prev {
-      left: 100px;
-    }
-        
-    .carousel-control-next {
-      right: 100px;
-    }
-
-    .bg-img1 {
-      background-image: url("https://as1.ftcdn.net/v2/jpg/01/38/50/68/1000_F_138506867_dd9mZE3wbHlQu4UrokM6V4Ia38ivvvJO.jpg");
-      background-size: cover;
-      background-position: center;
-      height: 400px;
-    }
-        
-    .bg-img2 {
-      background-image: url("https://static.vinwonders.com/production/central-vietnam-food-banner.jpg");
-      background-size: cover;
-      background-position: center;
-      height: 400px;
-    }
-        
-    .bg-img3 {
-      background-image: url("https://as2.ftcdn.net/v2/jpg/07/65/31/75/1000_F_765317508_aCNWmNJ9avwHAGHAd2DlWnFNZvZJvFVq.jpg");
-      background-size: cover;
-      background-position: center;
-      height: 400px;
-    }
-        
-    .carousel-caption a {
-      color: #fff;
-      text-decoration: none;
-    }
-        
-    .carousel-caption a:hover {
-      color: #fff;
-    }
-        
-    .carousel-caption p {
-      font-size: 18px;
-      font-weight: 450;
-      margin-top: 25px;
-    }
-
-    .text-start{
-      text-align: left;
-      color: #fff;
-      padding-left: 19%;
-      padding-top: 25vh;
-    }
-
-    .text-end {
-      text-align: right;
-      color: #fff;
-      padding-right: 18%;
-      padding-top: 25vh;
-    }
-     
-    .carousel-caption h1 {
-      font-size: 32px;
-      font-weight: 450;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-       background-color: transparent;
-    }
-            
-
-            @media screen and (max-width: 768px) {
-              .text-start {
-                padding-top: 8vh;
-              }
-              .text-end {
-                padding-top: 12vh; /* Adjust percentage value as needed */
-              }
-              .carousel-caption p {
-                font-size: 16px;
-                /* margin-top: 10px; */
-              }
-            }
-  </style>
-    
-  <div id="myCarousel" class="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active bg-img1">
-          <div class="carousel-caption text-start">
-            <h1>Simple Chinese and Vietnamese Recipes</h1>
-            <p>
-              Find tasty Chinese and Vietnamese dishes, authentic flavors, and easy recipes on our blog.
-            </p>
-          </div>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Chopsticks World</h1>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="#">Home</a></li>
+                <li class="nav-link"><a href="#">Vietnamese Recipes</a></li>
+                <li class="nav-link"><a href="chinese_index.html">Chinese Recipes</a></li>
+                <li class="nav-link"><a href="#">About Us</a></li>
+                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px;">
+                    <div id="signIn" class="signIn" style="display: flex; align-items: center;">
+                        <a href="#">
+                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3;" ; alt="Sign In">
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="carousel-item bg-img2">
-          <div class="carousel-caption text-end">
-            <h1>Tasty</h1>
-            <p>
-              Explore the vibrant flavors of Vietnamese cuisine, full of
-              freshness and aromatic spices
-            </p>
-          </div>
-        </div>
-        <div class="carousel-item bg-img3">
-          <div class="carousel-caption text-end">
-            <h1>Delicious</h1>
-            <p>
-              Explore the real taste of China, a delicious journey of flavors
-              that excites the palate
-            </p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" onclick="prevSlide()" href="#"
-        ><i class="carousel-icon fas fa-chevron-left"></i>
-      </a>
-      <a class="carousel-control-next" onclick="nextSlide()" href="#"
-        ><i class="carousel-icon fas fa-chevron-right"></i
-      ></a>
-  </div>   
-        
-  <script>
-      let currentSlide = 0;
-      const slides = document.querySelectorAll(".carousel-item");
-      const totalSlides = 3; //slides.length
-        
-      function showSlide(index) {
-          slides.forEach((slide) => {
-          slide.style.transform = `translateX(-${index * 100}%)`;
-          });
-      }
-            
-      function nextSlide() {
-         currentSlide = (currentSlide + 1) % totalSlides; //modulo: for index is always <script totalSlides
-          showSlide(currentSlide);
-      }
-        
-      function prevSlide() {
-         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // +totalSlides to avoid negative index
-         showSlide(currentSlide);
-      }
-      const carousel = document.getElementById("myCarousel");
-      const slidetime = 4000; //4 seconds
-      let slideTimer = setInterval(nextSlide, slidetime);
-        
-      carousel.addEventListener("mouseenter", () => {
-          clearInterval(slideTimer); // Pause auto-slide when mouse enters
-      });
-        
-      carousel.addEventListener("mouseleave", () => {
-          slideTimer = setInterval(nextSlide, slidetime); // Resume auto-slide when mouse leaves
-      });
-  </script>  
-</section>  
+    </nav>
 
 
-<section>
-  <div id="highlighted-section">
-      <h2 class="block-heading">
-        <P>Cozy&nbsp Comfort&nbsp Foods</P>
-      </h2>
-      <div class="category-index">
-         <div class="vertical-buttons left">
-              <div class="more-recipes">
-                  <button id="leftButton">More </button>
-              </div>
-          </div>
-          <div class="vertical-buttons right">
-            <div class="more-recipes">
-                <button id="rightButton">More </button>
+    <section>
+        <button id="toggleNavBtn" class="toggle-nav-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleNavBtn = document.getElementById('toggleNavBtn');
+                const navLinks = document.querySelector('.nav-links');
+
+
+                toggleNavBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('show');
+                });
+            });
+        </script>
+    </section>
+
+    <!-- Origin part from Mingrui -->
+    <!-- <section>
+        <form action="/search" method="GET" class="search-box" style="display: flex; align-items: center;">
+            <div class="logo">
+                <img src="chinese_images/logo.png" alt="Logo">
             </div>
-          </div>
+            <input type="text" name="keyword" placeholder="Search">
+            <div id="post" ; class="post">
+                <a href="#" class="text-black" style="display: flex; align-items: center;">
+                    <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px;" alt="post your recipes">
+                </a>
+            </div>
+        </form>
+    </section> -->
 
-          <div class="recipe left">
-              <a href="#">
-                  <img src="chinese_images/Vietnamese_Beef_Noodle_Soup3.jpg" alt="Pho (Vietnamese Beef Noodle Soup)">
-                  <div class="recipe-details">
-                      <h3>Vietnamese Beef Noodle Soup</h3>
-                  </div>
-              </a>
-          </div>
-          <div class="recipe right">
-              <a href="#">
-                  <img src="chinese_images/Chinese_Hot_Pot.jpg" alt="Chinese Hot Pot">
-                  <div class="recipe-details">
-                      <h3>Chinese Hot Pot</h3>
-                  </div>
-              </a>
-          </div>
-      </div>
-  </div>
-  
-  <script>
-      document.getElementById("leftButton").addEventListener("click", function() {
-          window.location.href = "vietnamese_recipes.html";
-      });
-  
-      document.getElementById("rightButton").addEventListener("click", function() {
-          window.location.href = "chinese.html";
-      });
-  </script>
-</section>   
+    <!-- Search section - Thy added -->
+    <section>
+        <form class="search-box" style="display: flex; align-items: center;">
+            <div class="logo">
+                <img src="chinese_images/logo.png" alt="Logo">
+            </div>
+            <!-- Search input -->
+            <input type="text" name="keyword" placeholder="Search by dish or ingredient..." id="search-input">
 
+            <!-- Adding new recipe -->
+            <div id="post" class="post">
+                <a href="#" class="text-black" style="display: flex; align-items: center;">
+                    <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px;" alt="post your recipes">
+                </a>
+            </div>
+        </form>
+    </section>
+    <!-- Search Results section - Thy added -->
+    <section>
+        <div id="search-results-section" class="site-inner" style="display: none">
+            <div class="container">
+                <h2 class="block-heading text-center">
+                    <strong>Search Result</strong>
+                </h2>
+                <div id="search-results" class="category-index">
+                    <div class="row category-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="recommend-options-vnese" class="greatest-post container">
-  <h2 class="block-heading has-text-align-center"> 
-  <strong>Recommendation Vietnamese Recipes</strong>
-  </h2>
-  <div class="recipes-wrapper"> 
-    <a href="#" class="img-link">
-      <div class="container row justify-content-center" id="recipes-container">
-        <div class="col-md-3 greatest-post-one text-center">
-          <div class="greatest-img">
-            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
-          </div>
-        <div class="img-name">Banh Xeo</div>
-      </div>
-    </a>
-  </div>
-
-  <div class="mark">
-    <img src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
-  </div>
-
-  <div class="recipes-wrapper"> 
-    <a href="#" class="img-link">
-      <div class="container row justify-content-center" id="recipes-container">
-        <div class="col-md-3 greatest-post-one text-center">
-          <div class="greatest-img">
-            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
-          </div>
-        <div class="img-name">Banh Xeo</div>
-      </div>
-    </a>
-  </div>
-
-  <div class="mark">
-    <img src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
-  </div>
-
-  <div class="recipes-wrapper"> 
-    <a href="#" class="img-link">
-      <div class="container row justify-content-center" id="recipes-container">
-        <div class="col-md-3 greatest-post-one text-center">
-          <div class="greatest-img">
-            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
-          </div>
-        <div class="img-name">Banh Xeo</div>
-      </div>
-    </a>
-  </div>
-</section> 
+    <div class="blank" style="padding: 12px;"></div>
 
 
-<section id="recommend-options-cnese" class="greatest-post container">
-  <h2 class="block-heading has-text-align-center">
-  <strong>Recommendation Chinese Recipes</strong>
-  </h2>
-  <div class="recipes-wrapper"> 
-    <a href="#" class="img-link">
-      <div class="container row justify-content-center" id="recipes-container">
-        <div class="col-md-3 greatest-post-one text-center">
-          <div class="greatest-img">
-            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
-          </div>
-        <div class="img-name">Braised Pork Belly</div>
-      </div>
-    </a>
-  </div>
+    <section>
+        <style>
+            .carousel {
+                position: relative;
+                width: 100%;
+                height: 350px;
+                overflow: hidden;
+            }
+            
+            .carousel-inner {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            
+            .carousel-item {
+                flex: 0 0 100%;
+            }
+            
+            .carousel-item img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+            }
+            
+            .carousel-control-prev {
+                left: 100px;
+            }
+            
+            .carousel-control-next {
+                right: 100px;
+            }
+            
+            .bg-img1 {
+                background-image: url("https://as1.ftcdn.net/v2/jpg/01/38/50/68/1000_F_138506867_dd9mZE3wbHlQu4UrokM6V4Ia38ivvvJO.jpg");
+                background-size: cover;
+                background-position: center;
+                height: 400px;
+            }
+            
+            .bg-img2 {
+                background-image: url("https://static.vinwonders.com/production/central-vietnam-food-banner.jpg");
+                background-size: cover;
+                background-position: center;
+                height: 400px;
+            }
+            
+            .bg-img3 {
+                background-image: url("https://as2.ftcdn.net/v2/jpg/07/65/31/75/1000_F_765317508_aCNWmNJ9avwHAGHAd2DlWnFNZvZJvFVq.jpg");
+                background-size: cover;
+                background-position: center;
+                height: 400px;
+            }
+            
+            .carousel-caption a {
+                color: #fff;
+                text-decoration: none;
+            }
+            
+            .carousel-caption a:hover {
+                color: #fff;
+            }
+            
+            .carousel-caption p {
+                font-size: 18px;
+                font-weight: 450;
+                margin-top: 25px;
+            }
+            
+            .text-start {
+                text-align: left;
+                color: #fff;
+                padding-left: 19%;
+                padding-top: 25vh;
+            }
+            
+            .text-end {
+                text-align: right;
+                color: #fff;
+                padding-right: 18%;
+                padding-top: 25vh;
+            }
+            
+            .carousel-caption h1 {
+                font-size: 32px;
+                font-weight: 450;
+            }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                background-color: transparent;
+            }
+            
+            @media screen and (max-width: 768px) {
+                .text-start {
+                    padding-top: 8vh;
+                }
+                .text-end {
+                    padding-top: 12vh;
+                    /* Adjust percentage value as needed */
+                }
+                .carousel-caption p {
+                    font-size: 16px;
+                    /* margin-top: 10px; */
+                }
+            }
+        </style>
 
-  <div class="mark">
-    <img src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
-  </div>
+        <div id="myCarousel" class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active bg-img1">
+                    <div class="carousel-caption text-start">
+                        <h1>Simple Chinese and Vietnamese Recipes</h1>
+                        <p>
+                            Find tasty Chinese and Vietnamese dishes, authentic flavors, and easy recipes on our blog.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-img2">
+                    <div class="carousel-caption text-end">
+                        <h1>Tasty</h1>
+                        <p>
+                            Explore the vibrant flavors of Vietnamese cuisine, full of freshness and aromatic spices
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-img3">
+                    <div class="carousel-caption text-end">
+                        <h1>Delicious</h1>
+                        <p>
+                            Explore the real taste of China, a delicious journey of flavors that excites the palate
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" onclick="prevSlide()" href="#"><i class="carousel-icon fas fa-chevron-left"></i>
+      </a>
+            <a class="carousel-control-next" onclick="nextSlide()" href="#"><i
+          class="carousel-icon fas fa-chevron-right"></i></a>
+        </div>
 
-  <div class="recipes-wrapper"> 
-    <a href="#" class="img-link">
-      <div class="container row justify-content-center" id="recipes-container">
-        <div class="col-md-3 greatest-post-one text-center">
-          <div class="greatest-img">
-            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
-          </div>
-        <div class="img-name">Braised Pork Belly</div>
-      </div>
-    </a>
-  </div>
+        <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll(".carousel-item");
+            const totalSlides = 3; //slides.length
 
-  <div class="mark">
-    <img src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
-  </div>
+            function showSlide(index) {
+                slides.forEach((slide) => {
+                    slide.style.transform = `translateX(-${index * 100}%)`;
+                });
+            }
 
-  <div class="recipes-wrapper"> 
-    <a href="#" class="img-link">
-      <div class="container row justify-content-center" id="recipes-container">
-        <div class="col-md-3 greatest-post-one text-center">
-          <div class="greatest-img">
-            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
-          </div>
-        <div class="img-name">Braised Pork Belly</div>
-      </div>
-    </a>
-  </div>
-</section> 
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides; //modulo: for index is always <script totalSlides
+                showSlide(currentSlide);
+            }
 
-<br/> 
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // +totalSlides to avoid negative index
+                showSlide(currentSlide);
+            }
+            const carousel = document.getElementById("myCarousel");
+            const slidetime = 4000; //4 seconds
+            let slideTimer = setInterval(nextSlide, slidetime);
+
+            carousel.addEventListener("mouseenter", () => {
+                clearInterval(slideTimer); // Pause auto-slide when mouse enters
+            });
+
+            carousel.addEventListener("mouseleave", () => {
+                slideTimer = setInterval(nextSlide, slidetime); // Resume auto-slide when mouse leaves
+            });
+        </script>
+    </section>
 
 
-<footer class="footer ">
-  <div class="container">
-      <div class="row justify-content-center align-items-center">
-          <div class="col-md-4 text-center mb-2">
-              <h1 class="logo_name_footer" style="white-space: nowrap">Chopsticks &nbsp World</h1>
-              <p>Copyright &copy; 2024</p>
-          </div>
-    
-         <div class="col-md-4 text-center mb-2">
-              <div class="logo">
-                  <img src="chinese_images/logo.png" alt="Logo">
-              </div>
-          </div> 
-    
-          <div class="col-md-4 text-center mb-2">
-              <div class="social-media-container">
-                  <ul class="social-media">
-                      <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
-                      <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
-                      <li><a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a></li>
-                      <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-</footer>
-  
-    
-    
-    <!-- Utils scripts - menu bar-->
-    <!-- <script src="js/utils/search-button-events.js "></script>
-    <script src="js/utils/inactive/about-us-button-events.js "></script>
-    <script src="js/utils/inactive/vn-recipes-button-events.js"></script>
-    <script src="js/utils/inactive/each-recipe-detail.js" ></script>
-    <script src="js/utils/inactive/cn-recipes-button-events.js"></script> -->
+    <section>
+        <div id="highlighted-section">
+            <h2 class="block-heading">
+                <P>Cozy&nbsp Comfort&nbsp Foods</P>
+            </h2>
+            <div class="category-index">
+                <div class="vertical-buttons left">
+                    <div class="more-recipes">
+                        <button id="leftButton">More </button>
+                    </div>
+                </div>
+                <div class="vertical-buttons right">
+                    <div class="more-recipes">
+                        <button id="rightButton">More </button>
+                    </div>
+                </div>
 
-    <!-- script for css -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+                <div class="recipe left">
+                    <a href="#">
+                        <img src="chinese_images/Vietnamese_Beef_Noodle_Soup3.jpg" alt="Pho (Vietnamese Beef Noodle Soup)">
+                        <div class="recipe-details">
+                            <h3>Vietnamese Beef Noodle Soup</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="recipe right">
+                    <a href="#">
+                        <img src="chinese_images/Chinese_Hot_Pot.jpg" alt="Chinese Hot Pot">
+                        <div class="recipe-details">
+                            <h3>Chinese Hot Pot</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-    <!-- Other scripts -->
-    <!-- <script src="chinese_index.js"></script>  -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script> -->
+        <script>
+            document.getElementById("leftButton").addEventListener("click", function() {
+                window.location.href = "vietnamese_recipes.html";
+            });
+
+            document.getElementById("rightButton").addEventListener("click", function() {
+                window.location.href = "chinese.html";
+            });
+        </script>
+    </section>
+
+
+    <section id="recommend-options-vnese" class="greatest-post container">
+        <h2 class="block-heading has-text-align-center">
+            <strong>Recommendation Vietnamese Recipes</strong>
+        </h2>
+        <div class="recipes-wrapper">
+            <a href="#" class="img-link">
+                <div class="container row justify-content-center" id="recipes-container">
+                    <div class="col-md-3 greatest-post-one text-center">
+                        <div class="greatest-img">
+                            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
+                        </div>
+                        <div class="img-name">Banh Xeo</div>
+                    </div>
+            </a>
+            </div>
+
+            <div class="mark">
+                <img src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
+            </div>
+
+            <div class="recipes-wrapper">
+                <a href="#" class="img-link">
+                    <div class="container row justify-content-center" id="recipes-container">
+                        <div class="col-md-3 greatest-post-one text-center">
+                            <div class="greatest-img">
+                                <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
+                            </div>
+                            <div class="img-name">Banh Xeo</div>
+                        </div>
+                </a>
+                </div>
+
+                <div class="mark">
+                    <img src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
+                </div>
+
+                <div class="recipes-wrapper">
+                    <a href="#" class="img-link">
+                        <div class="container row justify-content-center" id="recipes-container">
+                            <div class="col-md-3 greatest-post-one text-center">
+                                <div class="greatest-img">
+                                    <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
+                                </div>
+                                <div class="img-name">Banh Xeo</div>
+                            </div>
+                    </a>
+                    </div>
+    </section>
+
+
+    <section id="recommend-options-cnese" class="greatest-post container">
+        <h2 class="block-heading has-text-align-center">
+            <strong>Recommendation Chinese Recipes</strong>
+        </h2>
+        <div class="recipes-wrapper">
+            <a href="#" class="img-link">
+                <div class="container row justify-content-center" id="recipes-container">
+                    <div class="col-md-3 greatest-post-one text-center">
+                        <div class="greatest-img">
+                            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
+                        </div>
+                        <div class="img-name">Braised Pork Belly</div>
+                    </div>
+            </a>
+            </div>
+
+            <div class="mark">
+                <img src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
+            </div>
+
+            <div class="recipes-wrapper">
+                <a href="#" class="img-link">
+                    <div class="container row justify-content-center" id="recipes-container">
+                        <div class="col-md-3 greatest-post-one text-center">
+                            <div class="greatest-img">
+                                <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
+                            </div>
+                            <div class="img-name">Braised Pork Belly</div>
+                        </div>
+                </a>
+                </div>
+
+                <div class="mark">
+                    <img src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
+                </div>
+
+                <div class="recipes-wrapper">
+                    <a href="#" class="img-link">
+                        <div class="container row justify-content-center" id="recipes-container">
+                            <div class="col-md-3 greatest-post-one text-center">
+                                <div class="greatest-img">
+                                    <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
+                                </div>
+                                <div class="img-name">Braised Pork Belly</div>
+                            </div>
+                    </a>
+                    </div>
+    </section>
+
+    <br />
+
+
+    <footer class="footer ">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4 text-center mb-2">
+                    <h1 class="logo_name_footer" style="white-space: nowrap">Chopsticks &nbsp World</h1>
+                    <p>Copyright &copy; 2024</p>
+                </div>
+
+                <div class="col-md-4 text-center mb-2">
+                    <div class="logo">
+                        <img src="chinese_images/logo.png" alt="Logo">
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center mb-2">
+                    <div class="social-media-container">
+                        <ul class="social-media">
+                            <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
+                            <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
+                            <li><a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Existing script -->
+    <script src="js/utils/search-new.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
