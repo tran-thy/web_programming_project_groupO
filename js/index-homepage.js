@@ -5,7 +5,7 @@ const BACKEND_ROOT_URL = 'http://localhost:3001';
 
 //     if (isLoggedIn === 'true') {
 //         document.getElementById('post-button').disabled = false;
-//     }
+//     }a
 // });
 // const homepostbutton = document.querySelector(".postbutton");
 
@@ -56,7 +56,7 @@ const displayRecommendedRecipes = (recipes) => {
                     <div class="greatest-img">
                         <img style="width: 320px; height: 280px; object-fit: cover;" src="${recipes[i].dishimage}" alt="Image" class="img-fluid" />
                     </div>
-                    <div class="img-name">${recipes[i].dishname}</div>
+                    <div class="img-name" data-recipe-id="${recipes[i].dishid}">${recipes[i].dishname}</div>
                 </div>
             </div>
         `;
@@ -77,51 +77,10 @@ const displayRecommendedRecipes = (recipes) => {
     attachRecipeDetailEventListeners();
 }
 
-// const displayRecommendedRecipes = (recipes) => {
-//     const homeRecommendedChineseRecipes = document.querySelector("#recommend-options-cnese");
-//     homeRecommendedChineseRecipes.innerHTML = '';
-
-//     // Iterate over the recipes
-//     for (let i = 0 ; i < 5; i++) {
-//         // Create a recipe card for each recipe
-//         if (i === 0 || i === 2 || i === 4) {
-//             const recipeDiv = document.createElement('div');
-//             recipeDiv.classList.add('recipes-wrapper');
-//             recipeDiv.innerHTML = `
-//                 <div class="container row justify-content-center" id="recipes-container">
-//                     <div class="col-md-3 greatest-post-one text-center">
-//                         <div class="greatest-img">
-//                             <img style="width: 320px; height: 280px; object-fit: cover;" src="${recipes[i].dishimage}" alt="Image" class="img-fluid" />
-//                         </div>
-//                         <div class="img-name">${recipes[i].dishname}</div>
-//                     </div>
-//                 </div>
-//             `;
-//             homeRecommendedChineseRecipes.appendChild(recipeDiv);
-//         }
-
-//         // Insert an image after the zeroth and second recipe cards
-//         if ((i === 1 || i === 3) && i < 5) {
-//             const imageDiv = document.createElement('div');
-//             imageDiv.classList.add('mark');
-//             imageDiv.innerHTML = `
-//                 <img style="width: 100px; height: auto;" src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
-//             `;
-//             homeRecommendedChineseRecipes.appendChild(imageDiv);
-//         }
-//     }
-
-//     // Attach event listeners after recipes are displayed
-//     attachRecipeDetailEventListeners();
-// }
-//
-//Call the function to attach event listeners when the DOM is loaded
-// document.addEventListener("DOMContentLoaded", function() {
-    // attachRecipeDetailEventListeners();
-// });
-
 
 // Function to fetch recipe details based on recipe ID
+
+//fetch the recipe detail 
 const fetchRecipeDetails = async (dishid) => { 
     try {
         const response = await fetch(`${BACKEND_ROOT_URL}/detailrecipe/${dishid}`);
@@ -247,6 +206,7 @@ const attachRecipeDetailEventListeners = () => {
 // Call fetchRecipesForRecommendedRecipes when the window loads
 document.addEventListener("DOMContentLoaded", function() {
     fetchRecipesForRecommendedRecipes();
+    attachRecipeDetailEventListeners();
 });
 
 // for navigation to postnewrecipe page
