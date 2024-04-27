@@ -1,5 +1,5 @@
 //cozy food vnese
-const BACKEND_ROOT_URL = "http://localhost:3001";
+// const BACKEND_ROOT_URL = "http://localhost:3001";
 
 const fetchData = async (endpoint) => {
   try {
@@ -32,7 +32,7 @@ const displayDish = (dish) => {
   const dishNameElement = document.getElementById("category-title-vn");
   dishNameElement.textContent = dish.dishname;
 };
-renderVietnameseDish("VN-0016");
+renderVietnameseDish("VN-0010");
 
 //cozy food cnese
 const renderChineseDish = async (id) => {
@@ -65,35 +65,38 @@ const fetchRandomRecipes = async () => {
 };
 
 const displayDishRandom = (recipes) => {
-  const recipesContainer = document.getElementById("recipes-container");
-  recipesContainer.innerHTML = "";
+  const recipesContainer = document.getElementById("recommend-options-vnese");
+  recipesContainer.innerHTML = `
+    <h2 class="block-heading has-text-align-center">
+      <strong>Recommendation Vietnamese Recipes</strong>
+    </h2>
+  `;
+
   recipes.forEach((recipe, index) => {
     const recipeDiv = document.createElement("div");
-    recipeDiv.classList.add(
-      "col-md-3",
-      "greatest-post-one",
-      "has-text-align-center"
-    );
-
-    const recipeLink = document.createElement("a");
-    recipeLink.href = `vietnamese_detail_recipe.html?id=${recipe.dishid}`;
-    const imgDiv = document.createElement("div");
-    imgDiv.classList.add("greatest-img");
-
-    const recipeImg = document.createElement("img");
-    recipeImg.src = recipe.dishimage;
-
-    const titleDiv = document.createElement("div");
-    titleDiv.classList.add("greatest-title");
-    titleDiv.textContent = recipe.dishname;
-
-    console.log("Title:", recipe.dishname); // Log the title
-
-    imgDiv.appendChild(recipeImg);
-    recipeLink.appendChild(imgDiv);
-    recipeLink.appendChild(titleDiv);
-    recipeDiv.appendChild(recipeLink);
+    recipeDiv.classList.add("recipes-wrapper");
+    recipeDiv.innerHTML = `
+      <a href="vietnamese_detail_recipe.html?id=${recipe.dishid}" class="img-link">
+        <div class="container row justify-content-center" id="recipes-container-vn">
+          <div class="col-md-3 greatest-post-one text-center">
+            <div class="greatest-img">
+              <img style="width: 320px; height: 280px; object-fit: cover;" src="${recipe.dishimage}" alt="Image" class="img-fluid" />
+            </div>
+            <div class="img-name">${recipe.dishname}</div>
+          </div>
+        </div>
+      </a>
+    `;
     recipesContainer.appendChild(recipeDiv);
+
+    if (index === 0 || index === 1) {
+      const markDiv = document.createElement("div");
+      markDiv.classList.add("mark");
+      markDiv.innerHTML = `
+        <img style="width: 100px; height: auto;" src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
+      `;
+      recipesContainer.appendChild(markDiv);
+    }
   });
 };
 
