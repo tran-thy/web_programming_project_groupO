@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Hide other sections
         document.getElementById("recommend-options-vnese").style.display = "none";
         document.getElementById("recommend-options-cnese").style.display = "none";
+        document.getElementById("about-us-section").style.display = "none";
 
         // Clear previous search results
         searchResultsSection.innerHTML = "";
