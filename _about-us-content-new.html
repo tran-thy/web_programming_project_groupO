@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chopsticks World</title>
+    <link rel="stylesheet" href="mingrui_index1.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Chopsticks World</h1>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="index_hy.html">Home</a></li>
+                <li class="nav-link">
+                    <a href="vietnamese_recipes.html">Vietnamese Recipes</a>
+                </li>
+                <li class="nav-link">
+                    <a href="chinese_Yanwen.html">Chinese Recipes</a>
+                </li>
+                <li class="nav-link"><a href="_about-us-content-new.html">About Us</a></li>
+                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px">
+                    <div id="signIn" class="signIn" style="display: flex; align-items: center">
+                        <a id="login-link" href="../login/login-interface.html">
+                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3" ; alt="Sign In" />
+
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <button id="toggleNavBtn" class="toggle-nav-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleNavBtn = document.getElementById("toggleNavBtn");
+                const navLinks = document.querySelector(".nav-links");
+
+                toggleNavBtn.addEventListener("click", function() {
+                    navLinks.classList.toggle("show");
+                });
+            });
+        </script>
+    </section>
+
+    <!-- Search section - Thy added -->
+    <section>
+        <form class="search-box" style="display: flex; align-items: center;">
+            <div class="logo">
+                <img src="chinese_images/logo.png" alt="Logo">
+            </div>
+            <!-- Search input -->
+            <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
+        </form>
+    </section>
+
+    <!-- Search Results section - Thy added -->
+    <section>
+        <div id="search-results-section" class="site-inner" style="display: none">
+            <div class="container">
+                <h2 class="block-heading text-center">
+                    <strong>Search Result</strong>
+                </h2>
+                <div id="search-results" class="category-index">
+                    <div class="row category-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us content -->
+    <section id="about-us-section" class="greatest-post container">
+        <h2 class="block-heading text-center" style="margin-bottom: 30px;">
+            <strong>About Us</strong>
+        </h2>
+        <div class="row" id="about-us-content">
+            <div class="greatest-post container text-justify" style="margin-bottom: 30px;">
+                <p><strong>Welcome to our CHOPSTICKS WORLD!</strong> Explore the vibrant and diverse world of food through the lens of chopsticks. Whether you're an experienced chopsticks user or new to this culinary journey, we're here to excite your taste
+                    buds and ignite your kitchen adventures.</p>
+
+                <p>At CHOPSTICKS WORLD, we celebrate the rich culinary traditions of China and Vietnam. Chopsticks are not just utensils but symbols of cultural heritage and culinary artistry. From comforting slurps of steaming hot noodles to delicate spring
+                    rolls, we showcase authentic flavors and cultural significance. Our journey takes us beyond the kitchen, into bustling markets where chopsticks reign supreme amidst a world of flavors, from fiery hotpots to fragrant bowls of bún chả.</p>
+
+                <p>Established in 2024, CHOPSTICKS WORLD is a vibrant community of food lovers sharing their passion for chopstick cuisine. Join us to explore new flavors, techniques, and culinary traditions. Whether it's quick weeknight meals or impressive
+                    dishes for guests, CHOPSTICKS WORLD has you covered. Join us as we discover the endless possibilities of food.</p>
+
+                <p>Thank you for visiting CHOPSTICKS WORLD, where every meal is an adventure!</p>
+
+                <p><strong>Sincerely,</strong></p>
+
+                <p><strong>The CHOPSTICKS WORLD Team</strong></p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Search Results section -->
+    <div id="search-results-section-about" class="site-inner" style="display: none">
+        <div class="container">
+            <h2 class="block-heading text-center">
+                <strong>Search Result</strong>
+            </h2>
+            <div id="search-results" class="category-index">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="blank" style="padding: 12px"></div>
+
+    <section id="recommend-options-vnese" class="greatest-post container">
+    </section>
+
+    <section id="recommend-options-cnese" class="greatest-post container">
+        <h2 class="block-heading has-text-align-center">
+            <strong>Recommendation Chinese Recipes</strong>
+        </h2>
+    </section>
+
+    <br />
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4 text-center mb-2">
+                    <h1 class="logo_name_footer" style="white-space: nowrap">
+                        Chopsticks &nbsp World
+                    </h1>
+                    <p>Copyright &copy; 2024</p>
+                </div>
+
+                <div class="col-md-4 text-center mb-2">
+                    <div class="logo">
+                        <img src="chinese_images/logo.png" alt="Logo" />
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center mb-2">
+                    <div class="social-media-container">
+                        <ul class="social-media">
+                            <li>
+                                <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Existing script - Thy added -->
+    <script src="js/utils/new/search-new.js"></script>
+
+    <!-- Other scripts -->
+    <!-- <script src="chinese_index.js"></script>  -->
+    <script src="js/homepostbutton.js"></script>
+    <script src="js/index-homepage.js"></script>
+    <script src="js/utils/cozy-and-randome-food.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script> -->
+</body>
+
+</html>
