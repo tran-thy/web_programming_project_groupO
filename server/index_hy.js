@@ -72,6 +72,17 @@ app.post("/Vietnamese_Recipes/new", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+// post blog
+app.get("/getmaxid", async (req, res) => {
+  try {
+    const result = await query("SELECT MAX(dishID) FROM Vietnamese_Recipes");
+    const maxDishID = result.rows[0].max; // Assuming your result has a column named "max"
+    res.status(200).json(maxDishID);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 // Ha: for fetching a Vietanemse dish by its ID
 app.get("/Vietnamese_Recipes/:id", async (req, res) => {
@@ -92,44 +103,44 @@ app.get("/Vietnamese_Recipes/:id", async (req, res) => {
 });
 
 //For comments
+//cmt
+app.post("/cmt/new", async (req, res) => {
+  try {
+    // Insert comment into the database
+    const result = await query(
+      "INSERT INTO comments (dishid, user_id, content) VALUES ($1, $2, $3) RETURNING *",
+      [req.body.dishid, req.body.user_id, req.body.content]
+    );
+
+    res.status(200).json({ id: result.rows[0].id });
+  } catch (error) {
+    console.error("Error posting comment:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// // Endpoint to get comments for a dish
 app.get("/cmt/:id", async (req, res) => {
   const { id } = req.params; // Get the dishId from request parameters
 
   try {
-    // Query to get comments for the specified dishId
-    const result = await query("SELECT * FROM comments WHERE dishId = $1", [
-      id,
-    ]);
+    const result = await query(
+      "SELECT comments.id, comments.content, comments.created_at, login.email FROM comments INNER JOIN login ON comments.user_id = login.id WHERE comments.dishid = $1",
+      [id]
+    );
 
-    // Send the comments as a JSON response
     res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error fetching comments:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-// Ha: for add new comment
-app.post("/cmt/new", async (req, res) => {
-  // console.log(req.body);
-  try {
-    const result = await query(
-      "INSERT INTO comments (commenter_name, comment_content, dishId) VALUES ($1, $2, $3) RETURNING *",
-      [req.body.commenter_name, req.body.comment_content, req.body.dishId]
-    );
-    res.status(200).json({ comment_id: result.rows[0].comment_id });
-  } catch (error) {
-    console.error("Error inserting comment:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-// Ha: for deleting comment
+
 app.delete("/cmt/delete/:id", async (req, res) => {
   const id_cmt = Number(req.params.id);
   try {
-    const result = await query("delete from comments where comment_id = $1", [
-      id_cmt,
-    ]);
-    res.status(200).json({ comment_id: id_cmt });
+    const result = await query("delete from comments where id = $1", [id_cmt]);
+    res.status(200).json({ id: id_cmt });
   } catch (error) {
     console.log(error);
     res.statusMessage = error;

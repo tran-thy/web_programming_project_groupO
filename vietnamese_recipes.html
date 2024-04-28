@@ -99,6 +99,7 @@
         </div>
       </form>
     </section>
+
     <!-- Search Results section - Thy added -->
     <section>
       <div id="search-results-section" class="site-inner" style="display: none">
@@ -203,5 +204,17 @@
     <!-- Other scripts -->
     <script src="js/utils/navbar.js "></script>
     <!-- <script src="js/utils/header_footer_index.js"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".post").addEventListener("click", function () {
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
+          if (isLoggedIn === "true") {
+            window.location.href = "post-vnese-newrecipe.html";
+          } else {
+            alert("Please sign in to post.");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

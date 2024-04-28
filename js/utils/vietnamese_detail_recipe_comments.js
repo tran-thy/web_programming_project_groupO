@@ -87,31 +87,30 @@ const displayDish = (dish) => {
   });
 };
 
-//Display Comment
-
+// Function to display comments
 const displayComments = (cmtData) => {
   const commentsContainer = document.getElementById("comments-container");
   commentsContainer.innerHTML = "";
-
   cmtData.forEach((comment) => {
     const commentElement = document.createElement("div");
     commentElement.classList.add("comment");
     commentElement.innerHTML = `
-      <p><strong>${comment.commenter_name}</strong>: ${comment.comment_content}</p>
-      <p><em>${comment.created_at}</em> <button class="delete-btn" data-id="${comment.comment_id}">Delete</button></p>
-    `;
+              <p><strong>${comment.email}</strong>: ${comment.content}</p>
+              <p><em>${new Date(
+                comment.created_at
+              ).toLocaleString()}</em> <button class="delete-btn" data-id="${
+      comment.id
+    }">Delete</button></p>
+          `;
     commentsContainer.appendChild(commentElement);
   });
-
-  // Add event listeners to delete buttons
-
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((button) => {
     button.addEventListener("click", async () => {
       const commentId = parseInt(button.getAttribute("data-id"));
       try {
         await deleteComment(commentId);
-        renderComments(document.getElementById("dishId").value); // Re-render comments after deletion
+        renderComments(document.getElementById("dishId").value);
       } catch (error) {
         alert(error.message);
       }
@@ -119,41 +118,37 @@ const displayComments = (cmtData) => {
   });
 };
 
-//Render PostComments
-const postComment = async (name, content, id) => {
+// Function to submit a comment
+const submitComment = async (content, dishId, userId) => {
   try {
+    // Send request to create comment
     const response = await fetch(`${BACKEND_ROOT_URL}/cmt/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        commenter_name: name,
-        comment_content: content,
-        dishId: id,
+        content,
+        dishid: dishId,
+        user_id: userId,
       }),
     });
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error("Failed to post comment");
     }
-    const data = await response.json();
-    // Show success message after posting comment
+    renderComments(dishId);
     document.getElementById("success-message").style.display = "block";
-    return data;
   } catch (error) {
-    throw new Error(`Error adding comment: ${error.message}`);
+    throw new Error(`Error posting comment: ${error.message}`);
   }
 };
 
-const deleteComment = async (commentId) => {
+// Function to delete a comment
+const deleteComment = async (id) => {
   try {
-    const response = await fetch(
-      `${BACKEND_ROOT_URL}/cmt/delete/${commentId}`,
-      {
-        method: "DELETE",
-      }
-    );
-
+    const response = await fetch(`${BACKEND_ROOT_URL}/cmt/delete/${id}`, {
+      method: "DELETE",
+    });
     if (!response.ok) {
       throw new Error("Failed to delete comment");
     }
@@ -162,18 +157,20 @@ const deleteComment = async (commentId) => {
   }
 };
 
+// Event listener for submitting the comment form
 document
   .getElementById("comment-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const commenterName = formData.get("commenter_name");
-    const commentContent = formData.get("comment_content");
+    const commentContent = formData.get("content");
     const dishId = formData.get("dishId");
-
+    const userId = localStorage.getItem("userId");
     try {
-      await postComment(commenterName, commentContent, dishId);
-      renderComments(dishId);
+      console.log("Comment Content:", commentContent);
+      console.log("Dish ID:", dishId);
+      console.log("User ID:", userId);
+      await submitComment(commentContent, dishId, userId);
       event.target.reset();
     } catch (error) {
       alert(error.message);

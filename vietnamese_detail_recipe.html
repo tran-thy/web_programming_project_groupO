@@ -88,7 +88,7 @@
         />
 
         <!-- Adding new recipe -->
-        <div id="post" class="post">
+        <!-- <div id="post" class="post">
           <a
             href="#"
             class="text-black"
@@ -100,7 +100,7 @@
               alt="post your recipes"
             />
           </a>
-        </div>
+        </div> -->
       </form>
     </section>
     <!-- Search Results section - Thy added -->
@@ -156,8 +156,9 @@
         ></iframe>
       </div>
 
-      <!-- Comment Part -->
+      <!-- Comments Part -->
       <div id="comments-container"></div>
+      <div id="error-message"></div>
       <div id="error-message"></div>
       <!-- Placeholder for error message -->
       <div id="success-message" style="display: none" ;>
@@ -165,30 +166,31 @@
       </div>
 
       <form id="comment-form">
-        <label for="commenter_name"><strong>Reviewer</strong></label
-        ><br />
-        <input
-          type="text"
-          id="commenter_name"
-          name="commenter_name"
-          required
-        /><br />
+        <!-- <label for="user_username">Username</label><br />
+     <input type="text" id="username" name="username" required /><br /> -->
 
-        <label for="comment_content"><strong>Comment</strong></label
+        <label for="content"><strong>Comment</strong></label
         ><br />
         <textarea
-          id="comment_content"
-          name="comment_content"
+          id="content"
+          name="content"
           rows="4"
           cols="50"
           required
         ></textarea
         ><br />
 
-        <label for="recipe ID"><strong>Recipe ID</strong></label
-        ><br />
+        <!-- this part can be hidden if wanted  -->
+        <!-- Populate the user ID field here -->
 
+        <!-- Example: Set the user ID -->
+        <!--  This part can be hidden if wanted -->
+
+        <label for="recipeId"><strong>Recipe ID</strong></label
+        ><br />
         <input type="text" id="dishId" name="dishId" required /><br />
+        <label for="user_id"></label><br />
+        <input type="hidden" id="user_id" name="user_id" /><br />
 
         <input type="submit" value="SUBMIT" />
       </form>

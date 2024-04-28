@@ -1,3 +1,16 @@
+-- Create the comments table
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    dishID VARCHAR(50) NOT NULL,
+    user_id INT NOT NULL,
+    content TEXT NOT NULL,
+    FOREIGN KEY (dishID) REFERENCES Vietnamese_Recipes(dishid) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
 
 CREATE TABLE Vietnamese_Recipes (
     dishID VARCHAR(50) PRIMARY KEY,
@@ -232,14 +245,6 @@ VALUES (
 select * from Vietnamese_Recipes;
 drop table Vietnamese_Recipes;
 
-CREATE TABLE comments (
-    comment_id SERIAL PRIMARY KEY,
-    commenter_name VARCHAR(100) NOT NULL,
-    comment_content TEXT NOT NULL,
-    dishId VARCHAR(10) NOT NULL, -- New field to store dishId
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	FOREIGN KEY (dishId) REFERENCES Vietnamese_Recipes(dishId) ON DELETE CASCADE
-);
 
 
 

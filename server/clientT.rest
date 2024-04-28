@@ -25,9 +25,8 @@ GET http://localhost:3001/Vietnamese_Recipes/:id
 # ### Get Chinese recipw by dishId
 # GET http://localhost:3001/chinese/:dishId
 
-
-# ### get cmt
-# GET http://localhost:3001/cmt
+ ### get cmt
+ GET http://localhost:3001/cmt/VN-0002
 
 # ### Add new cmt
 # POST http://localhost:3001/cmt/new HTTP/1.1

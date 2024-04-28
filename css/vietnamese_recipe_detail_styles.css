@@ -35,6 +35,8 @@
 h4 {
   color: #e69d3e;
   font-size: 22px;
+  display: flex;
+  justify-content: center;
   /* margin-bottom: 40px; */
   padding-bottom: 20px;
 }
@@ -119,7 +121,7 @@ ol {
 #comment-form input[type="submit"] {
   background-color: #deb887;
   color: white;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -141,6 +143,7 @@ ol {
 }
 .delete-btn {
   /* background-color: #deb887;
+  border-color: #deb887;
   color: white; */
   /* border: none; */
   /* border-radius: 5px; */
