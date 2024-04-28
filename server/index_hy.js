@@ -484,6 +484,8 @@ app.post("/newrecipe", (req, res) => {
 // });
 
 //YIXIN code
+const jwt = require('jsonwebtoken');
+const secretKey = 'your_secret_key';
 const myQueryFunction = (sql, values = []) => {
   return new Promise(async (resolve, reject) => {
     const pool = openDb();
