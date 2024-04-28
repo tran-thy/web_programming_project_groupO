@@ -12,7 +12,7 @@ document.querySelector("#confirm-button").addEventListener("click", (event) => {
     .login(email, password)
     .then((user) => {
       localStorage.setItem("isLoggedIn", "true"); // heyanwen added
-      localStorage.setItem("userId", id); //Ha add
+      // localStorage.setItem("userId", id); //Ha add
       window.location.href = "../index.html";
     })
     .catch((error) => {
