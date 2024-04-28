@@ -484,6 +484,8 @@ app.post("/newrecipe", (req, res) => {
 // });
 
 //YIXIN code
+const jwt = require('jsonwebtoken');
+const secretKey = 'your_secret_key';
 const myQueryFunction = (sql, values = []) => {
   return new Promise(async (resolve, reject) => {
     const pool = openDb();
@@ -531,6 +533,13 @@ userRouter.post("/register", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+//logout
+userRouter.post("/logout", (req, res) => {
+    // Inform the client to clear the token stored in local storage or cookies
+    res.status(200).json({ message: "Logged out successfully. Please clear your token." });
+  });
+
+
 
 // Use userRouter with proper path
 app.use("/user", userRouter);
