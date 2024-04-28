@@ -1,33 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to handle click event on search symbol button
-    const searchButtonIcon = document.getElementById("search-button-icon");
-    if (searchButtonIcon) {
-        searchButtonIcon.addEventListener("click", function() {
-            const searchBox = document.querySelector(".search-box");
-            const searchInput = document.getElementById("search-input");
-
-            // Toggle the display of the search box
-            searchBox.style.display =
-                searchBox.style.display === "none" ? "flex" : "none";
-
-            // Focus on the search input field when the search box is displayed
-            if (searchBox.style.display === "flex") {
-                searchInput.focus();
-            }
-        });
-    }
-
-    // Function to handle search button click
-    document.addEventListener("click", function(event) {
-        if (event.target && event.target.id === "search-button-icon") {
-            handleSearch();
-        }
-    });
-
     // Function to handle Enter key press on search input
-    document.addEventListener("keypress", function(event) {
+    document.addEventListener("keydown", function(event) {
         const searchInput = document.getElementById("search-input");
-        if (event.key === "Enter" && document.activeElement === searchInput) {
+        console.log(`Input is: ${searchInput.value}`);
+        if (event.key === "Enter" && event.target.id === "search-input") {
+            event.preventDefault(); // Prevent default form submission
             handleSearch();
         }
     });
@@ -60,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to handle search
     async function handleSearch() {
+        console.log(`Handle search function is called`);
         const searchInput = document.getElementById("search-input");
         const searchTerm = searchInput.value.trim().toLowerCase();
 
@@ -87,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to display search results
     // Function to display search results
     const displaySearchResults = (searchResults) => {
         const searchResultsSection = document.getElementById("search-results-section");
@@ -178,6 +155,4 @@ document.addEventListener("DOMContentLoaded", function() {
         // Display search results section
         searchResultsSection.style.display = "block";
     };
-
-
 });
