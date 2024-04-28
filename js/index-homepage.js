@@ -44,7 +44,15 @@ const fetchRecipesForRecommendedRecipes = async () => {
 const displayRecommendedRecipes = (recipes) => {
     const homeRecommendedChineseRecipes = document.querySelector("#recommend-options-cnese");
     homeRecommendedChineseRecipes.innerHTML = '';
-
+    const h2forreommendedChinese =document.createElement('h2');
+    h2forreommendedChinese.innerHTML = `
+    <strong> Recommendation Chinese Recipes </strong>
+    `;
+    h2forreommendedChinese.classList.add('block-heading');
+    h2forreommendedChinese.classList.add('has-text-align-center');
+    // h2 class="block-heading has-text-align-center">
+    homeRecommendedChineseRecipes.appendChild(h2forreommendedChinese);
+    // </h2>
     // Iterate over the recipes
     for (let i = 0; i < 3; i++) {
         // Create a recipe card for each recipe

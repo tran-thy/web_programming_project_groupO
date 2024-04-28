@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const navtovienmanepageButton = document.querySelector('.nav-link-v')
     navtovienmanepageButton.addEventListener('click', navtovienmanepage)
     function navtovienmanepage() {
-        window.location.href = 'vienamana.html';
+        window.location.href = 'vietnamese_recipes.html';
     }
 
     const navtohomepageButton = document.querySelector('.nav-link-h')
@@ -249,16 +249,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const navtoaboutusButton = document.querySelector('.nav-link-a')
     navtoaboutusButton.addEventListener('click', navtoaboutuspage)
     function navtoaboutuspage() {
-        window.location.href = 'aboutus.html';
+        window.location.href = '_about-us-content.html';
     }
-    
-    
-    
-   
-
-    function navtoHome() {
-        window.location.href = 'index.html';
-    }
+     
+    // function navtoHome() {
+    //     window.location.href = 'index.html';
+    // }
 })
 
 document.addEventListener("DOMContentLoaded", function() {

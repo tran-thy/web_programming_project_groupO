@@ -7,6 +7,8 @@ const fetchRecipesForSearch = async (query, page) => {
         }
         const searchResults = await response.json();
         searchdisplayRecipes(searchResults.results);
+        const postContainer = document.querySelector('.post-container');
+        postContainer.style.display = 'none';
     } catch (error) {
         console.error("Error fetching search results:", error.message);
         alert("Error fetching search results. Please try again later.");
@@ -17,6 +19,9 @@ const fetchRecipesForSearch = async (query, page) => {
 const searchdisplayRecipes = (search_recipes) => {
     const recipeContainer2 = document.querySelector('.recipe-container');
     recipeContainer2.innerHTML = ''; // Clear previous recipes
+
+    // const postrecipeForm = document.querySelector('.post-container')
+    // postrecipeForm.innerHTML='';// clear privious post recipe form
 
     search_recipes.forEach(recipe => {
         const search_recipeDiv = document.createElement('div');
@@ -33,12 +38,18 @@ const searchdisplayRecipes = (search_recipes) => {
         recipeContainer2.appendChild(search_recipeDiv);
     });
     // Attach event listeners to recipe names again  ***********important
+    const postContainer = document.querySelector('.post-container');
+    postContainer.innerHTML = '';
     attachRecipeDetailEventListeners();
+    // Clear post-container
+    
+
 };
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchForm = document.querySelector('.search-box');
     const paginationbutton = document.querySelector('.pagination-container');
+    // const postrecipeForm = document.querySelector('.post-container')
     // buttons.style.display = 'none';
     searchForm.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent default form submission behavior
@@ -48,9 +59,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (searchQuery !== '') {            
             fetchRecipesForSearch(searchQuery, 'home');
             paginationbutton.style.display = 'none';
+            // postrecipeForm.style.display = 'none';
+
 
         } else {
             paginationbutton.style.display = 'block';
+            // postrecipeForm.style.display = 'block';
             alert("Please enter a search query.");
         }
     });

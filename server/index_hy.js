@@ -242,37 +242,74 @@ app.get("/random-recipes", async(req, res) => {
 });
 
 // Yanwen: for the search
-app.get("/search", async (req, res) => {
-  const query = req.query.query || "";
-  const page = req.query.page || ""; // Retrieve the page parameter from the request
-  const keywords = query.split(" "); // Split by spaces
+
+app.get('/search', async (req, res) => {
+  const query = req.query.query || '';
+  const page = req.query.page || ''; // Retrieve the page parameter from the request
+  const keywords = query.split(' '); // Split by spaces
   const pool = openDb();
   try {
-    let results = [];
+      let results = [];
 
-    for (const keyword of keywords) {
-      const { rows } = await pool.query(
-        "SELECT * FROM chinese_recipes WHERE dishname ILIKE $1 OR dishdescription ILIKE $2",
-        [`%${keyword}%`, `%${keyword}%`]
-      );
-      results = results.concat(rows);
-    }
+      for (const keyword of keywords) {
+          const { rows :newRecipes} = await pool.query(
+              'SELECT * FROM chinese_recipes WHERE dishname ILIKE $1 OR dishdescription ILIKE $2',
+              [`%${keyword}%`, `%${keyword}%`]
+          );
+          const { rows:  chineseRecipes } = await pool.query(
+              `SELECT dishname, dishdescription FROM newrecipes 
+                  WHERE dishname ILIKE $1 OR dishdescription ILIKE $2`,
+              [`%${keyword}%`, `%${keyword}%`]
+          );
+          results = results.concat(...newRecipes,...chineseRecipes);
+      }
 
-    if (page === "home") {
-      // Handle search results for the homepage
-      res.json({ results });
-    } else if (page === "detail") {
-      // Handle search results for the recipe detail page
-      res.json({ results });
-    } else {
-      // Handle other cases
-      res.json({ results });
-    }
+      if (page === 'home') {
+          // Handle search results for the homepage
+          res.json({ results });
+      } else if (page === 'detail') {
+          // Handle search results for the recipe detail page
+          res.json({ results });
+      } else {
+          // Handle other cases
+          res.json({ results });
+      }
   } catch (error) {
-    console.error("Error querying database:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+      console.error('Error querying database:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
   }
-});
+})
+// app.get("/search", async (req, res) => {
+//   const query = req.query.query || "";
+//   const page = req.query.page || ""; // Retrieve the page parameter from the request
+//   const keywords = query.split(" "); // Split by spaces
+//   const pool = openDb();
+//   try {
+//     let results = [];
+
+//     for (const keyword of keywords) {
+//       const { rows } = await pool.query(
+//         "SELECT * FROM chinese_recipes WHERE dishname ILIKE $1 OR dishdescription ILIKE $2",
+//         [`%${keyword}%`, `%${keyword}%`]
+//       );
+//       results = results.concat(rows);
+//     }
+
+//     if (page === "home") {
+//       // Handle search results for the homepage
+//       res.json({ results });
+//     } else if (page === "detail") {
+//       // Handle search results for the recipe detail page
+//       res.json({ results });
+//     } else {
+//       // Handle other cases
+//       res.json({ results });
+//     }
+//   } catch (error) {
+//     console.error("Error querying database:", error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
 
 // Yanwen: for fetching a Chinese dish by its ID
 
@@ -296,74 +333,100 @@ app.get("/search", async (req, res) => {
 //         throw new Error('Internal Server Error');
 //     }
 // };
-
-app.get("/detailrecipe/:dishid", async (req, res) => {
-  // const recipeId = req.query.recipeId; // Use req.query to get query parameters
-
+app.get('/detailrecipe/:dishid', async (req, res) => {
   const dishid = req.params.dishid;
   const pool = openDb();
   try {
-    // Query to retrieve the recipe by ID
-    const query = "SELECT * FROM Chinese_Recipes WHERE dishid = $1";
+      // Query to retrieve the recipe by ID from the newrecipes table
+      let query = 'SELECT * FROM newrecipes WHERE dishid = $1';
+      
+      // Execute the query for newrecipes table
+      let result = await pool.query(query, [dishid]);
 
-    // Execute the query
-    const result = await pool.query(query, [dishid]);
+      // If recipe not found in newrecipes table, try fetching from chinese_recipes table
+      if (result.rows.length === 0) {
+          query = 'SELECT * FROM chinese_recipes WHERE dishid = $1';
+          result = await pool.query(query, [dishid]);
+      }
 
-    // Check if a recipe was found
-    if (result.rows.length === 0) {
-      // If no recipe found with the provided ID, respond with 404 Not Found
-      return res.status(404).json({ error: "Recipe not found" });
-    }
+      // Check if a recipe was found
+      if (result.rows.length === 0) {
+          // If no recipe found with the provided ID, respond with 404 Not Found
+          return res.status(404).json({ error: 'Recipe not found' });
+      }
 
-    // If recipe found, respond with the recipe details
-    res.json(result.rows[0]);
+      // If recipe found, respond with the recipe details
+      res.json(result.rows[0]);
   } catch (error) {
-    // If an error occurs during database query or processing, respond with 500 Internal Server Error
-    console.error("Error fetching recipe details:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+      // If an error occurs during database query or processing, respond with 500 Internal Server Error
+      console.error('Error fetching recipe details:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+// app.get("/detailrecipe/:dishid", async (req, res) => {
+//   // const recipeId = req.query.recipeId; // Use req.query to get query parameters
+
+//   const dishid = req.params.dishid;
+//   const pool = openDb();
+//   try {
+//     // Query to retrieve the recipe by ID
+//     const query = "SELECT * FROM Chinese_Recipes WHERE dishid = $1";
+
+//     // Execute the query
+//     const result = await pool.query(query, [dishid]);
+
+//     // Check if a recipe was found
+//     if (result.rows.length === 0) {
+//       // If no recipe found with the provided ID, respond with 404 Not Found
+//       return res.status(404).json({ error: "Recipe not found" });
+//     }
+
+//     // If recipe found, respond with the recipe details
+//     res.json(result.rows[0]);
+//   } catch (error) {
+//     // If an error occurs during database query or processing, respond with 500 Internal Server Error
+//     console.error("Error fetching recipe details:", error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
+
 // Now use the reusable function in your endpoint handler
-app.get("/random-recipes", async (req, res) => {
+app.get('/random-recipes', async(req, res) => {
   try {
-    // Count the total number of recipes in the database
-    const countQuery = "SELECT COUNT(*) FROM chinese_recipes";
-    const pool = openDb();
-    const countResult = await pool.query(countQuery);
-    const totalCount = parseInt(countResult.rows[0].count);
+      // Count the total number of recipes in the database
+      const countQuery = 'SELECT COUNT(*) FROM chinese_recipes';
+      const pool = openDb();
+      const countResult = await pool.query(countQuery);
+      const totalCount = parseInt(countResult.rows[0].count);
 
-    // Generate four unique random numbers within the range of total recipes
-    let indexes = [];
-    while (indexes.length < 3) {
-      const randomIndex = Math.floor(Math.random() * totalCount) + 1;
-      if (!indexes.includes(randomIndex)) {
-        indexes.push(randomIndex);
+      // Generate four unique random numbers within the range of total recipes
+      let indexes = [];
+      while (indexes.length < 4) {
+          const randomIndex = Math.floor(Math.random() * totalCount) + 1;
+          if (!indexes.includes(randomIndex)) {
+              indexes.push(randomIndex);
+          }
       }
-    }
 
-    // Construct the dish IDs based on the format "CH-00X"
-    const dishIds = indexes.map(
-      (index) => "CH-" + index.toString().padStart(4, "0")
-    );
+      // Construct the dish IDs based on the format "CH-00X"
+      const dishIds = indexes.map(index => 'CH-' + index.toString().padStart(4, '0'));
 
-    // Query to fetch the random recipes from the database
-    const query = {
-      text: `SELECT * FROM chinese_recipes WHERE dishid IN (${dishIds
-        .map((_, i) => `$${i + 1}`)
-        .join(", ")})`,
-      values: dishIds,
-    };
+      // Query to fetch the random recipes from the database
+      const query = {
+              text: `SELECT * FROM chinese_recipes WHERE dishid IN (${dishIds.map((_, i) => `$${i + 1}`).join(', ')})`,
+values: dishIds,
+};
 
-    // Execute the query
-    const { rows } = await pool.query(query);
+// Execute the query
+const { rows } = await pool.query(query);
 
-    // Send the retrieved data as JSON response
-    res.json(rows);
-  } catch (error) {
-    console.error("Error fetching random recipes:", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+// Send the retrieved data as JSON response
+res.json(rows);
+} catch (error) {
+console.error('Error fetching random recipes:', error.message);
+res.status(500).json({ error: 'Internal Server Error' });
+}
 });
 
 // app.get('/random-recipes', async (req, res) => {
@@ -421,29 +484,45 @@ app.get("/hotpotrecipes", async (req, res) => {
 // Define route handler for adding a new recipe
 
 //******** */ new post
+
 app.post("/newrecipe", (req, res) => {
   const pool = openDb();
-  const query_post =
-    "INSERT INTO newrecipes (dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING dishID";
-  const values_post = [
-    req.body.dishName,
-    req.body.dishDescription,
-    req.body.dishHistory,
-    req.body.dishImage,
-    req.body.recipeIngredients,
-    req.body.recipeInstruction,
-    req.body.dishVideo,
-  ];
-
+  const query_post = "INSERT INTO newrecipes (dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING dishid";
+  const values_post = [req.body.dishName, req.body.dishDescription, req.body.dishHistory, req.body.dishImage, req.body.recipeIngredients, req.body.recipeInstruction, req.body.dishVideo];
+  
   pool.query(query_post, values_post, (error, result) => {
-    if (error) {
-      console.error("Error inserting new recipe:", error);
-      res.status(500).json({ error: "Error inserting new recipe" });
-    } else {
-      res.status(200).json({ id: result.rows[0].dishID });
-    }
+      if (error) {
+          console.error("Error inserting new recipe:", error);
+          res.status(500).json({ error: "Error inserting new recipe" });
+      } else {
+          res.status(200).json({ id: result.rows[0].dishid });//dishid is very critical, it return a 
+          console.log(res)
+      }
   });
 });
+// app.post("/newrecipe", (req, res) => {
+//   const pool = openDb();
+//   const query_post =
+//     "INSERT INTO newrecipes (dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING dishID";
+//   const values_post = [
+//     req.body.dishName,
+//     req.body.dishDescription,
+//     req.body.dishHistory,
+//     req.body.dishImage,
+//     req.body.recipeIngredients,
+//     req.body.recipeInstruction,
+//     req.body.dishVideo,
+//   ];
+
+//   pool.query(query_post, values_post, (error, result) => {
+//     if (error) {
+//       console.error("Error inserting new recipe:", error);
+//       res.status(500).json({ error: "Error inserting new recipe" });
+//     } else {
+//       res.status(200).json({ id: result.rows[0].dishID });
+//     }
+//   });
+// });
 // app.post("/newrecipe", (req, res) => {
 //     const pool = openDb();
 //     const query_post = "INSERT INTO newrecipes (dishName, dishDescription, dishHistory, dishImage, recipeIngredients, recipeInstruction, dishVideo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING dishID";
