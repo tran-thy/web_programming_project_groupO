@@ -88,18 +88,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Function to display search results
+    // Function to display search results
     const displaySearchResults = (searchResults) => {
-        const searchResultsSection = document.getElementById(
-            "search-results-section"
-        );
+        const searchResultsSection = document.getElementById("search-results-section");
 
         // Check if searchResultsSection is null
         if (!searchResultsSection) {
-            console.error(
-                "Error displaying search results: Search results section not found."
-            );
+            console.error("Error displaying search results: Search results section not found.");
             return;
         }
+
+        // Hide other sections
+        document.getElementById("highlighted-section").style.display = "none";
+        document.getElementById("myCarousel").style.display = "none";
+        document.getElementById("recommend-options-vnese").style.display = "none";
+        document.getElementById("recommend-options-cnese").style.display = "none";
 
         // Clear previous search results
         searchResultsSection.innerHTML = "";
@@ -118,14 +121,14 @@ document.addEventListener("DOMContentLoaded", function() {
             resultsContainer.appendChild(noResultsDiv);
         } else {
             // Display search results in rows with 3 items per row
-            let rowDiv;
+            let rowDiv = document.createElement("div");
+            rowDiv.classList.add("row");
             searchResults.forEach((result, index) => {
-                if (index % 3 === 0) {
+                if (index > 0 && index % 3 === 0) {
                     // Create a new row for every 3rd item
+                    resultsContainer.appendChild(rowDiv);
                     rowDiv = document.createElement("div");
                     rowDiv.classList.add("row");
-                    // Append the row to the results container
-                    resultsContainer.appendChild(rowDiv);
                 }
 
                 const recipeDiv = document.createElement("div");
@@ -163,6 +166,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 rowDiv.appendChild(recipeDiv);
             });
+
+            // Append the last row if it's not empty
+            if (rowDiv.childNodes.length > 0) {
+                resultsContainer.appendChild(rowDiv);
+            }
         }
 
         // Append the container (with either search results or message) to the search results section
@@ -170,5 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Display search results section
         searchResultsSection.style.display = "block";
     };
+
 
 });
