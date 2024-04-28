@@ -38,5 +38,13 @@ GET http://localhost:3001/Vietnamese_Recipes/:id
 #   "dishId": "VN-0001"
 # }
 
+### login with valid credentials
+POST http://localhost:3001/user/login
+Content-Type: application/json
+
+{
+  "email": "123@qq.com",
+  "password": "password123"
+}
 
  

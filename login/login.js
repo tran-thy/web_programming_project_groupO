@@ -13,7 +13,7 @@ document.querySelector("#confirm-button").addEventListener("click", (event) => {
     .then((user) => {
       localStorage.setItem("isLoggedIn", "true"); // heyanwen added
       localStorage.setItem("userId", user.id); //Ha add
-      window.location.href = "../index.html";
+      window.location.href = "../index_hy.html";
     })
     .catch((error) => {
       alert(error);
