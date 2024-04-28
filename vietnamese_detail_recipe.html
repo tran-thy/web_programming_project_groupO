@@ -1,175 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vietnamese Detail Recipe</title>
     <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
     <link rel="stylesheet" href="css/vietnamese_recipe_detail_styles.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet" />
+</head>
 
-  <body>
+<body>
     <!-- Part I -->
     <nav class="navbar">
-      <div class="container">
-        <h1 class="logo">Vietnamese Recipes</h1>
-        <ul class="nav-links">
-          <li class="nav-link"><a href="index.html">Home</a></li>
-          <li class="nav-link">
-            <a href="vietnamese_recipes.html">Vietnamese Recipes</a>
-          </li>
-          <li class="nav-link">
-            <a href="chinese_index.html">Chinese Recipes</a>
-          </li>
-          <li class="nav-link"><a href="#">About Us</a></li>
-          <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px">
-            <div
-              id="signIn"
-              class="signIn"
-              style="display: flex; align-items: center"
-            >
-              <a href="../login/login-interface.html">
-                <img
-                  src="chinese_images/head1.png"
-                  style="width: 30px; height: 30px; opacity: 0.3"
-                  ;
-                  alt="Sign In"
-                />
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <div class="container">
+            <h1 class="logo">Vietnamese Recipes</h1>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="index_hy.html">Home</a></li>
+                <li class="nav-link">
+                    <a href="vietnamese_recipes.html">Vietnamese Recipes</a>
+                </li>
+                <li class="nav-link">
+                    <a href="chinese_index.html">Chinese Recipes</a>
+                </li>
+                <li class="nav-link"><a href="_about-us-content-new.html">About Us</a></li>
+                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px">
+                    <div id="signIn" class="signIn" style="display: flex; align-items: center">
+                        <a href="../login/login-interface.html">
+                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3" ; alt="Sign In" />
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <section>
-      <button id="toggleNavBtn" class="toggle-nav-btn">
+        <button id="toggleNavBtn" class="toggle-nav-btn">
         <i class="fas fa-bars"></i>
       </button>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const toggleNavBtn = document.getElementById("toggleNavBtn");
-          const navLinks = document.querySelector(".nav-links");
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleNavBtn = document.getElementById("toggleNavBtn");
+                const navLinks = document.querySelector(".nav-links");
 
-          toggleNavBtn.addEventListener("click", function () {
-            navLinks.classList.toggle("show");
-          });
-        });
-      </script>
+                toggleNavBtn.addEventListener("click", function() {
+                    navLinks.classList.toggle("show");
+                });
+            });
+        </script>
     </section>
 
     <!-- Search section - Thy added -->
     <section>
-      <form class="search-box" style="display: flex; align-items: center">
-        <div class="logo">
-          <img src="chinese_images/logo.png" alt="Logo" />
-        </div>
-        <!-- Search input -->
-        <input
-          type="text"
-          name="keyword"
-          placeholder="Search by dish or ingredient..."
-          id="search-input"
-        />
+        <form class="search-box" style="display: flex; align-items: center">
+            <div class="logo">
+                <img src="chinese_images/logo.png" alt="Logo" />
+            </div>
+            <!-- Search input -->
+            <input type="text" class="form-control" id="search-input-vn-detail" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
 
-        <!-- Adding new recipe -->
-        <!-- <div id="post" class="post">
-          <a
-            href="#"
-            class="text-black"
-            style="display: flex; align-items: center"
-          >
-            <img
-              src="chinese_images/post_imag .png"
-              style="width: 45px; height: auto; margin-left: 50px"
-              alt="post your recipes"
-            />
-          </a>
-        </div> -->
-      </form>
+            <!-- Adding new recipe -->
+            <div id="post" class="post">
+                <a href="#" class="text-black" style="display: flex; align-items: center">
+                    <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px" alt="post your recipes" />
+                </a>
+            </div>
+        </form>
     </section>
+
     <!-- Search Results section - Thy added -->
     <section>
-      <div id="search-results-section" class="site-inner" style="display: none">
-        <div class="container">
-          <h2 class="block-heading text-center">
-            <strong>Search Result</strong>
-          </h2>
-          <div id="search-results" class="category-index">
-            <div class="row category-list"></div>
-          </div>
+        <div id="search-results-section-vn-detail" class="site-inner" style="display: none">
+            <div class="container">
+                <h2 class="block-heading text-center">
+                    <strong>Search Result</strong>
+                </h2>
+                <div id="search-results" class="category-index">
+                    <div class="row category-list">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- recipe part -->
 
     <div class="article" id="dish">
-      <div class="image">
-        <img id="dish-image" src="" alt="" />
-      </div>
+        <div class="image">
+            <img id="dish-image" src="" alt="" />
+        </div>
 
-      <h2 class="title-item" id="dish-name"></h2>
+        <h2 class="title-item" id="dish-name"></h2>
 
-      <div class="description" id="dish-description"></div>
+        <div class="description" id="dish-description"></div>
 
-      <h4>Food History</h4>
-      <div class="history" id="dish-history"></div>
+        <h4>Food History</h4>
+        <div class="history" id="dish-history"></div>
 
-      <h4>Ingredients</h4>
-      <div class="content-detail">
-        <ul id="recipe-ingredients">
-          <!-- Ingredients will be populated dynamically -->
-        </ul>
-      </div>
-      <h4>Instructions</h4>
-      <div class="content-detail">
-        <ol id="recipe-instructions">
-          <!-- Instructions will be populated dynamically -->
-        </ol>
-      </div>
-      <div class="iframe-container">
-        <iframe
-          width="800"
-          height="450"
-          src="${dishvideo}"
-          title="#"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
+        <h4>Ingredients</h4>
+        <div class="content-detail">
+            <ul id="recipe-ingredients">
+                <!-- Ingredients will be populated dynamically -->
+            </ul>
+        </div>
+        <h4>Instructions</h4>
+        <div class="content-detail">
+            <ol id="recipe-instructions">
+                <!-- Instructions will be populated dynamically -->
+            </ol>
+        </div>
+        <div class="iframe-container">
+            <iframe width="800" height="450" src="${dishvideo}" title="#" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
 
-      <!-- Comments Part -->
-      <div id="comments-container"></div>
-      <div id="error-message"></div>
-      <div id="error-message"></div>
-      <!-- Placeholder for error message -->
-      <div id="success-message" style="display: none" ;>
-        <strong>Your comment posted. Please refresh page for updates.</strong>
-      </div>
+        <!-- Comments Part -->
+        <div id="comments-container"></div>
+        <div id="error-message"></div>
+        <div id="error-message"></div>
+        <!-- Placeholder for error message -->
+        <div id="success-message" style="display: none" ;>
+            <strong>Your comment posted. Please refresh page for updates.</strong>
+        </div>
 
-      <form id="comment-form">
-        <!-- <label for="user_username">Username</label><br />
+        <form id="comment-form">
+            <!-- <label for="user_username">Username</label><br />
      <input type="text" id="username" name="username" required /><br /> -->
 
-        <label for="content"><strong>Comment</strong></label
+            <label for="content"><strong>Comment</strong></label
         ><br />
         <textarea
           id="content"
@@ -190,82 +153,62 @@
         ><br />
         <input type="text" id="dishId" name="dishId" required /><br />
         <label for="user_id"></label><br />
-        <input type="hidden" id="user_id" name="user_id" /><br />
+            <input type="hidden" id="user_id" name="user_id" /><br />
 
-        <input type="submit" value="SUBMIT" />
-      </form>
+            <input type="submit" value="SUBMIT" />
+        </form>
     </div>
 
-    <!-- Part V: Search Results section -->
-    <div id="search-results-section-vn-detail" style="display: none">
-      <div class="container">
-        <div class="recipe">
-          <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
-            <div class="image"><img src="" alt="" /></div>
-            <div class="info">
-              <h2 class="title-item"></h2>
-              <!-- <p class="author"></p> -->
-              <!-- <p class="description"></p> -->
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part X: Footer -->
     <!-- Part X: Footer -->
     <footer class="footer">
-      <div class="container">
-        <div>
-          <div>
-            <h1 class="logo_name_footer" style="white-space: nowrap">
-              Chopsticks &nbsp World
-            </h1>
-            <p>Copyright &copy; 2024</p>
-          </div>
+        <div class="container">
+            <div>
+                <div>
+                    <h1 class="logo_name_footer" style="white-space: nowrap">
+                        Chopsticks &nbsp World
+                    </h1>
+                    <p>Copyright &copy; 2024</p>
+                </div>
 
-          <div class="">
-            <div class="logo">
-              <img src="chinese_images/logo.png" alt="Logo" />
-            </div>
-          </div>
+                <div class="">
+                    <div class="logo">
+                        <img src="chinese_images/logo.png" alt="Logo" />
+                    </div>
+                </div>
 
-          <div class="">
-            <div class="social-media-container">
-              <ul class="social-media">
-                <li>
-                  <a href="https://github.com"
-                    ><i class="fab fa-github fa-2x"></i
+                <div class="">
+                    <div class="social-media-container">
+                        <ul class="social-media">
+                            <li>
+                                <a href="https://github.com"><i class="fab fa-github fa-2x"></i
                   ></a>
-                </li>
-                <li>
-                  <a href="https://facebook.com"
-                    ><i class="fab fa-facebook fa-2x"></i
+                            </li>
+                            <li>
+                                <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i
                   ></a>
-                </li>
-                <li>
-                  <a href="https://instagram.com"
-                    ><i class="fab fa-instagram fa-2x"></i
+                            </li>
+                            <li>
+                                <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i
                   ></a>
-                </li>
-                <li>
-                  <a href="https://twitter.com"
-                    ><i class="fab fa-twitter fa-2x"></i
+                            </li>
+                            <li>
+                                <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i
                   ></a>
-                </li>
-              </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </footer>
 
     <!-- Utils scripts - menu bar-->
-    <script src="js/utils/search-vn-detail.js"></script>
+    <script src="js/utils/new/search-vn-detail-new.js"></script>
     <script src="js/utils/vietnamese_detail_recipe_comments.js"></script>
 
     <!-- Other scripts -->
     <script src="js/utils/navbar.js "></script>
     <!-- <script src="js/utils/header_footer_index.js"></script> -->
-  </body>
+</body>
+
 </html>
