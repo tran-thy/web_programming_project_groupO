@@ -1,3 +1,49 @@
+// for loging 
+CREATE TABLE login (
+    ID SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL
+);
+SELECT * FROM newrecipes;
+DROP TABLE newrecipes;
+SELECT * FROM login;
+SELECT * FROM login;
+DROP TABLE login;
+
+// for new recipes 
+-- Create a sequence for generating numeric IDs
+CREATE SEQUENCE newrecipes_sequence START 1;
+
+-- Create the newrecipes table with dishID as VARCHAR
+CREATE TABLE newrecipes (
+    dishID VARCHAR(50) PRIMARY KEY,
+    dishName VARCHAR(255),
+    dishDescription TEXT,
+    dishHistory TEXT,
+    dishImage VARCHAR(255),
+    recipeIngredients TEXT,
+    recipeInstruction TEXT,
+    dishVideo VARCHAR(255)
+);
+
+-- Create a trigger function to automatically generate dishID
+CREATE OR REPLACE FUNCTION generate_new_dish_id()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Generate the dishID in the desired format
+    NEW.dishID := 'CH-' || LPAD(nextval('newrecipes_sequence')::TEXT, 4, '0');
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create a trigger to execute the function before each insert operation
+CREATE TRIGGER before_insert_new_dish_id
+BEFORE INSERT ON newrecipes
+FOR EACH ROW EXECUTE FUNCTION generate_new_dish_id();
+
+// for chinese_recipes 
+
 CREATE TABLE Chinese_Recipes (
     dishID VARCHAR(50) PRIMARY KEY,
     dishName VARCHAR(255),

@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const navtoaboutusButton = document.querySelector('.nav-link-a')
     navtoaboutusButton.addEventListener('click', navtoaboutuspage)
     function navtoaboutuspage() {
-        window.location.href = '_about-us-content.html';
+        window.location.href = '_about-us-content-new.html';
     }
     
    
