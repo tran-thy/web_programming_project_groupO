@@ -95,29 +95,19 @@ document.addEventListener("DOMContentLoaded", function() {
         if (searchResults.length === 0) {
             // If no search results found, display a message within the same structure as the results
             const noResultsDiv = document.createElement("div");
-            noResultsDiv.classList.add(
-                "row",
-                "justify-content-center",
-                "text-center",
-                "align-items-center"
-            );
+            noResultsDiv.classList.add("container-fluid", "d-flex", "justify-content-center", "align-items-center", "vh-100");
             noResultsDiv.innerHTML = `
-                  <div class='col'>
-                      <br><br>
-                      <p class='h3 mb-0' style='font-weight: bold; font-size: 1.2rem;'>No results found. Please search for other dishes. Thank you!</p>
-                      <br><br>
-                  </div>`;
+              <div class='col-md-6 text-center'>
+                  <br><br>
+                  <p class='h3 mb-0' style='font-weight: bold; font-size: 1.2rem; text-align: center;'>No results found. Please search for other dishes. Thank you!</p>
+                  <br><br>
+              </div>`;
 
-            // Create a rowDiv and append the "No results found" message
-            const rowDiv = document.createElement("div");
-            rowDiv.classList.add("row");
-            rowDiv.appendChild(noResultsDiv);
+            // Append the noResultsDiv to the search results section
+            searchResultsSection.innerHTML = ""; // Clear previous content
+            searchResultsSection.appendChild(noResultsDiv);
 
-            // Append the rowDiv to the results container
-            resultsContainer.appendChild(rowDiv);
 
-            // Append the container to the search results section
-            searchResultsSection.appendChild(resultsContainer);
         } else {
             // Display search results in rows with 3 items per row
             let rowDiv = document.createElement("div");
