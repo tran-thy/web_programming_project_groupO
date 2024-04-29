@@ -67,10 +67,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to display search results
     const displaySearchResults = (searchResults) => {
-        const searchResultsSection = document.getElementById("search-results-section");
+        const searchResultsSection = document.getElementById(
+            "search-results-section"
+        );
 
         if (!searchResultsSection) {
-            console.error("Error displaying search results: Search results section not found.");
+            console.error(
+                "Error displaying search results: Search results section not found."
+            );
             return;
         }
 
@@ -91,11 +95,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if (searchResults.length === 0) {
             // If no search results found, display a message within the same structure as the results
             const noResultsDiv = document.createElement("div");
-            noResultsDiv.classList.add("row", "justify-content-center", "text-center");
+            noResultsDiv.classList.add(
+                "row",
+                "justify-content-center",
+                "text-center",
+                "align-items-center"
+            );
             noResultsDiv.innerHTML = `
                   <div class='col'>
                       <br><br>
-                      <p class='h3 mb-0' style='font-weight: bold; font-size: 1.2rem;'>No results found. Please search for other dishes or refer to the suggested dishes below.</p>
+                      <p class='h3 mb-0' style='font-weight: bold; font-size: 1.2rem;'>No results found. Please search for other dishes. Thank you!</p>
                       <br><br>
                   </div>`;
 
@@ -157,8 +166,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const infoDiv = document.createElement("div");
                 infoDiv.classList.add("info");
                 infoDiv.style.cssText = `padding: 10px;
-                text-align: center;
-                text-overflow: ellipsis`;
+              text-align: center;
+              text-overflow: ellipsis`;
                 const recipeName = document.createElement("h3"); // Change h2 to a smaller heading tag if desired
                 recipeName.classList.add("recipe-name");
                 recipeName.textContent = result.dishname;
@@ -207,17 +216,16 @@ document.addEventListener("DOMContentLoaded", function() {
         // Define the CSS rules within a media query
         const styleElement = document.createElement("style");
         const css = `
-        @media screen and (max-width: 768px) {
-            .col-md-4{
-                width: calc(100% - 80px) !important;
-                margin-left: auto;
-                margin-right: auto;
+          @media screen and (max-width: 768px) {
+            .col-md-4 {
+              width: calc(100% - 80px) !important;
+              margin-left: auto;
+              margin-right: auto;
             }
-            .row-single{
+            .row-single {
                 width: 100% !important;
             }
-        }
-    `;
+        `;
         styleElement.textContent = css;
         document.head.appendChild(styleElement);
     };
