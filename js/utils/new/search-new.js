@@ -67,15 +67,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to display search results
     const displaySearchResults = (searchResults) => {
-        const searchResultsSection = document.getElementById(
-            "search-results-section"
-        );
+        const searchResultsSection = document.getElementById("search-results-section");
 
-        // Check if searchResultsSection is null
         if (!searchResultsSection) {
-            console.error(
-                "Error displaying search results: Search results section not found."
-            );
+            console.error("Error displaying search results: Search results section not found.");
             return;
         }
 
@@ -92,36 +87,40 @@ document.addEventListener("DOMContentLoaded", function() {
         const resultsContainer = document.createElement("div");
         resultsContainer.classList.add("container");
 
+        // Check if there are no search results
         if (searchResults.length === 0) {
-            // If no search results found, display a message
+            // If no search results found, display a message within the same structure as the results
             const noResultsDiv = document.createElement("div");
-            noResultsDiv.classList.add(
-                "row",
-                "justify-content-center",
-                "text-center"
-            ); // Center the message//?? not work
-            noResultsDiv.style.cssText = `
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        `;
-            noResultsDiv.innerHTML =
-                "<div class='col'><br><br><p class='h3 mb-0'>No results found. Please search for other dishes or refer to the suggested dishes below.</p><br><br></div>";
+            noResultsDiv.classList.add("row", "justify-content-center", "text-center");
+            noResultsDiv.innerHTML = `
+                  <div class='col'>
+                      <br><br>
+                      <p class='h3 mb-0' style='font-weight: bold; font-size: 1.2rem;'>No results found. Please search for other dishes or refer to the suggested dishes below.</p>
+                      <br><br>
+                  </div>`;
 
-            // Append the "No results found" message to the results container
-            resultsContainer.appendChild(noResultsDiv);
+            // Create a rowDiv and append the "No results found" message
+            const rowDiv = document.createElement("div");
+            rowDiv.classList.add("row");
+            rowDiv.appendChild(noResultsDiv);
+
+            // Append the rowDiv to the results container
+            resultsContainer.appendChild(rowDiv);
+
+            // Append the container to the search results section
+            searchResultsSection.appendChild(resultsContainer);
         } else {
             // Display search results in rows with 3 items per row
             let rowDiv = document.createElement("div");
             rowDiv.classList.add("row");
-            rowDiv.style.cssText = `max-width: 1100px;
-            margin: 20px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;`;
+            rowDiv.style.maxWidth = "1100px";
+            rowDiv.style.margin = "20px auto";
+            rowDiv.style.display = "flex";
+            rowDiv.style.flexWrap = "wrap";
+            rowDiv.style.justifyContent = "space-between";
 
-            searchResults.forEach((result, index) => {
+            // Iterate through each search result
+            searchResults.forEach((result) => {
                 const recipeDiv = document.createElement("div");
                 recipeDiv.classList.add("col-md-4"); // Bootstrap column class for 3 items per row
                 recipeDiv.style.cssText = `width: calc(33.33% - 20px);
