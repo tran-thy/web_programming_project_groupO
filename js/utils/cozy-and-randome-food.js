@@ -75,9 +75,10 @@ const displayDishRandom = (recipes) => {
   recipes.forEach((recipe, index) => {
     const recipeDiv = document.createElement("div");
     recipeDiv.classList.add("recipes-wrapper");
+    // recipeDiv.style.marginTop = "60px"; 
     recipeDiv.innerHTML = `
       <a href="vietnamese_detail_recipe.html?id=${recipe.dishid}" class="img-link">
-        <div class="container row justify-content-center" id="recipes-container-vn">
+        <div class="container row justify-content-center" id="recipes-container-vn" style="margin-top: 85px;">
           <div class="col-md-3 greatest-post-one text-center">
             <div class="greatest-img">
               <img style="width: 320px; height: 280px; object-fit: cover;" src="${recipe.dishimage}" alt="Image" class="img-fluid" />
