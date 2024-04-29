@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const navtohomepageButton = document.querySelector('.nav-link-h')
     navtohomepageButton.addEventListener('click', navtohomepage)
     function navtohomepage() {
-        window.location.href = 'index.html';
+        window.location.href = 'index_hy.html';
     }
 
     const navtoaboutusButton = document.querySelector('.nav-link-a')
