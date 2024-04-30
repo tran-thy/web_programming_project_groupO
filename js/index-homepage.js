@@ -53,12 +53,13 @@ const displayRecommendedRecipes = (recipes) => {
     // h2 class="block-heading has-text-align-center">
     homeRecommendedChineseRecipes.appendChild(h2forreommendedChinese);
     // </h2>
-    // Iterate over the recipes
+    // Iterate over the recipes <a href="recipe_detail.html?id=${recipes[i].dishid}" class="img-link">
     for (let i = 0; i < 3; i++) {
         // Create a recipe card for each recipe
         const recipeDiv = document.createElement('div');
         recipeDiv.classList.add('recipes-wrapper');
         recipeDiv.innerHTML = `
+        
             <div class="container row justify-content-center" id="recipes-container">
                 <div class="col-md-3 greatest-post-one text-center">
                     <div class="greatest-img">
@@ -67,6 +68,7 @@ const displayRecommendedRecipes = (recipes) => {
                     <div class="img-name" data-recipe-id="${recipes[i].dishid}">${recipes[i].dishname}</div>
                 </div>
             </div>
+        
         `;
         homeRecommendedChineseRecipes.appendChild(recipeDiv);
 

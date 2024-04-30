@@ -24,5 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const login_link = document.querySelector('#confirm-button');
 
   // Call the handleLogout function when the logout button is clicked
+  localStorage.setItem("isLoggedIn", "true"); // heyanwen added
   login_link.addEventListener('click', handleLogout);
 });
