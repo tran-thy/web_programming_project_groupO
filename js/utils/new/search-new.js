@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to handle search
     async function handleSearch() {
-        console.log(`Handle search function is called`);
+        console.log(`Handle search function is called 1`);
         const searchInput = document.getElementById("search-input");
         const searchTerm = searchInput.value.trim().toLowerCase();
 
@@ -95,7 +95,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (searchResults.length === 0) {
             // If no search results found, display a message within the same structure as the results
             const noResultsDiv = document.createElement("div");
-            noResultsDiv.classList.add("container-fluid", "d-flex", "justify-content-center", "align-items-center", "vh-100");
+            noResultsDiv.classList.add(
+                "container-fluid",
+                "d-flex",
+                "justify-content-center",
+                "align-items-center",
+                "vh-100"
+            );
             noResultsDiv.innerHTML = `
               <div class='col-md-6 text-center'>
                   <br><br>
@@ -106,8 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Append the noResultsDiv to the search results section
             searchResultsSection.innerHTML = ""; // Clear previous content
             searchResultsSection.appendChild(noResultsDiv);
-
-
+            searchResultsSection.style.display = "block";
         } else {
             // Display search results in rows with 3 items per row
             let rowDiv = document.createElement("div");
@@ -156,8 +161,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const infoDiv = document.createElement("div");
                 infoDiv.classList.add("info");
                 infoDiv.style.cssText = `padding: 10px;
-              text-align: center;
-              text-overflow: ellipsis`;
+                text-align: center;
+                text-overflow: ellipsis`;
                 const recipeName = document.createElement("h3"); // Change h2 to a smaller heading tag if desired
                 recipeName.classList.add("recipe-name");
                 recipeName.textContent = result.dishname;
