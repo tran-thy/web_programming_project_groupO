@@ -27,13 +27,13 @@ CREATE TABLE newrecipes (
     dishVideo VARCHAR(255)
 );
 
--- Create a trigger function to automatically generate dishID
+
 CREATE OR REPLACE FUNCTION generate_new_dish_id()
 RETURNS TRIGGER AS $$
 BEGIN
     -- Generate the dishID in the desired format
-    NEW.dishID := 'CH-' || LPAD(nextval('newrecipes_sequence')::TEXT, 4, '0');
-    RETURN NEW;
+NEW.dishID := 'CH-' || LPAD(nextval('newrecipes_sequence')::TEXT, 4, '0');
+RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 

@@ -62,21 +62,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Check if the user is logged in
     const isLoggedIn = localStorage.getItem('isLoggedIn');
-
+    const signinimage = document.querySelector("#signInIcon")
     if (isLoggedIn === 'true') {
         // If logged in, remove the disabled class from the post button container
+        // signinimage.style.src="css/user-profile";
         postContainer.classList.remove('disabled-img');
+        
+        // signinimage.src="css/user-profile.png";
+        // signinimage.style.width = '30px';
+        // signinimage.style.height = '30px';
+        signinimage.style.opacity = "1";
     }
 
     // Add event listener to the "Post" button
     postContainer.addEventListener("click", function() {
         // Check if the user is logged in
         const isLoggedIn = localStorage.getItem('isLoggedIn');
+      
         if (isLoggedIn === 'true') {
             // If logged in, redirect to the postnewrecipe.html page
+            signinimage.style.opacity = "1";
             window.location.href = 'postnewrecipe.html';
         } else {
             // If not logged in, display a message or take another action
+           
+            postContainer.style.color ="Please sign in to post." 
             alert("Please sign in to post.");
         }
     });

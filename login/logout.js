@@ -153,11 +153,11 @@ import { User } from "./Users.js";
 
 const user = new User();
 
-// Function to handle logout
+
 
 // Function to handle logout
 const handleLogout = () => {
-  // Perform logout actions, such as clearing session storage
+  
   user.logout();
   
   // Set isLoggedIn flag to "false"

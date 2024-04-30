@@ -9,6 +9,19 @@
   pointer-events: none; 
   /*You can add additional styles as needed */
 }
+/* #signInIcon {
+
+} */
+/* //heyanwne */
+/* style="width: 30px; height: 30px; opacity: 0.3;" */
+#signInIcon{
+  width:30px;
+  height: 30px;
+  opacity: 0.3; 
+  pointer-events: none; 
+  /*You can add additional styles as needed */
+}
+
 
 a {
   text-decoration: none;
