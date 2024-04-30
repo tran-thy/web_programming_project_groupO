@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 infoDiv.style.cssText = `padding: 10px;
                     text-align: center;
                     text-overflow: ellipsis`;
-                const recipeName = document.createElement("h2");
+                const recipeName = document.createElement("h3");
                 recipeName.classList.add("recipe-name");
                 recipeName.textContent = result.dishname;
                 // Style

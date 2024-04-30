@@ -14,23 +14,19 @@
 </head>
 
 <body>
+    <!-- navigation bar -->
     <nav class="navbar">
         <div class="container">
             <h1 class="logo">Chopsticks World</h1>
             <ul class="nav-links">
                 <li class="nav-link"><a href="index_hy.html">Home</a></li>
-                <li class="nav-link">
-                    <a href="vietnamese_recipes.html">Vietnamese Recipes</a>
-                </li>
-                <li class="nav-link">
-                    <a href="chinese_Yanwen.html">Chinese Recipes</a>
-                </li>
+                <li class="nav-link"><a href="vietnamese_recipes.html">Vietnamese Recipes</a></li>
+                <li class="nav-link"><a href="chinese_Yanwen.html">Chinese Recipes</a></li>
                 <li class="nav-link"><a href="_about-us-content-new.html">About Us</a></li>
-                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px">
-                    <div id="signIn" class="signIn" style="display: flex; align-items: center">
-                        <a id="login-link" href="../login/login-interface.html">
-                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3" ; alt="Sign In" />
-
+                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px;">
+                    <div id="signIn" class="signIn" style="display: flex; align-items: center;">
+                        <a href="/login/login-interface.html">
+                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3;" ; alt="Sign In">
                         </a>
                     </div>
                 </li>
@@ -38,20 +34,11 @@
         </div>
     </nav>
 
+    <!-- toggle navigation button  -->
     <section>
         <button id="toggleNavBtn" class="toggle-nav-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const toggleNavBtn = document.getElementById("toggleNavBtn");
-                const navLinks = document.querySelector(".nav-links");
-
-                toggleNavBtn.addEventListener("click", function() {
-                    navLinks.classList.toggle("show");
-                });
-            });
-        </script>
+      <i class="fas fa-bars"></i>
+    </button>
     </section>
 
     <!-- Search section - Thy added -->
@@ -128,36 +115,41 @@
 
     <br />
 
+    <!-- Part X: Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-4 text-center mb-2">
+            <div>
+                <div>
                     <h1 class="logo_name_footer" style="white-space: nowrap">
                         Chopsticks &nbsp World
                     </h1>
                     <p>Copyright &copy; 2024</p>
                 </div>
 
-                <div class="col-md-4 text-center mb-2">
+                <div class="">
                     <div class="logo">
                         <img src="chinese_images/logo.png" alt="Logo" />
                     </div>
                 </div>
 
-                <div class="col-md-4 text-center mb-2">
+                <div class="">
                     <div class="social-media-container">
                         <ul class="social-media">
                             <li>
-                                <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+                                <a href="https://github.com"><i class="fab fa-github fa-2x"></i
+                    ></a>
                             </li>
                             <li>
-                                <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i
+                    ></a>
                             </li>
                             <li>
-                                <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+                                <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i
+                    ></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+                                <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i
+                    ></a>
                             </li>
                         </ul>
                     </div>
