@@ -153,3 +153,12 @@ const displayForPostFunction = () => {
 const recipeForm = document.getElementById('recipeForm');
 recipeForm.addEventListener('submit', postFunction);
 displayForPostFunction();
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleNavBtn = document.getElementById('toggleNavBtn');
+    const navLinks = document.querySelector('.nav-links');
+
+
+    toggleNavBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('show'); 
+    });
+});

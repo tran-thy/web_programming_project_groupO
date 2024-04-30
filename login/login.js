@@ -14,6 +14,8 @@ document.querySelector("#confirm-button").addEventListener("click", (event) => {
       localStorage.setItem("isLoggedIn", "true"); // heyanwen added
       localStorage.setItem("userId", user.id); //Ha add
       window.location.href = "../index_hy.html";
+      // window.location.reload();
+      // Force a page reload
     })
     .catch((error) => {
       alert(error);

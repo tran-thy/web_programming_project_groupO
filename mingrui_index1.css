@@ -3,7 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 } 
-
+/* //hyw */
+.disabled-img {
+  opacity: 0.5; 
+  pointer-events: none; 
+  /*You can add additional styles as needed */
+}
 
 a {
   text-decoration: none;

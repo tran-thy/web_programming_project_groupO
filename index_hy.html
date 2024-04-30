@@ -26,7 +26,7 @@
                 <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px;">
                     <div id="signIn" class="signIn" style="display: flex; align-items: center;">
                         <a href="/login/login-interface.html">
-                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3;" ; alt="Sign In">
+                            <img src="chinese_images/head1.png" class="disabled-img" style="width: 30px; height: 30px; opacity: 0.3;" ; alt="Sign In">
                         </a>
                     </div>
                 </li>
@@ -68,7 +68,7 @@
             <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
 
             <!-- Adding new recipe - this part is as the origin part-->
-            <div id="post" ; class="post" disabled>
+            <div id="post" ; class="post disabled-img" >
                 <a href="#" class="text-black" style="display: flex; align-items: center">
                     <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px" alt="post your recipes" />
                 </a>
@@ -309,8 +309,12 @@
         
         <!-- Other scripts -->
         <!-- <script src="chinese_index.js"></script>  -->
-        <script src="login/login.js"></script>
+        <!-- <script src="login/login.js"></script>
+         <script src="login/logout.js"></script> -->
+        
         <script src="js/homepostbutton.js"></script>
+        <script src="login/logout.js"></script>
+        <script src="login/login.js"></script> 
         <script src="js/index-homepage.js"></script>
         <script src="js/utils/cozy-and-randome-food.js"></script>
 

@@ -61,6 +61,7 @@ logout() {
   this.#id = undefined
   this.#email = undefined
   sessionStorage.removeItem('user')
+  // window.location.reload();
 }
 }
 export { User }
