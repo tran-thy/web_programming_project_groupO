@@ -212,10 +212,12 @@ body {
   background-color: #ff4500;
 }
 
+/* Make the logo not deformed */
 .logo img {
   height: 100px; 
+  width: 100px;
+  object-fit: contain; 
 }  
-
 
 /* sing in */
 .signIn {
@@ -756,6 +758,10 @@ background-color:rgb(210, 180, 140, 0.3);
     display: none;
  }
 
+/* Set the small screen display font size */
+ .block-heading p{
+   font-size: 28px;
+ }
 
  .category-index {
     display: none;
@@ -804,6 +810,12 @@ background-color:rgb(210, 180, 140, 0.3);
 
  .recipes-wrapper {
    margin-top: 10px; 
+ }
+  
+/* Set the small screen display font size */
+ .greatest-post .block-heading{
+  font-size: 28px;
+  width: 90%;
  }
 
  .mark {
