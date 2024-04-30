@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chopsticks World</title>
+    <link rel="stylesheet" href="mingrui_index1.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Chopsticks World</h1>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="index_hy.html">Home</a></li>
+                <li class="nav-link"><a href="vietnamese_recipes.html">Vietnamese Recipes</a></li>
+                <li class="nav-link"><a href="chinese_Yanwen.html">Chinese Recipes</a></li>
+                <li class="nav-link"><a href="_about-us-content-new.html">About Us</a></li>
+                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px;">
+                    <div id="signIn" class="signIn" style="display: flex; align-items: center;">
+                        <a href="/login/login-interface.html">
+                            <img src="chinese_images/head1.png" class="disabled-img" style="width: 30px; height: 30px; opacity: 0.3;" ; alt="Sign In">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- toggle navigation button  -->
+    <section>
+        <button id="toggleNavBtn" class="toggle-nav-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    </section>
+
+    <!-- Origin part -->
+    <!-- <section>
+        <form action="/search" method="GET" class="search-box" style="display: flex; align-items: center">
+            <div class="logo">
+                <img src="chinese_images/logo.png" alt="Logo" />
+            </div>
+            <input type="text" name="keyword" placeholder="Search" />
+            <button type="submit" style="margin-right: 30px;">Search</button>
+            <div id="post" ; class="post">
+                <a href="#" class="text-black" style="display: flex; align-items: center">
+                    <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px" alt="post your recipes" />
+                </a>
+            </div>
+        </form>
+    </section> -->
+
+    <!-- Search section - Thy added -->
+    <section>
+        <form class="search-box" style="display: flex; align-items: center">
+            <div class="logo">
+                <img src="chinese_images/logo.png" alt="Logo" />
+            </div>
+            <!-- Search input -->
+            <!-- <input type="text" name="keyword" placeholder="Search by dish or ingredient..." id="search-input"> -->
+            <input type="text" class="form-control" id="search-input" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
+
+            <!-- Adding new recipe - this part is as the origin part-->
+            <div id="post" ; class="post disabled-img" >
+                <a href="#" class="text-black" style="display: flex; align-items: center">
+                    <img src="chinese_images/post_imag .png" style="width: 45px; height: auto; margin-left: 50px" alt="post your recipes" />
+                </a>
+            </div>
+        </form>
+    </section>
+
+    <!-- Search Results section - Thy added -->
+    <section>
+        <div id="search-results-section" class="site-inner" style="display: none">
+            <div class="container">
+                <h2 class="block-heading text-center">
+                    <strong>Search Result</strong>
+                </h2>
+                <div id="search-results" class="category-index">
+                    <div class="row category-list"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="blank" style="padding: 12px"></div>
+
+
+    <!-- carousel  -->
+    <section>
+        <div id="myCarousel" class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active bg-img1">
+                    <div class="carousel-caption text-start">
+                        <h1>Simple Chinese and Vietnamese Recipes</h1>
+                        <p>
+                            Find tasty Chinese and Vietnamese dishes, authentic flavors, and easy recipes on our blog.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-img2">
+                    <div class="carousel-caption text-end">
+                        <h1>Tasty</h1>
+                        <p>
+                            Explore the vibrant flavors of Vietnamese cuisine, full of freshness and aromatic spices
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-img3">
+                    <div class="carousel-caption text-end">
+                        <h1>Delicious</h1>
+                        <p>
+                            Explore the real taste of China, a delicious journey of flavors that excites the palate
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" onclick="prevSlide()" href="#"><i class="carousel-icon fas fa-chevron-left"></i>
+      </a>
+            <a class="carousel-control-next" onclick="nextSlide()" href="#"><i class="carousel-icon fas fa-chevron-right"></i>
+      </a>
+        </div>
+    </section>
+
+    <!-- Cozy Comfort Foods -->
+    <section>
+        <div id="highlighted-section">
+            <h2 class="block-heading">
+                <p>Cozy&nbsp Comfort&nbsp Foods</p>
+            </h2>
+            <div class="category-index">
+                <div class="vertical-buttons left">
+                    <div class="more-recipes">
+                        <button id="leftButton">More</button>
+                    </div>
+                </div>
+                <div class="vertical-buttons right">
+                    <div class="more-recipes">
+                        <button id="rightButton">More</button>
+                    </div>
+                </div>
+
+                <div class="recipe left">
+                    <a href="vietnamese_detail_recipe.html?id=VN-0010">
+                        <img id="img-vn-cozy" src="" alt="Pho (Vietnamese Beef Noodle Soup)" />
+                        <div class="recipe-details">
+                            <h3 id="category-title-vn"></h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="recipe right">
+                    <a href="recipe_detail.html?dishid=CH-0020">
+                        <img id="img-cn-cozy" src="" alt="Chinese Hot Pot" />
+                        <div class="recipe-details">
+                            <h3 id="category-title-cn"></h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Recommendation Vietnamese Recipes -->
+        <section id="recommend-options-vnese" class="greatest-post container">
+            <!-- <h2 class="block-heading has-text-align-center"> 
+  <strong>Recommendation Vietnamese Recipes</strong>
+  </h2>
+  <div class="recipes-wrapper"> 
+    <a href="#" class="img-link">
+      <div class="container row justify-content-center" id="recipes-container">
+        <div class="col-md-3 greatest-post-one text-center">
+          <div class="greatest-img">
+            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
+          </div>
+        <div class="img-name">Banh Xeo</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="mark">
+    <img src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
+  </div>
+
+  <div class="recipes-wrapper"> 
+    <a href="#" class="img-link">
+      <div class="container row justify-content-center" id="recipes-container">
+        <div class="col-md-3 greatest-post-one text-center">
+          <div class="greatest-img">
+            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
+          </div>
+        <div class="img-name">Banh Xeo</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="mark">
+    <img src="chinese_images/Vietnamese_mark.png" alt="Mark" class="img-fluid" />
+  </div>
+
+  <div class="recipes-wrapper"> 
+    <a href="#" class="img-link">
+      <div class="container row justify-content-center" id="recipes-container">
+        <div class="col-md-3 greatest-post-one text-center">
+          <div class="greatest-img">
+            <img src="chinese_images/VN-0002_Banh Xeo.jpg" alt="Image" class="img-fluid" />
+          </div>
+        <div class="img-name">Banh Xeo</div>
+      </div>
+    </a>
+  </div> -->
+        </section>
+
+
+        <!-- Recommendation Chinese Recipes -->
+        <section id="recommend-options-cnese" class="greatest-post container">
+            <!-- <h2 class="block-heading has-text-align-center">
+            <strong>Recommendation Chinese Recipes</strong>
+        </h2> -->
+            <!-- <div class="recipes-wrapper"> 
+    <a href="#" class="img-link">
+      <div class="container row justify-content-center" id="recipes-container">
+        <div class="col-md-3 greatest-post-one text-center">
+          <div class="greatest-img">
+            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
+          </div>
+        <div class="img-name">Braised Pork Belly</div>
+      </div>
+    </a>-->
+            <!-- <div class="recipes-wrapper"> -->
+            <!-- <div class="col-md-3 recommended-recipes-card">-->
+            <!-- </div> -->
+            <!-- </div> -->
+
+            <!-- <div class="mark">
+    <img src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
+  </div> -->
+
+            <!-- <div class="recipes-wrapper"> 
+    <a href="#" class="img-link">
+      <div class="container row justify-content-center" id="recipes-container">
+        <div class="col-md-3 greatest-post-one text-center">
+          <div class="greatest-img">
+            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
+          </div>
+        <div class="img-name">Braised Pork Belly</div>
+      </div>
+    </a>
+  </div> -->
+
+            <!-- <div class="mark">
+    <img src="chinese_images/chinese_mark1.png" alt="Mark" class="img-fluid" />
+  </div>
+
+  <div class="recipes-wrapper"> 
+    <a href="#" class="img-link">
+      <div class="container row justify-content-center" id="recipes-container">
+        <div class="col-md-3 greatest-post-one text-center">
+          <div class="greatest-img">
+            <img src="chinese_images/Braised_Pork_Belly.jpg" alt="Image" class="img-fluid" />
+          </div>
+        <div class="img-name">Braised Pork Belly</div>
+      </div>
+    </a>
+  </div> -->
+        </section>
+
+        <br />
+
+        <!-- footer - Origin part -->
+        <!-- <footer class="footer ">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4 text-center mb-2">
+                        <h1 class="logo_name_footer" style="white-space: nowrap">Chopsticks &nbsp World</h1>
+                        <p>Copyright &copy; 2024</p>
+                    </div>
+
+                    <div class="col-md-4 text-center mb-2">
+                        <div class="logo">
+                            <img src="chinese_images/logo.png" alt="Logo">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-center mb-2">
+                        <div class="social-media-container">
+                            <ul class="social-media">
+                                <li><a href="https://github.com"><i class="fab fa-github fa-2x"></i></a></li>
+                                <li><a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a></li>
+                                <li><a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a></li>
+                                <li><a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer> -->
+
+        <!-- Footer - New added for pictures and footers align -->
+        <footer class="footer">
+            <div class="container">
+                <div>
+                    <div>
+                        <h1 class="logo_name_footer" style="white-space: nowrap">
+                            Chopsticks &nbsp World
+                        </h1>
+                        <p>Copyright &copy; 2024</p>
+                    </div>
+
+                    <div class="">
+                        <div class="logo">
+                            <img src="chinese_images/logo.png" alt="Logo" />
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="social-media-container">
+                            <ul class="social-media">
+                                <li>
+                                    <a href="https://github.com"><i class="fab fa-github fa-2x"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="mingrui_index1.js"></script>
+        <!-- Existing script - Thy added -->
+        <script src="js/utils/new/search-new.js"></script>
+
+
+        <!-- Other scripts -->
+        <!-- <script src="chinese_index.js"></script>  -->
+        <!-- <script src="login/login.js"></script>
+         <script src="login/logout.js"></script> -->
+        
+        <script src="js/homepostbutton.js"></script>
+        <script src="login/logout.js"></script>
+        <script src="login/login.js"></script> 
+        <script src="js/index-homepage.js"></script>
+        <script src="js/utils/cozy-and-randome-food.js"></script>
+
+</body>
+
+</html>
