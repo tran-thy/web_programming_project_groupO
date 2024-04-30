@@ -28,7 +28,7 @@ body {
     margin-bottom: 10px; 
   }
   
-  #email,
+  #user-email,
   #password {
     font-family: "Arial", sans-serif;
     font-size: 18px;

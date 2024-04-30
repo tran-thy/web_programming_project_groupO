@@ -28,7 +28,7 @@ label[for="password"] {
   margin-bottom: 10px; 
 }
 
-#email,#username,
+#user-email,#username,
 #password {
   font-family: "Arial", sans-serif;
   font-size: 18px;
