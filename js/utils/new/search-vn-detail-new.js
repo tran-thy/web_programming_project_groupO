@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Append the noResultsDiv to the search results section
             searchResultsSection.innerHTML = ""; // Clear previous content
             searchResultsSection.appendChild(noResultsDiv);
-
+            searchResultsSection.style.display = "block";
 
         } else {
             // Display search results in rows with 3 items per row
