@@ -166,3 +166,14 @@ function loadtop_Header() {
 loadtop_Header();
 // loadHeader();
 // loadFooter();
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector(".post").addEventListener("click", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true") {
+      window.location.href = "post-vnese-newrecipe.html";
+    } else {
+      alert("Please sign in to post.");
+    }
+  });
+});

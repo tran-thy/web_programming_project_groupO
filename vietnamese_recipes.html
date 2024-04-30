@@ -1,88 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vietnamese Recipe</title>
     <link rel="stylesheet" href="css/vietnamese_recipes_styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Part I -->
     <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">Vietnamese Recipes</h1>
-            <ul class="nav-links">
-                <li class="nav-link"><a href="index_hy.html">Home</a></li>
-                <li class="nav-link"><a href="vietnamese_recipes.html">Vietnamese Recipes</a></li>
-                <li class="nav-link">
-                    <a href="chinese_Yanwen.html">Chinese Recipes</a>
-                </li>
-                <li class="nav-link"><a href="_about-us-content-new.html">About Us</a></li>
-                <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px">
-                    <div id="signIn" class="signIn" style="display: flex; align-items: center">
-                        <a href="../login/login-interface.html">
-                            <img src="chinese_images/head1.png" style="width: 30px; height: 30px; opacity: 0.3" ; alt="Sign In" />
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+      <div class="container">
+        <h1 class="logo">Vietnamese Recipes</h1>
+        <ul class="nav-links">
+          <li class="nav-link"><a href="index_hy.html">Home</a></li>
+          <li class="nav-link">
+            <a href="vietnamese_recipes.html">Vietnamese Recipes</a>
+          </li>
+          <li class="nav-link">
+            <a href="chinese_Yanwen.html">Chinese Recipes</a>
+          </li>
+          <li class="nav-link">
+            <a href="_about-us-content-new.html">About Us</a>
+          </li>
+          <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px">
+            <div
+              id="signIn"
+              class="signIn"
+              style="display: flex; align-items: center"
+            >
+              <a href="../login/login-interface.html">
+                <img
+                  src="chinese_images/head1.png"
+                  style="width: 30px; height: 30px; opacity: 0.3"
+                  ;
+                  alt="Sign In"
+                />
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
 
+    <!-- toggle navigation button  -->
     <section>
-        <button id="toggleNavBtn" class="toggle-nav-btn">
+      <button id="toggleNavBtn" class="toggle-nav-btn">
         <i class="fas fa-bars"></i>
       </button>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const toggleNavBtn = document.getElementById("toggleNavBtn");
-                const navLinks = document.querySelector(".nav-links");
-
-                toggleNavBtn.addEventListener("click", function() {
-                    navLinks.classList.toggle("show");
-                });
-            });
-        </script>
     </section>
 
     <!-- Search section - Thy added -->
     <section>
-        <form class="search-box" style="display: flex; align-items: center">
-            <div class="logo">
-                <img src="chinese_images/logo.png" alt="Logo" />
-            </div>
-            <!-- Search input -->
-            <input type="text" class="form-control" id="search-input-vn-recipes" placeholder="Dish or ingredient..." autocomplete="off" aria-label="Search for a dish" aria-describedby="search-box-expanded" />
-
-        </form>
+      <form class="search-box" style="display: flex; align-items: center">
+        <div class="logo">
+          <img src="chinese_images/logo.png" alt="Logo" />
+        </div>
+        <!-- Search input -->
+        <input
+          type="text"
+          class="form-control"
+          id="search-input-vn-recipes"
+          placeholder="Dish or ingredient..."
+          autocomplete="off"
+          aria-label="Search for a dish"
+          aria-describedby="search-box-expanded"
+        />
+      </form>
     </section>
 
     <!-- Search Results section - Thy added -->
     <section>
-        <div id="search-results-section-vn-recipes" class="site-inner" style="display: none">
-            <div class="container">
-                <h2 class="block-heading text-center">
-                    <strong>Search Result</strong>
-                </h2>
-                <div id="search-results" class="category-index">
-                    <div class="row category-list">
-                    </div>
-                </div>
-            </div>
+      <div
+        id="search-results-section-vn-recipes"
+        class="site-inner"
+        style="display: none"
+      >
+        <div class="container">
+          <h2 class="block-heading text-center">
+            <strong>Search Result</strong>
+          </h2>
+          <div id="search-results" class="category-index">
+            <div class="row category-list"></div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- recipes part -->
 
     <div id="recipeGallery" class="container-main">
-        <!-- <div class="recipe">
+      <!-- <div class="recipe">
           <a href="vietnamese_detail_recipe.html?id=${dish.dishid}">
             <div class="image"><img src="" alt="" /></div>
             <div class="info">
@@ -93,74 +115,65 @@
     </div>
 
     <div class="pagination">
-        <button id="prevPage">Previous</button>
-        <button id="currentPage">Page 1</button>
+      <button id="prevPage">Previous</button>
+      <button id="currentPage">Page 1</button>
 
-        <button id="nextPage">Next</button>
+      <button id="nextPage">Next</button>
     </div>
 
     <!-- Part X: Footer -->
     <footer class="footer">
-        <div class="container">
-            <div>
-                <div>
-                    <h1 class="logo_name_footer" style="white-space: nowrap">
-                        Chopsticks &nbsp World
-                    </h1>
-                    <p>Copyright &copy; 2024</p>
-                </div>
+      <div class="container">
+        <div>
+          <div>
+            <h1 class="logo_name_footer" style="white-space: nowrap">
+              Chopsticks &nbsp World
+            </h1>
+            <p>Copyright &copy; 2024</p>
+          </div>
 
-                <div class="">
-                    <div class="logo">
-                        <img src="chinese_images/logo.png" alt="Logo" />
-                    </div>
-                </div>
-
-                <div class="">
-                    <div class="social-media-container">
-                        <ul class="social-media">
-                            <li>
-                                <a href="https://github.com"><i class="fab fa-github fa-2x"></i
-                  ></a>
-                            </li>
-                            <li>
-                                <a href="https://facebook.com"><i class="fab fa-facebook fa-2x"></i
-                  ></a>
-                            </li>
-                            <li>
-                                <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i
-                  ></a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i
-                  ></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="">
+            <div class="logo">
+              <img src="chinese_images/logo.png" alt="Logo" />
             </div>
+          </div>
+
+          <div class="">
+            <div class="social-media-container">
+              <ul class="social-media">
+                <li>
+                  <a href="https://github.com"
+                    ><i class="fab fa-github fa-2x"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://facebook.com"
+                    ><i class="fab fa-facebook fa-2x"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://instagram.com"
+                    ><i class="fab fa-instagram fa-2x"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://twitter.com"
+                    ><i class="fab fa-twitter fa-2x"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
 
-    <!-- Utils scripts - menu bar-->
+    <!-- Utils scripts -->
+    <script src="mingrui_index1.js"></script>
+
     <script src="js/utils/new/search-vn-recipes-new.js"></script>
     <script src="js/utils/vietnamese_recipes.js"></script>
 
     <!-- Other scripts -->
-    <script src="js/utils/navbar.js "></script>
-    <!-- <script src="js/utils/header_footer_index.js"></script> -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector(".post").addEventListener("click", function() {
-                const isLoggedIn = localStorage.getItem("isLoggedIn");
-                if (isLoggedIn === "true") {
-                    window.location.href = "post-vnese-newrecipe.html";
-                } else {
-                    alert("Please sign in to post.");
-                }
-            });
-        });
-    </script>
-</body>
-
+  </body>
 </html>
