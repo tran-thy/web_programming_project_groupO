@@ -13,16 +13,6 @@ body {
   background-color: #fff;
 }
 
-/* for sign in logo heyanwen*/ 
-.signInIcon{
-  width:30px;
-  height: 30px;
-  opacity: 0.3; 
-  pointer-events: none; 
- 
-}      
- 
-
 body {
   padding-top: 60px;
 }
@@ -375,23 +365,19 @@ h2 {
 .post:hover::after {
   opacity: 1;
 }
-.disabled-img {
+/* .disabled-img {
   opacity: 0.5;
   pointer-events: none;
-  /*You can add additional styles as needed */
-}
-/* #signInIcon {
-
 } */
-/* //heyanwne */
-/* style="width: 30px; height: 30px; opacity: 0.3;" */
-#signInIcon {
+
+/* for sign in logo heyanwen*/
+.signInIcon {
   width: 30px;
   height: 30px;
   opacity: 0.3;
   pointer-events: none;
-  /*You can add additional styles as needed */
 }
+
 /* sing in */
 .signIn {
   position: relative;
