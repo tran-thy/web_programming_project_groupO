@@ -162,16 +162,24 @@ document
   .getElementById("comment-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const commentContent = formData.get("content");
     const dishId = formData.get("dishId");
     const userId = localStorage.getItem("userId");
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
     try {
       console.log("Comment Content:", commentContent);
       console.log("Dish ID:", dishId);
       console.log("User ID:", userId);
-      await submitComment(commentContent, dishId, userId);
-      event.target.reset();
+
+      if (isLoggedIn === "true") {
+        await submitComment(commentContent, dishId, userId);
+        event.target.reset();
+      } else {
+        alert("Please sign in to comment.");
+      }
     } catch (error) {
       alert(error.message);
     }
