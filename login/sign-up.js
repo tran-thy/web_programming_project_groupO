@@ -1,9 +1,6 @@
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 const signInIcon = document.querySelector(".signInIcon");
-const disabledImgStyles = `
-  opacity: 0.3; 
-  pointer-events: none; 
-`;
+
 if (isLoggedIn === "true") {
   signInIcon.src = "chinese_images/head.png";
   signInIcon.style.opacity = "1";
@@ -11,6 +8,10 @@ if (isLoggedIn === "true") {
   signInIcon.classList.remove("disabled-img");
 } else {
   signInIcon.src = "chinese_images/head.png";
-  signInIcon.style.cssText = disabledImgStyles;
   signInIcon.classList.add("disabled-img");
 }
+signInIcon.addEventListener("mouseover", function () {
+  if (!this.classList.contains("disabled-img")) {
+    this.style.opacity = "1"; // Apply opacity without !important
+  }
+});
