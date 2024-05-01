@@ -1,7 +1,7 @@
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 const signInIcon = document.getElementById("signInIcon");
 const disabledImgStyles = `
-  opacity: 0.5; 
+  opacity: 0.3; 
   pointer-events: none; 
 `;
 if (isLoggedIn === "true") {
