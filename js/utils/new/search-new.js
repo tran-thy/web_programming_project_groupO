@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipeName.classList.add("recipe-name");
                 recipeName.textContent = result.dishname;
                 // Style the recipe name
-                recipeName.style.fontSize = "1.2rem"; // Adjust the font size as needed
+                recipeName.style.fontSize = "1.1rem"; // Adjust the font size as needed
                 // Style
                 recipeName.style.color = "black";
 
