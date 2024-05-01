@@ -375,6 +375,47 @@ h2 {
 .post:hover::after {
   opacity: 1;
 }
+.disabled-img {
+  opacity: 0.5;
+  pointer-events: none;
+  /*You can add additional styles as needed */
+}
+/* #signInIcon {
+
+} */
+/* //heyanwne */
+/* style="width: 30px; height: 30px; opacity: 0.3;" */
+#signInIcon {
+  width: 30px;
+  height: 30px;
+  opacity: 0.3;
+  pointer-events: none;
+  /*You can add additional styles as needed */
+}
+/* sing in */
+.signIn {
+  position: relative;
+}
+
+.signIn:hover img {
+  opacity: 1;
+}
+
+.signIn:hover::after {
+  content: "Sign in";
+  font-weight: bold;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f2f2f2;
+  color: #9b7a50;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
 
 @media screen and (max-width: 768px) {
   .recipe {

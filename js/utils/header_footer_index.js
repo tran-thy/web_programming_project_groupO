@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isLoggedIn === "true") {
       window.location.href = "post-vnese-newrecipe.html";
     } else {
-      alert("Please sign in to post.");
+      alert("Please sign in to comments.");
     }
   });
 });
