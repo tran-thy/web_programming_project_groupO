@@ -75,7 +75,7 @@ const displayDishRandom = (recipes) => {
   recipes.forEach((recipe, index) => {
     const recipeDiv = document.createElement("div");
     recipeDiv.classList.add("recipes-wrapper");
-  
+
     recipeDiv.innerHTML = `
       <a href="vietnamese_detail_recipe.html?id=${recipe.dishid}" class="img-link">
         <div class="container row justify-content-center" id="recipes-container-vn" style="margin-top: 85px;">
@@ -83,7 +83,7 @@ const displayDishRandom = (recipes) => {
             <div class="greatest-img">
               <img style="width: 320px; height: 280px; object-fit: cover;" src="${recipe.dishimage}" alt="Image" class="img-fluid" />
             </div>
-            <div class="img-name">${recipe.dishname}</div>
+            <div class="img-name-vn">${recipe.dishname}</div>
           </div>
         </div>
       </a>
