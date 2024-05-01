@@ -164,7 +164,7 @@ const handleLogout = () => {
   localStorage.setItem("isLoggedIn", "false");
 
   // Redirect to the login page after logout
-  window.location.href = "login-interface.html";
+  window.location.href = "login.html";
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -176,6 +176,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // Call the handleLogout function when the logout button is clicked
-  // localStorage.setItem("isLoggedIn", "false"); // heyanwen added
-  // login_link.addEventListener('click', handleLogout);
+  localStorage.setItem("isLoggedIn", "false"); // heyanwen added
+  login_link.addEventListener('click', handleLogout);
 
+  
+// const isLoggedIn = localStorage.getItem("isLoggedIn");
+// const signInIcon = document.getElementById("signInIcon");
+// const disabledImgStyles = `
+//   opacity: 0.5; 
+//   pointer-events: none; 
+// `;
+// if (isLoggedIn === "true") {
+//   signInIcon.src = "css/1486564400-account_81513.png";
+//   signInIcon.style.opacity = "1";
+//   signInIcon.style.pointerEvents = "auto";
+//   signInIcon.classList.remove("disabled-img");
+// } else {
+//   signInIcon.src = "css/1486564400-account_81513.png";
+//   signInIcon.style.cssText = disabledImgStyles;
+//   signInIcon.classList.add("disabled-img");
+// }

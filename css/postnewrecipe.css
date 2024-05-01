@@ -8,7 +8,9 @@
 /* for the tile:add a recipe   */
 .post-title {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
     }
 /* for the add a recipe picture */
 .add-a-recipe-img {
@@ -21,11 +23,18 @@
     margin: 0 auto;
     padding: 4.5% 7.5%;
 
-    background-color:burlywood;
+    background-color:#D2B48C;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-       
+/* //hyanwen signin  */
+.signInIcon{
+    width:30px;
+    height: 30px;
+    opacity: 0.3; 
+    pointer-events: none; 
+    /*You can add additional styles as needed */
+  }      
 
 .recipe-form {
     display:flex;
@@ -75,3 +84,42 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
+
+@media screen and (max-width: 768px) {
+    .post-container {
+        max-width: 90%; /* Adjust the max-width as needed */
+        padding: 4.5% 5%; /* Adjust the padding as needed */
+    }
+    .post-title{
+        max-width: 90%;
+        padding: 4.5% 5%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .post-container {
+        max-width: 90%; /* Adjust the max-width as needed */
+        padding: 4.5% 5%; /* Adjust the padding as needed */
+        margin: 0 auto; /* Center the container horizontally */
+    }
+    
+    .post-title {
+        max-width: 90%;
+        margin: 0 auto; /* Center the title horizontally */
+        padding: 4.5% 5%;
+    }
+}
+/* @media screen and (max-width: 1024px) {
+    .post-container {
+        max-width: 90%; /* Adjust the max-width as needed */
+        /* padding: 4.5% 5%; /* Adjust the padding as needed */
+        /* margin: 0 auto; /* Center the container horizontally */
+    /* }
+    
+    .post-title {
+        max-width: 90%;
+        margin: 0 auto; /* Center the title horizontally */
+        /* padding: 4.5% 5%; */
+    /* } */
+ /* */ 
+
+ 

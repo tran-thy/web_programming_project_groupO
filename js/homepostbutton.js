@@ -55,6 +55,22 @@
 // });
 
 
+// const isLoggedIn = localStorage.getItem("isLoggedIn");
+// const signInIcon = document.getElementById("signInIcon");
+// const disabledImgStyles = `
+//   opacity: 0.5; 
+//   pointer-events: none; 
+// `;
+// if (isLoggedIn === "true") {
+//   signInIcon.src = "css/1486564400-account_81513.png";
+//   signInIcon.style.opacity = "1";
+//   signInIcon.style.pointerEvents = "auto";
+//   signInIcon.classList.remove("disabled-img");
+// } else {
+//   signInIcon.src = "css/1486564400-account_81513.png";
+//   signInIcon.style.cssText = disabledImgStyles;
+//   signInIcon.classList.add("disabled-img");
+// }
 
 document.addEventListener('DOMContentLoaded', function () {
     // Select the post button container
@@ -62,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Check if the user is logged in
     const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const signinimage = document.querySelector("#signInIcon")
+    const signinimage = document.querySelector(".signInIcon")
     if (isLoggedIn === 'true') {
         // If logged in, remove the disabled class from the post button container
         // signinimage.style.src="css/user-profile";

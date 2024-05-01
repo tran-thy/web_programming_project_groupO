@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinese Recipes</title>
     <link rel="stylesheet" href="./css/postnewrecipe.css">
-    <link rel="stylesheet" href="./css/style_Yanwen.css">
-    <link rel="stylesheet" href="./chinese_detail_styles.css">
+    <link rel="stylesheet" href="./css/chinese_detail_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,14 +21,14 @@
             <h1 class="logo">Chinese Recipes</h1>
     
             <ul class="nav-links">
-                <li class="nav-link-h"><a href="index_hy.html">Home</a></li>
-                <li class="nav-link-v"><a href="vietnamese_recipes.html">Vietnamese Recipes</a></li>
-                <li class="nav-link-c"><a href="index_hy.html">Chinese Recipes</a></li>
-                <li class="nav-link-a"><a href="_about-us-content-new.html">About us</a></li>
+                <li class="nav-link-h"><a href="#">Home</a></li>
+                <li class="nav-link-v"><a href="#">Vietnamese Recipes</a></li>
+                <li class="nav-link-c"><a href="#">Chinese Recipes</a></li>
+                <li class="nav-link-a"><a href="#">About us</a></li>
                 <li style="margin-left: 30px; margin-top: 0px; margin-bottom: -7px;">
                     <div id="signIn" class="signIn" style="display: flex; align-items: center;">
                         <a href="/login/login-interface.html">
-                            <img src="chinese_images/head1.png" class="disabled-img" style="width: 30px; height: 30px; opacity: 0.3;" ; alt="Sign In">
+                            <img class="signInIcon" src="chinese_images/head.png"; alt="Sign In">
                         </a>
                     </div>
                 </li>
@@ -41,8 +40,30 @@
     <button id="toggleNavBtn" class="toggle-nav-btn">
         <i class="fas fa-bars"></i>
     </button>
-
-
+    
+    
+                                    
+    <!--<form action="/search" method="GET" class="search-box">
+        <div class="logo">
+            <img src="chinese_images/logo.png" alt="Logo">
+        </div>
+        <input type="text" name="keyword" placeholder="Search">
+        <button type="submit">Search</button>
+    </form>-->
+    <!--<form action="/search" method="GET" class="search-box">
+        <div class="logo">
+            <img src="chinese_images/logo.png" alt="Logo">
+        </div>
+        <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
+        <button class="search-button" type="submit">Search</button>
+    </form>-->
+    <!-- <form action="/search" method="GET" class="search-box">
+        <div class="logo">
+            <img src="chinese_images/logo.png" alt="Logo">
+        </div>
+        <input class="search-chinese-recipe-form-input" type="text" name="keyword" placeholder="Find recipe...">
+        <button class="search-button" type="submit">Search</button> -->
+    <!-- </form> -->
     
     
                                     
@@ -71,10 +92,10 @@
     <!-- // for the post functionality -->
     
     <div class="post-container">
-        <h2 class="post-title">
-            <img class="add-a-recipe-img" src="./chinese_images/logo.png" alt="">
-            Add a Recipe
-        </h2 >
+        <h1 class="post-title">
+            <img class="add-a-recipe-img" src="./chinese_images/head.png" alt="">
+            <span>Add a Recipe</span>
+        </h1 >
         <br>
         <br>
 <!-- // for post recipe form -->
@@ -124,6 +145,7 @@
     <!-- <script src="/js/index-recipeDetail-He.js"></script> -->
     <!-- <script src="/js/index-heyanwen.js"></script>  -->
     <!-- <script src="/js/index-homepage.js"></script>     -->
+    
     <script src="/js/post_function.js"></script>
     <script src="/js/search-function.js"></script>
     <!-- <script src="/js/index-recipeDetail-He.js"></script> -->

@@ -218,3 +218,13 @@ document.addEventListener("DOMContentLoaded", function() {
         document.head.appendChild(styleElement);
     };
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleNavBtn = document.getElementById('toggleNavBtn');
+    const navLinks = document.querySelector('.nav-links');
+
+
+    toggleNavBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('show'); 
+    });
+});

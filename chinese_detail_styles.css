@@ -12,7 +12,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #fff;   
 } 
-
+/* //sign in logo */
+#signInIcon{
+    width:30px;
+    height: 30px;
+    opacity: 0.3; 
+    pointer-events: none; 
+    /*You can add additional styles as needed */
+}
 
 body {
     padding-top: 60px; 
