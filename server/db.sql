@@ -1,4 +1,3 @@
-drop table if exists login;
 CREATE TABLE login (
     ID SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -6,6 +5,10 @@ CREATE TABLE login (
     username VARCHAR(100) UNIQUE NOT NULL
 );
 
+-- Create a sequence for generating numeric IDs
+CREATE SEQUENCE newrecipes_sequence START 1;
+
+-- Create the newrecipes table with dishID as VARCHAR
 CREATE TABLE newrecipes (
     dishID VARCHAR(50) PRIMARY KEY,
     dishName VARCHAR(255),
@@ -16,6 +19,22 @@ CREATE TABLE newrecipes (
     recipeInstruction TEXT,
     dishVideo VARCHAR(255)
 );
+
+
+CREATE OR REPLACE FUNCTION generate_new_dish_id()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Generate the dishID in the desired format
+NEW.dishID := 'CH-' || LPAD(nextval('newrecipes_sequence')::TEXT, 4, '0');
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create a trigger to execute the function before each insert operation
+CREATE TRIGGER before_insert_new_dish_id
+BEFORE INSERT ON newrecipes
+FOR EACH ROW EXECUTE FUNCTION generate_new_dish_id();
+
 
 CREATE TABLE Chinese_Recipes (
     dishID VARCHAR(50) PRIMARY KEY,
@@ -797,10 +816,3 @@ CREATE TABLE comments (
     FOREIGN KEY (user_id) REFERENCES login(id) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-
-
-
-
-
-
