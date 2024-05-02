@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (result.dishid.startsWith("VN")) {
                     recipeLink.href = `vietnamese_detail_recipe.html?id=${result.dishid}`;
                 } else if (result.dishid.startsWith("CH")) {
-                    recipeLink.href = `recipe_detail_search.html?id=${result.dishid}`;
+                    recipeLink.href = `recipe_detail.html?dishid=${result.dishid}`;
                 }
                 // Style
                 recipeLink.style.textDecoration = "none";
